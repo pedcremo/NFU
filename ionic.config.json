@@ -1,0 +1,8 @@
+{
+  "name": "NFU",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "87eab303"
+}
