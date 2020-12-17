@@ -1,0 +1,51 @@
+
+.my-label {
+    font-size: 1em;
+    padding: 15px;
+}
+ion-col{
+    padding:3px !important;
+}
+ion-slide{
+    border: 2px solid #000000 !important;
+    border-radius:25px !important;
+    background-color: #f0f0f0 !important;
+}
+.swiper-wrapper{
+    width:10000px!important;
+}
+@media (max-width: 860px) {
+    ion-slide{
+        width: 110px !important; 
+        height: 210px !important;
+    }
+    .card-image {
+        width: 90px !important; 
+        height: 90px !important;        
+    }
+    .cardLabel {
+        position:relative;
+        bottom:5px; 
+        font-size: 0.5em;           
+    }
+}
+@media (min-width: 860px) {
+    ion-slide{
+        width: 280px !important; 
+        height: 350px !important;
+    }
+    .card-image {
+        width: 150px !important; 
+        height: 150px !important; 
+    }
+    .cardLabel {
+        position:relative;
+        bottom:10px;
+        font-size: 0.75em;    
+    }
+}
+.card-image {
+    border-radius:20%!important;
+    margin: auto !important;
+    overflow: hidden;
+}
