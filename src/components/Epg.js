@@ -13,13 +13,48 @@ import {
 
 } from '@ionic/react';
 import './Epg.css';
+import EpgRow from './EpgRow.js';
+
+function prepareAndConquer(aPrograms){
+  let daysGroups = new Map();
+  let weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+
+  let newPrograms = aPrograms.map((pItem) => {
+    let d=new Date(0);
+    d.setUTCSeconds(pItem.spa.start);                          
+      
+    if (!daysGroups.has(weekday[d.getDay()])){
+      daysGroups.set(weekday[d.getDay()],[]);
+    }
+    return (
+      {...pItem,
+        textDate:d.toLocaleString("es-ES",{}),
+        dayOfweek:weekday[d.getDay()]
+      } 
+    )
+  });
+
+  // iterate over keys (vegetables)
+  for (let dow of daysGroups.keys()) {
+    daysGroups.set(dow,newPrograms.filter(i => i.dayOfweek == dow))      
+  }
+  debugger
+  return daysGroups;
+}
 
 export default class Epg extends React.Component {
 
     constructor(props){
       super(props);      
       this.state = { 
-        events: Object.values(epgData.events).reverse(),
+        events: prepareAndConquer(Object.values(epgData.events).reverse()),
         name:epgData.name,
         title:epgData.title,
       };    
@@ -33,12 +68,12 @@ export default class Epg extends React.Component {
       alert("start:"+start+ " End:"+(start+inc));    
     }
 
-    convertUTCtoDate(utcEpoch){
+    /*convertUTCtoDate(utcEpoch){
       //var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' ,time:'numeric'};
       let d=new Date(0);
       d.setUTCSeconds(utcEpoch);                          
       return d.toLocaleString("es-ES",{});  
-    }
+    }*/
 
     render() {
       console.log("render");
@@ -49,30 +84,16 @@ export default class Epg extends React.Component {
         virtual: true, 
       };      
       return (
+        <>
        
-        <IonRow>
           <IonLabel className="my-label">{this.state.name} Title {this.state.title}</IonLabel> 
-          <IonSlides  options={slideOpts}>
-        {this.state.events.map((eventEPG,index) => (
-        <IonSlide key={index} 
-          onClick={ 
-            () => this.handleClick(eventEPG.spa.start,eventEPG.spa.duration) 
-            } 
-        >
-          <IonCard key={'col_'+index}>
-          <IonCardHeader>
-            <IonCardSubtitle>{this.convertUTCtoDate(eventEPG.spa.start)}</IonCardSubtitle>
-            <IonCardTitle>{eventEPG.spa.name}</IonCardTitle>
-          </IonCardHeader>
-
-          <IonCardContent>
-            {eventEPG.spa.ext && eventEPG.spa.ext.text}
-      </IonCardContent>
-        </IonCard>
-        </IonSlide>
-        ))}
-      </IonSlides>
-        </IonRow>
+          
+          {
+          [...this.state.events.keys()].map((keyByDay) =>            
+            (<EpgRow dayOfWeek={keyByDay} events={this.state.events.get(keyByDay)} />)
+          )
+          }  
+        </>
        
       );
     }

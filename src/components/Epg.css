@@ -16,12 +16,12 @@ ion-slide{
 }
 @media (max-width: 860px) {
     ion-slide{
-        width: 110px !important; 
-        height: 210px !important;
+        width: 100px !important; 
+        height: 500px !important;
     }
     .card-image {
-        width: 90px !important; 
-        height: 90px !important;        
+        width: 100px !important; 
+        height: 50px !important;        
     }
     .cardLabel {
         position:relative;
@@ -31,12 +31,12 @@ ion-slide{
 }
 @media (min-width: 860px) {
     ion-slide{
-        width: 280px !important; 
-        height: 350px !important;
+        width: 300px !important; 
+        height: 110px !important;
     }
     .card-image {
-        width: 150px !important; 
-        height: 150px !important; 
+        width: 80px !important; 
+        height: 50px !important; 
     }
     .cardLabel {
         position:relative;
