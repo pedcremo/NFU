@@ -6,6 +6,9 @@
 ion-col{
     padding:3px !important;
 }
+ion-card-title{
+    font-size: 0.6em;
+}
 ion-slide{
     border: 2px solid #000000 !important;
     border-radius:25px !important;
@@ -31,8 +34,8 @@ ion-slide{
 }
 @media (min-width: 860px) {
     ion-slide{
-        width: 300px !important; 
-        height: 110px !important;
+        width: 200px !important; 
+        height: 70px !important;
     }
     .card-image {
         width: 80px !important; 

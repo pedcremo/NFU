@@ -27,9 +27,9 @@ const EpgRow = (props) =>{
 
     return (
         <>
-        <IonLabel className="my-label">{props.dayOfweek}</IonLabel> 
-        <IonRow>
         
+        <IonRow>
+        <IonLabel className="my-label">{props.dayOfWeek}</IonLabel> 
         <IonSlides  options={slideOpts}>
         {props.events.map((eventEPG,index) => (
          <IonSlide key={index} 
@@ -39,7 +39,7 @@ const EpgRow = (props) =>{
         >
           <IonCard key={'col_'+index}>
           <IonCardHeader>
-            <IonCardSubtitle>{eventEPG.dayOfweek + ' ' + eventEPG.textDate}</IonCardSubtitle>
+            <IonCardSubtitle>{eventEPG.textTime}</IonCardSubtitle>
             <IonCardTitle>{eventEPG.spa.name}</IonCardTitle>
           </IonCardHeader>
 

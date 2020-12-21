@@ -3,6 +3,7 @@ import epgData from '../data/epg.json';
 import {
   IonSlides,
   IonSlide,
+  IonContent,
   IonRow,  
   IonLabel,  
   IonCard,
@@ -35,7 +36,8 @@ function prepareAndConquer(aPrograms){
     }
     return (
       {...pItem,
-        textDate:d.toLocaleString("es-ES",{}),
+        textDate:d.toLocaleDateString("es-ES",{}),
+        textTime:d.getHours()+":"+d.getMinutes()+":"+d.getSeconds(),
         dayOfweek:weekday[d.getDay()]
       } 
     )
@@ -57,40 +59,21 @@ export default class Epg extends React.Component {
         events: prepareAndConquer(Object.values(epgData.events).reverse()),
         name:epgData.name,
         title:epgData.title,
-      };    
-      this.handleClick = this.handleClick.bind(this);
+      };          
     }
 
-    componentDidMount(){
-      //Ja vorem
-    }
-    handleClick(start,inc){
-      alert("start:"+start+ " End:"+(start+inc));    
-    }
-
-    /*convertUTCtoDate(utcEpoch){
-      //var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' ,time:'numeric'};
-      let d=new Date(0);
-      d.setUTCSeconds(utcEpoch);                          
-      return d.toLocaleString("es-ES",{});  
-    }*/
-
+  
     render() {
       console.log("render");
-      const slideOpts = {
-        slidesPerView: 'auto', 
-        zoom: false, 
-        grabCursor: true,       
-        virtual: true, 
-      };      
+      
       return (
         <>
        
           <IonLabel className="my-label">{this.state.name} Title {this.state.title}</IonLabel> 
           
           {
-          [...this.state.events.keys()].map((keyByDay) =>            
-            (<EpgRow dayOfWeek={keyByDay} events={this.state.events.get(keyByDay)} />)
+          [...this.state.events.keys()].map((keyByDay,index) =>            
+            (<EpgRow key={index} dayOfWeek={keyByDay} events={this.state.events.get(keyByDay)} />)
           )
           }  
         </>
