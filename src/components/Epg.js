@@ -32,13 +32,13 @@ function prepareAndConquer(aPrograms){
     d.setUTCSeconds(pItem.spa.start);                          
       
     if (!daysGroups.has(weekday[d.getDay()])){
-      daysGroups.set(weekday[d.getDay()],[]);
+      daysGroups.set(weekday[d.getDay()] + ' ' + d.toLocaleDateString("es-ES",{}),[]);
     }
     return (
       {...pItem,
         textDate:d.toLocaleDateString("es-ES",{}),
         textTime:d.getHours()+":"+d.getMinutes()+":"+d.getSeconds(),
-        dayOfweek:weekday[d.getDay()]
+        dayOfweek:weekday[d.getDay()] + ' ' + d.toLocaleDateString("es-ES",{})
       } 
     )
   });
