@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
-
+import {AppContext} from '../State';
 
 const Tab1: React.FC = () => {
+  const { stateGlobal,dispatch } = useContext(AppContext);
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>Tab 1 {stateGlobal.user}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
