@@ -31,8 +31,10 @@ const Login: React.FC = () => {
     const handleSubmit = async e => {
         e.preventDefault();
     
-        try {
-          setShowLoading(true);      
+        try {            
+          setShowLoading(true);
+          setTimeout(()=>  dispatch({action:'SET_USER',value:email}),3000);
+                
           
         } catch (e) {
           console.error(e);
