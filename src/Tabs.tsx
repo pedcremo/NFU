@@ -12,7 +12,6 @@ import {
 
 import Home from './pages/Home';
 import Events from './pages/Events';
-import Tab3 from './pages/Tab3';
 import Details from './pages/Details.js';
 import Create from './pages/create/Create';
 import { home, people, addCircle } from 'ionicons/icons';

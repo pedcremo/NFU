@@ -1,11 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
 import { person, compass, alarm,star } from 'ionicons/icons';
 import { useParams } from "react-router";
 import events from '../data/data.json';
 import Author from '../components/author/Author';
+import { Redirect } from 'react-router-dom';
 
 import './details.css';
+
 const Details= () => {
     //get id URL
     const  {id}  = useParams();
@@ -16,6 +18,12 @@ const Details= () => {
     //get players event
     let players = Object.values(event.p);
     console.log(event.p);
+    const { state } = useContext(AppContext);
+  
+    if (!state.user) {
+      return <Redirect to="/login" /> 
+    }
+
   return (
     <IonPage>
       <IonHeader>
