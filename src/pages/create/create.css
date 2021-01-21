@@ -1,0 +1,18 @@
+.add-event{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+@media only screen and (min-width: 1200px){
+    .add-event-form{
+        position: relative;
+        max-width: 50%;
+        height: 300px;
+    }
+}
+.add-event-form{
+    width: 80%;
+}

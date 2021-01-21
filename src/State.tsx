@@ -5,16 +5,13 @@ let AppContext = React.createContext(null);
 const initialState = {
   language:'es',
   theme:'light',
-  user:'',
-  count: 0
+  user:'' 
 }
 
 let reducer = (state, action) => {
+ 
   switch(action.type) {
-    case "SET_COUNT": {
-      return { ...state, count: action.count }
-    }
-    case "SET_USER": {
+    case "SET_USER": {      
       return { ...state, user: action.value }
     }
     case "SET_THEME": {

@@ -1,25 +1,20 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Home.css';
 import Event_List from '../components/Event/Event_List';
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
+import './Events.css';
 
-
-const Home: React.FC = () => {
+const Events: React.FC = () => {
   return (
     <IonPage>
-     
       <IonHeader>
         <IonToolbar>
-          <IonTitle>HOME</IonTitle>
+          <IonTitle>EVENTS</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>        
+      <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 1ded</IonTitle>
-            
+            <IonTitle size="large">EVENTS</IonTitle>
           </IonToolbar>
         </IonHeader>
         <Event_List></Event_List>
@@ -28,4 +23,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Events;

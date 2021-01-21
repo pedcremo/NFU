@@ -1,5 +1,6 @@
 import React, {useContext,useState,useRef} from 'react';
 import { AppContext } from '../State';
+import { Redirect } from 'react-router-dom';
 import { 
     IonContent, 
     IonGrid, 
@@ -20,7 +21,7 @@ import {
 } from '@ionic/react';
 
 const Login: React.FC = () => {
-    const { dispatch } = useContext(AppContext);
+    const { state,dispatch } = useContext(AppContext);
     const [ email, setEmail ] = useState<React.ReactText | undefined>('');
     const [ password, setPassword ] = useState<React.ReactText | undefined>('');
     const [ , setFormErrors ] = useState(null);
@@ -33,7 +34,10 @@ const Login: React.FC = () => {
     
         try {            
           setShowLoading(true);
-          setTimeout(()=>  dispatch({action:'SET_USER',value:email}),3000);
+          setTimeout(()=> {              
+              dispatch({type:'SET_USER',value:email});
+              
+            },2000);
                 
           
         } catch (e) {
@@ -43,6 +47,9 @@ const Login: React.FC = () => {
         }
     }
     
+    if (state.user) {
+        return <Redirect to="/app/home" />   
+    }
         
     return (
     <IonPage>

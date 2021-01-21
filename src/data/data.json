@@ -1,0 +1,135 @@
+{
+    "events": {
+        "1608062400": {
+            "id": 1,
+            "title": "Play CSGO",
+            "description": "Unete a nuestro equipo de CSGO para disputar una partida este sabado",
+            "players": 2,
+            "maxplayers": 5,
+            "status": "open",
+            "time":"2021-2-1 06:40",
+            "type":"Games",
+            "author":{
+                "username": "Joel",
+                "image":"https://thispersondoesnotexist.com/image",
+                "rate":"2",
+                "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
+            },
+            "location":{
+                "country":"Spain",
+                "postalcode":"46870",
+                "city":"Ontinyent"
+            },
+            "image":"https://1.bp.blogspot.com/-bUWP_6OIs9c/Xw4Ri3HYd6I/AAAAAAAAB10/Z0nNbWzEejYekv1WpkCe46esiRNSr-UagCLcBGAsYHQ/s1920/CSGO.jpg",
+            "p":{
+                "0":"Vicente",
+                "1":"Joel"
+            }
+        },
+        "1608062401": {
+            "id": 2,
+            "title": "Futbol",
+            "description": "Unete a nuestro equipo de Futbol para disputar un partido este sabado",
+            "players": 1,
+            "maxplayers": 5,
+            "status": "open",
+            "time":"2021-2-4 06:40",
+            "type":"Sport",
+            "author":{
+                "username": "Tono Ipsum",
+                "image":"https://thispersondoesnotexist.com/image",
+                "rate":"6",
+                "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. "
+            },
+            "location":{
+                "country":"Spain",
+                "postalcode":"46800",
+                "city":"Xativa"
+            },
+            "image":"https://www.base.net/movimientobase/wp-content/uploads/2017/07/NI%C3%91O-2-OK.jpg",
+            "p":{
+                "0":"Vicente"
+            }
+        },
+        "1608062402": {
+            "id": 3,
+            "title": "Tenis",
+            "description": "Unete a nuestro equipo de Tenis para disputar un partido este sabado",
+            "players": 1,
+            "maxplayers": 5,
+            "status": "open",
+            "time":"2021-2-4 06:40",
+            "type":"Sport",
+            "author":{
+                "username": "Fake Person",
+                "image":"https://thispersondoesnotexist.com/image",
+                "rate":"10",
+                "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. ."
+            },
+            "location":{
+                "country":"Spain",
+                "postalcode":"99999",
+                "city":"Alcoy"
+            },
+            "image":"https://static2.abc.es/media/bienestar/2019/08/02/tenis-abecedario-kgNF--620x349@abc.jpg",
+            "p":{
+                "0":"Joel"
+            }
+        },
+        "1608062403": {
+            "id": 4,
+            "title": "Partido amistoso gratuito",
+            "description": "PArtido amistoso gratuito",
+            "players": 5,
+            "maxplayers": 5,
+            "status": "open",
+            "time":"2021-2-4 06:40",
+            "type":"Sport",
+            "author":{
+                "username": "Vicente",
+                "image":"https://2.bp.blogspot.com/-9unW-4lkfEo/W_Kzb79JGFI/AAAAAAAAADI/aFHn3p8zT0gNaYuY3Zha7gGvUdrWewKhACLcBGAs/s1600/IMG_4422.JPG",
+                "rate":"10",
+                "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
+            },
+            "location":{
+                "country":"Spain",
+                "postalcode":"46800",
+                "city":"Xativa"
+            },
+            "image":"https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/01/07/16099744567579.jpg",
+            "p":{
+                "0":"Joel",
+                "1":"Tono",
+                "2":"Vicente",
+                "3":"Raul",
+                "4":"marc"
+            }
+        },
+        "1608062406": {
+            "id": 5,
+            "title": "Unete para jugar a basquet",
+            "description": "PArtidas de baloncesto oficiales",
+            "players": 2,
+            "maxplayers": 5,
+            "status": "open",
+            "time":"2021-2-1 06:40",
+            "type":"Games",
+            "author":{
+                "username": "Vicente",
+                "image":"https://2.bp.blogspot.com/-9unW-4lkfEo/W_Kzb79JGFI/AAAAAAAAADI/aFHn3p8zT0gNaYuY3Zha7gGvUdrWewKhACLcBGAs/s1600/IMG_4422.JPG",
+                "rate":"10",
+                "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
+            },
+            "location":{
+                "country":"Spain",
+                "postalcode":"46870",
+                "city":"Ontinyent"
+            },
+            "image":"https://e00-ar-marca.uecdn.es/claro/assets/multimedia/imagenes/2019/09/15/15685502581300.jpg",
+            "p":{
+                "0":"Vicente",
+                "1":"Joel"
+            }
+        }
+    }
+}
