@@ -1,4 +1,4 @@
-import React,{useContext,useState,useCallback} from 'react';
+import React,{useContext,useState} from 'react';
 import { AppContext } from '../State';
 
 import { 
@@ -26,14 +26,12 @@ import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
 const Home: React.FC = () => {
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
-  const doLogout = useCallback(() => {    
+  const doLogout = () => {    
     setShowUserMenuEvent(null);
-    dispatch({type:'SET_USER',value:''});   
-    
-  }, [dispatch]);
+    dispatch({type:'SET_USER',value:''});       
+  };
 
-  if (!state.user) {
-    debugger
+  if (!state.user) {   
     return <Redirect to="/" /> 
   }
 
