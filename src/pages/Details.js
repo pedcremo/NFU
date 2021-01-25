@@ -1,15 +1,34 @@
+// React, Ionic
 import React, { useContext } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
 import { person, compass, alarm, star } from 'ionicons/icons';
 import { useParams } from "react-router";
-import events from '../data/data.json';
-import Author from '../components/author/Author';
 import { Redirect } from 'react-router-dom';
+
+// Components
+import Author from '../components/author/Author';
+
+// Data
+import events from '../data/data.json';
 
 import './details.css';
 
 const Details = () => {
-  console.log("Hola")
+  // Get id in params
+  const {id}  = useParams();
+
+  // Convert events json
+  const events_array = Object.values(events.events);
+
+  // Search id in json 
+  let event = events_array.find(event =>  event.id == id);
+  
+  // Get players event
+  let players = Object.values(event.p);
+
+  console.log(id)
+  console.log(event)
+  console.log(players)
   return (
     <IonPage>
       <IonHeader>
