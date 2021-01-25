@@ -1,6 +1,7 @@
 import React,{useContext,useState, useCallback} from 'react';
 import { AppContext } from '../State';
 import { useHistory } from 'react-router-dom';
+
 import { 
   IonContent, 
   IonHeader, 
@@ -14,14 +15,12 @@ import {
   IonButtons,
   IonButton,
   IonIcon 
-
 } from '@ionic/react';
+
 import './Home.css';
-import Event_List from '../components/Event/Event_List';
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
+import EventList from '../components/Event/Event_List';
 import { Redirect } from 'react-router-dom';
-import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
+import { ellipsisVertical } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -72,7 +71,7 @@ const Home: React.FC = () => {
             
           </IonToolbar>
         </IonHeader>
-        <Event_List></Event_List>
+        <EventList />
       </IonContent>
     </IonPage>
   );

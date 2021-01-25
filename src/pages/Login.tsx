@@ -1,11 +1,9 @@
 import React, {useContext,useState,useRef} from 'react';
 import { AppContext } from '../State';
 import { Redirect } from 'react-router-dom';
+
 import { 
     IonContent, 
-    IonGrid, 
-    IonRow, 
-    IonCol, 
     IonItem,
     IonInput,
     IonButton,
@@ -14,14 +12,13 @@ import {
     IonHeader,
     IonToolbar,
     IonTitle,
-    IonAlert,
     IonLabel,
     IonLoading
 
 } from '@ionic/react';
 
 const Login: React.FC = () => {
-    debugger
+    // debugger
     const { state,dispatch } = useContext(AppContext);
     const [ email, setEmail ] = useState<React.ReactText | undefined>('');
     const [ password, setPassword ] = useState<React.ReactText | undefined>('');

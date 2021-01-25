@@ -2,15 +2,10 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
   IonPage
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
 import Login from './pages/Login';
 import {AppContextProvider} from './State';
 import Tabs from './Tabs';

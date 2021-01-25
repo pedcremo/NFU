@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Redirect,Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
 import {     
     IonTabs,
     IonTabBar,
@@ -12,12 +13,10 @@ import {
 
 import Home from './pages/Home';
 import Events from './pages/Events';
-import Details from './pages/Details.js';
 import Create from './pages/create/Create';
 import { home, people, addCircle } from 'ionicons/icons';
 
 const Tabs: React.FC = () => {
-        
     return (
         <IonTabs>
         <IonRouterOutlet>
