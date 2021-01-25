@@ -1,6 +1,6 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useState, useCallback} from 'react';
 import { AppContext } from '../State';
-
+import { useHistory } from 'react-router-dom';
 import { 
   IonContent, 
   IonHeader, 
@@ -24,15 +24,18 @@ import { Redirect } from 'react-router-dom';
 import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
 
 const Home: React.FC = () => {
+  const history = useHistory();
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
-  const doLogout = () => {    
+  const doLogout = useCallback(async () => {    
     setShowUserMenuEvent(null);
-    dispatch({type:'SET_USER',value:''});       
-  };
-
+    dispatch({type:'LOGOUT'});
+    history.push("/");
+  }, [dispatch, history]);  
+  
   if (!state.user) {   
-    return <Redirect to="/" /> 
+    history.push("/");
+    //return <Redirect to="/" /> 
   }
 
   return (
@@ -55,7 +58,7 @@ const Home: React.FC = () => {
             onDidDismiss={() => setShowUserMenuEvent(null)}>
           <IonContent>
             <IonList>
-              <IonItem onClick={e => { e.preventDefault(); doLogout()}} detail={true} href="">
+              <IonItem onClick={e =>  doLogout()} detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
               <IonItem>

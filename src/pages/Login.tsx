@@ -21,6 +21,7 @@ import {
 } from '@ionic/react';
 
 const Login: React.FC = () => {
+    debugger
     const { state,dispatch } = useContext(AppContext);
     const [ email, setEmail ] = useState<React.ReactText | undefined>('');
     const [ password, setPassword ] = useState<React.ReactText | undefined>('');

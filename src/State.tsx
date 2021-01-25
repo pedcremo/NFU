@@ -14,6 +14,9 @@ let reducer = (state, action) => {
     case "SET_USER": {      
       return { ...state, user: action.value }
     }
+    case "LOGOUT": {      
+      return { ...state, user: '' }
+    }
     case "SET_THEME": {
       return { ...state, theme: action.value }
     }
