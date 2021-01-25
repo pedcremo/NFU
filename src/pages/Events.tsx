@@ -4,6 +4,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import Event_List from '../components/Event/Event_List';
 import './Events.css';
 import { Redirect } from 'react-router-dom';
+import Header from '../components/header/header';
 
 const Events: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -13,11 +14,12 @@ const Events: React.FC = () => {
   }
   return (
     <IonPage>
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar>
           <IonTitle>EVENTS</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
+      <Header page={"Events"} ></Header>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
