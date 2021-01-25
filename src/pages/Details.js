@@ -10,19 +10,18 @@ import Author from '../components/author/Author';
 
 // Data
 import events from '../data/data.json';
-
 import './details.css';
 
 const Details = () => {
   // Get id in params
-  const {id}  = useParams();
+  const { id } = useParams();
 
   // Convert events json
   const events_array = Object.values(events.events);
 
   // Search id in json 
-  let event = events_array.find(event =>  event.id == id);
-  
+  let event = events_array.find(event => event.id == id);
+
   // Get players event
   let players = Object.values(event.p);
 
@@ -33,12 +32,13 @@ const Details = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>evento titulo</IonTitle>
-          <IonContent>
-
-          </IonContent>
+          <IonTitle>{event.title} Event</IonTitle>
         </IonToolbar>
       </IonHeader>
+      
+      <IonContent fullscreen>
+        <h1>{event.description}</h1>
+      </IonContent>
     </IonPage>
   );
 };
