@@ -23,6 +23,7 @@ const Tabs: React.FC = () => {
         <IonRouterOutlet>
           <Route path="/app/home" component={Home} exact={true} />
           <Route path="/app/events" component={Events} exact={true} />
+          <Route path="/app/event/:id" component={Details} />
           <Route path="/app/create" component={Create} />          
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
