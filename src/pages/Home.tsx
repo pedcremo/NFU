@@ -29,13 +29,12 @@ const Home: React.FC = () => {
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
   const doLogout = useCallback(async () => {    
     setShowUserMenuEvent(null);
-    dispatch({type:'LOGOUT'});
-    history.push("/");
+    dispatch({type:'LOGOUT'});        
   }, [dispatch, history]);  
   
   if (!state.user) {   
-    history.push("/");
-    //return <Redirect to="/" /> 
+    //history.push("/");
+    return <Redirect to="/" /> 
   }
 
   return (
@@ -58,7 +57,7 @@ const Home: React.FC = () => {
             onDidDismiss={() => setShowUserMenuEvent(null)}>
           <IonContent>
             <IonList>
-              <IonItem onClick={e =>  doLogout()} detail={true} href="">
+              <IonItem onClick={e => {e.preventDefault();doLogout()} } detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
               <IonItem>
