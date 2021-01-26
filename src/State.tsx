@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 let AppContext = React.createContext(null);
 
@@ -37,12 +37,22 @@ const logger = (reducer) => {
 
 const loggerReducer = logger(reducer);
 
+//GET CURRENT USER SAVED IN LOCALSTORAGE 
+const persistedState = JSON.parse(window.localStorage.getItem('persistedState'));
+
 function AppContextProvider(props) {
   const fullInitialState = {
     ...initialState,
+    ...persistedState
   }
 
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
+
+  // SAVE IN LOCALSTORAGE THE LOGGED USER
+  useEffect(() => {
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user}))
+  }, [state]);
+
   let value = { state, dispatch };
 
 
