@@ -57,7 +57,7 @@ const Home: React.FC = () => {
             onDidDismiss={() => setShowUserMenuEvent(null)}>
           <IonContent>
             <IonList>
-              <IonItem onClick={e => {e.preventDefault();doLogout()} } detail={true} href="">
+              <IonItem onClick={e => doLogout() } detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
               <IonItem>

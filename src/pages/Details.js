@@ -1,9 +1,10 @@
 // React, Ionic
-import React, { useContext } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
+import React, { useContext, useState } from 'react';
+import { IonContent, IonModal,IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
 import { person, compass, alarm, star } from 'ionicons/icons';
 import { useParams } from "react-router";
 import { Redirect } from 'react-router-dom';
+import MyModal from '../components/modal/MyModal'
 
 // Components
 import Author from '../components/author/Author';
@@ -14,6 +15,8 @@ import events from '../data/data.json';
 import './details.css';
 
 const Details = () => {
+  const [showModal, setShowModal] = useState(false);
+
   // Get id in params
   const {id}  = useParams();
 
@@ -39,7 +42,18 @@ const Details = () => {
           </IonContent>
         </IonToolbar>
       </IonHeader>
+
+      <IonContent>
+      <IonModal isOpen={showModal}>
+        <MyModal></MyModal>
+        <IonButton onClick={() => setShowModal(false)}>
+            Close Map
+        </IonButton>
+      </IonModal>
+      <p className="maps" onClick={() => setShowModal(true)}></p>
+    </IonContent>
     </IonPage>
+
   );
 };
 
