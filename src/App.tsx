@@ -15,6 +15,9 @@ import Login from './pages/Login';
 import {AppContextProvider} from './State';
 import Tabs from './Tabs';
 
+/* App style */
+import './App.css'
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
