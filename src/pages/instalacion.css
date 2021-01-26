@@ -1,0 +1,135 @@
+
+:root{
+    --blue:  rgba(46, 48, 160, 0.719);
+}
+
+
+/** **/ 
+.IonSliderList{
+    max-width: 180px;
+    max-height:100px;
+
+}
+
+.centerCardSlide {
+    max-width: 220px;
+    height: 100px;
+    width: 100%;
+}
+
+.centerName{
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-family: Poppins-Medium;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #222222;
+    padding: 4px 11px 4px 11px;
+    border-radius: 50px;
+}
+
+
+
+/** **/
+
+
+.details-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detail{
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1200px;
+}
+
+
+.detail-image{
+    position: relative;
+    max-width: 1200px;
+    height: 300px;
+}
+.detail-image img{
+    border-radius: 10px;
+    width:100%;
+    height: 100%;
+    object-fit: cover; 
+    box-shadow: 0 8px 9px -6px black;
+}
+.detail-content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.detail-content-left{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.detail-content-left-title{
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--blue);
+}
+
+
+
+.detail-image-icons{
+    position: absolute;
+    margin: 10px;
+    bottom: 5px;
+    right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon-details{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.25);
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+
+
+.icon-details-green{
+    background:#99ff9ed0;
+    color: black;
+}
+.icon-details-icon{
+    font-size: 14px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px){
+    .detail-image{
+        position: relative;
+        max-width: 1200px;
+        min-width: 1200px;
+        height: 300px;
+    }
+}

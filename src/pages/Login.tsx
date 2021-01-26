@@ -19,6 +19,7 @@ import {
     IonLoading
 
 } from '@ionic/react';
+import Footer from '../components/Footer/Footer';
 
 const Login: React.FC = () => {
     debugger
@@ -88,6 +89,7 @@ const Login: React.FC = () => {
         </div>
         
         </IonContent>
+        <Footer/>
     </IonPage>
 
     );

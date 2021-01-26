@@ -22,6 +22,7 @@ import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import { Redirect } from 'react-router-dom';
 import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
+import Footer from '../components/Footer/Footer';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -74,6 +75,7 @@ const Home: React.FC = () => {
         </IonHeader>
         <Event_List></Event_List>
       </IonContent>
+      <Footer/>
     </IonPage>
   );
 };

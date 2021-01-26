@@ -1,0 +1,74 @@
+
+:root{
+    --general-size:100%;
+    --general-justity:center;
+    --general-display:flex;
+}
+
+.cardList {
+    height: 200px;
+    width: var(--general-size);
+    max-width: 625px;
+    min-width: 285px;
+    cursor: ns-resize;
+}
+
+.cardContent {
+    width: var(--general-size);
+    height: var(--general-size);
+    padding: 10px;
+    display: var(--general-display);
+    justify-content: space-between;
+}
+
+.cardContent__left {
+    overflow: hidden;
+    max-width: 300px;
+    display: var(--general-display);
+    align-items: var(--general-justity);
+    justify-content: var(--general-justity);
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.cardContent__left img {
+    height: var(--general-size);
+    width: var(--general-size);
+    object-fit: cover;
+}
+
+.cardList:hover .cardContent__left img {
+    filter: grayscale(60%);
+    transform: scale(1.4);
+  }
+  
+
+.cardContent__right {
+    width: var(--general-size);
+    height: var(--general-size);
+    display: var(--general-display);
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+¡
+.cardContent__operation {
+    width: 140px;
+    border-left: 1px solid rgb(211, 211, 211);
+}
+
+
+.cardContent__operation--icon {
+    transition: 0.1s;
+    font-size: 32px;
+}
+
+@media only screen and (min-width: 1200px){
+    .cardList{
+        position: relative;
+        max-width: 1200px;
+        min-width: 1200px;
+        height: 300px;
+    }
+}

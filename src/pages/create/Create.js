@@ -4,6 +4,7 @@ import { person, compass, alarm,star } from 'ionicons/icons';
 import { useParams } from "react-router";
 
 import './create.css';
+import Footer from '../../components/Footer/Footer';
 const Create= () => {
   return (
     <IonPage>
@@ -66,6 +67,7 @@ const Create= () => {
           </form>
         </section>
       </IonContent>
+      <Footer/>
     </IonPage>
   );
 };
