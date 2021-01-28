@@ -54,7 +54,7 @@ const Details = () => {
             Close Map
         </IonButton>
       </IonModal>
-      <p className="maps" onClick={() =>{{/*Aqui llamar a state.location.lat y que cambie las coordenadas pa luego pintar el map */}
+      <p className="maps" onClick={() =>{
 
         let newCoordinates = {
           "lat":event.coordinates.lat,

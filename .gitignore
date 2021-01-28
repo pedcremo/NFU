@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Secrets
-credentials.json
+credentials/
