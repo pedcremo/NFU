@@ -27,6 +27,7 @@ const Home: React.FC = () => {
   const history = useHistory();
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+  
   const doLogout = useCallback(async () => {    
     setShowUserMenuEvent(null);
     dispatch({type:'LOGOUT'});        

@@ -12,10 +12,14 @@ import Author from '../components/author/Author';
 // Data
 import events from '../data/data.json';
 
+
+import { AppContext } from '../State';
+
 import './details.css';
 
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
+  const { state,dispatch } = useContext(AppContext);
 
   // Get id in params
   const {id}  = useParams();
@@ -30,7 +34,7 @@ const Details = () => {
   let players = Object.values(event.p);
 
   console.log(id)
-  console.log(event)
+  console.log("EVENT",event.coordinates)
   console.log(players)
   return (
     <IonPage>
@@ -50,7 +54,17 @@ const Details = () => {
             Close Map
         </IonButton>
       </IonModal>
-      <p className="maps" onClick={() => setShowModal(true)}></p>
+      <p className="maps" onClick={() =>{{/*Aqui llamar a state.location.lat y que cambie las coordenadas pa luego pintar el map */}
+
+        let newCoordinates = {
+          "lat":event.coordinates.lat,
+          "lng": event.coordinates.lng
+        }
+        dispatch({type:'SET_COORDINATES',value:newCoordinates});   
+        
+        setShowModal(true)
+        console.log("ole los canelones")
+      }}></p>  
     </IonContent>
     </IonPage>
 
