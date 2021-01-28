@@ -3,10 +3,16 @@ import React, { useReducer } from "react";
 let AppContext = React.createContext(null);
 
 const initialState = {
-  language:'es',
-  theme:'light',
-  user:'' 
-}
+  language: "es",
+  theme: "light",
+  user: "",
+  loggedUser: {
+    name: "Pedro Alvarez",
+    image:
+      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    sports: ["basket", "tennis", "football"],
+  },
+};
 
 let reducer = (state, action) => {
  

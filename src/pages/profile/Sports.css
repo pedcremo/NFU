@@ -1,0 +1,18 @@
+.Sports {
+    background-color: rgb(71, 72, 82);
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.Content__Link {
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-top-style: solid;
+    border-color: black;
+}

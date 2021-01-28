@@ -1,0 +1,31 @@
+.Content {
+  background-image: url("https://e00-marca.uecdn.es/assets/multimedia/imagenes/2016/06/09/14655007817465.jpg");
+  height: 90%;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.Content__info {
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Content__ProfileImage {
+  height: 7rem;
+  width: 7rem;
+  margin-top: -3rem;
+  border-radius: 1000px;
+  /* background-image: url("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0.5rem;
+}
