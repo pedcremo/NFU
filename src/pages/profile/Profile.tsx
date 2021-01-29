@@ -9,9 +9,16 @@ import {
   IonTitle,
   IonText,
 } from "@ionic/react";
+import {
+  basketball,
+  settings,
+  share,
+  gameController,
+} from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
 import { Link } from "react-router-dom";
+import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -34,11 +41,20 @@ const Profile: React.FC = () => {
             ></div>
             <Sports sportsList={state.loggedUser.sports} />
             <h1>{state.loggedUser.name}</h1>
-            <Link className="Content__Link" to="/login">Crear Partida</Link>
-            <Link className="Content__Link" to="/login">Gestionar Partidas</Link>
-            <Link className="Content__Link" to="/login">Invitaciones</Link>
-            <Link className="Content__Link" to="/login">Modificar Perfil</Link>
-            <Link className="Content__Link" to="/login">Settings</Link>
+            <div className="Content__Buttons">
+              <div>
+                <ButtonLink link="/login" text="New" icon={gameController} />
+                <ButtonLink link="/login" text="Matches" icon={basketball} />
+              </div>
+              <div>
+                <ButtonLink
+                  link="/login"
+                  text="Invitaciones"
+                  icon={share}
+                />
+                <ButtonLink link="/login" text="Settings" icon={settings} />
+              </div>
+            </div>
           </div>
         </div>
       </IonContent>
