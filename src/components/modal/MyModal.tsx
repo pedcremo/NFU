@@ -7,8 +7,6 @@ import { AppContext } from '../../State';
 const Modal = () =>{
   const { state,dispatch } = useContext(AppContext);
 
-  console.log("MODAL")
-
   return (
     <>
       <IonHeader>
@@ -17,7 +15,7 @@ const Modal = () =>{
          </IonToolbar>
        </IonHeader>
        <IonContent className="ion-padding">
-         <MapContainer lat = {state.lat} lng = {state.lng}></MapContainer>
+         <MapContainer coordinates = {state.coordinates} action="details"></MapContainer>
        </IonContent>
     </>
 
@@ -25,23 +23,3 @@ const Modal = () =>{
 };
 
 export default Modal;
-
-
-// class MyModal extends React.Component {
-
-//   render() {
-//     return <>
-//       <IonHeader>
-//         <IonToolbar color="primary">
-//           <IonTitle>Location of event</IonTitle>
-//         </IonToolbar>
-//       </IonHeader>
-//       <IonContent className="ion-padding">
-//         <MapContainer></MapContainer>
-//       </IonContent>
-//     </>
-//   };
-
-// }
-
-// export default MyModal;

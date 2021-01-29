@@ -5,9 +5,8 @@ let AppContext = React.createContext(null);
 const initialState = {
   language:'es',
   theme:'light',
-  user:'',
-  lat:0,
-  lng:0
+  user:'hola@hola',
+  coordinates: '',
 }
 
 let reducer = (state, action) => {
@@ -22,16 +21,8 @@ let reducer = (state, action) => {
     case "SET_THEME": {
       return { ...state, theme: action.value }
     }
-
-    case "SET_COORDINATES":{  //Cambiamos la latitud y longitud de lo que queremos mostrar en el map
-
-      console.log("SET COORDINATEEEES:")
-      console.log(action.value.lat)
-      return {
-          ...state, 
-          lat: action.value.lat,
-          lng: action.value.lng
-      }
+    case "ALL_COORDINATES":{  //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
+      return {...state,coordinates: action.value}
     }
 
   }
