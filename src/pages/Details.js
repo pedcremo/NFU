@@ -32,6 +32,7 @@ const Details = () => {
   return (
     <IonPage>
       <IonContent className="mierda" fullscreen>
+        {/* FONDO */}
         <div className="event-image" style={{backgroundImage: `url(${event.image})`}}>
           <div className="tools">
             <div className="container-1">
@@ -44,14 +45,22 @@ const Details = () => {
             </div>
           </div>
         </div>
+
+        {/* LOCATION */}
         <div className="event-locations">
           <IonIcon className="icon" icon={location} />
           <p>{event.location.country},</p>
           <p>{event.location.postalcode}</p>
           <p>{event.location.city}</p>
         </div>
+
+        {/* TITULO */}
         <h1 className="event-title">{event.title}</h1>
+
+        {/* DESCRIPCION */}
         <div className="event-description">{event.description}</div>
+
+        {/* PROPIETARIO */}
         <div className="event-creator">
           <img className="event-creator-image" src={event.author.image}/>
           <div class="event-creator-name">
@@ -62,6 +71,19 @@ const Details = () => {
             </div>
           </div>
         </div>
+
+        {/* JUGADORES */}
+        <hr className="event-player-separation"></hr>
+        <div className="event-player">
+          {players.map((player,index,arr) => (
+            <div key={index} className="event-player-informacion">
+              <img src="https://picsum.photos/id/237/200/300"></img>
+              <strong>{player}</strong>
+            </div>)
+          )}
+        </div>
+
+        {/* INFORMACION */}
         <div className="event-informacion">
           <div className="event-feature">
             <IonIcon className="icon" icon={barbell} />
@@ -74,13 +96,16 @@ const Details = () => {
             <p>{event.time}</p>
           </div>
         </div>
+
+        {/* CONTROL */}
         <div className="event-control">
-          <div className="event-player">
+          <div className="event-player-num">
             <IonIcon className="icon" icon={people} />
             <p><span>{event.players}</span>/{event.maxplayers}</p>
           </div>
           <button>Apuntarse</button>
         </div>
+        
       </IonContent>
     </IonPage>
   );
