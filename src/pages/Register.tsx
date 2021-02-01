@@ -61,7 +61,7 @@ const Register: React.FC = () => {
                             </div>
                             <button className="loginOption loginOption--submit" type="submit" id="btnRegister">Create Account</button>
                             <div className="login-row">
-                                <div className="loginOption loginOption--local loginOption--create">
+                                <div className="loginOption loginOption--local loginOption--create" onClick={() => history.push('recover')}>
                                     I've forgot my password
                                 </div>
                                 <div className="separator"></div>

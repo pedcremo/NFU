@@ -23,6 +23,7 @@ const Details = () => {
   const { id } = useParams();
   const events_array = Object.values(events.events);
   //gfet event by id
+  // eslint-disable-next-line
   let event = events_array.find((event) => event.id == id);
   //get players event
   let players = Object.values(event.p);
