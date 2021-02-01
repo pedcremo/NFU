@@ -13,7 +13,10 @@ import {
   IonInput,
   IonItem,
   IonList,
-  IonAvatar
+  IonAvatar,
+  IonSelect,
+  IonSelectOption,
+  IonDatetime
 } from '@ionic/react';
 
 import './UpdateProfile.css';
@@ -23,22 +26,19 @@ const UpdateProfile = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
-  const [ name, setName ] = useState<React.ReactText | undefined>('');
-  const [ username, setUsername ] = useState<React.ReactText | undefined>('');
-  const [ website, setWebsite ] = useState<React.ReactText | undefined>('');
-  const [ bio, setBio ] = useState<React.ReactText | undefined>('');
+  const [name, setName] = useState<React.ReactText | undefined>('');
+  const [username, setUsername] = useState<React.ReactText | undefined>('');
+  const [website, setWebsite] = useState<React.ReactText | undefined>('');
+  const [bio, setBio] = useState<React.ReactText | undefined>('');
 
-  const [ email, setEmail ] = useState<React.ReactText | undefined>('');
-  const [ number, setNumber ] = useState<React.ReactText | undefined>('');
-  const [ gender, setGender ] = useState<React.ReactText | undefined>('');
-  const [ birthday, setBirthday ] = useState<React.ReactText | undefined>('');
-
-
+  const [email, setEmail] = useState<React.ReactText | undefined>('');
+  const [number, setNumber] = useState<React.ReactText | undefined>('');
+  const [gender, setGender] = useState<React.ReactText | undefined>('');
+  const [birthday, setBirthday] = useState<string>('');
 
 
-
-  if (!state.user) {   
-      return <Redirect to="/" /> 
+  if (!state.user) {
+    return <Redirect to="/" />
   }
 
   return (
@@ -65,20 +65,20 @@ const UpdateProfile = () => {
 
           <IonList>
             <IonItem>
-                <IonLabel position={'fixed'}>Name</IonLabel>
-                <IonInput type="text" required value={name} onInput={e => setName(e.currentTarget.value)} />
+              <IonLabel position={'fixed'}>Name</IonLabel>
+              <IonInput type="text" required value={name} onInput={e => setName(e.currentTarget.value)} />
             </IonItem>
             <IonItem>
-                <IonLabel position={'fixed'}>Username</IonLabel>
-                <IonInput type="text" required value={username} onInput={e => setUsername(e.currentTarget.value)} />
+              <IonLabel position={'fixed'}>Username</IonLabel>
+              <IonInput type="text" required value={username} onInput={e => setUsername(e.currentTarget.value)} />
             </IonItem>
             <IonItem>
-                <IonLabel position={'fixed'}>Website</IonLabel>
-                <IonInput type="text" value={website} onInput={e => setWebsite(e.currentTarget.value)} />
+              <IonLabel position={'fixed'}>Website</IonLabel>
+              <IonInput type="text" value={website} onInput={e => setWebsite(e.currentTarget.value)} />
             </IonItem>
             <IonItem>
-                <IonLabel position={'fixed'}>Bio</IonLabel>
-                <IonInput type="text" required value={bio} onInput={e => setBio(e.currentTarget.value)} />
+              <IonLabel position={'fixed'}>Bio</IonLabel>
+              <IonInput type="text" required value={bio} onInput={e => setBio(e.currentTarget.value)} />
             </IonItem>
 
             <div className="personal_information">
@@ -88,20 +88,24 @@ const UpdateProfile = () => {
               </div>
 
               <IonItem>
-                  <IonLabel position={'fixed'}>Email</IonLabel>
-                  <IonInput type="text" required value={state.user} onInput={e => setEmail(e.currentTarget.value)} />
+                <IonLabel position={'fixed'}>Email</IonLabel>
+                <IonInput type="text" required value={state.user} onInput={e => setEmail(e.currentTarget.value)} />
               </IonItem>
               <IonItem>
-                  <IonLabel position={'fixed'}>Phone number</IonLabel>
-                  <IonInput type="text" value={number} onInput={e => setNumber(e.currentTarget.value)} />
+                <IonLabel position={'fixed'}>Phone number</IonLabel>
+                <IonInput type="text" value={number} onInput={e => setNumber(e.currentTarget.value)} />
               </IonItem>
               <IonItem>
-                  <IonLabel position={'fixed'}>Gender</IonLabel>
-                  <IonInput type="text" value={gender} onInput={e => setGender(e.currentTarget.value)} />
+                <IonLabel>Gender</IonLabel>
+                <IonSelect value={gender} placeholder="Select One" onIonChange={e => setGender(e.detail.value)}>
+                  <IonSelectOption value="Prefer not to say">Prefer not to say</IonSelectOption>
+                  <IonSelectOption value="Female">Female</IonSelectOption>
+                  <IonSelectOption value="Male">Male</IonSelectOption>
+                </IonSelect>
               </IonItem>
               <IonItem>
-                  <IonLabel position={'fixed'}>Birthday</IonLabel>
-                  <IonInput type="text" value={birthday} onInput={e => setBirthday(e.currentTarget.value)} />
+                <IonLabel>Birthday</IonLabel>
+                <IonDatetime displayFormat="MM DD YY" placeholder="Select Date" value={birthday} onIonChange={e => setBirthday(e.detail.value!)}></IonDatetime>
               </IonItem>
             </div>
 
