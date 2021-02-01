@@ -53,6 +53,9 @@ const Header = (props) =>{
               <IonItem onClick={e => { e.preventDefault(); doLogout()}} detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
+              <IonItem routerLink={'/app/settings'} detail={true}>
+                <IonLabel>Settings</IonLabel>
+              </IonItem>
               <IonItem>
                 <IonLabel>{state.user}</IonLabel>
               </IonItem>

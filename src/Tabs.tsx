@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 
 import Home from './pages/Home';
+import Settings from './pages/Settings';
 import Events from './pages/Events';
 import Details from './pages/Details.js';
 import Create from './pages/create/Create';
@@ -22,6 +23,7 @@ const Tabs: React.FC = () => {
         <IonTabs>
         <IonRouterOutlet>
           <Route path="/app/home" component={Home} exact={true} />
+          <Route path="/app/settings" component={Settings} exact={true} />
           <Route path="/app/events" component={Events} exact={true} />
           <Route path="/app/event/:id" component={Details} />
           <Route path="/app/create" component={Create} />          

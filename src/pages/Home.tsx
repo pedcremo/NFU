@@ -18,6 +18,8 @@ import {
 } from '@ionic/react';
 import './Home.css';
 import Event_List from '../components/Event/Event_List';
+import Header from '../components/header/header';
+
 import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import { Redirect } from 'react-router-dom';
@@ -40,16 +42,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
      
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>HOME</IonTitle>
-          <IonButtons slot="end">
-            <IonButton fill="clear" onClick={e => { e.persist(); setShowUserMenuEvent(e) }}>
-              <IonIcon icon={ellipsisVertical} />
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+      <Header page="Home"/>
       <IonContent fullscreen>   
          <IonPopover
             event={showUserMenuEvent}
