@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/react';
-import { person, compass, alarm,star, cloudyNight } from 'ionicons/icons';
+import { compass, alarm } from 'ionicons/icons';
 import { useParams } from "react-router";
 import events from '../data/data.json';
 import Author from '../components/author/Author';
@@ -15,7 +15,7 @@ const Details= () => {
     const  {id}  = useParams();
     const events_array = Object.values(events.events);
     //gfet event by id
-    let event = events_array.find(event =>  event.id == id);
+    let event = events_array.find(event =>  event.id === id);
     //get players event
     let players = Object.values(event.p);
     console.log(event.p);
@@ -42,7 +42,7 @@ const Details= () => {
         <div className="details-page">
           <div className="event-card">
             <div className="event-card-image">
-              <img src={event.image}></img>
+              <img src={event.image} alt="" />
               <div className="event-card-image-badges">
                   <span className="event-card-image-badges-time badge-details badge-details-blue"><span className="badge-details-icon"><IonIcon icon={alarm}/></span><span>{event.time}</span></span>
                   <span className="event-card-image-badges-location badge-details badge-details-green"><span className="badge-details-icon"><IonIcon icon={compass}/></span><span>{event.location.country}</span></span>
@@ -72,7 +72,7 @@ const Details= () => {
                 <div className="event-card-content-right-players">
                   {
                     players.map((player,index,arr) =>
-                      (<div key={index} className="player"><img src="https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg"></img><span>{player}</span></div>)            
+                      (<div key={index} className="player"><img src="https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg" alt="" /><span>{player}</span></div>)            
                     )
                   }
                 </div>

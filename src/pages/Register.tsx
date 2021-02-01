@@ -10,8 +10,6 @@ import {
 
 import './Register.css';
 import icon from '../assets/img/icono.png'
-import GoogleIcon from '../assets/img/google_icon.svg'
-import FacebookIcon from '../assets/img/facebook_icon.svg'
 import DeporteImg from '../assets/img/deporte_img.png'
 
 const Register: React.FC = () => {

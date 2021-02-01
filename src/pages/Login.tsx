@@ -4,15 +4,9 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 import { 
     IonContent, 
-    IonItem,
     IonInput,
     IonPage,
     IonLoading,
-    IonList,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonLabel,
 
 } from '@ionic/react';
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../../State';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import {
   IonContent,
@@ -24,14 +24,14 @@ import './UpdateProfile.css';
 
 const UpdateProfile = () => {
 
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   const [name, setName] = useState<React.ReactText | undefined>('');
   const [username, setUsername] = useState<React.ReactText | undefined>('');
   const [website, setWebsite] = useState<React.ReactText | undefined>('');
   const [bio, setBio] = useState<React.ReactText | undefined>('');
 
-  const [email, setEmail] = useState<React.ReactText | undefined>('');
+  const [ , setEmail] = useState<React.ReactText | undefined>('');
   const [number, setNumber] = useState<React.ReactText | undefined>('');
   const [gender, setGender] = useState<React.ReactText | undefined>('');
   const [birthday, setBirthday] = useState<string>('');
@@ -58,7 +58,7 @@ const UpdateProfile = () => {
         <section className="update_profile">
           <div className="profile_photo">
             <IonAvatar className="profile_avatar">
-              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="" />
             </IonAvatar>
             <IonLabel className="change_profile_photo">Change Profile Photo</IonLabel>
           </div>

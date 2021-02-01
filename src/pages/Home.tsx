@@ -30,7 +30,7 @@ const Home: React.FC = () => {
   const doLogout = useCallback(async () => {    
     setShowUserMenuEvent(null);
     dispatch({type:'LOGOUT'});        
-  }, [dispatch, history]);  
+  }, [dispatch]);  
 
 
   // Update profile button
