@@ -13,6 +13,7 @@ import {
 import Home from './pages/Home';
 import Events from './pages/Events';
 import Details from './pages/Details.js';
+import Comments from './pages/Comments';
 import Create from './pages/create/Create';
 import { home, people, addCircle } from 'ionicons/icons';
 
@@ -23,7 +24,8 @@ const Tabs: React.FC = () => {
         <IonRouterOutlet>
           <Route path="/app/home" component={Home} exact={true} />
           <Route path="/app/events" component={Events} exact={true} />
-          <Route path="/app/create" component={Create} />          
+          <Route path="/app/create" component={Create} />   
+          <Route path = "/app/comments/:id" component = { Comments } />       
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">
