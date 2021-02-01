@@ -1,6 +1,7 @@
-import React,{useContext,useState, useCallback} from 'react';
+import React,{useContext, useState, useCallback} from 'react';
 import { AppContext } from '../State';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
+
 import { 
   IonContent, 
   IonHeader, 
@@ -14,26 +15,31 @@ import {
   IonButtons,
   IonButton,
   IonIcon 
-
 } from '@ionic/react';
+
 import './Home.css';
-import Event_List from '../components/Event/Event_List';
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-import { Redirect } from 'react-router-dom';
-import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
+import EventList from '../components/Event/Event_List';
+import { ellipsisVertical } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   const history = useHistory();
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+
+  // Logout button
   const doLogout = useCallback(async () => {    
     setShowUserMenuEvent(null);
     dispatch({type:'LOGOUT'});        
   }, [dispatch, history]);  
+
+
+  // Update profile button
+  const updateProfile = () => {
+    setShowUserMenuEvent(null);
+    history.push("/app/profile/update") 
+  }
   
   if (!state.user) {   
-    //history.push("/");
     return <Redirect to="/" /> 
   }
 
@@ -57,10 +63,10 @@ const Home: React.FC = () => {
             onDidDismiss={() => setShowUserMenuEvent(null)}>
           <IonContent>
             <IonList>
-              <IonItem onClick={e => {e.preventDefault();doLogout()} } detail={true} href="">
+              <IonItem onClick={e => {e.preventDefault(); doLogout()}} detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
-              <IonItem>
+              <IonItem onClick={e => {e.preventDefault(); updateProfile()}} href="">
                 <IonLabel>{state.user}</IonLabel>
               </IonItem>
             </IonList>
@@ -72,7 +78,7 @@ const Home: React.FC = () => {
             
           </IonToolbar>
         </IonHeader>
-        <Event_List></Event_List>
+        <EventList />
       </IonContent>
     </IonPage>
   );
