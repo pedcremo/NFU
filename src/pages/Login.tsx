@@ -1,29 +1,19 @@
 import React, { useContext, useState, useRef } from 'react';
 import { AppContext } from '../State';
-<<<<<<< HEAD
 import { Redirect, useHistory } from 'react-router-dom';
-import {
-    IonContent,
-=======
-import { Redirect } from 'react-router-dom';
 
 import { 
     IonContent, 
     IonItem,
->>>>>>> marc
     IonInput,
     IonPage,
-<<<<<<< HEAD
     IonLoading,
-=======
     IonList,
     IonHeader,
     IonToolbar,
     IonTitle,
     IonLabel,
-    IonLoading
 
->>>>>>> marc
 } from '@ionic/react';
 
 import './login.css';
