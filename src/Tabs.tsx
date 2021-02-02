@@ -41,7 +41,7 @@ const Tabs: React.FC = () => {
           </IonTabButton>
         </IonTabBar>
       </IonTabs>      
-   
+
     );
 };
 
