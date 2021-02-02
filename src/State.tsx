@@ -5,7 +5,7 @@ let AppContext = React.createContext(null);
 const initialState = {
   language:'es',
   theme:'light',
-  user:'hola@hola',
+  user:'',
   coordinates: '',
 }
 
