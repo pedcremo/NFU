@@ -1,9 +1,24 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton, IonLabel, IonInput,IonItem,IonCheckbox,IonSelect, IonSelectOption, IonDatetime } from '@ionic/react';
-import { person, compass, alarm,star } from 'ionicons/icons';
-import { useParams } from "react-router";
+
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonLabel,
+  IonInput,
+  IonItem,
+  IonCheckbox,
+  IonSelect,
+  IonSelectOption,
+  IonDatetime
+} from '@ionic/react';
 
 import './create.css';
+
+
 const Create= () => {
   return (
     <IonPage>
