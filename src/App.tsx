@@ -30,6 +30,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import Profile from "./pages/profile/Profile";
 
 const App: React.FC = () => (
   <AppContextProvider>
@@ -39,6 +40,7 @@ const App: React.FC = () => (
           <IonRouterOutlet>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} />
             <Route
               path="/"
               render={() => <Redirect to="/login" />}
