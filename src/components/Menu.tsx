@@ -72,11 +72,11 @@ const Menu: React.FC = () => (
         </IonMenuToggle>
         <IonMenuToggle>
           <IonItem
-            routerLink="/instalations"
+            routerLink="/app/instalaciones"
             routerDirection="none"
             lines="none"
           >
-            <IonIcon color="medium" slot="start" icon={pin} />
+            <IonIcon  color="medium" slot="start" icon={pin} />
             <IonLabel>Instalations</IonLabel>
           </IonItem>
         </IonMenuToggle>

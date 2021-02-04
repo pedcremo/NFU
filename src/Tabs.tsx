@@ -43,10 +43,6 @@ const Tabs: React.FC = () => {
             <IonIcon icon={people} />
             <IonLabel>EVENTS</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="instalaciones" href="/app/instalaciones">
-            <IonIcon icon={barbellSharp} />
-            <IonLabel>Instalaciones</IonLabel>
-          </IonTabButton>
           <IonTabButton tab="create" href="/app/create">
             <IonIcon icon={addCircle} />
             <IonLabel>Añadir evento</IonLabel>
