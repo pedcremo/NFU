@@ -32,6 +32,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Welcome from './pages/Welcome';
 
 const App: React.FC = () => (
   <AppContextProvider>
@@ -41,6 +42,7 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/welcome" component={Welcome} />
           <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
           <Route path="/app" component={Tabs} />
         </IonRouterOutlet>

@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import Home from './pages/Home';
-import Settings from './pages/Settings';
+import Settings from './pages/settings/Settings';
 import Events from './pages/Events';
 import Details from './pages/Details.js';
 import Create from './pages/create/Create';

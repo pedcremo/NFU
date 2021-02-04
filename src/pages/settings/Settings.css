@@ -1,0 +1,33 @@
+.ion-page-settings{
+  align-items: center;
+}
+
+.ion-content-settings{
+  max-width: 978px;
+  border-left: 1px solid rgb(236, 236, 236);
+  border-right: 1px solid rgb(236, 236, 236);
+
+}
+
+.settings-item{
+  border-bottom: none !important;
+  --inner-border-width: 0;
+}
+
+.settings-label{
+  min-height: 38px;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+}
+
+.settings-option{
+  border-bottom: 1px solid #dedede !important;
+}
+
+@media (max-width: 950px) {
+  .facet_sidebar {
+    display: none;
+  }
+}
