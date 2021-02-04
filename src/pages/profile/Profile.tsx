@@ -37,13 +37,10 @@ const Profile: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar color="light">
-          <div className="home">
-          <ButtonLink link="/app/home" text="" icon={home} />
-          </div>
           <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>{"NFU"}</IonTitle>
+          <IonTitle>{"Profile"}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -52,7 +49,7 @@ const Profile: React.FC = () => {
             <div
               className="Content__ProfileImage"
               style={{
-                backgroundImage: `url('${state.user.image}')`,
+                backgroundImage: `url('${state.loggedUser.image}')`,
               }}
             ></div>
             <Sports sportsList={state.loggedUser.sports} />

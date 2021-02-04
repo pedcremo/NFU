@@ -68,7 +68,7 @@ const Header = (props) =>{
               >
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
-              <IonItem detail={true} href="/profile">
+              <IonItem>
                 <IonLabel >{state.user}</IonLabel>
               </IonItem>
             </IonList>
