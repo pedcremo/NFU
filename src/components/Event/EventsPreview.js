@@ -12,9 +12,10 @@ import "./eventsPreview.css";
 
 const EventsPreview = (props) => {
   const event = props;
+  console.log(event);
   return (
     <IonCard className="eventCard">
-      <div className="eventContent" routerLink={"/app/event/" + event.id}>
+      <div className="eventContent">
         <div className="eventContent__left">
           <img src={event.event.image} alt="Ion Card img" />
         </div>
