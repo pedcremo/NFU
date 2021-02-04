@@ -15,7 +15,7 @@ const Modal = () =>{
          </IonToolbar>
        </IonHeader>
        <IonContent className="ion-padding">
-         <MapContainer coordinates = {state.coordinates} action="details"></MapContainer>
+         <MapContainer coordinates = {state.coordinates} user_coordinates = {state.user_coordinates} action="details"></MapContainer>
        </IonContent>
     </>
 
