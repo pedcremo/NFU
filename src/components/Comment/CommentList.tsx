@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { AppContext } from '../../State';
+
 import {
     IonContent,
     IonHeader,
@@ -40,7 +41,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
                         <IonCardSubtitle>Date: {j.date}</IonCardSubtitle>
                         <IonCardSubtitle>
                             <div>
-                                <img style={imgStyle} src="https://lh3.googleusercontent.com/proxy/XOyvYFyCDX8Ybfy7AoRBx7v79xg2VSlxnMJLCAtk7Z_rQSIeIgwm1Ko6VRJ_G5jwzU7tX6GStjQihv8bQew0Lyx9hUbgDGb-O3YQ2wkxds7nXp6QcIPKIW4lF9M1x6dVGZIJZ2SEz3M0PjzruzsiveTmOwfDVWEN" />
+                                <img style={imgStyle} src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" />
                                 <span>{j.author}</span>
                             </div>
                         </IonCardSubtitle>
