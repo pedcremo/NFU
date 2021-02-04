@@ -50,8 +50,8 @@ const Header = (props) =>{
               <IonItem onClick={e => { e.preventDefault(); doLogout()}} detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
-              <IonItem>
-                <IonLabel>{state.user}</IonLabel>
+              <IonItem detail={true} href="/profile">
+                <IonLabel >{state.user}</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>

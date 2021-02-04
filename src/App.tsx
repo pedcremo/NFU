@@ -8,6 +8,8 @@ import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
 import { AppContextProvider } from "./State";
 import Tabs from "./Tabs";
+import Profile from "./pages/profile/Profile";
+import UpdateProfile from "./pages/profile/UpdateProfile";
 
 /* App style */
 import "./App.css";
@@ -39,6 +41,8 @@ const App: React.FC = () => (
           <IonRouterOutlet>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/app/profile/update" component={UpdateProfile} />
             <Route
               path="/"
               render={() => <Redirect to="/login" />}

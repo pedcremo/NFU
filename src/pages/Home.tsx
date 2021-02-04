@@ -1,26 +1,16 @@
-import React,{useContext, useState, useCallback} from 'react';
+import React,{useContext, useState} from 'react';
 import { AppContext } from '../State';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { 
   IonContent, 
-  IonHeader, 
   IonPage, 
-  IonTitle, 
-  IonToolbar,
   IonModal,
-  IonPopover,
-  IonList,
-  IonItem,
-  IonLabel, 
-  IonButtons,
   IonButton,
-  IonIcon 
 } from '@ionic/react';
 
 import './Home.css';
 import EventList from '../components/Event/Event_List';
-import { ellipsisVertical } from 'ionicons/icons';
 
 import MyModal from '../components/modal/MyModal';
 import data from '../data/data.json';
@@ -28,22 +18,22 @@ import data from '../data/data.json';
 import Header from '../components/header/header';
 
 const Home: React.FC = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const { state,dispatch } = useContext(AppContext);
-  const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+  // const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
 
-  const doLogout = useCallback(async () => {    
-    setShowUserMenuEvent(null);
-    dispatch({type:'LOGOUT'});        
-  }, [dispatch]);  
+  // const doLogout = useCallback(async () => {    
+  //   setShowUserMenuEvent(null);
+  //   dispatch({type:'LOGOUT'});        
+  // }, [dispatch]);  
 
 
-  // Update profile button
-  const updateProfile = () => {
-    setShowUserMenuEvent(null);
-    history.push("/app/profile/update") 
-  }
+  // // Update profile button
+  // const updateProfile = () => {
+  //   setShowUserMenuEvent(null);
+  //   history.push("/app/profile/update") 
+  // }
   
   if (!state.user) {   
     return <Redirect to="/" /> 
@@ -52,7 +42,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <Header page="Home"/>
-      <IonContent fullscreen>      
+      <IonContent fullscreen> 
         <IonModal isOpen={showModal}>
         <MyModal></MyModal>
         <IonButton onClick={() => setShowModal(false)}>
@@ -77,7 +67,6 @@ const Home: React.FC = () => {
       }}></p> 
 
         <EventList />
-
       </IonContent>
     </IonPage>
   );

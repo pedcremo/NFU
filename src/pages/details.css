@@ -169,3 +169,6 @@
 .maps:hover{
     cursor: pointer;
 }
+.UD_buttons{
+    --ion-color-primary: yellow;
+}

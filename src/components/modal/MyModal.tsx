@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import {IonHeader, IonContent, IonToolbar, IonTitle} from '@ionic/react';
 // import {GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from '../maps/mapContainer';
 import { AppContext } from '../../State';
 
 const Modal = () =>{
-  const { state,dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   return (
     <>

@@ -11,7 +11,7 @@ import {
   IonButton,
 } from "@ionic/react";
 
-import { compass, alarm } from "ionicons/icons";
+import { compass, alarm, create, close } from "ionicons/icons";
 import { useParams } from "react-router";
 import events from "../data/data.json";
 import Author from "../components/author/Author";
@@ -80,6 +80,18 @@ const Details = () => {
                   </span>
                   <span>{event.location.city}</span>
                 </span>
+                <div className="UD_buttons">
+                  <span>
+                  <IonButton>
+                      <IonIcon icon={create} />
+                    </IonButton>
+                  </span>
+                  <span>
+                    <IonButton>
+                      <IonIcon icon={close} />
+                    </IonButton>
+                  </span>
+                </div>
               </div>
             </div>
             <div className="event-card-content">
