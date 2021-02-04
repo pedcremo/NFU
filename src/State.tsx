@@ -5,12 +5,7 @@ let AppContext = React.createContext(null);
 const initialState = {
   language: "es",
   theme: "light",
-  user: {
-    name: "Pedro Alvarez",
-    image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    sports: ["basket", "tennis", "football"],
-  },
+  user: "",
   coordinates: "",
 };
 
