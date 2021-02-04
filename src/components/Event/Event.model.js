@@ -1,4 +1,4 @@
-const event = {
+const event_model = {
   id: 1,
   title: "",
   description: "",
@@ -25,4 +25,4 @@ const event = {
   image: "",
   p: {},
 };
-export default event;
+export default event_model;
