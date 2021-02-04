@@ -14,11 +14,15 @@ import {
 import { basketball, settings, share, gameController } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
+
+  if (!state.user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <IonPage>

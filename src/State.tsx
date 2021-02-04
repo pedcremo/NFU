@@ -5,19 +5,22 @@ let AppContext = React.createContext(null);
 const initialState = {
   language: "es",
   theme: "light",
-  user: {
-    name: "Pedro Alvarez",
-    image:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    sports: ["basket", "tennis", "football"],
-  },
+  user: "",
   coordinates: "",
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
     case "SET_USER": {
-      return { ...state, user: action.value };
+      return {
+        ...state,
+        user: {
+          name: action.value,
+          image:
+            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          sports: ["basket", "tennis", "football"],
+        },
+      };
     }
     case "LOGOUT": {
       return { ...state, user: "" };
