@@ -8,7 +8,6 @@ import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
 import { AppContextProvider } from "./State";
 import Tabs from "./Tabs";
-import Profile from "./pages/profile/Profile";
 import UpdateProfile from "./pages/profile/UpdateProfile";
 
 /* App style */
@@ -32,13 +31,16 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import Profile from "./pages/profile/Profile";
+import Menu from "./components/Menu";
 
 const App: React.FC = () => (
   <AppContextProvider>
     <IonApp>
       <IonReactRouter>
         <IonPage>
-          <IonRouterOutlet>
+          <Menu />
+          <IonRouterOutlet id="NFU_Navigation">
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />

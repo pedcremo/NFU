@@ -8,14 +8,15 @@ import {
   IonModal,
   IonButton,
 } from '@ionic/react';
-
 import './Home.css';
 import EventList from '../components/Event/Event_List';
+// import { ellipsisVertical } from 'ionicons/icons';
 
 import MyModal from '../components/modal/MyModal';
 import data from '../data/data.json';
 
 import Header from '../components/header/header';
+
 
 const Home: React.FC = () => {
   // const history = useHistory();

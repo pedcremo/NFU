@@ -6,7 +6,6 @@ import {
   IonPage,
   IonHeader,
   IonToolbar,
-
 } from "@ionic/react";
 import {
   settings,
@@ -17,10 +16,22 @@ import {
 } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
+
+import {
+  IonTitle,
+  IonText,
+  IonButtons,
+  IonMenuButton,
+} from "@ionic/react";
+import { Link, Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
+
+  if (!state.user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <IonPage>
@@ -29,6 +40,10 @@ const Profile: React.FC = () => {
           <div className="home">
           <ButtonLink link="/app/home" text="" icon={home} />
           </div>
+          <IonButtons slot="start">
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
+          <IonTitle>{"NFU"}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -37,7 +52,7 @@ const Profile: React.FC = () => {
             <div
               className="Content__ProfileImage"
               style={{
-                backgroundImage: `url('${state.loggedUser.image}')`,
+                backgroundImage: `url('${state.user.image}')`,
               }}
             ></div>
             <Sports sportsList={state.loggedUser.sports} />
@@ -53,8 +68,7 @@ const Profile: React.FC = () => {
                   text="Invitaciones"
                   icon={share}
                 />
-                <ButtonLink link="/login" text="Settings" icon={settings} />
-              </div>
+            </div>
             </div>
           </div>
         </div>
