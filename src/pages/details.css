@@ -153,5 +153,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
+}
+
+.maps{
+    background-image: url("../img/map-marked-alt-solid.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 80px;
+}
+
+.maps:hover{
+    cursor: pointer;
 }

@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
+import { pinSharp, heartOutline, addCircle } from 'ionicons/icons';
 import {
-  IonContent,IonPage, IonIcon, IonSlides,
+  IonContent, IonPage, IonIcon, IonSlides,
   IonRow,
   IonCard,
   IonCardTitle,
-  IonList
+  IonSlide,
+  IonButton,
+  IonCardSubtitle
 } from '@ionic/react';
-import {  pinSharp } from 'ionicons/icons';
 import { useParams } from "react-router";
 import data from '../data/dataInstalaciones.json';
 import { Redirect } from 'react-router-dom';
@@ -25,6 +27,9 @@ const Instalacion = () => {
   console.log(id);
   const instalaciones_ar = Object.values(data);
 
+  // let eventClick = () => {
+
+  // }
 
   let instalacion = instalaciones_ar.find(instalacion => instalacion.id === id);
   console.log(instalacion.id)
@@ -53,11 +58,11 @@ const Instalacion = () => {
               <img src={instalacion.imagen} alt="img"></img>
               <article className="detail-image-icons">
                 <span className="detail-image-icons-location icon-details icon-details-green"><span className="icon-details-icon"><IonIcon icon={pinSharp} /></span>
-                  <h7>{instalacion.ubication}</h7>
+                  <h5>{instalacion.ubication}</h5>
                 </span>
 
               </article>
-              
+
             </article>
 
             <article className="detail-content">
@@ -66,14 +71,24 @@ const Instalacion = () => {
                 <IonRow>
                   <IonSlides options={slideOpts}>
                     {instalacion.pistas.map((pista, index) => (
-                      <IonList key={index} className="IonSliderList">
+                      <IonSlide key={index} className="IonSliderList">
                         <IonCard key={'col_' + index} style={{
                         }} className="centerCardSlide">
                           <article className="cardImage">
-                            <IonCardTitle>{pista}</IonCardTitle>
+                            <IonCardTitle className="title">{pista}</IonCardTitle>
+                            <IonCardSubtitle>
+
+                              <IonButton color="medium">
+                                <IonIcon icon={heartOutline} className="cardContent__operation--icon " />
+                              </IonButton>
+                              <IonButton color="medium"  href="/app/create">
+                                <IonIcon icon={addCircle} className="cardContent__operation--icon " />
+                              </IonButton>
+  
+                            </IonCardSubtitle>
                           </article>
                         </IonCard>
-                      </IonList>
+                      </IonSlide>
                     ))}
                   </IonSlides>
                 </IonRow>
@@ -85,7 +100,7 @@ const Instalacion = () => {
         </section>
 
       </IonContent>
-      <Footer/>
+      <Footer />
     </IonPage>
   );
 };

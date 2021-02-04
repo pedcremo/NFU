@@ -1,12 +1,9 @@
-import React,{useContext,useState,useEffect} from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../../State';
-import { ellipsisVertical, removeCircleOutline } from 'ionicons/icons';
-import { Redirect } from 'react-router-dom';
+import { ellipsisVertical } from 'ionicons/icons';
 
 
-import { person, compass, alarm,star } from 'ionicons/icons';
 import {  
-    IonCard,
     IonHeader,
     IonToolbar,
     IonTitle,

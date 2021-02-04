@@ -8,6 +8,11 @@
 .IonSliderList{
     max-width: 180px;
     max-height:100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
 
 }
 
@@ -76,16 +81,38 @@
     margin-bottom: 20px;
 }
 
-.detail-content-left-title{
-    padding: 10px;
-    font-size: 20px;
-    text-transform: uppercase;
+ .detail-content-left-title{
+    font-size: 25px;
+    text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
-    border-bottom: 3px solid var(--blue);
+} 
+
+.cardImage{
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color:springgreen;
+    margin: auto;
 }
 
 
+.title{
+    text-align: center;
+    font-style: oblique;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+
+.CardImage__subtitle{
+    font-weight: bold;
+    font-size: 20px;
+}
 
 .detail-image-icons{
     position: absolute;
@@ -121,6 +148,10 @@
     margin-right: 5px;
 }
 
+.cardContent__operation--icon {
+    transition: 0.1s;
+    font-size: 32px;
+}
 
 
 
