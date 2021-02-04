@@ -50,7 +50,7 @@ const Home: React.FC = () => {
   }
   
   let actual_coordinates = (function(){
-    navigator.geolocation.getCurrentPosition(getCoordinates);
+    navigator.geolocation.getCurrentPosition(getCoordinates, errorGetCoordinates);
 
     function getCoordinates(position){  //Closure para establecer las coordenadas actuales del usuario
       let coords = {
@@ -60,6 +60,12 @@ const Home: React.FC = () => {
       // console.log("******************COORDENADAS DEL USER CAMBIADAS****************")
       dispatch({type:'USER_COORDINATES',value:coords});
       
+    }
+
+    function errorGetCoordinates(error){
+      console.log("ALERTA!");
+      console.log("No se han podido obtener las coordenadas");
+      console.log(error);
     }
   })();
 

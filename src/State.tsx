@@ -12,6 +12,7 @@ const initialState = {
     sports: ["basket", "tennis", "football"],
   },
   coordinates: "",
+  user_coordinates: "no",
 };
 
 let reducer = (state, action) => {
