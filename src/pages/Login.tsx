@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../State";
 import { Redirect, useHistory } from "react-router-dom";
 
+
 import { IonContent, IonInput, IonPage, IonLoading } from "@ionic/react";
 
 import "./login.css";
@@ -9,6 +10,7 @@ import icon from "../assets/img/icono.png";
 import GoogleIcon from "../assets/img/google_icon.svg";
 import FacebookIcon from "../assets/img/facebook_icon.svg";
 import DeporteImg from "../assets/img/deporte_img.png";
+
 
 const Login: React.FC = () => {
   const history = useHistory();
@@ -157,7 +159,10 @@ const Login: React.FC = () => {
             </div>
           </form>
         </div>
-      </IonContent>
+
+        
+        </IonContent>
+
     </IonPage>
   );
 };

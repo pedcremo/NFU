@@ -20,7 +20,6 @@ import {
 
 import './create.css';
 
-
 const Create= () => {
   return (
     <IonPage>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from "react";
 import { AppContext } from "../State";
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { IonContent, IonPage, IonModal, IonButton } from "@ionic/react";
 

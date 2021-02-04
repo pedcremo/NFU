@@ -47,7 +47,7 @@ const Menu: React.FC = () => (
       <IonImg src={""} />
       <IonList>
         <IonMenuToggle>
-          <IonItem routerLink="/home" routerDirection="none" lines="none">
+          <IonItem routerLink="/app/home" routerDirection="none" lines="none">
             <IonIcon color="medium" slot="start" icon={home} />
             <IonLabel>Home</IonLabel>
           </IonItem>
@@ -72,11 +72,11 @@ const Menu: React.FC = () => (
         </IonMenuToggle>
         <IonMenuToggle>
           <IonItem
-            routerLink="/instalations"
+            routerLink="/app/instalaciones"
             routerDirection="none"
             lines="none"
           >
-            <IonIcon color="medium" slot="start" icon={pin} />
+            <IonIcon  color="medium" slot="start" icon={pin} />
             <IonLabel>Instalations</IonLabel>
           </IonItem>
         </IonMenuToggle>
