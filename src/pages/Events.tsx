@@ -1,9 +1,10 @@
 import React,{useContext} from 'react';
 import { AppContext } from '../State';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import Event_List from '../components/Event/Event_List';
+import EventList from '../components/Event/Event_List';
 import './Events.css';
 import { Redirect } from 'react-router-dom';
+import Header from '../components/header/header';
 
 const Events: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -13,18 +14,19 @@ const Events: React.FC = () => {
   }
   return (
     <IonPage>
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar>
           <IonTitle>EVENTS</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
+      <Header page={"Events"} ></Header>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">EVENTS</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Event_List></Event_List>
+        <EventList />
       </IonContent>
     </IonPage>
   );

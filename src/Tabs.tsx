@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Redirect,Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
 import {     
     IonTabs,
     IonTabBar,
@@ -15,10 +16,10 @@ import Events from './pages/Events';
 import Details from './pages/Details.js';
 import Comments from './pages/Comments';
 import Create from './pages/create/Create';
+import UpdateProfile from './pages/profile/UpdateProfile';
 import { home, people, addCircle } from 'ionicons/icons';
 
 const Tabs: React.FC = () => {
-        
     return (
         <IonTabs>
         <IonRouterOutlet>
@@ -26,6 +27,9 @@ const Tabs: React.FC = () => {
           <Route path="/app/events" component={Events} exact={true} />
           <Route path="/app/create" component={Create} />   
           <Route path = "/app/comments/:id" component = { Comments } />       
+          <Route path="/app/event/:id" component={Details} />
+          <Route path="/app/create" component={Create} />                    
+          <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">
