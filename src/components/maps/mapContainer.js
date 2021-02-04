@@ -21,8 +21,6 @@ export class MapContainer extends React.Component {
     return (
       <Map google={this.props.google} zoom={10} onClick={this.mapClicked} center={{ lat: user_coordinates.latitude, lng: user_coordinates.longitude }}>
 
-        {/* {navigator.geolocation.getCurrentPosition} */}
-
         {
           coordinates_array.length>2
           ?(//if
