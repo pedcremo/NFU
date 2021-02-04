@@ -8,25 +8,29 @@ import {
   IonToolbar,
   IonTitle,
   IonText,
+  IonButtons,
+  IonMenuButton,
 } from "@ionic/react";
-import {
-  basketball,
-  settings,
-  share,
-  gameController,
-} from "ionicons/icons";
+import { basketball, settings, share, gameController } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
 
+  if (!state.user) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar color="light">
+          <IonButtons slot="start">
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
           <IonTitle>{"NFU"}</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -47,11 +51,7 @@ const Profile: React.FC = () => {
                 <ButtonLink link="/login" text="Matches" icon={basketball} />
               </div>
               <div>
-                <ButtonLink
-                  link="/login"
-                  text="Invitaciones"
-                  icon={share}
-                />
+                <ButtonLink link="/login" text="Invitaciones" icon={share} />
                 <ButtonLink link="/login" text="Settings" icon={settings} />
               </div>
             </div>
