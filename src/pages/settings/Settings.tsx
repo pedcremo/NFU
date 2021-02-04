@@ -24,6 +24,8 @@ const Settings: React.FC = () => {
     return <Redirect to="/" />;
   }
 
+  const toggleDarkModeHandler = () => window.matchMedia('(prefers-color-scheme: dark)');
+
   return (
     <IonPage className="ion-page-settings">
       <Header page="Settings" />
@@ -34,7 +36,8 @@ const Settings: React.FC = () => {
           </IonItemDivider>
 
           <IonItem className="settings-item" >
-            <IonLabel className="settings-label">Mostrar notificaciones de eventos <IonToggle color="secondary" /></IonLabel>
+            <IonLabel className="settings-label">Mostrar notificaciones de eventos <IonToggle color="secondary" name="darkMode"
+              onIonChange={toggleDarkModeHandler}/></IonLabel>
           </IonItem>
           <IonItem className="settings-item">
             <IonLabel className="settings-label">Activar sonido de notificaciones <IonToggle color="secondary" /></IonLabel>
