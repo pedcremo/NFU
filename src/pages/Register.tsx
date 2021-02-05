@@ -10,8 +10,6 @@ import {
 
 import './Register.css';
 import icon from '../assets/img/icono.png'
-import GoogleIcon from '../assets/img/google_icon.svg'
-import FacebookIcon from '../assets/img/facebook_icon.svg'
 import DeporteImg from '../assets/img/deporte_img.png'
 
 const Register: React.FC = () => {
@@ -63,7 +61,7 @@ const Register: React.FC = () => {
                             </div>
                             <button className="loginOption loginOption--submit" type="submit" id="btnRegister">Create Account</button>
                             <div className="login-row">
-                                <div className="loginOption loginOption--local loginOption--create">
+                                <div className="loginOption loginOption--local loginOption--create" onClick={() => history.push('recover')}>
                                     I've forgot my password
                                 </div>
                                 <div className="separator"></div>

@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Redirect,Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
 import {     
     IonTabs,
     IonTabBar,
@@ -14,11 +15,15 @@ import Home from './pages/Home';
 import Settings from './pages/settings/Settings';
 import Events from './pages/Events';
 import Details from './pages/Details.js';
+import Instalaciones from './pages/Instalaciones'
+import Instalacion from './pages/instalacion'
 import Create from './pages/create/Create';
-import { home, people, addCircle } from 'ionicons/icons';
+
+import UpdateProfile from './pages/profile/UpdateProfile';
+import { home, people, addCircle,barbellSharp } from 'ionicons/icons';
+
 
 const Tabs: React.FC = () => {
-        
     return (
         <IonTabs>
         <IonRouterOutlet>
@@ -26,7 +31,10 @@ const Tabs: React.FC = () => {
           <Route path="/app/settings" component={Settings} exact={true} />
           <Route path="/app/events" component={Events} exact={true} />
           <Route path="/app/event/:id" component={Details} />
-          <Route path="/app/create" component={Create} />          
+          <Route path="/app/create" component={Create} /> 
+          <Route path="/app/instalaciones" component={Instalaciones} />   
+          <Route path="/app/instalacion/:id" component={Instalacion}/>   
+          <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">

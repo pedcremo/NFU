@@ -1,18 +1,37 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonIcon, IonButton, IonLabel, IonInput,IonItem,IonCheckbox,IonSelect, IonSelectOption, IonDatetime } from '@ionic/react';
-import { person, compass, alarm,star } from 'ionicons/icons';
-import { useParams } from "react-router";
+
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonLabel,
+  IonInput,
+  IonItem,
+  IonCheckbox,
+  IonSelect,
+  IonSelectOption,
+  IonDatetime,
+  IonMenuButton,
+  IonButtons
+} from '@ionic/react';
 
 import './create.css';
+
 const Create= () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
           <IonTitle>Añadir Evento</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen >
+      <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Añadir evento</IonTitle>
@@ -52,9 +71,10 @@ const Create= () => {
             </IonItem>
             <IonItem>
               <IonLabel>Cuando es el evento?</IonLabel>
-              <IonDatetime value="2021-10-01T15:43:40.394Z" display-timezone="utc">
-
-              </IonDatetime>
+              <IonDatetime
+                value="2021-10-01T15:43:40.394Z"
+                display-timezone="utc"
+              ></IonDatetime>
             </IonItem>
             <IonItem lines="none">
               <IonLabel>Solo gente cerca de mi</IonLabel>
