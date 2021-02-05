@@ -25,6 +25,10 @@ const Header = (props) =>{
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
 
+  useEffect(() => {
+    state.theme === "Dark" ? document.body.classList.add("dark") : document.body.classList.remove("dark")
+  })
+
   const doLogout = async () => {  
     setShowUserMenuEvent(null);          
     dispatch({type:'LOGOUT'});

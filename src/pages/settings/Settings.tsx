@@ -18,26 +18,15 @@ import Header from "../../components/header/header";
 
 const Settings: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
-  const [ theme, setTheme] = useState<React.ReactText | undefined>('Light');
-
+  const [ theme, setTheme] = useState<React.ReactText | undefined>(state.theme);
 
   useEffect(() => {
     dispatch({ type: 'SET_THEME', value: theme})
   }, [theme, dispatch]);
-
   
-
   const toggleDarkModeHandler = () => {
-    // document.body.classList.toggle("dark");
-    // dispatch({ type: 'SET_THEME', value: theme})
+
   };
-
-  // let changeTheme = (e) => {
-  //   setTheme(e.detail.value)
-
-
-    
-  // }
 
   if (!state.user) {
     return <Redirect to="/" />;

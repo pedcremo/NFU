@@ -46,20 +46,14 @@ function AppContextProvider(props) {
     ...initialState,
     ...persistedState
   }
-  console.log("persistedState ===================");
-  console.log(persistedState);
-  console.log("AppContextProvider ===================");
-  console.log(fullInitialState);
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
-  console.log("state.theme ==============");
-  console.log(state.theme);
+
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
     window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme}))
   }, [state]);
 
   let value = { state, dispatch };
-
 
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
