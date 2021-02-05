@@ -4,7 +4,7 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   language:'es',
-  theme:'light',
+  theme:'Light',
   user:'' 
 }
 
@@ -18,6 +18,7 @@ let reducer = (state, action) => {
       return { ...state, user: '' }
     }
     case "SET_THEME": {
+      action.value === "Dark" ? document.body.classList.add("dark") : document.body.classList.remove("dark")
       return { ...state, theme: action.value }
     }
 
@@ -45,12 +46,16 @@ function AppContextProvider(props) {
     ...initialState,
     ...persistedState
   }
-
+  console.log("persistedState ===================");
+  console.log(persistedState);
+  console.log("AppContextProvider ===================");
+  console.log(fullInitialState);
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
-
+  console.log("state.theme ==============");
+  console.log(state.theme);
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user}))
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme}))
   }, [state]);
 
   let value = { state, dispatch };

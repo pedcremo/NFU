@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../State";
+import React, { useContext, useState, useRef, useEffect, useCallback } from 'react';
+import { AppContext } from '../../State';
+import { Redirect } from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 import {
   IonContent,
@@ -13,18 +14,34 @@ import {
   IonToggle,
 } from "@ionic/react";
 import "./Settings.css";
-import { Redirect } from "react-router-dom";
 import Header from "../../components/header/header";
 
 const Settings: React.FC = () => {
-  // const history = useHistory();
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
+  const [ theme, setTheme] = useState<React.ReactText | undefined>('Light');
+
+
+  useEffect(() => {
+    dispatch({ type: 'SET_THEME', value: theme})
+  }, [theme, dispatch]);
+
+  
+
+  const toggleDarkModeHandler = () => {
+    // document.body.classList.toggle("dark");
+    // dispatch({ type: 'SET_THEME', value: theme})
+  };
+
+  // let changeTheme = (e) => {
+  //   setTheme(e.detail.value)
+
+
+    
+  // }
 
   if (!state.user) {
     return <Redirect to="/" />;
   }
-
-  const toggleDarkModeHandler = () => window.matchMedia('(prefers-color-scheme: dark)');
 
   return (
     <IonPage className="ion-page-settings">
@@ -51,9 +68,9 @@ const Settings: React.FC = () => {
 
           <IonItem className="settings-item">
             <IonLabel className="settings-label">Change theme
-              <IonSelect>
-                <IonSelectOption>Light</IonSelectOption>
-                <IonSelectOption>Dark</IonSelectOption>
+              <IonSelect value={theme} onIonChange={e => setTheme(e.detail.value)}>
+                <IonSelectOption value="Light">Light</IonSelectOption>
+                <IonSelectOption value="Dark">Dark</IonSelectOption>
               </IonSelect>
             </IonLabel>
           </IonItem>
