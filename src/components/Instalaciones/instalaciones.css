@@ -1,0 +1,13 @@
+:root{
+    --with-size: 100%;
+    --general-flex:center;
+}
+
+
+.dataList{
+    width: var(--with-size);
+    display: flex;
+    flex-direction: column;
+    justify-content: var(general-flex);
+    align-items: var(--general-flex);
+}

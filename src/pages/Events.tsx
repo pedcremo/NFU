@@ -5,6 +5,7 @@ import EventList from '../components/Event/Event_List';
 import './Events.css';
 import { Redirect } from 'react-router-dom';
 import Header from '../components/header/header';
+import Footer from '../components/Footer/Footer';
 
 const Events: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -28,6 +29,7 @@ const Events: React.FC = () => {
         </IonHeader>
         <EventList />
       </IonContent>
+      <Footer/>
     </IonPage>
   );
 };
