@@ -3,25 +3,16 @@ import React, { useReducer, useEffect } from "react";
 let AppContext = React.createContext(null);
 
 const initialState = {
-  language:'es',
-  theme:'Light',
-  user:'',
+  language: 'es',
+  theme: 'Light',
+  user: '',
   coordinates: "",
 }
 
-
 let reducer = (state, action) => {
   switch (action.type) {
-    case "SET_USER": {
-      return {
-        ...state,
-        user: {
-          name: action.value,
-          image:
-            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-          sports: ["basket", "tennis", "football"],
-        },
-      };
+    case "SET_USER": {      
+      return { ...state, user: action.value }
     }
     case "LOGOUT": {
       return { ...state, user: "" };
@@ -72,7 +63,7 @@ function AppContextProvider(props) {
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme}))
+    window.localStorage.setItem('persistedState', JSON.stringify({ user: state.user, theme: state.theme }))
   }, [state]);
 
   let value = { state, dispatch };
