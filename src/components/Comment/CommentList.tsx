@@ -1,35 +1,34 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../../State';
-
+import './CommentList.css'
 import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonButtons,
     IonButton,
     IonIcon,
-    IonInput,
-    IonItem,
-    IonLabel,
-    IonList,
     IonCard,
     IonCardSubtitle,
-    IonCardContent
+    IonCardContent,
+    IonCardHeader,
+    IonCardTitle
 
 } from '@ionic/react';
-import { ellipsisVertical } from 'ionicons/icons';
+import { trash } from 'ionicons/icons';
 
 type CommentProps = {
     comments: any[],
-  }
+}
 
 const CommentList: React.FC<CommentProps> = (props) => {
     const [message, setMessage] = useState<React.ReactText | undefined>('');
+    const { state, dispatch } = useContext(AppContext);
 
+
+    console.log(state);
     const imgStyle = {
         width: '50px'
+    }
+
+    const deleteComment = () => {
+        console.log('hola');
     }
 
     const comments = props.comments;
@@ -38,16 +37,20 @@ const CommentList: React.FC<CommentProps> = (props) => {
             {
                 comments.map((j, k) => {
                     return (<IonCard id={j.id}>
-                        <IonCardSubtitle>Date: {j.date}</IonCardSubtitle>
-                        <IonCardSubtitle>
-                            <div>
-                                <img style={imgStyle} src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" />
-                                <span>{j.author}</span>
-                            </div>
-                        </IonCardSubtitle>
+                        <IonCardHeader>
+                            <IonCardSubtitle>{j.date}</IonCardSubtitle>
+                            <IonCardTitle>
+                                <div>
+                                    <img style={imgStyle} src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" />
+                                    <span className = "username">{j.author}</span>
+                                </div>
+                            </IonCardTitle>
+                        </IonCardHeader>
                         <IonCardContent>
                             {j.body}
                         </IonCardContent>
+                        <div></div>
+                        <IonButton fill="clear" type="button" onClick = {deleteComment}><IonIcon icon={trash} /></IonButton>
                     </IonCard>)
                 })
             }
