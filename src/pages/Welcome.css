@@ -6,6 +6,10 @@
 
 }
 
+.flipImg{
+  transform: scaleX(-1);
+}
+
 .topSlide{
   height: 50%;
 }

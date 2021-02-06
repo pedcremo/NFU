@@ -7,6 +7,7 @@ const initialState = {
   theme: 'Light',
   user: '',
   coordinates: "",
+  welcome: ""
 }
 
 let reducer = (state, action) => {
@@ -24,6 +25,9 @@ let reducer = (state, action) => {
     case "ALL_COORDINATES": {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
       return { ...state, coordinates: action.value };
+    }
+    case "WELCOME": {
+      return { ...state, welcome: action.value };
     }
   }
   return state;
@@ -63,7 +67,7 @@ function AppContextProvider(props) {
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({ user: state.user, theme: state.theme }))
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme, welcome: state.welcome}))
   }, [state]);
 
   let value = { state, dispatch };

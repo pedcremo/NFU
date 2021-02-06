@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-// import { AppContext } from '../State';
+import React, { useContext, useState, useEffect } from 'react';
+import { AppContext } from '../State';
+import { Redirect } from 'react-router-dom';
 import {
   IonButton,
   IonContent,
-  IonIcon,
   IonPage,
   IonSlide,
   IonSlides,
@@ -11,16 +11,28 @@ import {
 import "./Welcome.css";
 import icon from "../assets/img/icono.png";
 import DeporteImg from "../assets/img/deporte_img.png";
-import balls from "../assets/img/ballsimg.png";
+import geo from "../assets/img/geo.png";
+import friends from "../assets/img/friends-welcome.png";
+import ready from "../assets/img/ready.png";
 
 // import { Redirect } from 'react-router-dom';
 
 const Welcome: React.FC = () => {
+
+  const { state, dispatch } = useContext(AppContext);
+  const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('');
+
+  useEffect(() => {
+    dispatch({ type: 'WELCOME', value: welcome})
+  }, [welcome, dispatch]);
+
+  if (state.welcome === 'true'){return <Redirect to="/" />}
+
   return (
     <IonPage>
       <IonContent fullscreen className="welcome-page-content" scroll-y="false">
         <div className="welcome-page-content">
-          <IonSlides>
+          <IonSlides pager={true}>
             <IonSlide>
               <div className="slide">
                 <div className="topSlide">
@@ -37,8 +49,8 @@ const Welcome: React.FC = () => {
 
                 <h2 className="slideTitle">Welcome</h2>
                 <p className="slideText">
-                  The ionic conference app is a practical preview of the ionic
-                  framework in action, and a demonstration of proper code use.
+                Find tournaments and matches for the sport you prefer. Join
+                with a single click
                 </p>
               </div>
             </IonSlide>
@@ -46,18 +58,37 @@ const Welcome: React.FC = () => {
             <IonSlide>
               <div className="slide">
                 <div className="topSlide">
-                  <div className="WelcomeAppTitleContainer">
+                  <div className="WelcomeAppTitleContainer" style={{visibility: "hidden"}}>
                     <img src={icon} alt="icon" />
                     <span className="AppTitle">Nos Falta Uno</span>
                   </div>
-                  <img src={balls} alt="Deporte IMG" className="welcomeImg" />
+                  <img src={friends} alt="Deporte IMG" className="welcomeImg" />
                 </div>
 
-                <h2 className="slideTitle">What is Ionic?</h2>
+                <h2 className="slideTitle">Meet new friends</h2>
                 <p className="slideText">
-                  <b>Ionic Framework</b> is an open source SDK that enables
-                  developers to build high quality mobile apps with web
-                  technologies like HTML, CSS, and JavaScript.
+                  Meet new friends with the same interests and play sports together
+                </p>
+              </div>
+            </IonSlide>
+
+            <IonSlide>
+              <div className="slide">
+                <div className="topSlide">
+                  <div className="WelcomeAppTitleContainer" style={{visibility: "hidden"}}>
+                    <img src={icon} alt="icon" />
+                    <span className="AppTitle">Nos Falta Uno</span>
+                  </div>
+                  <img
+                    src={geo}
+                    alt="Deporte IMG"
+                    className="welcomeImg"
+                  />
+                </div>
+
+                <h2 className="slideTitle">Find the nearest events</h2>
+                <p className="slideText">
+                  Choose your preferences and we will show you the related events closest to you.
                 </p>
               </div>
             </IonSlide>
@@ -70,37 +101,14 @@ const Welcome: React.FC = () => {
                     <span className="AppTitle">Nos Falta Uno</span>
                   </div>
                   <img
-                    src={DeporteImg}
+                    src={ready}
                     alt="Deporte IMG"
-                    className="welcomeImg"
+                    className="welcomeImg flipImg"
                   />
                 </div>
 
-                <h2 className="slideTitle">What is Ionic Appflow?</h2>
-                <p className="slideText">
-                  <b>Ionic Appflow</b> is a powerful set of services and
-                  features built on top of Ionic Framework that brings a totally
-                  new level of app development agility to mobile dev teams.
-                </p>
-              </div>
-            </IonSlide>
-
-            <IonSlide>
-              <div className="slide">
-                <div className="topSlide">
-                  <div className="WelcomeAppTitleContainer">
-                    <img src={icon} alt="icon" />
-                    <span className="AppTitle">Nos Falta Uno</span>
-                  </div>
-                  <img
-                    src={DeporteImg}
-                    alt="Deporte IMG"
-                    className="welcomeImg"
-                  />
-                </div>
-
-                <h2 className="slideTitle">Ready to Play?</h2>
-                <IonButton fill="clear" className="welcome-btn continue-welcome-btn">Continue</IonButton>
+                <h2 className="slideTitle">Are you ready?</h2>
+                <IonButton fill="clear" className="welcome-btn continue-welcome-btn" onClick={() => setWelcome('true')}>Continue</IonButton>
               </div>
             </IonSlide>
           </IonSlides>

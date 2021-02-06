@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../State';
+import { Redirect } from "react-router-dom";
 import { ellipsisVertical } from 'ionicons/icons';
 
 
@@ -27,6 +28,8 @@ const Header = (props) =>{
     state.theme === "Dark" ? document.body.classList.add("dark") : document.body.classList.remove("dark")
   })
 
+  if (state.welcome !== 'true'){return <Redirect to="/welcome" />}
+  
   const doLogout = async () => {  
     setShowUserMenuEvent(null);          
     dispatch({type:'LOGOUT'});
