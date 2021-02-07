@@ -34,7 +34,7 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import { home, logIn, football, map, pin, people } from "ionicons/icons";
+import { home, logIn, football, map, pin, people, notifications } from "ionicons/icons";
 
 const Menu: React.FC = () => (
   <IonMenu contentId="NFU_Navigation">
@@ -68,6 +68,12 @@ const Menu: React.FC = () => (
           <IonItem routerLink="/profile" routerDirection="none" lines="none">
             <IonIcon color="medium" slot="start" icon={logIn} />
             <IonLabel>Profile</IonLabel>
+          </IonItem>
+        </IonMenuToggle>
+        <IonMenuToggle>
+          <IonItem routerLink="/app/notifications" routerDirection="none" lines="none">
+            <IonIcon color="medium" slot="start" icon={notifications} />
+            <IonLabel>Notifications</IonLabel>
           </IonItem>
         </IonMenuToggle>
         <IonMenuToggle>

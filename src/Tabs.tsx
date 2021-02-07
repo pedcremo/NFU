@@ -22,6 +22,7 @@ import Create from './pages/create/Create';
 
 import UpdateProfile from './pages/profile/UpdateProfile';
 import { home, people, addCircle,barbellSharp } from 'ionicons/icons';
+import Notifications from './pages/notifications/Notifications';
 
 
 const Tabs: React.FC = () => {
@@ -35,7 +36,8 @@ const Tabs: React.FC = () => {
           <Route path = "/app/comments/:id" component = { Comments } />       
           <Route path="/app/event/:id" component={Details} />
           <Route path="/app/create" component={Create} /> 
-          <Route path="/app/instalaciones" component={Instalaciones} />   
+          <Route path="/app/instalaciones" component={Instalaciones} /> 
+          <Route path="/app/notifications" component={Notifications} />   
           <Route path="/app/instalacion/:id" component={Instalacion}/>   
           <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
         </IonRouterOutlet>
