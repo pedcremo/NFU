@@ -1,0 +1,35 @@
+.shadow {
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(102,102,102,0.56);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(102,102,102,0.56);
+    box-shadow: 0px 0px 19px 0px rgba(102,102,102,0.56);
+}
+
+.color-primary {
+    color: var(--ion-color-primary);
+}
+
+.primary--bg {
+    background-color: var(--ion-color-primary);
+}
+
+.danger--bg {
+    background-color: var(--ion-color-danger);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.fit {
+    height: fit-content;
+    max-width: 800px;
+}
+
+.event--wrapper {
+    width: 300px;
+    height: 150px;
+    background-color: black;
+    cursor: pointer;
+
+    padding: 0;
+}
