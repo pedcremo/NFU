@@ -92,7 +92,6 @@ const EventList = () => {
       }
 
       { msg }
-
     </>
   );
 };
