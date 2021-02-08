@@ -18,13 +18,18 @@ const EventList = () => {
       let lowerCase = ele.title.toLowerCase();
       let searchToLowerCase = searchQuery.toLowerCase();
       return lowerCase.includes(searchToLowerCase)
-    }
-    );
+    });
     setFilteredSearch([...tempSearchResult]);
 
     // User events
     const yourevents = Object.values(events.events);
-    setYourEvents([yourevents[0]]);
+    const example = [yourevents[0]];
+    let tempYourEvents = example.filter((ele) => {
+      let lowerCase = ele.title.toLowerCase();
+      let searchToLowerCase = searchQuery.toLowerCase();
+      return lowerCase.includes(searchToLowerCase)
+    });
+    setYourEvents([...tempYourEvents]);
   }, [searchQuery]);
 
 
