@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from '../../State';
 import events from "../../data/data.json";
 import EventsPreview from "./EventsPreview.js";
 import event_model from "./Event.model.js";
@@ -8,8 +9,10 @@ import "./eventList.css";
 const EventList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
-  const [segment, setSegment] = useState("yours");
+  const [segment, setSegment] = useState("all");
   const [yourEvents, setYourEvents] = useState([event_model]);
+  
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
     // All events
@@ -20,6 +23,15 @@ const EventList = () => {
       return lowerCase.includes(searchToLowerCase)
     });
     setFilteredSearch([...tempSearchResult]);
+
+    // Related to you
+    const relatedevents = Object.values(events.events);
+    let tempRelatedEvents = relatedevents.filter((ele) => {
+      let lowerCase = ele.title.toLowerCase();
+      let searchToLowerCase = searchQuery.toLowerCase();
+      return lowerCase.includes(searchToLowerCase)
+    });
+    setFilteredSearch([...tempRelatedEvents]);
 
     // User events
     const yourevents = Object.values(events.events);
@@ -35,13 +47,19 @@ const EventList = () => {
 
   // IonSegment
   let msg;
-  if(segment == "yours") {
+  if (segment == "all") {
+    msg = <IonList className="eventsList">
+            {filteredSearch.map((event, index) => (
+              <EventsPreview key={"event_" + index} event={event} />
+            ))}
+          </IonList>
+  } else if (segment == "yours") {
     msg = <IonList className="eventsList">
             {yourEvents.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else {
+  } else if (segment == "related") {
     msg = <IonList className="eventsList">
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
@@ -56,16 +74,24 @@ const EventList = () => {
         onIonChange={(e) => setSearchQuery(e.detail.value!)}
       ></IonSearchbar>
 
-      <IonSegment defaultValue="yours" onIonChange={e => setSegment(e.detail.value)}>
-        <IonSegmentButton  value="yours">
-          <IonLabel>Your games</IonLabel>
-        </IonSegmentButton>
-        <IonSegmentButton value="related">
-          <IonLabel>Related</IonLabel>
-        </IonSegmentButton>
-      </IonSegment>
+      {
+        (state.user)?
+          <IonSegment onIonChange={e => setSegment(e.detail.value)}>
+            <IonSegmentButton value="all">
+              <IonLabel>All games</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="yours">
+              <IonLabel>Your games</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="related">
+              <IonLabel>Related</IonLabel>
+            </IonSegmentButton>
+          </IonSegment>
+        :
+          <></>
+      }
 
-      {msg}
+      { msg }
 
     </>
   );
