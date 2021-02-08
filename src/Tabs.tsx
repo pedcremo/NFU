@@ -1,7 +1,6 @@
-
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route } from 'react-router-dom';
-
+import { AppContext } from './State';
 import {     
     IonTabs,
     IonTabBar,
@@ -21,11 +20,13 @@ import Instalacion from './pages/instalacion'
 import Create from './pages/create/Create';
 
 import UpdateProfile from './pages/profile/UpdateProfile';
-import { home, people, addCircle,barbellSharp } from 'ionicons/icons';
+import { home, people, addCircle } from 'ionicons/icons';
 import Notifications from './pages/notifications/Notifications';
 
 
 const Tabs: React.FC = () => {
+    const { state, dispatch } = useContext(AppContext);
+
     return (
         <IonTabs>
         <IonRouterOutlet>
@@ -41,22 +42,29 @@ const Tabs: React.FC = () => {
           <Route path="/app/instalacion/:id" component={Instalacion}/>   
           <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
         </IonRouterOutlet>
+
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">
             <IonIcon icon={home} />
             <IonLabel>HOME</IonLabel>
           </IonTabButton>
+
           <IonTabButton tab="events" href="/app/events">
             <IonIcon icon={people} />
             <IonLabel>EVENTS</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="create" href="/app/create">
-            <IonIcon icon={addCircle} />
-            <IonLabel>Añadir evento</IonLabel>
-          </IonTabButton>
+
+          {
+            (state.user)?
+              <IonTabButton tab="create" href="/app/create">
+                <IonIcon icon={addCircle} />
+                <IonLabel>Añadir evento</IonLabel>
+              </IonTabButton>
+            : <></>
+          }
+
         </IonTabBar>
       </IonTabs>      
-   
     );
 };
 

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route } from "react-router-dom";
+import { AppContext } from '../State';
 import {
   IonApp,
   IonRouterOutlet,
@@ -34,61 +35,89 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import { home, logIn, football, map, pin, people, notifications } from "ionicons/icons";
+import { home, logIn, logOut, football, map, pin, people, notifications } from "ionicons/icons";
 
-const Menu: React.FC = () => (
-  <IonMenu contentId="NFU_Navigation">
-    <IonHeader>
-      <IonToolbar>
-        <IonTitle>NFU</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent>
-      <IonImg src={""} />
-      <IonList>
-        <IonMenuToggle>
-          <IonItem routerLink="/app/home" routerDirection="none" lines="none">
-            <IonIcon color="medium" slot="start" icon={home} />
-            <IonLabel>Home</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-        <IonMenuToggle>
-          <IonItem routerLink="/match" routerDirection="none" lines="none">
-            <IonIcon color="medium" slot="start" icon={home} />
-            <IonLabel>Match</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-        <IonMenuToggle>
-          <IonItem routerLink="/login" routerDirection="none" lines="none">
-            <IonIcon color="medium" slot="start" icon={logIn} />
-            <IonLabel>Login</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-        <IonMenuToggle>
-          <IonItem routerLink="/profile" routerDirection="none" lines="none">
-            <IonIcon color="medium" slot="start" icon={logIn} />
-            <IonLabel>Profile</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-        <IonMenuToggle>
-          <IonItem routerLink="/app/notifications" routerDirection="none" lines="none">
-            <IonIcon color="medium" slot="start" icon={notifications} />
-            <IonLabel>Notifications</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-        <IonMenuToggle>
-          <IonItem
-            routerLink="/app/instalaciones"
-            routerDirection="none"
-            lines="none"
-          >
-            <IonIcon  color="medium" slot="start" icon={pin} />
-            <IonLabel>Instalations</IonLabel>
-          </IonItem>
-        </IonMenuToggle>
-      </IonList>
-    </IonContent>
-  </IonMenu>
-);
+const Menu = () => {
+  const { state, dispatch } = useContext(AppContext);
+
+  const logout = () => {
+    console.log(state.user)
+    dispatch({type:'LOGOUT'});
+    window.location.reload(); 
+  }
+
+  return (
+    <IonMenu contentId="NFU_Navigation">
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>NFU</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonImg src={""} />
+        <IonList>
+          <IonMenuToggle>
+            <IonItem routerLink="/app/home" routerDirection="none" lines="none">
+              <IonIcon color="medium" slot="start" icon={home} />
+              <IonLabel>Home</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
+
+          <IonMenuToggle>
+            <IonItem routerLink="/match" routerDirection="none" lines="none">
+              <IonIcon color="medium" slot="start" icon={home} />
+              <IonLabel>Match</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
+          
+          <IonMenuToggle>
+            <IonItem routerLink="/app/notifications" routerDirection="none" lines="none">
+              <IonIcon color="medium" slot="start" icon={notifications} />
+              <IonLabel>Notifications</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
+
+          <IonMenuToggle>
+            <IonItem
+              routerLink="/app/instalaciones"
+              routerDirection="none"
+              lines="none"
+            >
+              <IonIcon  color="medium" slot="start" icon={pin} />
+              <IonLabel>Instalations</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
+
+          {
+            (state.user)?
+            <>
+            <IonMenuToggle>
+              <IonItem routerLink="/profile" routerDirection="none" lines="none">
+                <IonIcon color="medium" slot="start" icon={logIn} />
+                <IonLabel>Profile</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+
+            <IonMenuToggle>
+              <IonItem onClick={logout} routerDirection="none" lines="none">
+                <IonIcon color="medium" slot="start" icon={logOut} />
+                <IonLabel>Logout</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+            </>
+            :
+            <IonMenuToggle>
+                <IonItem routerLink="/login" routerDirection="none" lines="none">
+                  <IonIcon color="medium" slot="start" icon={logIn} />
+                  <IonLabel>Login</IonLabel>
+                </IonItem>
+            </IonMenuToggle>
+          }
+
+        </IonList>
+      </IonContent>
+    </IonMenu>
+  )
+};
 
 export default Menu;

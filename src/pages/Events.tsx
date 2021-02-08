@@ -10,16 +10,12 @@ import Footer from '../components/Footer/Footer';
 const Events: React.FC = () => {
   const { state } = useContext(AppContext);
   
-  if (!state.user) {
-    return <Redirect to="/login" /> 
-  }
+  // if (!state.user) {
+  //   return <Redirect to="/login" /> 
+  // }
+
   return (
     <IonPage>
-      {/* <IonHeader>
-        <IonToolbar>
-          <IonTitle>EVENTS</IonTitle>
-        </IonToolbar>
-      </IonHeader> */}
       <Header page={"Events"} ></Header>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
