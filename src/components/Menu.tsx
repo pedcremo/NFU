@@ -41,9 +41,7 @@ const Menu = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const logout = () => {
-    console.log(state.user)
     dispatch({type:'LOGOUT'});
-    window.location.reload(); 
   }
 
   return (
@@ -99,7 +97,7 @@ const Menu = () => {
             </IonMenuToggle>
 
             <IonMenuToggle>
-              <IonItem onClick={logout} routerDirection="none" lines="none">
+              <IonItem onClick={logout} routerLink="/app/home" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logOut} />
                 <IonLabel>Logout</IonLabel>
               </IonItem>

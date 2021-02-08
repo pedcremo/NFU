@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { AppContext } from '../../State';
 import {
   IonContent,
   IonHeader,
@@ -17,10 +17,16 @@ import {
   IonMenuButton,
   IonButtons
 } from '@ionic/react';
-
+import { Redirect } from 'react-router-dom';
 import './create.css';
 
 const Create= () => {
+  const { state,dispatch } = useContext(AppContext);
+
+  if (!state.user) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <IonPage>
       <IonHeader>
