@@ -46,7 +46,6 @@ const App: React.FC = () => (
           <Menu />
           <IonRouterOutlet id="NFU_Navigation">
 
-
           <PublicRoute component={Login} path="/login" exact />
           <PublicRoute component={Register} path="/register" exact />
           <PublicRoute component={Welcome} path="/welcome" exact />

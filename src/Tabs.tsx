@@ -26,7 +26,6 @@ import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
 
 
-
 const Tabs: React.FC = () => {
     const { state, dispatch } = useContext(AppContext);
 
@@ -47,6 +46,7 @@ const Tabs: React.FC = () => {
         <PrivateRoute component={Create} path="/app/create" exact />
         <PrivateRoute component={UpdateProfile} path="/app/profile/update" exact />   
         
+
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
