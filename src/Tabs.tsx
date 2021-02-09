@@ -22,6 +22,7 @@ import Create from './pages/create/Create';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import { home, people, addCircle } from 'ionicons/icons';
 import Notifications from './pages/notifications/Notifications';
+import Profile from './pages/profile/Profile';
 
 
 const Tabs: React.FC = () => {
@@ -40,7 +41,9 @@ const Tabs: React.FC = () => {
           <Route path="/app/instalaciones" component={Instalaciones} /> 
           <Route path="/app/notifications" component={Notifications} />   
           <Route path="/app/instalacion/:id" component={Instalacion}/>   
-          <Route path="/profile/update" component={UpdateProfile} exact={true} />       
+          <Route path="/app/profile/" component={Profile} exact={true} />       
+          <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
+
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">

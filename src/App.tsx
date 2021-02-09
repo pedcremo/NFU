@@ -44,7 +44,6 @@ const App: React.FC = () => (
           <IonRouterOutlet id="NFU_Navigation">
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/profile" component={Profile} />
             <Route path="/welcome" component={Welcome} />
             <Route
               path="/"
