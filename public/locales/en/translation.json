@@ -1,0 +1,36 @@
+{
+  "title": "We're missing one",
+  "welcome": {
+    "title": "We are missing one",
+    "welcome": "Welcome",
+    "description": "Find tournaments and matches for the sport you prefer. Join with a single click",
+    "meet" : "Meet new friends",
+    "meetDescription" : "Meet new friends with the same interests and play sports together",
+    "find" : "Find the nearest events",
+    "findDescription" : "Choose your preferences and we will show you the related events closest to you.",
+    "ready" : "Are you ready?",
+    "continue": "Continue"
+  },
+  "tabs": {
+    "home": "Home",
+    "events": "Events",
+    "addevent": "Create Event"
+  },
+  "create": {
+    "title": "Create Event",
+    "add": "Add Event",
+    "name": "Name of event",
+    "players": "Total players",
+    "needplayers": "Players you need",
+    "location": "Location",
+    "city": "City",
+    "province": "Province",
+    "postal": "Postal Code",
+    "category": "Select a category",
+    "gaming": "Gaming",
+    "sport": "Sport",
+    "when": "When is the event?",
+    "only": "Only people close to me",
+    "submit": "Submit"
+  }
+}

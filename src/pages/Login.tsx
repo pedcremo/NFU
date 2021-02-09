@@ -34,7 +34,7 @@ const Login: React.FC = () => {
       setFormErrors(e);
     }
   };
-
+  if (state.welcome !== 'true'){return <Redirect to="/welcome" />}
   if (state.user) return <Redirect to="/app/home" />;
 
   let showInputs = (op) => {

@@ -1,0 +1,173 @@
+.eventCard {
+    height: 200px;
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    cursor: pointer;
+}
+
+.eventContent {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eventContent__left {
+    overflow: hidden;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.eventContent__left img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.eventContent__right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.eventTitle {
+    color: rgb(41, 41, 41);
+    font-family: Poppins-SemiBold;
+    font-size: 22px;
+}
+
+.eventContent__actions {
+    width: 140px;
+    border-left: 1px solid rgb(211, 211, 211);
+}
+
+.eventContent__actions--option {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.eventContent__actions--icon {
+    transition: 0.1s;
+    font-size: 32px;
+}
+
+.option1:hover .eventContent__actions--icon {
+    color: rgb(211, 51, 51);
+    font-size: 34px;
+}
+
+.option2:hover .eventContent__actions--icon {
+    color: rgb(82, 170, 177);
+    font-size: 34px;
+}
+
+.eventInfo {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.eventInfo div:first-of-type{
+    margin-right: 20px;
+}
+
+.playersIcon {
+    margin-right: 5px;
+}
+
+.eventInfo div {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 550px) {
+    .eventCard {
+        width: 350px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 0px;
+    }
+    .eventContent {
+        color: white;
+        padding: 0px;
+    }
+    .eventTitle {
+        color: white;
+        text-shadow: 1px 1px 1.5px #000000;
+        position: absolute;
+        bottom: 5px;
+        z-index: 20;
+    }
+    .shadowMobileCard{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.308);
+        box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.308);
+    }
+    .eventLocation{
+        visibility: hidden;
+    }
+    .eventInfo{
+        align-items: flex-start;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    .eventInfo--option{
+        padding: 6px;
+        border-radius: 50px;
+        text-shadow: 1px 1px 1.5px #000000;
+        background-color: rgb(56, 125, 146);
+    }
+    .badge{
+        display: flex;
+        flex-direction: row;
+        padding: 5px 8px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.25);
+        cursor: pointer;
+    }
+    
+    .badge-blue{
+        background:#99f8ffd0;
+        color: whitesmoke;
+    }
+    
+    .badge-green{
+        background:#99ff99d0;
+        color: whitesmoke;
+    }
+    .badge-icon{
+        filter: drop-shadow( 0.5px 0.5px 2px black);
+        font-size: 14px;
+        margin-top: 2px;
+        margin-right: 5px;
+    }
+    .eventContent__left {
+        max-width: 100%;
+    }
+    .eventContent__right {
+        position: absolute;
+    }
+    .eventContent__actions {
+        position: absolute;
+        visibility: hidden;
+    }
+}

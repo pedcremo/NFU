@@ -115,6 +115,13 @@ const Details = () => {
                 >
                   JOIN
                 </IonButton>
+                <IonButton
+                  className="event-card-content-left-join"
+                  color="success"
+                  href = {`/app/comments/${id}`}
+                >
+                  COMMENTS
+                </IonButton>
               </div>
               <div className="event-card-content-right">
                 <span className="event-card-content-right-title">PLAYERS</span>

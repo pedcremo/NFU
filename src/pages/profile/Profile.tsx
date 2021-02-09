@@ -23,6 +23,7 @@ import {
   IonButtons,
   IonMenuButton,
 } from "@ionic/react";
+import { basketball, person } from "ionicons/icons";
 import { Link, Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
@@ -49,23 +50,25 @@ const Profile: React.FC = () => {
             <div
               className="Content__ProfileImage"
               style={{
-                backgroundImage: `url('${state.loggedUser.image}')`,
+                backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
               }}
             ></div>
-            <Sports sportsList={state.loggedUser.sports} />
-            <h1 className="Content__name"> {state.user}</h1>
+            <Sports sportsList={["tennis", "basket", "football", "cs GO"]} />
+            <h1>{state.user.name}</h1>
             <div className="Content__Buttons">
               <div>
                 <ButtonLink link="/app/create" text="New" icon={gameController} />
-                <ButtonLink link="/app/profile/update" text="Modify profile" icon={create} />
+                <ButtonLink link="/app/events" text="Matches" icon={basketball} />
               </div>
               <div>
-                <ButtonLink
-                  link="/login"
-                  text="Invitaciones"
-                  icon={share}
-                />
-            </div>
+                <ButtonLink link="/app/notifications" text="Invitaciones" icon={share} />
+                <ButtonLink link="/app/settings" text="Settings" icon={settings} />
+              </div>
+              <ButtonLink
+                link="/app/profile/update"
+                text="Update"
+                icon={person}
+              />
             </div>
           </div>
         </div>

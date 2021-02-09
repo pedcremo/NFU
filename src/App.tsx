@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Suspense } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonPage } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -8,7 +8,8 @@ import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
 import { AppContextProvider } from "./State";
 import Tabs from "./Tabs";
-import UpdateProfile from "./pages/profile/UpdateProfile";
+import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 /* App style */
 import "./App.css";
@@ -32,29 +33,35 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import Profile from "./pages/profile/Profile";
+import Welcome from './pages/Welcome';
 import Menu from "./components/Menu";
 
 const App: React.FC = () => (
   <AppContextProvider>
     <IonApp>
       <IonReactRouter>
+      <Suspense fallback="loading">
         <IonPage>
           <Menu />
           <IonRouterOutlet id="NFU_Navigation">
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/app/profile/update" component={UpdateProfile} />
+          <PublicRoute component={Login} path="/login" exact />
+          <PublicRoute component={Register} path="/register" exact />
+          <PublicRoute component={Welcome} path="/welcome" exact />
+          <PublicRoute component={PasswordForgotten} path="/recover" exact />
+          <PublicRoute component={ChangePassword} path="/recover/:token" exact />
+
+          <PrivateRoute component={Profile} path="/profile" exact />
             <Route
               path="/"
-              render={() => <Redirect to="/login" />}
+              render={() => <Redirect to="/app/home" />}
               exact={true}
             />
             <Route path="/app" component={Tabs} />
-            <Route path="/recover" component={PasswordForgotten} />
-            <Route path="/recover/:token" component={ChangePassword} />
+            
+
           </IonRouterOutlet>
         </IonPage>
+        </Suspense>
       </IonReactRouter>
     </IonApp>
   </AppContextProvider>
