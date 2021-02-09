@@ -16,7 +16,8 @@ import { AppContext } from '../State';
 
 
 import './instalacion.css'
-import Navbar from '../components/Navbar/Navbar';
+import Header from '../components/header/header';
+
 import Footer from '../components/Footer/Footer';
 
 const Instalacion = () => {
@@ -49,7 +50,7 @@ const Instalacion = () => {
   return (
     <IonPage>
 
-      <Navbar page={instalacion.name} ></Navbar>
+    <Header  page={instalacion.name}></Header>
       <IonContent fullscreen >
 
         <section className="details-page">

@@ -32,5 +32,12 @@
     "when": "Quan es l'event??",
     "only": "Sols gent prop de mi",
     "submit": "Afegir"
+  },
+  "instalations": {
+    "ubication": "Ubicació",
+    "name": "nom",
+    "imagen" : "image",
+    "pistas" : "pistes"
   }
+
 }

@@ -4,10 +4,12 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   language: 'es',
-  theme: 'Light',
+  theme: 'Dark',
   user: '',
   coordinates: "",
-  welcome: ""
+  welcome: "",
+  BackLogin:""
+  
 }
 
 let reducer = (state, action) => {
@@ -80,3 +82,5 @@ function AppContextProvider(props) {
 let AppContextConsumer = AppContext.Consumer;
 
 export { AppContext, AppContextProvider, AppContextConsumer };
+
+export const isLogin =(state) => { return state.user ? true: false }

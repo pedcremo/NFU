@@ -24,6 +24,8 @@ import Create from './pages/create/Create';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import { home, people, addCircle } from 'ionicons/icons';
 import Notifications from './pages/notifications/Notifications';
+import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 
 const Tabs: React.FC = () => {
@@ -33,17 +35,21 @@ const Tabs: React.FC = () => {
     return (
         <IonTabs>
         <IonRouterOutlet>
-          <Route path="/app/home" component={Home} exact={true} />
-          <Route path="/app/settings" component={Settings} exact={true} />
-          <Route path="/app/events" component={Events} exact={true} />
-          <Route path="/app/create" component={Create} />   
-          <Route path = "/app/comments/:id" component = { Comments } />       
-          <Route path="/app/event/:id" component={Details} />
-          <Route path="/app/create" component={Create} /> 
-          <Route path="/app/instalaciones" component={Instalaciones} /> 
-          <Route path="/app/notifications" component={Notifications} />   
-          <Route path="/app/instalacion/:id" component={Instalacion}/>   
-          <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
+
+        <PublicRoute component={Home} path="/app/home" exact />
+        <PublicRoute component={Events} path="/app/events" exact />
+        <PublicRoute component={Details} path="/app/event/:id" exact />
+        <PublicRoute component={Comments} path="/app/comments/:id" exact />
+        <PublicRoute component={Notifications} path="/app/notifications" exact />
+        <PublicRoute component={Home} path="/app/home" exact />
+        <PublicRoute component={Instalaciones} path="/app/instalaciones" exact />
+        <PublicRoute component={Instalacion} path="/app/instalacion/:id" exact />
+
+        <PrivateRoute component={Settings} path="/app/settings" exact />
+        <PrivateRoute component={Create} path="/app/create" exact />
+        <PrivateRoute component={UpdateProfile} path="/app/profile/update" exact />   
+        
+
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
