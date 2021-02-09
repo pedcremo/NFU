@@ -40,7 +40,7 @@ const Tabs: React.FC = () => {
           <Route path="/app/instalaciones" component={Instalaciones} /> 
           <Route path="/app/notifications" component={Notifications} />   
           <Route path="/app/instalacion/:id" component={Instalacion}/>   
-          <Route path="/app/profile/update" component={UpdateProfile} exact={true} />       
+          <Route path="/profile/update" component={UpdateProfile} exact={true} />       
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
