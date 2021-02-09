@@ -10,12 +10,32 @@
     "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
-  },
-  "instalations": {
-    "ubication": "Ubicació",
-    "name": "nom",
-    "imagen" : "image",
-    "pistas" : "pistes"
+  },  
+   
+  "updateProfile": {
+    "title": "Editar Perfil",
+    "changePhoto": "Canviar Foto de Perfil",
+    "form": {
+      "name": "El teu nom",
+      "username": "Nom d'usuari",
+      "website": "Lloc Web",
+      "bio": "Biografía",
+      "advanced": {
+        "email": "Correu electrònic",
+        "phone": "Número de telèfon",
+        "gender": {
+          "title": "Gènere",
+          "prefer": "Prefereixo no dir-lo",
+          "male": "Home",
+          "female": "Dona"
+        },
+        "birthday": "Data de naixement"
+      },
+      "edit": "Editar Perfil"
+    },
+    "personal": {
+      "title": "Informació Personal",
+      "description": "Proveeix la teua informació personal, fins i tot si el teu compte es usat per a un negocio, una mascota o altra cosa. Esto no serà part del teu perfil públic."
+    }
   }
-
 }
