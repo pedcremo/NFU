@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../State';
 import { Redirect } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   IonButton,
   IonContent,
@@ -21,6 +22,7 @@ const Welcome: React.FC = () => {
 
   const { state, dispatch } = useContext(AppContext);
   const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch({ type: 'WELCOME', value: welcome})
@@ -38,7 +40,7 @@ const Welcome: React.FC = () => {
                 <div className="topSlide">
                   <div className="WelcomeAppTitleContainer">
                     <img src={icon} alt="icon" />
-                    <span className="AppTitle">Nos Falta Uno</span>
+                    <span className="AppTitle">{t('welcome.title')}</span>
                   </div>
                   <img
                     src={DeporteImg}
@@ -47,10 +49,10 @@ const Welcome: React.FC = () => {
                   />
                 </div>
 
-                <h2 className="slideTitle">Welcome</h2>
+                <h2 className="slideTitle">{t('welcome.welcome')}</h2>
                 <p className="slideText">
-                Find tournaments and matches for the sport you prefer. Join
-                with a single click
+                {t('welcome.description')} 
+               
                 </p>
               </div>
             </IonSlide>
@@ -60,14 +62,15 @@ const Welcome: React.FC = () => {
                 <div className="topSlide">
                   <div className="WelcomeAppTitleContainer" style={{visibility: "hidden"}}>
                     <img src={icon} alt="icon" />
-                    <span className="AppTitle">Nos Falta Uno</span>
+                    <span className="AppTitle">{t('welcome.title')}</span>
                   </div>
                   <img src={friends} alt="Deporte IMG" className="welcomeImg" />
                 </div>
 
-                <h2 className="slideTitle">Meet new friends</h2>
+                <h2 className="slideTitle">{t('welcome.meet')}</h2>
                 <p className="slideText">
-                  Meet new friends with the same interests and play sports together
+                {t('welcome.meetDescription')}
+                  
                 </p>
               </div>
             </IonSlide>
@@ -77,7 +80,7 @@ const Welcome: React.FC = () => {
                 <div className="topSlide">
                   <div className="WelcomeAppTitleContainer" style={{visibility: "hidden"}}>
                     <img src={icon} alt="icon" />
-                    <span className="AppTitle">Nos Falta Uno</span>
+                    <span className="AppTitle">{t('welcome.title')}</span>
                   </div>
                   <img
                     src={geo}
@@ -86,9 +89,9 @@ const Welcome: React.FC = () => {
                   />
                 </div>
 
-                <h2 className="slideTitle">Find the nearest events</h2>
+                <h2 className="slideTitle">{t('welcome.find')}</h2>
                 <p className="slideText">
-                  Choose your preferences and we will show you the related events closest to you.
+                  {t('welcome.findDescription')}                  
                 </p>
               </div>
             </IonSlide>
@@ -98,7 +101,7 @@ const Welcome: React.FC = () => {
                 <div className="topSlide">
                   <div className="WelcomeAppTitleContainer">
                     <img src={icon} alt="icon" />
-                    <span className="AppTitle">Nos Falta Uno</span>
+                    <span className="AppTitle">{t('welcome.title')}</span>
                   </div>
                   <img
                     src={ready}
@@ -107,8 +110,8 @@ const Welcome: React.FC = () => {
                   />
                 </div>
 
-                <h2 className="slideTitle">Are you ready?</h2>
-                <IonButton fill="clear" className="welcome-btn continue-welcome-btn" onClick={() => setWelcome('true')}>Continue</IonButton>
+                <h2 className="slideTitle">{t('welcome.ready')}</h2>
+                <IonButton fill="clear" className="welcome-btn continue-welcome-btn" onClick={() => setWelcome('true')}>{t('welcome.continue')}</IonButton>
               </div>
             </IonSlide>
           </IonSlides>

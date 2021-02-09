@@ -1,0 +1,14 @@
+{
+    "title": "Nos falta uno",
+    "welcome": {
+      "title": "Nos falta uno",
+      "welcome": "Bienvenido",
+      "description" : " Busca campeonatos y partidas para el deporte que prefieras. Únete con un simple click",
+      "meet" : "Encuentra nuevos amigos",
+      "meetDescription" : "Encuentra nuevos amigos con el mismo interés y jugad juntos",
+      "find" : "Envuentra los eventos más próximos a ti ",
+      "findDescription" : "Escoje tus preferencias y te mostraremos los eventos relacionados más próximos a ti.",
+      "ready" : "¿ Estás preparado ?",
+      "continue": "Continue"
+    }   
+}

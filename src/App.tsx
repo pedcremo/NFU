@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Suspense } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonPage } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -38,6 +38,7 @@ const App: React.FC = () => (
   <AppContextProvider>
     <IonApp>
       <IonReactRouter>
+      <Suspense fallback="loading">
         <IonPage>
           <Menu />
           <IonRouterOutlet id="NFU_Navigation">
@@ -55,6 +56,7 @@ const App: React.FC = () => (
             <Route path="/recover/:token" component={ChangePassword} />
           </IonRouterOutlet>
         </IonPage>
+        </Suspense>
       </IonReactRouter>
     </IonApp>
   </AppContextProvider>
