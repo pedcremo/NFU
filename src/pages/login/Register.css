@@ -9,18 +9,8 @@
     align-items: center;
 }
 
-.LoginTitleContainer {
-    margin-top: 50px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 .register-form{
-    width: 50%;
+    width: 100%;
     min-height: 170px;
     margin-bottom: 50px;
     display: flex;
@@ -35,8 +25,8 @@
     font-family: Poppins-Bold !important;
     color: white !important;
     margin-top: 10px;
-    width: 100%;
-    max-width: 500px;
+    width: 50%;
+    max-width: 600px;
     min-width: 200px;
 }
 
@@ -44,30 +34,6 @@
     border: none;
     background-color: transparent;
     box-shadow: none;
-}
-
-.loginOptionsContainer {
-    width: 100%;
-    height: 170px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.hideContainer{
-    /* display: none; */
-}
-
-.loginInputsContainer{
-    width: 100%;
-    height: 230px;
-    margin-bottom: -20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .registerOption {
@@ -115,16 +81,6 @@
     padding: 10px;
 }
 
-.loginOption:hover{
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
-}
-
-.loginOption--google {
-    border-color: rgb(9, 141, 141);
-    background-color: white;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
-}
-
 .registerOption--input {
     border-color: rgb(9, 141, 141);
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
@@ -132,34 +88,10 @@
     padding: 10px;
 }
 
-.loginOption--submit {
-    border-color: rgb(9, 141, 141);
-    background-color: #1878f1;
-    text-shadow: 1px 1px 1.5px #00000028;
-    color: white;
-    width: 50%;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
-    box-sizing: border-box;
-    padding: 10px;
-    margin-bottom: -5px;
-    margin-top: 8px;
-}
-
 .socialIcon{
     width: 22px;
     margin-right: 10px;
     fill: white;
-}
-
-.separator{
-    width: 50px;
-}
-
-.loginOption--facebook{
-    border: none;
-    background-color: #1878f1;
-    color: white;
-    text-shadow: 1px 1px 1.5px #00000028;
 }
 
 .register-link-option:first-of-type{
@@ -180,51 +112,4 @@
     box-shadow: none;
     text-shadow: 2px 2px 2.5px #00000028;
     text-decoration: underline;
-}
-
-.loginOption--local{
-    height: 30px;
-    border: none;
-    color: #1c443f;
-    text-shadow: 1px 1px 1.5px #00000028;
-}
-
-.loginOption--local:hover{
-    box-shadow: none;
-    text-shadow: 2px 2px 2.5px #00000028;
-    text-decoration: underline;
-}
-
-.loginOption--create{
-    white-space: nowrap;
-    margin-top: 10px;
-    margin-bottom: -10px;
-}
-
-.loginImg{
-    width: 65%;
-    max-width: 290px;
-}
-
-.prhaseLogin{
-    text-align: center;
-    font-family: Poppins-ExtraBold;
-    color: rgb(32, 32, 32);
-    width: 80%;
-    font-size: 16px;
-    margin-bottom: -20px;
-}
-
-.backBtn{
-    color: #1c443f;
-    text-shadow: 1px 1px 1.5px #00000028;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-}
-
-.backBtn:hover{
-    text-shadow: 2px 2px 2px #00000028;
-    background-color: rgba(125, 202, 179, 0.281);
-
 }
