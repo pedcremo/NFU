@@ -1,0 +1,14 @@
+{
+  "title": "Ens falta un",
+  "welcome": {
+    "title": "Ens falta un",
+    "welcome": "Benvingut",
+    "description" : " Busca campionats i partides per al esport que preferisques. Uneix-te amb un simple click",
+    "meet" : "Troba nous amics",
+    "meetDescription" : "Troba nous amics amb el mateix interés i jugueu junts",
+    "find" : "Troba els events més pròxims a tu ",
+    "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
+    "ready" : "Estàs preparat ?",
+    "continue": "Continuar"
+  }   
+}

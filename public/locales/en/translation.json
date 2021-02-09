@@ -1,0 +1,14 @@
+{
+  "title": "We're missing one",
+  "welcome": {
+    "title": "We are missing one",
+    "welcome": "Welcome",
+    "description": "Find tournaments and matches for the sport you prefer. Join with a single click",
+    "meet" : "Meet new friends",
+    "meetDescription" : "Meet new friends with the same interests and play sports together",
+    "find" : "Find the nearest events",
+    "findDescription" : "Choose your preferences and we will show you the related events closest to you.",
+    "ready" : "Are you ready?",
+    "continue": "Continue"
+  }   
+}
