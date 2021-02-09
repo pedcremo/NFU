@@ -11,7 +11,7 @@ import {
   IonButtons,
   IonMenuButton,
 } from "@ionic/react";
-import { basketball, settings, share, gameController } from "ionicons/icons";
+import { basketball, settings, share, gameController, person } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
 import { Link, Redirect } from "react-router-dom";
@@ -43,7 +43,7 @@ const Profile: React.FC = () => {
                 backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
               }}
             ></div>
-            <Sports sportsList={["tennis" ,"basket" ,"football" ,"cs GO"]} />
+            <Sports sportsList={["tennis", "basket", "football", "cs GO"]} />
             <h1>{state.user.name}</h1>
             <div className="Content__Buttons">
               <div>
@@ -54,6 +54,11 @@ const Profile: React.FC = () => {
                 <ButtonLink link="/login" text="Invitaciones" icon={share} />
                 <ButtonLink link="/login" text="Settings" icon={settings} />
               </div>
+              <ButtonLink
+                link="/app/profile/update"
+                text="Update"
+                icon={person}
+              />
             </div>
           </div>
         </div>
