@@ -11,10 +11,20 @@
     "ready" : "Are you ready?",
     "continue": "Continue"
   },
-  "recover":{
+  "recover_password":{
+    "loading": "Please wait ...",
     "title": "Recover Password",
     "description": "Enter your email address to receive instructions to reset your password.",
     "button": "Recover",
     "back":"Back"
-  }   
+  } ,
+  "change_password":{
+    "loading": "Please wait ...",
+    "title": "Change password",
+    "description": "Hello {{variable}}, please enter your new password.",
+    "error_password_not_match": "Passwords do not match",
+    "input_new_password":"New password ...",
+    "input_repeat_password":"Repeat the password ...",
+    "button_change":"Change"
+  }     
 }

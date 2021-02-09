@@ -37,16 +37,16 @@ const PasswordForgotten: React.FC = () => {
       <IonContent fullscreen>
         <IonLoading
           isOpen={showLoading}
-          message={"Wait please..."}
+          message={t('recover_password.loading')}
           onDidDismiss={() => setShowLoading(false)}
         />
         <div className="recoverPageContent">
           <div className="recoverTitleContainer">
             <img src={icon} alt="icon" />
-            <span className="recoverTitle">{t('recover.title')}</span>
+            <span className="recoverTitle">{t('recover_password.title')}</span>
           </div>
           <span className="recoverText">
-            {t('recover.description')}
+            {t('recover_password.description')}
           </span>
           <form
             onSubmit={handleSubmit}
@@ -72,13 +72,13 @@ const PasswordForgotten: React.FC = () => {
                 type="submit"
                 id="btnrecover"
               >
-                {t('recover.button')}
+                {t('recover_password.button')}
               </button>
               <div
                 className="recoverOption recoverOption--local recoverOption--create"
                 onClick={() => (history.goBack())}
               >
-                {t('recover.back')}
+                {t('recover_password.back')}
               </div>
             </div>
           </form>

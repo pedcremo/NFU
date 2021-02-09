@@ -11,10 +11,20 @@
       "ready" : "¿ Estás preparado ?",
       "continue": "Continue"
     },
-    "recover":{
+    "recover_password":{
+      "loading": "Espera por favor ...",
       "title": "Recuperar contraseña",
       "description": "Ingrese su dirección de correo electrónico para recibir instrucciones para restablecer su contraseña.",
       "button": "Recuperar",
       "back":"Atras"
+    },
+    "change_password":{
+      "loading": "Espera por favor ...",
+      "title": "Cambiar contraseña",
+      "description": "Hola {{variable}}, introduzca su nueva contraseña.",
+      "error_password_not_match": "Las contraseñas no coinciden",
+      "input_new_password": "Nueva contraseña ...",
+      "input_repeat_password":"Repite la contraseña ...",
+      "button_change":"Cambiar"
     }     
 }

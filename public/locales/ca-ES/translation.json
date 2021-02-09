@@ -11,11 +11,22 @@
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
   },
-  "recover":{
+  "recover_password":{
+    "loading": "Espera siusplau...",
     "title": "Recuperar contrasenya",
     "description": "Introduïu la vostra adreça de correu electrònic per rebre instruccions per restablir la contrasenya.",
     "button": "Recuperar",
     "back":"Arrere"
+  },
+  "change_password":{
+    "loading": "Espera siusplau...",
+    "title": "Canvia la contrasenya",
+    "description": "Hola {{variable}}, introduïu la vostra nova contrasenya.",
+    "error_password_not_match": "Les contrasenyes no coincideixen",
+    "input_new_password": "Nova contrasenya...",
+    "input_repeat_password":"Repeteix la contrassenya...",
+    "button_change":"Canvia"
+
   }
 
 }
