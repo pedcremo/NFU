@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-//import Link from '../Link.react';
+import InstalacionesList from './instalacionesList';
 
 it('renders correctly', () => {
   const tree = renderer
-    .create()
+    .create(<InstalacionesList></InstalacionesList>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
