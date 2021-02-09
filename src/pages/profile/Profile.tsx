@@ -40,10 +40,10 @@ const Profile: React.FC = () => {
             <div
               className="Content__ProfileImage"
               style={{
-                backgroundImage: `url('${state.user.image}')`,
+                backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
               }}
             ></div>
-            <Sports sportsList={state.user.sports} />
+            <Sports sportsList={["tennis" ,"basket" ,"football" ,"cs GO"]} />
             <h1>{state.user.name}</h1>
             <div className="Content__Buttons">
               <div>

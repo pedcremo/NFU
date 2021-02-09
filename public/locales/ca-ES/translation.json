@@ -10,5 +10,12 @@
     "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
-  }   
+  },
+  "instalations": {
+    "ubication": "Ubicació",
+    "name": "nom",
+    "imagen" : "image",
+    "pistas" : "pistes"
+  }
+
 }
