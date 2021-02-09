@@ -90,7 +90,7 @@ const Menu = () => {
             (state.user)?
             <>
             <IonMenuToggle>
-              <IonItem routerLink="/app/profile" routerDirection="none" lines="none">
+              <IonItem routerLink="/profile" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logIn} />
                 <IonLabel>Profile</IonLabel>
               </IonItem>
