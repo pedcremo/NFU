@@ -19,24 +19,32 @@
     text-align: center;
 }
 
-.LoginTitleContainer img {
-    width: 80px;
-    margin-right: 10px;
-}
-
-.LoginTitle {
-    font-family: Poppins-SemiBold;
-    font-size: 26px;
-    color: #266b63;
-    text-shadow: 1px 1px 1.5px #000000;
-}
-
-.loginOptionsContainer_form{
-    width: 100%;
+.register-form{
+    width: 50%;
     min-height: 170px;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.btn-submit-register{
+    overflow: hidden !important;
+    border-radius: 100px !important;
+    font-family: Poppins-Bold !important;
+    color: white !important;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.registerOption .button-native{
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
 
 .loginOptionsContainer {
     width: 100%;
@@ -62,7 +70,7 @@
     justify-content: space-around;
 }
 
-.loginOption {
+.registerOption {
     width: 85%;
     max-width: 600px;
     height: 42px;
@@ -84,8 +92,27 @@
     align-items: center;
 }
 
-.inputFieldLogin{
+.inputFieldRegister{
+    margin-top: 10px;
     font-family: Poppins-Bold;
+    width: 85%;
+    max-width: 600px;
+    min-width: 250px;
+    height: 42px;
+    border-radius: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins-Bold;
+    font-size: 14px;
+    color: rgb(39, 39, 39);
+    cursor: pointer;
+    text-align: center;
+    border-color: rgb(9, 141, 141);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .loginOption:hover{
@@ -98,9 +125,8 @@
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
 }
 
-.loginOption--input {
+.registerOption--input {
     border-color: rgb(9, 141, 141);
-    /* background-color: rgba(117, 117, 117, 0.048); */
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
     box-sizing: border-box;
     padding: 10px;
@@ -134,6 +160,26 @@
     background-color: #1878f1;
     color: white;
     text-shadow: 1px 1px 1.5px #00000028;
+}
+
+.register-link-option:first-of-type{
+    margin-right: 20px;
+}
+
+.register-link-option{
+    white-space: nowrap;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    height: 30px;
+    border: none;
+    color: #1c443f;
+    text-shadow: 1px 1px 1.5px #00000028;
+}
+
+.register-link-option:hover{
+    box-shadow: none;
+    text-shadow: 2px 2px 2.5px #00000028;
+    text-decoration: underline;
 }
 
 .loginOption--local{
