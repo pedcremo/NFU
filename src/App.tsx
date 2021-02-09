@@ -8,6 +8,9 @@ import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
 import { AppContextProvider } from "./State";
 import Tabs from "./Tabs";
+import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
+
 
 /* App style */
 import "./App.css";
@@ -42,17 +45,23 @@ const App: React.FC = () => (
         <IonPage>
           <Menu />
           <IonRouterOutlet id="NFU_Navigation">
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/welcome" component={Welcome} />
+
+          <PublicRoute component={Login} path="/login" exact />
+          <PublicRoute component={Register} path="/register" exact />
+          <PublicRoute component={Welcome} path="/welcome" exact />
+          <PublicRoute component={PasswordForgotten} path="/recover" exact />
+          <PublicRoute component={ChangePassword} path="/recover/:token" exact />
+
+          <PrivateRoute component={Profile} path="/profile" exact />
+
             <Route
               path="/"
               render={() => <Redirect to="/app/home" />}
               exact={true}
             />
             <Route path="/app" component={Tabs} />
-            <Route path="/recover" component={PasswordForgotten} />
-            <Route path="/recover/:token" component={ChangePassword} />
+            
+
           </IonRouterOutlet>
         </IonPage>
         </Suspense>

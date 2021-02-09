@@ -37,5 +37,36 @@
       "title": "Informació Personal",
       "description": "Proveeix la teua informació personal, fins i tot si el teu compte es usat per a un negocio, una mascota o altra cosa. Esto no serà part del teu perfil públic."
     }
+  },
+
+  "tabs": {
+    "home": "Inici",
+    "events": "Events",
+    "addevent": "Crear Event"
+  },
+
+  "create": {
+    "title": "Crear Event",
+    "add": "Afegir Event",
+    "name": "Nom del event",
+    "players": "Jugadors totals",
+    "needplayers": "Jugadors que necessites",
+    "location": "Localitat",
+    "city": "Ciutat",
+    "province": "Provincia",
+    "postal": "Codi Postal",
+    "category": "Selecciona una categoría",
+    "gaming": "Gaming",
+    "sport": "Esport",
+    "when": "Quan es l'event??",
+    "only": "Sols gent prop de mi",
+    "submit": "Afegir"
+  },
+  
+  "instalations": {
+    "ubication": "Ubicació",
+    "name": "nom",
+    "imagen" : "image",
+    "pistas" : "pistes"
   }
 }

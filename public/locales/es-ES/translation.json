@@ -37,5 +37,29 @@
         "title": "Información Personal",
         "description": "Provee tu información personal, incluso si tu cuenta es usada para un negocio, una mascota o otra cosa. Esto no será parte de tu perfil público."
       }
+    },
+
+    "tabs": {
+      "home": "Inicio",
+      "events": "Eventos",
+      "addevent": "Crear Evento"
+    },
+
+    "create": {
+      "title": "Crear Evento",
+      "add": "Añadir Evento",
+      "name": "Nombre del evento",
+      "players": "Jugadores totales",
+      "needplayers": "Jugadores que necesitas",
+      "location": "Localidad",
+      "city": "Ciudad",
+      "province": "Provincia",
+      "postal": "Código Postal",
+      "category": "Selecciona una categoría",
+      "gaming": "Gaming",
+      "sport": "Deporte",
+      "when": "Cuando es el evento?",
+      "only": "Solo gente cerca de mí",
+      "submit": "Añadir"
     }
 }

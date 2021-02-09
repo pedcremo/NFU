@@ -37,5 +37,29 @@
       "title": "Personal Information",
       "description": "Provide your personal information, even if the account is used for a business, a pet or something else. This won't be part of your public profile."
     }
+  },
+
+  "tabs": {
+    "home": "Home",
+    "events": "Events",
+    "addevent": "Create Event"
+  },
+  
+  "create": {
+    "title": "Create Event",
+    "add": "Add Event",
+    "name": "Name of event",
+    "players": "Total players",
+    "needplayers": "Players you need",
+    "location": "Location",
+    "city": "City",
+    "province": "Province",
+    "postal": "Postal Code",
+    "category": "Select a category",
+    "gaming": "Gaming",
+    "sport": "Sport",
+    "when": "When is the event?",
+    "only": "Only people close to me",
+    "submit": "Submit"
   }
 }
