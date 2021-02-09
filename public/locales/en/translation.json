@@ -11,11 +11,40 @@
     "ready" : "Are you ready?",
     "continue": "Continue"
   },
+  
+  "updateProfile": {
+    "title": "Edit Profile",
+    "changePhoto": "Change Profile Photo",
+    "form": {
+      "name": "Name",
+      "username": "Username",
+      "website": "Website",
+      "bio": "Bio",
+      "advanced": {
+        "email": "Email",
+        "phone": "Phone number",
+        "gender": {
+          "title": "Gender",
+          "prefer": "Prefer not to say",
+          "male": "Male",
+          "female": "Female"
+        },
+        "birthday": "Birthday"
+      },
+      "edit": "Edit Profile"
+    },
+    "personal": {
+      "title": "Personal Information",
+      "description": "Provide your personal information, even if the account is used for a business, a pet or something else. This won't be part of your public profile."
+    }
+  },
+
   "tabs": {
     "home": "Home",
     "events": "Events",
     "addevent": "Create Event"
   },
+  
   "create": {
     "title": "Create Event",
     "add": "Add Event",
