@@ -6,12 +6,15 @@ import { IonContent, IonInput, IonPage, IonLoading } from "@ionic/react";
 import "./password_forgotten.css";
 import icon from "../../assets/img/icono.png";
 
+import { useTranslation } from 'react-i18next';
+
 const PasswordForgotten: React.FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<React.ReactText | undefined>("");
   const [, setFormErrors] = useState(null);
   const [showLoading, setShowLoading] = useState(false);
   const formRef = useRef(null);
+  const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,11 +43,10 @@ const PasswordForgotten: React.FC = () => {
         <div className="recoverPageContent">
           <div className="recoverTitleContainer">
             <img src={icon} alt="icon" />
-            <span className="recoverTitle">Recover Password</span>
+            <span className="recoverTitle">{t('recover.title')}</span>
           </div>
           <span className="recoverText">
-            Enter your email address to receive instructions to reset your
-            password.
+            {t('recover.description')}
           </span>
           <form
             onSubmit={handleSubmit}
@@ -70,13 +72,13 @@ const PasswordForgotten: React.FC = () => {
                 type="submit"
                 id="btnrecover"
               >
-                Recover
+                {t('recover.button')}
               </button>
               <div
                 className="recoverOption recoverOption--local recoverOption--create"
                 onClick={() => (history.goBack())}
               >
-                Back
+                {t('recover.back')}
               </div>
             </div>
           </form>

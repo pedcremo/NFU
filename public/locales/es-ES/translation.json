@@ -10,5 +10,11 @@
       "findDescription" : "Escoje tus preferencias y te mostraremos los eventos relacionados más próximos a ti.",
       "ready" : "¿ Estás preparado ?",
       "continue": "Continue"
-    }   
+    },
+    "recover":{
+      "title": "Recuperar contraseña",
+      "description": "Ingrese su dirección de correo electrónico para recibir instrucciones para restablecer su contraseña.",
+      "button": "Recuperar",
+      "back":"Atras"
+    }     
 }

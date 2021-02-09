@@ -10,5 +10,12 @@
     "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
-  }   
+  },
+  "recover":{
+    "title": "Recuperar contrasenya",
+    "description": "Introduïu la vostra adreça de correu electrònic per rebre instruccions per restablir la contrasenya.",
+    "button": "Recuperar",
+    "back":"Arrere"
+  }
+
 }

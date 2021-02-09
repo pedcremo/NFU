@@ -10,5 +10,11 @@
     "findDescription" : "Choose your preferences and we will show you the related events closest to you.",
     "ready" : "Are you ready?",
     "continue": "Continue"
+  },
+  "recover":{
+    "title": "Recover Password",
+    "description": "Enter your email address to receive instructions to reset your password.",
+    "button": "Recover",
+    "back":"Back"
   }   
 }
