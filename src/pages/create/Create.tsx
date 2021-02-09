@@ -19,9 +19,11 @@ import {
 } from '@ionic/react';
 import { Redirect } from 'react-router-dom';
 import './create.css';
+import { useTranslation } from 'react-i18next';
 
 const Create= () => {
   const { state,dispatch } = useContext(AppContext);
+  const { t } = useTranslation();
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -34,60 +36,60 @@ const Create= () => {
           <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>Añadir Evento</IonTitle>
+          <IonTitle>{t ('create.title')}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Añadir evento</IonTitle>
+            <IonTitle size="large">{t ('create.title')}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <section className="add-event">
-          <h1>Añade un evento</h1>
+          <h1>{t ('create.add')}</h1>
           <form className="add-event-form">
             <IonItem>
-              <IonLabel position="floating">Nombre del evento</IonLabel>
+              <IonLabel position="floating">{t ('create.name')}</IonLabel>
               <IonInput />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">Jugadores totales</IonLabel>
+              <IonLabel position="floating">{t ('create.players')}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">Jugadores que necesitas</IonLabel>
+              <IonLabel position="floating">{t ('create.needplayers')}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">Ubicación</IonLabel>
-              <IonInput type="test" />
-              <IonLabel position="floating">City</IonLabel>
+              <IonLabel position="floating">{t ('create.location')}</IonLabel>
               <IonInput type="text" />
-              <IonLabel position="floating">State</IonLabel>
+              <IonLabel position="floating">{t ('create.city')}</IonLabel>
               <IonInput type="text" />
-              <IonLabel position="floating">Zip Code</IonLabel>
+              <IonLabel position="floating">{t ('create.province')}</IonLabel>
+              <IonInput type="text" />
+              <IonLabel position="floating">{t ('create.postal')}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel>Selecciona una categoria</IonLabel>
+              <IonLabel>{t ('create.category')}</IonLabel>
               <IonSelect value="gaming">
-                <IonSelectOption value="gaming">Gaming</IonSelectOption>
-                <IonSelectOption value="deportes">Deportes</IonSelectOption>
+                <IonSelectOption value="gaming">{t ('create.gaming')}</IonSelectOption>
+                <IonSelectOption value="deportes">{t ('create.sport')}</IonSelectOption>
               </IonSelect>
             </IonItem>
             <IonItem>
-              <IonLabel>Cuando es el evento?</IonLabel>
+              <IonLabel>{t ('create.when')}</IonLabel>
               <IonDatetime
                 value="2021-10-01T15:43:40.394Z"
                 display-timezone="utc"
               ></IonDatetime>
             </IonItem>
             <IonItem lines="none">
-              <IonLabel>Solo gente cerca de mi</IonLabel>
+              <IonLabel>{t ('create.only')}</IonLabel>
               <IonCheckbox defaultChecked={true} slot="start" />
             </IonItem>
             <IonButton className="ion-margin-top" type="submit" expand="block">
-              AÑADIR
+            {t ('create.submit')}
             </IonButton>
           </form>
         </section>

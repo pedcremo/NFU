@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Route } from 'react-router-dom';
 import { AppContext } from './State';
+import { useTranslation } from 'react-i18next';
+
 import {     
     IonTabs,
     IonTabBar,
@@ -26,6 +28,7 @@ import Notifications from './pages/notifications/Notifications';
 
 const Tabs: React.FC = () => {
     const { state, dispatch } = useContext(AppContext);
+    const { t } = useTranslation();
 
     return (
         <IonTabs>
@@ -46,19 +49,19 @@ const Tabs: React.FC = () => {
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">
             <IonIcon icon={home} />
-            <IonLabel>HOME</IonLabel>
+            <IonLabel>{t('tabs.home')}</IonLabel>
           </IonTabButton>
 
           <IonTabButton tab="events" href="/app/events">
             <IonIcon icon={people} />
-            <IonLabel>EVENTS</IonLabel>
+            <IonLabel>{t('tabs.events')}</IonLabel>
           </IonTabButton>
 
           {
             (state.user)?
               <IonTabButton tab="create" href="/app/create">
                 <IonIcon icon={addCircle} />
-                <IonLabel>Añadir evento</IonLabel>
+                <IonLabel>{t('tabs.addevent')}</IonLabel>
               </IonTabButton>
             : <></>
           }

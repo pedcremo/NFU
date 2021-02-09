@@ -10,5 +10,27 @@
       "findDescription" : "Escoje tus preferencias y te mostraremos los eventos relacionados más próximos a ti.",
       "ready" : "¿ Estás preparado ?",
       "continue": "Continue"
-    }   
+    },
+    "tabs": {
+      "home": "Inicio",
+      "events": "Eventos",
+      "addevent": "Crear Evento"
+    },
+    "create": {
+      "title": "Crear Evento",
+      "add": "Añadir Evento",
+      "name": "Nombre del evento",
+      "players": "Jugadores totales",
+      "needplayers": "Jugadores que necesitas",
+      "location": "Localidad",
+      "city": "Ciudad",
+      "province": "Provincia",
+      "postal": "Código Postal",
+      "category": "Selecciona una categoría",
+      "gaming": "Gaming",
+      "sport": "Deporte",
+      "when": "Cuando es el evento?",
+      "only": "Solo gente cerca de mí",
+      "submit": "Añadir"
+    }
 }

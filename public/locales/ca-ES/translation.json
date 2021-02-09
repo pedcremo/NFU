@@ -10,5 +10,27 @@
     "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
-  }   
+  },
+  "tabs": {
+    "home": "Inici",
+    "events": "Events",
+    "addevent": "Crear Event"
+  },
+  "create": {
+    "title": "Crear Event",
+    "add": "Afegir Event",
+    "name": "Nom del event",
+    "players": "Jugadors totals",
+    "needplayers": "Jugadors que necessites",
+    "location": "Localitat",
+    "city": "Ciutat",
+    "province": "Provincia",
+    "postal": "Codi Postal",
+    "category": "Selecciona una categoría",
+    "gaming": "Gaming",
+    "sport": "Esport",
+    "when": "Quan es l'event??",
+    "only": "Sols gent prop de mi",
+    "submit": "Afegir"
+  }
 }
