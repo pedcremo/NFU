@@ -12,7 +12,7 @@ import {
 import "./password_forgotten.css";
 import icon from "../../assets/img/icono.png";
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const ChangePassword: React.FC = () => {
   const [password, setPassword] = useState<React.ReactText | undefined>("");
@@ -56,19 +56,20 @@ const ChangePassword: React.FC = () => {
       <IonContent fullscreen>
         <IonLoading
           isOpen={showLoading}
-          message={t('change_password.loading')}
+          message={t("change_password.loading")}
           onDidDismiss={() => setShowLoading(false)}
         />
         <div className="recoverPageContent">
           <div className="recoverTitleContainer">
             <img src={icon} alt="icon" />
-            <span className="recoverTitle">{t('change_password.title')}</span>
+            <span className="recoverTitle">{t("change_password.title")}</span>
           </div>
           <span className="recoverText">
-            {t('change_password.description', {variable:params['token']})}
+            {t("change_password.description", { variable: params["token"] })}
           </span>
           <div id="recoverError" className="recoverError">
-            <IonIcon icon={alertCircleOutline} /> {t('change_password.error_password_not_match')}
+            <IonIcon icon={alertCircleOutline} />{" "}
+            {t("change_password.error_password_not_match")}
           </div>
           <form
             onSubmit={handleSubmit}
@@ -81,22 +82,24 @@ const ChangePassword: React.FC = () => {
             <div className="recoverInputsContainer" id="localOps">
               <div className="recoverOption recoverOption--input">
                 <IonInput
+                  title="password"
                   type="password"
                   required
                   value={password}
                   onInput={(e) => setPassword(e.currentTarget.value)}
                   className="inputFieldrecover"
-                  placeholder={t('change_password.input_new_password')}
+                  placeholder={t("change_password.input_new_password")}
                 />
               </div>
               <div className="recoverOption recoverOption--input">
                 <IonInput
+                  title="repeat_password"
                   type="password"
                   required
                   value={repeatpassword}
                   onInput={(e) => setRepeatPassword(e.currentTarget.value)}
                   className="inputFieldrecover"
-                  placeholder={t('change_password.input_repeat_password')}
+                  placeholder={t("change_password.input_repeat_password")}
                 />
               </div>
               <button
@@ -104,7 +107,7 @@ const ChangePassword: React.FC = () => {
                 type="submit"
                 id="btnrecover"
               >
-                {t('change_password.button_change')}
+                {t("change_password.button_change")}
               </button>
             </div>
           </form>
