@@ -28,7 +28,8 @@ import CommentList from '../components/Comment/CommentList'
 
 const Comments: React.FC = () => {
     const [message, setMessage] = useState<React.ReactText | undefined>('');
-    let { id } = useParams();
+
+    let { id }  = useParams();
 
     const imgStyle = {
         width: '50px'
