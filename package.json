@@ -57,7 +57,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.5"
+    "@capacitor/cli": "2.4.5",
+    "@testing-library/react-hooks": "^5.0.3"
   },
   "description": "An Ionic project"
 }
