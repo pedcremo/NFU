@@ -1,10 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import InstalacionesPreview from './instalaciones-preview';
+import React from "react";
+import ReactDOM from "react-dom";
+import InstalacionesPreview from "./instalaciones-preview";
+import App from '../../App';
 
-it('renders correctly', () => {
-  const tree = renderer
-    .create(<InstalacionesPreview></InstalacionesPreview>)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+test("renders a Instalaciones Preview Page", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<App><InstalacionesPreview /></App>, div);
+  ReactDOM.unmountComponentAtNode(div)
 });

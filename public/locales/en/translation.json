@@ -78,10 +78,10 @@
     "only": "Only people close to me",
     "submit": "Submit"
   },
-<<<<<<< HEAD
+
   "instalation": {
     "title": "FIELDS"
-=======
+  },
   "login":{
     "initial_text":"Find tournaments and matches for the sport that you prefer",
     "social_options":{
@@ -104,6 +104,5 @@
     "create_account":"Create Account",
     "forgotten_password":"I've forgotten my password",
     "have_account":"I've already have an account"
->>>>>>> 55f456b47b49295a281b776de3b1d0b9f26c0bf3
   }
 }

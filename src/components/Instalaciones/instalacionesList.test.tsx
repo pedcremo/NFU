@@ -1,10 +1,11 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import InstalacionesList from './instalacionesList';
+import React from "react";
+import ReactDOM from "react-dom";
+import InstalacionesList from "./instalacionesList";
+import App from '../../App';
 
-it('renders correctly', () => {
-  const tree = renderer
-    .create(<InstalacionesList></InstalacionesList>)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+test("renders a Instalaciones List Page", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<App><InstalacionesList /></App>, div);
+  ReactDOM.unmountComponentAtNode(div)
 });
+

@@ -76,16 +76,9 @@
     "only": "Sols gent prop de mi",
     "submit": "Afegir"
   },
-  
-<<<<<<< HEAD
+
   "instalation": {
     "title": "PISTES"
-=======
-  "instalations": {
-    "ubication": "Ubicació",
-    "name": "nom",
-    "imagen" : "image",
-    "pistas" : "pistes"
   },
   "login":{
     "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
@@ -109,6 +102,5 @@
     "create_account":"Crear compte",
     "forgotten_password":"He oblidat la contrasenya",
     "have_account":"Ja tinc un compte"
->>>>>>> 55f456b47b49295a281b776de3b1d0b9f26c0bf3
   }
 }
