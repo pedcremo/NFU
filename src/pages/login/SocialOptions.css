@@ -1,0 +1,96 @@
+.socialOption {
+  width: 85%;
+  max-width: 600px;
+  height: 42px;
+  border-radius: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins-Bold;
+  font-size: 14px;
+  color: rgb(39, 39, 39);
+  cursor: pointer;
+  text-align: center;
+}
+
+.socialOption--google-label{
+  font-family: Poppins-Bold !important;
+  font-size: 14px !important;
+  color: rgb(39, 39, 39);
+  text-align: center !important;
+}
+
+.socialOption:hover{
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.socialOption--google {
+  border-color: rgb(9, 141, 141);
+  background-color: white;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.10);
+}
+
+.socialOption--facebook-label{
+  font-family: Poppins-Bold !important;
+  font-size: 14px !important;
+  color: white;
+  text-align: center !important;
+}
+
+.socialOption--facebook{
+  border: none;
+  --ion-background-color: #1878f1;
+  color: white;
+  text-shadow: 1px 1px 1.5px #00000028;
+}
+
+.socialIcon{
+  width: 22px;
+  margin-right: 10px;
+  fill: white;
+}
+
+.socialOption--local{
+  border: none;
+  --ion-background-color: transparent;
+}
+
+.socialOption--local-label{
+  font-family: Poppins-Bold !important;
+  font-size: 14px !important;
+  color: #1c443f !important;
+  text-shadow: 1px 1px 1.5px #00000028;
+}
+
+.loginOption--local{
+  height: 30px;
+  border: none;
+}
+
+.loginOption--local:hover{
+  box-shadow: none;
+  text-shadow: 2px 2px 2.5px #00000028;
+  text-decoration: underline;
+}
+
+.loginOption--create{
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.loginImg{
+  width: 65%;
+  max-width: 290px;
+}
+
+.prhaseLogin{
+  text-align: center;
+  font-family: Poppins-ExtraBold;
+  color: rgb(32, 32, 32);
+  width: 80%;
+  font-size: 16px;
+  margin-bottom: -20px;
+}
+

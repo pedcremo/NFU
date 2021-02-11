@@ -11,6 +11,22 @@
       "ready" : "¿ Estás preparado ?",
       "continue": "Continue"
     },
+    "recover_password":{
+      "loading": "Espera por favor ...",
+      "title": "Recuperar contraseña",
+      "description": "Ingrese su dirección de correo electrónico para recibir instrucciones para restablecer su contraseña.",
+      "button": "Recuperar",
+      "back":"Atras"
+    },
+    "change_password":{
+      "loading": "Espera por favor ...",
+      "title": "Cambiar contraseña",
+      "description": "Hola {{variable}}, introduzca su nueva contraseña.",
+      "error_password_not_match": "Las contraseñas no coinciden",
+      "input_new_password": "Nueva contraseña ...",
+      "input_repeat_password":"Repite la contraseña ...",
+      "button_change":"Cambiar"
+    },     
 
     "updateProfile": {
       "title": "Editar Perfil",
@@ -61,9 +77,35 @@
       "when": "Cuando es el evento?",
       "only": "Solo gente cerca de mí",
       "submit": "Añadir"
+<<<<<<< HEAD
     },  
     
     "instalation": {
       "title": "PISTAS"
+=======
+    },
+    "login":{
+      "initial_text":"Encuentra torneos y partidos para el deporte que prefieras",
+      "social_options":{
+        "google":"Continua con Google",
+        "facebook":"Continua con Facebook",
+        "email":"Continua con Email"
+      },
+      "local_options":{
+        "password":"Contraseña..",
+        "login":"Iniciar Sesión",
+        "forgotten_password":"He olvidado mi contraseña",
+        "create_account":"Crear una cuenta",
+        "social_options":"Continuar con Google o Facebook"
+      }
+    },
+    "register":{
+      "initial_text":"Encuentra torneos y partidos para el deporte que prefieras",
+      "password":"Contraseña..",
+      "repeat_password":"Repetir Contraseña..",
+      "create_account":"Crear Cuenta",
+      "forgotten_password":"He olvidado mi contraseña",
+      "have_account":"Ya tengo una cuenta"
+>>>>>>> 55f456b47b49295a281b776de3b1d0b9f26c0bf3
     }
 }

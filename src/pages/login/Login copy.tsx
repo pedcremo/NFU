@@ -1,15 +1,13 @@
 import React, { useContext, useState, useRef } from "react";
-import { AppContext } from "../State";
+import { AppContext } from "../../State";
 import { Redirect, useHistory } from "react-router-dom";
 
 
 import { IonContent, IonInput, IonPage, IonLoading } from "@ionic/react";
 
 import "./login.css";
-import icon from "../assets/img/icono.png";
-import GoogleIcon from "../assets/img/google_icon.svg";
-import FacebookIcon from "../assets/img/facebook_icon.svg";
-import DeporteImg from "../assets/img/deporte_img.png";
+import DeporteImg from "../../assets/img/deporte_img.png";
+import AppTitle from '../../components/shared/AppTitle'
 
 
 const Login: React.FC = () => {
@@ -34,7 +32,7 @@ const Login: React.FC = () => {
       setFormErrors(e);
     }
   };
-  if (state.welcome !== 'true'){return <Redirect to="/welcome" />}
+  if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
   if (state.user) return <Redirect to="/app/home" />;
 
   let showInputs = (op) => {
@@ -58,16 +56,9 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <IonLoading
-          isOpen={showLoading}
-          message={"Logging in"}
-          onDidDismiss={() => setShowLoading(false)}
-        />
+        <IonLoading isOpen={showLoading} message={"Logging in"} onDidDismiss={() => setShowLoading(false)} />
         <div className="loginPageContent">
-          <div className="LoginTitleContainer">
-            <img src={icon} alt="icon" />
-            <span className="LoginTitle">Nos Falta Uno</span>
-          </div>
+          <AppTitle />
           <img src={DeporteImg} alt="Deporte IMG" className="loginImg" />
           <span className="prhaseLogin">
             Find tournaments and matches for the sport that you prefer
@@ -80,26 +71,7 @@ const Login: React.FC = () => {
             action=""
             className="loginOptionsContainer_form"
           >
-            <div className="loginOptionsContainer" id="socialOps">
-              <div className="loginOption loginOption--google">
-                <img src={GoogleIcon} alt="GoogleIcon" className="socialIcon" />
-                Continue with Google
-              </div>
-              <div className="loginOption loginOption--facebook">
-                <img
-                  src={FacebookIcon}
-                  alt="GoogleIcon"
-                  className="socialIcon"
-                />
-                Continue with Facebook
-              </div>
-              <div
-                className="loginOption loginOption--local"
-                onClick={() => showInputs("local")}
-              >
-                Continue with Email
-              </div>
-            </div>
+
             <div
               className="loginInputsContainer"
               id="localOps"
@@ -160,8 +132,8 @@ const Login: React.FC = () => {
           </form>
         </div>
 
-        
-        </IonContent>
+
+      </IonContent>
 
     </IonPage>
   );

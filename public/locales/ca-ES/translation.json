@@ -10,8 +10,23 @@
     "findDescription" : "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready" : "Estàs preparat ?",
     "continue": "Continuar"
+  },
+  "recover_password":{
+    "loading": "Espera siusplau...",
+    "title": "Recuperar contrasenya",
+    "description": "Introduïu la vostra adreça de correu electrònic per rebre instruccions per restablir la contrasenya.",
+    "button": "Recuperar",
+    "back":"Arrere"
+  },
+  "change_password":{
+    "loading": "Espera siusplau...",
+    "title": "Canvia la contrasenya",
+    "description": "Hola {{variable}}, introduïu la vostra nova contrasenya.",
+    "error_password_not_match": "Les contrasenyes no coincideixen",
+    "input_new_password": "Nova contrasenya...",
+    "input_repeat_password":"Repeteix la contrassenya...",
+    "button_change":"Canvia"
   },  
-   
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Canviar Foto de Perfil",
@@ -38,7 +53,6 @@
       "description": "Proveeix la teua informació personal, fins i tot si el teu compte es usat per a un negocio, una mascota o altra cosa. Esto no serà part del teu perfil públic."
     }
   },
-
   "tabs": {
     "home": "Inici",
     "events": "Events",
@@ -63,7 +77,38 @@
     "submit": "Afegir"
   },
   
+<<<<<<< HEAD
   "instalation": {
     "title": "PISTES"
+=======
+  "instalations": {
+    "ubication": "Ubicació",
+    "name": "nom",
+    "imagen" : "image",
+    "pistas" : "pistes"
+  },
+  "login":{
+    "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
+    "social_options":{
+      "google":"Continua amb Google",
+      "facebook":"Continua amb Facebook",
+      "email":"Continua amb Email"
+    },
+    "local_options":{
+      "password":"Contrasenya..",
+      "login":"Iniciar Sessió",
+      "forgotten_password":"He oblidat la contrasenya",
+      "create_account":"Crear un compte",
+      "social_options":"Continuar amb Google o Facebook"
+    }
+  },
+  "register":{
+    "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
+    "password":"Contrasenya..",
+    "repeat_password":"Repetir Contrasenya..",
+    "create_account":"Crear compte",
+    "forgotten_password":"He oblidat la contrasenya",
+    "have_account":"Ja tinc un compte"
+>>>>>>> 55f456b47b49295a281b776de3b1d0b9f26c0bf3
   }
 }

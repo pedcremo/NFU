@@ -11,6 +11,22 @@
     "ready" : "Are you ready?",
     "continue": "Continue"
   },
+  "recover_password":{
+    "loading": "Please wait ...",
+    "title": "Recover Password",
+    "description": "Enter your email address to receive instructions to reset your password.",
+    "button": "Recover",
+    "back":"Back"
+  } ,
+  "change_password":{
+    "loading": "Please wait ...",
+    "title": "Change password",
+    "description": "Hello {{variable}}, please enter your new password.",
+    "error_password_not_match": "Passwords do not match",
+    "input_new_password":"New password ...",
+    "input_repeat_password":"Repeat the password ...",
+    "button_change":"Change"
+  },     
   
   "updateProfile": {
     "title": "Edit Profile",
@@ -62,7 +78,32 @@
     "only": "Only people close to me",
     "submit": "Submit"
   },
+<<<<<<< HEAD
   "instalation": {
     "title": "FIELDS"
+=======
+  "login":{
+    "initial_text":"Find tournaments and matches for the sport that you prefer",
+    "social_options":{
+      "google":"Continue with Google",
+      "facebook":"Continue with Facebook",
+      "email":"Continue with Email"
+    },
+    "local_options":{
+      "password":"Password..",
+      "login":"Log In",
+      "forgotten_password":"I've forgotten my password",
+      "create_account":"Create account",
+      "social_options":"Continue with Google o Facebook"
+    }
+  },
+  "register":{
+    "initial_text":"Find tournaments and matches for the sport that you prefer",
+    "password":"Password..",
+    "repeat_password":"Repeat Password..",
+    "create_account":"Create Account",
+    "forgotten_password":"I've forgotten my password",
+    "have_account":"I've already have an account"
+>>>>>>> 55f456b47b49295a281b776de3b1d0b9f26c0bf3
   }
 }

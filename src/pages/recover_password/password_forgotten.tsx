@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
-import {  useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import { IonContent, IonInput, IonPage, IonLoading } from "@ionic/react";
 
 import "./password_forgotten.css";
 import icon from "../../assets/img/icono.png";
+
+import { useTranslation } from "react-i18next";
 
 const PasswordForgotten: React.FC = () => {
   const history = useHistory();
@@ -12,6 +14,7 @@ const PasswordForgotten: React.FC = () => {
   const [, setFormErrors] = useState(null);
   const [showLoading, setShowLoading] = useState(false);
   const formRef = useRef(null);
+  const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,17 +37,16 @@ const PasswordForgotten: React.FC = () => {
       <IonContent fullscreen>
         <IonLoading
           isOpen={showLoading}
-          message={"Wait please..."}
+          message={t("recover_password.loading")}
           onDidDismiss={() => setShowLoading(false)}
         />
         <div className="recoverPageContent">
           <div className="recoverTitleContainer">
             <img src={icon} alt="icon" />
-            <span className="recoverTitle">Recover Password</span>
+            <span className="recoverTitle">{t("recover_password.title")}</span>
           </div>
           <span className="recoverText">
-            Enter your email address to receive instructions to reset your
-            password.
+            {t("recover_password.description")}
           </span>
           <form
             onSubmit={handleSubmit}
@@ -57,6 +59,7 @@ const PasswordForgotten: React.FC = () => {
             <div className="recoverInputsContainer" id="localOps">
               <div className="recoverOption recoverOption--input">
                 <IonInput
+                  title="Email"
                   type="email"
                   required
                   value={email}
@@ -69,14 +72,15 @@ const PasswordForgotten: React.FC = () => {
                 className="recoverOption recoverOption--submit"
                 type="submit"
                 id="btnrecover"
+                title="button_recover"
               >
-                Recover
+                {t("recover_password.button")}
               </button>
               <div
                 className="recoverOption recoverOption--local recoverOption--create"
-                onClick={() => (history.goBack())}
+                onClick={() => history.goBack()}
               >
-                Back
+                {t("recover_password.back")}
               </div>
             </div>
           </form>
