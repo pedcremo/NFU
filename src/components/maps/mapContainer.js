@@ -49,9 +49,6 @@ export class MapContainer extends React.Component {
             )
         }
         <Marker onClick={this.onMarkerClick} name={"Current location"} />
-
-
-        
         <InfoWindow onClose={this.onInfoWindowClose}>
           <div>
             <h1>Nombre del evento</h1> 

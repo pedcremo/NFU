@@ -125,16 +125,13 @@ const Details = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        {/* MODAL */}
+                    {/* MODAL */}
         <IonModal isOpen={showModal}>
           <MyModal></MyModal>
           <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
         </IonModal>
         <p
-          className="maps"
+          className="mapsDetails"
           onClick={() => {
             let newCoordinates = {
               lat: event.coordinates.lat,
@@ -146,6 +143,12 @@ const Details = () => {
         ></p>
 
         {/* END MODAL */}
+
+
+            </div>
+          </div>
+        </div>
+        
       </IonContent>
     </IonPage>
   );

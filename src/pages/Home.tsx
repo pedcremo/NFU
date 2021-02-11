@@ -40,7 +40,7 @@ const Home: React.FC = () => {
     <IonPage>
       <Header page="Home" />
       <IonContent fullscreen>
-        <IonModal isOpen={showModal}>
+        {/* <IonModal isOpen={showModal}>
         <MyModal></MyModal>
         <IonButton onClick={() => setShowModal(false)}>
             Close Map
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
         //We assign all the coordinates of the events in which the user is interested
         dispatch({type:'ALL_COORDINATES',value:coordinates});
         setShowModal(true)
-      }}></p> 
+      }}></p>  */}
         <EventList />
       </IonContent>
     </IonPage>

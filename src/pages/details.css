@@ -156,16 +156,12 @@
     flex-wrap: wrap;  
 }
 
-.maps{
+.mapsDetails{
     background-image: url("../img/map-marked-alt-solid.svg");
     background-repeat: no-repeat;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 60px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
-
-.maps:hover{
-    cursor: pointer;
-}
+.mapsDetails:hover{
+    cursor: grab;
+} 

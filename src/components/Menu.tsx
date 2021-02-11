@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Route } from "react-router-dom";
 import { AppContext } from '../State';
 import {
@@ -17,6 +17,11 @@ import {
   IonImg,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+
+import data from "../data/data.json";
+import { IonPage, IonModal, IonButton } from "@ionic/react";
+import MyModal from "../components/modal/MyModal";
+import "./Menu.css"
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -39,6 +44,8 @@ import { home, logIn, logOut, football, map, pin, people, notifications } from "
 
 const Menu = () => {
   const { state, dispatch } = useContext(AppContext);
+
+  const [showModal, setShowModal] = useState(false);
 
   const logout = () => {
     dispatch({type:'LOGOUT'});
@@ -111,6 +118,34 @@ const Menu = () => {
                 </IonItem>
             </IonMenuToggle>
           }
+
+          <IonMenuToggle>
+            <IonModal isOpen={showModal}>
+              <MyModal></MyModal>
+              <IonButton onClick={() => setShowModal(false)}>
+                  Close Map
+              </IonButton>
+            </IonModal>
+
+            <p className="maps" onClick={() =>{
+              // We take all the coordinates of the epg
+              let events_array = Object.values(data);
+              let events = Object.values(events_array[0])
+              let coordinates = []
+
+              events.map((event, index) =>{
+                  coordinates[index] = {
+                    "lat": event.coordinates.lat,
+                    "lng": event.coordinates.lng
+                  }});
+                //Aqui cojo las coordenadas actuales, ya añado actual_lat y actual_lng a coordinates
+                
+
+              //We assign all the coordinates of the events in which the user is interested
+              dispatch({type:'ALL_COORDINATES',value:coordinates});
+              setShowModal(true)
+            }}></p> 
+          </IonMenuToggle>
 
         </IonList>
       </IonContent>
