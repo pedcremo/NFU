@@ -61,5 +61,8 @@
     "when": "When is the event?",
     "only": "Only people close to me",
     "submit": "Submit"
+  },
+  "instalation": {
+    "title": "FIELDS"
   }
 }

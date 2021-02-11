@@ -1,0 +1,58 @@
+.events{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .badge{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,.25);
+    cursor: pointer;
+  }
+  
+  .badge-blue{
+    background:#99f8ffd0;
+    color: whitesmoke;
+  }
+  
+  .badge-green{
+    background:#99ff99d0;
+    color: whitesmoke;
+  }
+  
+  .event-players{
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+  }
+  .event-players span{
+    filter: drop-shadow( 0.5px 0.5px 2px black);
+  }
+  
+  .badge-icon{
+    filter: drop-shadow( 0.5px 0.5px 2px black);
+    font-size: 14px;
+    margin-top: 2px;
+    margin-right: 5px;
+  }
+  
+  .event-location{
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+  }
+  
+  .event-location span{
+    filter: drop-shadow( 0.5px 0.5px 2px black);
+  }
+    

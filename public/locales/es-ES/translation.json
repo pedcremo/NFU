@@ -61,5 +61,9 @@
       "when": "Cuando es el evento?",
       "only": "Solo gente cerca de mí",
       "submit": "Añadir"
+    },  
+    
+    "instalation": {
+      "title": "PISTAS"
     }
 }

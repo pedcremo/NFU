@@ -21,7 +21,6 @@ export default class InstalacionesList extends React.Component {
   render() {
     return (
       <>
-        {/* <IonTitle>INSTALACIONES</IonTitle> */}
         <IonList className="dataList">
           {this.state.data.map((data, index) => (
             <InstalacionesPreview key={"info_" + index} info={data} />
