@@ -59,12 +59,13 @@ const logger = (reducer) => {
       state
     );
     console.log("%cAction:", "color: #00A7F7; font-weight: 700;", action);
+    const actionReducer = reducer(state, action);
     console.log(
       "%cNext State:",
       "color: #47B04B; font-weight: 700;",
-      reducer(state, action)
+      actionReducer
     );
-    return reducer(state, action);
+    return actionReducer;
   };
   return reducerWithLogger;
 };
