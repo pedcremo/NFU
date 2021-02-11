@@ -1,0 +1,11 @@
+.LoginTitleContainer ion-img {
+  width: 80px;
+  margin-right: 10px;
+}
+
+.LoginTitle {
+  font-family: Poppins-SemiBold;
+  font-size: 26px;
+  color: #266b63;
+  text-shadow: 1px 1px 1.5px #000000;
+}

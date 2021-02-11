@@ -1,4 +1,4 @@
-import { IonIcon } from "@ionic/react";
+import { IonIcon, IonText } from "@ionic/react";
 import React from "react";
 import "./Sports.css";
 import {
@@ -9,7 +9,15 @@ import {
 } from "ionicons/icons";
 
 const Sports: React.FC<{ sportsList: string[] }> = ({ sportsList }) => {
-  const sports = sportsList.map((sport) => {
+  if (!sportsList) {
+    return (
+      <div className="Sports">
+        <IonText color="primary">No tienes deportes seleccionados aún</IonText>
+      </div>
+    );
+  }
+
+  const sports = sportsList?.map((sport, i) => {
     let icon;
     switch (sport) {
       case "tennis":
@@ -28,7 +36,14 @@ const Sports: React.FC<{ sportsList: string[] }> = ({ sportsList }) => {
         icon = gameController;
         break;
     }
-    return <IonIcon size="large" style={{ color: "white", marginLeft: "0.6rem" }} icon={icon} />;
+    return (
+      <IonIcon
+        key={sport}
+        size="large"
+        style={{ color: "white", marginLeft: "0.6rem" }}
+        icon={icon}
+      />
+    );
   });
   return <div className="Sports">{sports}</div>;
 };

@@ -8,25 +8,29 @@ import {
   IonToolbar,
   IonTitle,
   IonText,
+  IonButtons,
+  IonMenuButton,
 } from "@ionic/react";
-import {
-  basketball,
-  settings,
-  share,
-  gameController,
-} from "ionicons/icons";
+import { basketball, settings, share, gameController, person } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
 
+  if (!state.user) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar color="light">
+          <IonButtons slot="start">
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
           <IonTitle>{"NFU"}</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -36,24 +40,42 @@ const Profile: React.FC = () => {
             <div
               className="Content__ProfileImage"
               style={{
-                backgroundImage: `url('${state.user.image}')`,
+                backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
               }}
             ></div>
-            <Sports sportsList={state.user.sports} />
+            <Sports sportsList={undefined} />
+            {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
             <h1>{state.user.name}</h1>
             <div className="Content__Buttons">
               <div>
-                <ButtonLink link="/login" text="New" icon={gameController} />
-                <ButtonLink link="/login" text="Matches" icon={basketball} />
+                <ButtonLink
+                  link="/app/create"
+                  text="New"
+                  icon={gameController}
+                />
+                <ButtonLink
+                  link="/app/events"
+                  text="Matches"
+                  icon={basketball}
+                />
               </div>
               <div>
                 <ButtonLink
-                  link="/login"
+                  link="/app/notifications"
                   text="Invitaciones"
                   icon={share}
                 />
-                <ButtonLink link="/login" text="Settings" icon={settings} />
+                <ButtonLink
+                  link="/app/settings"
+                  text="Settings"
+                  icon={settings}
+                />
               </div>
+              <ButtonLink
+                link="/app/profile/update"
+                text="Update"
+                icon={person}
+              />
             </div>
           </div>
         </div>

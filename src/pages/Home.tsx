@@ -1,53 +1,20 @@
-import React,{useContext, useState, useCallback} from 'react';
-import { AppContext } from '../State';
-import { useHistory, Redirect } from 'react-router-dom';
+import React, { useContext, useState, useCallback } from "react";
+import { AppContext } from "../State";
+import { Redirect } from "react-router-dom";
 
-import { 
-  IonContent, 
-  IonHeader, 
-  IonPage, 
-  IonTitle, 
-  IonToolbar,
-  IonModal,
-  IonPopover,
-  IonList,
-  IonItem,
-  IonLabel, 
-  IonButtons,
-  IonButton,
-  IonIcon 
-} from '@ionic/react';
+import { IonContent, IonPage, IonModal, IonButton } from "@ionic/react";
 
-import './Home.css';
-import EventList from '../components/Event/Event_List';
-import { ellipsisVertical } from 'ionicons/icons';
+import "./Home.css";
+import EventList from "../components/Event/Event_List";
 
-import MyModal from '../components/modal/MyModal';
-import data from '../data/data.json';
+import MyModal from "../components/modal/MyModal";
+import data from "../data/data.json";
 
-import Header from '../components/header/header';
+import Header from "../components/header/header";
 
 const Home: React.FC = () => {
-  const history = useHistory();
   const [showModal, setShowModal] = useState(false);
-  const { state,dispatch } = useContext(AppContext);
-  const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
-
-  const doLogout = useCallback(async () => {    
-    setShowUserMenuEvent(null);
-    dispatch({type:'LOGOUT'});        
-  }, [dispatch]);  
-
-
-  // Update profile button
-  const updateProfile = () => {
-    setShowUserMenuEvent(null);
-    history.push("/app/profile/update") 
-  }
-  
-  if (!state.user) {   
-    return <Redirect to="/" /> 
-  }
+  const { state, dispatch } = useContext(AppContext);
   
   let actual_coordinates = (function(){
     navigator.geolocation.getCurrentPosition(getCoordinates, errorGetCoordinates);
@@ -63,8 +30,7 @@ const Home: React.FC = () => {
     }
 
     function errorGetCoordinates(error){
-      console.log("ALERTA!");
-      console.log("No se han podido obtener las coordenadas");
+      alert("ALERTA! No se han podido obtener las coordenadas");
       console.log(error);
     }
   })();
@@ -72,8 +38,8 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <Header page="Home"/>
-      <IonContent fullscreen>      
+      <Header page="Home" />
+      <IonContent fullscreen>
         <IonModal isOpen={showModal}>
         <MyModal></MyModal>
         <IonButton onClick={() => setShowModal(false)}>
@@ -91,7 +57,6 @@ const Home: React.FC = () => {
               "lat": event.coordinates.lat,
               "lng": event.coordinates.lng
             }});
-
           //Aqui cojo las coordenadas actuales, ya añado actual_lat y actual_lng a coordinates
 
             
@@ -99,9 +64,7 @@ const Home: React.FC = () => {
         dispatch({type:'ALL_COORDINATES',value:coordinates});
         setShowModal(true)
       }}></p> 
-
         <EventList />
-
       </IonContent>
     </IonPage>
   );
