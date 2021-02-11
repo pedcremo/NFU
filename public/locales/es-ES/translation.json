@@ -100,5 +100,14 @@
     "create_account": "Crear Cuenta",
     "forgotten_password": "He olvidado mi contraseña",
     "have_account": "Ya tengo una cuenta"
+  },
+  "Menu": {
+    "Home":"Inicio",
+    "Match":"Partidos",
+    "Notifications":"Notificaciones",
+    "Instalations":"Instalaciones",
+    "Profile":"Perfil",
+    "LogOut":"Cerrar Session",
+    "Login":"Iniciar Session"
   }
 }

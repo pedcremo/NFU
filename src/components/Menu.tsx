@@ -17,6 +17,7 @@ import {
   IonImg,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import { useTranslation } from 'react-i18next';
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -43,7 +44,7 @@ const Menu = () => {
   const logout = () => {
     dispatch({type:'LOGOUT'});
   }
-
+  const { t } = useTranslation();
   return (
     <IonMenu contentId="NFU_Navigation">
       <IonHeader>
@@ -57,32 +58,32 @@ const Menu = () => {
           <IonMenuToggle>
             <IonItem routerLink="/app/home" routerDirection="none" lines="none">
               <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>Home</IonLabel>
+              <IonLabel>{t('Menu.Home')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
 
           <IonMenuToggle>
             <IonItem routerLink="/match" routerDirection="none" lines="none">
               <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>Match</IonLabel>
+              <IonLabel>{t('Menu.Match')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
           
           <IonMenuToggle>
-            <IonItem routerLink="/app/notifications" routerDirection="none" lines="none">
+            <IonItem routerLink="/notifications" routerDirection="none" lines="none">
               <IonIcon color="medium" slot="start" icon={notifications} />
-              <IonLabel>Notifications</IonLabel>
+              <IonLabel>{t('Menu.Notifications')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
 
           <IonMenuToggle>
             <IonItem
-              routerLink="/app/instalaciones"
+              routerLink="/instalaciones"
               routerDirection="none"
               lines="none"
             >
               <IonIcon  color="medium" slot="start" icon={pin} />
-              <IonLabel>Instalations</IonLabel>
+              <IonLabel>{t('Menu.Instalations')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
 
@@ -92,14 +93,14 @@ const Menu = () => {
             <IonMenuToggle>
               <IonItem routerLink="/profile" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logIn} />
-                <IonLabel>Profile</IonLabel>
+                <IonLabel>{t('Menu.Profile')}</IonLabel>
               </IonItem>
             </IonMenuToggle>
 
             <IonMenuToggle>
               <IonItem onClick={logout} routerLink="/app/home" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logOut} />
-                <IonLabel>Logout</IonLabel>
+                <IonLabel>{t('Menu.LogOut')}</IonLabel>
               </IonItem>
             </IonMenuToggle>
             </>
@@ -107,7 +108,7 @@ const Menu = () => {
             <IonMenuToggle>
                 <IonItem routerLink="/login" routerDirection="none" lines="none">
                   <IonIcon color="medium" slot="start" icon={logIn} />
-                  <IonLabel>Login</IonLabel>
+                  <IonLabel>{t('Menu.Login')}</IonLabel>
                 </IonItem>
             </IonMenuToggle>
           }

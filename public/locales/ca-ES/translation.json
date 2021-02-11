@@ -102,5 +102,14 @@
     "create_account":"Crear compte",
     "forgotten_password":"He oblidat la contrasenya",
     "have_account":"Ja tinc un compte"
+  },
+  "Menu":{
+      "Home":"Inici",
+      "Match":"Partits",
+      "Notifications":"Notificacions",
+      "Instalations":"Instal·lacions",
+      "Profile":"Perfil",
+      "LogOut":"Tancar Sessió",
+      "Login":"Iniciar Sessió"
   }
 }

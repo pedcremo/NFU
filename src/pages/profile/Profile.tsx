@@ -51,11 +51,11 @@ const Profile: React.FC = () => {
                 <ButtonLink link="/app/events" text="Matches" icon={basketball} />
               </div>
               <div>
-                <ButtonLink link="/app/notifications" text="Invitaciones" icon={share} />
-                <ButtonLink link="/app/settings" text="Settings" icon={settings} />
+                <ButtonLink link="/notifications" text="Invitaciones" icon={share} />
+                <ButtonLink link="/settings" text="Settings" icon={settings} />
               </div>
               <ButtonLink
-                link="/app/profile/update"
+                link="/profile/update"
                 text="Update"
                 icon={person}
               />
