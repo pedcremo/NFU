@@ -51,7 +51,7 @@ const Register: React.FC = () => {
                     <AppTitle />
                     <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
                     <IonLabel className="prhaseLogin">{t("register.initial_text")}</IonLabel>
-                    <form onSubmit={handleSubmit} method="post" name="login_form" ref={formRef} action="" className="register-form">
+                    <form onSubmit={handleSubmit} method="post" name="register_form" ref={formRef} action="" className="register-form">
                         <IonInput type="email" value={email} className="inputFieldRegister" required onInput={e => setEmail(e.currentTarget.value)} placeholder="Email.." />
                         <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder={t("register.password")} />
                         <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder={t("register.repeat_password")} />

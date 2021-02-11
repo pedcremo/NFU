@@ -5,7 +5,7 @@ import GoogleIcon from "../../assets/img/google_icon.svg";
 import FacebookIcon from "../../assets/img/facebook_icon.svg";
 import { useTranslation } from "react-i18next";
 
-const SocialOptions: React.FC<{action: Function}> = ({action}) => {
+const SocialOptions: React.FC<{action?: Function}> = ({action}) => {
   const { t } = useTranslation();
   return (
     <div className="loginOptionsContainer">
