@@ -16,16 +16,16 @@ const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(AppContext);
 
-  if (!state.user) {
-    return <Redirect to="/" />;
-  }
+  // if (!state.user) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <IonPage>
       <Header page="Home" />
       <IonContent fullscreen>
         <IonModal isOpen={showModal}>
-          <MyModal></MyModal>
+          <MyModal />
           <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
         </IonModal>
         <p
