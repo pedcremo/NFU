@@ -77,5 +77,28 @@
       "when": "Cuando es el evento?",
       "only": "Solo gente cerca de mí",
       "submit": "Añadir"
+    },
+    "login":{
+      "initial_text":"Encuentra torneos y partidos para el deporte que prefieras",
+      "social_options":{
+        "google":"Continua con Google",
+        "facebook":"Continua con Facebook",
+        "email":"Continua con Email"
+      },
+      "local_options":{
+        "password":"Contraseña..",
+        "login":"Iniciar Sesión",
+        "forgotten_password":"He olvidado mi contraseña",
+        "create_account":"Crear una cuenta",
+        "social_options":"Continuar con Google o Facebook"
+      }
+    },
+    "register":{
+      "initial_text":"Encuentra torneos y partidos para el deporte que prefieras",
+      "password":"Contraseña..",
+      "repeat_password":"Repetir Contraseña..",
+      "create_account":"Crear Cuenta",
+      "forgotten_password":"He olvidado mi contraseña",
+      "have_account":"Ya tengo una cuenta"
     }
 }

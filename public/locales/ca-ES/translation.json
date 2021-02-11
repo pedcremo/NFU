@@ -82,5 +82,28 @@
     "name": "nom",
     "imagen" : "image",
     "pistas" : "pistes"
+  },
+  "login":{
+    "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
+    "social_options":{
+      "google":"Continua amb Google",
+      "facebook":"Continua amb Facebook",
+      "email":"Continua amb Email"
+    },
+    "local_options":{
+      "password":"Contrasenya..",
+      "login":"Iniciar Sessió",
+      "forgotten_password":"He oblidat la contrasenya",
+      "create_account":"Crear un compte",
+      "social_options":"Continuar amb Google o Facebook"
+    }
+  },
+  "register":{
+    "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
+    "password":"Contrasenya..",
+    "repeat_password":"Repetir Contrasenya..",
+    "create_account":"Crear compte",
+    "forgotten_password":"He oblidat la contrasenya",
+    "have_account":"Ja tinc un compte"
   }
 }

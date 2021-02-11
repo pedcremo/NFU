@@ -16,7 +16,7 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   language: 'es',
-  theme: 'Dark',
+  theme: 'Light',
   user: '',
   coordinates: "",
   welcome: "",

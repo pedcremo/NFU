@@ -15,6 +15,7 @@ import {
 import './Register.css';
 import AppTitle from '../../components/shared/AppTitle'
 import DeporteImg from '../../assets/img/deporte_img.png'
+import { useTranslation } from "react-i18next";
 
 const Register: React.FC = () => {
     const history = useHistory();
@@ -23,6 +24,7 @@ const Register: React.FC = () => {
     const [password, setPassword] = useState<React.ReactText | undefined>('');
     const [, setFormErrors] = useState(null);
     const [showLoading, setShowLoading] = useState(false);
+    const { t } = useTranslation();
 
     const formRef = useRef(null);
 
@@ -48,15 +50,15 @@ const Register: React.FC = () => {
                 <div className="loginPageContent">
                     <AppTitle />
                     <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
-                    <IonLabel className="prhaseLogin">Find tournaments and matches for the sport that you prefer</IonLabel>
+                    <IonLabel className="prhaseLogin">{t("register.initial_text")}</IonLabel>
                     <form onSubmit={handleSubmit} method="post" name="login_form" ref={formRef} action="" className="register-form">
                         <IonInput type="email" value={email} className="inputFieldRegister" required onInput={e => setEmail(e.currentTarget.value)} placeholder="Email.." />
-                        <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder="Password.." />
-                        <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder="Repeat Password.." />
-                        <IonButton className="btn-submit-register" type="submit" id="btnRegister">Create Account</IonButton>
+                        <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder={t("register.password")} />
+                        <IonInput type="password" value={password} className="inputFieldRegister" required onInput={e => setPassword(e.currentTarget.value)} placeholder={t("register.repeat_password")} />
+                        <IonButton className="btn-submit-register" type="submit" id="btnRegister">{t("register.create_account")}</IonButton>
                         <div className="login-row">
-                            <IonLabel className="registerOption register-link-option" onClick={() => history.push('recover')}> I've forgot my password</IonLabel>
-                            <IonLabel className="registerOption register-link-option" onClick={() => history.push('login')}>I already have an account</IonLabel>
+                            <IonLabel className="registerOption register-link-option" onClick={() => history.push('recover')}> {t("register.forgotten_password")}</IonLabel>
+                            <IonLabel className="registerOption register-link-option" onClick={() => history.push('login')}>{t("register.have_account")}</IonLabel>
                         </div>
                     </form>
                 </div>

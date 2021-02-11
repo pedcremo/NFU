@@ -77,5 +77,28 @@
     "when": "When is the event?",
     "only": "Only people close to me",
     "submit": "Submit"
+  },
+  "login":{
+    "initial_text":"Find tournaments and matches for the sport that you prefer",
+    "social_options":{
+      "google":"Continue with Google",
+      "facebook":"Continue with Facebook",
+      "email":"Continue with Email"
+    },
+    "local_options":{
+      "password":"Password..",
+      "login":"Log In",
+      "forgotten_password":"I've forgotten my password",
+      "create_account":"Create account",
+      "social_options":"Continue with Google o Facebook"
+    }
+  },
+  "register":{
+    "initial_text":"Find tournaments and matches for the sport that you prefer",
+    "password":"Password..",
+    "repeat_password":"Repeat Password..",
+    "create_account":"Create Account",
+    "forgotten_password":"I've forgotten my password",
+    "have_account":"I've already have an account"
   }
 }
