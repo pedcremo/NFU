@@ -1,3 +1,15 @@
+/**
+ * This is a simple redux-like state management pattern for React using hooks
+ * that might be useful in your simpler Ionic React apps that don't
+ * require something as complex as Redux.
+ * 
+ * See each page for an example of how to read from state and
+ * dispatch actions.
+ * 
+ * Learn more:
+ * https://ionicframework.com/blog/a-state-management-pattern-for-ionic-react-with-react-hooks/
+ */
+
 import React, { useReducer, useEffect } from "react";
 
 let AppContext = React.createContext(null);
@@ -7,7 +19,9 @@ const initialState = {
   theme: 'Light',
   user: '',
   coordinates: "",
-  welcome: ""
+  welcome: "",
+  BackLogin:""
+  
 }
 
 let reducer = (state, action) => {
@@ -80,3 +94,5 @@ function AppContextProvider(props) {
 let AppContextConsumer = AppContext.Consumer;
 
 export { AppContext, AppContextProvider, AppContextConsumer };
+
+export const isLogin =(state) => { return state.user ? true: false }
