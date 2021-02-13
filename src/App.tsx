@@ -9,6 +9,7 @@ import ChangePassword from "./pages/recover_password/change_password";
 import Settings from './pages/settings/Settings';
 import Comments from './pages/Comments';
 import Instalaciones from './pages/Instalaciones'
+import Details from './pages/Details'
 import Instalacion from './pages/instalacion'
 
 import UpdateProfile from './pages/profile/UpdateProfile';
@@ -62,6 +63,7 @@ const App: React.FC = () => (
         <PublicRoute component={Notifications} path="/notifications" exact />
         <PublicRoute component={Instalaciones} path="/instalaciones" exact />
         <PublicRoute component={Instalacion} path="/instalacion/:id" exact />
+        <PublicRoute component={Details} path="/event/:id" exact />
 
         <PrivateRoute component={Settings} path="/settings" exact />
         <PrivateRoute component={UpdateProfile} path="/profile/update" exact />   

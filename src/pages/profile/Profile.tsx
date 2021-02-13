@@ -60,16 +60,14 @@ const Profile: React.FC = () => {
                 />
               </div>
               <div>
-                <ButtonLink link="/notifications" text="Invitaciones" icon={share} />
-                <ButtonLink link="/settings" text="Settings" icon={settings} />
 
                 <ButtonLink
-                  link="/app/notifications"
+                  link="/notifications"
                   text="Invitaciones"
                   icon={share}
                 />
                 <ButtonLink
-                  link="/app/settings"
+                  link="/settings"
                   text="Settings"
                   icon={settings}
                 />
