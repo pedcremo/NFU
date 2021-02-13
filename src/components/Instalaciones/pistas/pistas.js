@@ -1,30 +1,44 @@
 import React from 'react';
+import { useParams } from "react-router";
 
 import {
-    IonCard,
-  } from '@ionic/react';
+  IonCard,
+} from '@ionic/react';
 
-const Instalacion_pista = (props) =>{
+const Instalacion_pista = (props) => {
+
+  console.log(props.item)
 
 
+  // console.log(data)
+  // //get id URL
+  // const { id } = useParams();
+  // console.log(id);
+  // const instalaciones_ar = Object.values(data);
 
-    const pista = props.item;
-    console.log(pista);
+  // // let eventClick = () => {
 
-    return (
-        <>
-          {pista.pistas.map((loc, index) => (
-          <IonCard className="event">
-            <div className="event-image">
-              <img alt="" src={loc.Imagen}></img>
-            </div>
-            <div className="event-content">
-              <span className="event-content-title">{loc.Nombre}</span>
-            </div>
-          </IonCard>
-          ))}
-        </>
-    )
+  // // }
+
+  // let instalacion = instalaciones_ar.find(instalacion => instalacion.id === id);
+  // console.log(instalacion.id)
+  // console.log(instalacion.name)
+
+
+  return (
+    <>
+      {props.item.pistas.map((pista) => (
+        <IonCard className="lista">
+          <div className="lista-image">
+            <img alt="" src={pista.Imagen}></img>
+          </div>
+          <div className="lista-content">
+            <span className="lista-content-title">{pista.Nombre}</span>
+          </div>
+        </IonCard>
+      ))}
+    </>
+  )
 }
 
 export default Instalacion_pista;

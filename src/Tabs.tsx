@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Route } from 'react-router-dom';
 import { AppContext } from './State';
 import { useTranslation } from 'react-i18next';
 
@@ -11,11 +12,13 @@ import {
     IonRouterOutlet,    
 } from '@ionic/react';
 
-import { home, people, addCircle } from 'ionicons/icons';
-
 import Home from './pages/Home';
 import Events from './pages/Events';
+
 import Create from './pages/create/Create';
+
+
+import { home, people, addCircle } from 'ionicons/icons';
 
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
@@ -31,8 +34,9 @@ const Tabs: React.FC = () => {
 
         <PublicRoute component={Home} path="/app/home" exact />
         <PublicRoute component={Events} path="/app/events" exact />
+     
         <PrivateRoute component={Create} path="/app/create" exact />
- 
+
         
 
         </IonRouterOutlet>

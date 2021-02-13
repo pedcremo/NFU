@@ -1,35 +1,36 @@
 
 import React from 'react';
 import instalaciones from '../../../data/dataInstalaciones.json';
+import InstalacionesList from '../instalacionesList';
 import './Pista.css';
+import './list.css'
 import Instalacion_pista from './pistas';
 
-export default class ListPistas extends React.Component {
+const ListPistas = () => {
 
-    constructor(props){
-      super(props);      
-      this.state = { 
-        instalaciones: instalaciones
-      };
-    }
+  const instalaciones_array = Object.values(instalaciones);
+  console.log(instalaciones_array)
+  return (
 
-  
-    render() {
-      console.log("render");
-      console.log(this.state)
-      const instalaciones_array = Object.values(this.state.instalaciones);
-      return (
-        <>
-          <section className="events">
-          {
-              instalaciones_array.map((pista,index) =>
-                  (<Instalacion_pista className="event" key={index} item={pista} ></Instalacion_pista>)            
-              )
-            }  
-          </section>
-        </>
-       
-      );
-    }
+
+    <>
+
+      <section className="pistas_grid">
+
+
+        {
+          instalaciones_array.map((pista) =>
+            <Instalacion_pista className="listas" item={pista} ></Instalacion_pista>
+          )
+        }
+
+      </section>
+    </>
+
+
+
+
+  );
 }
 
+export default ListPistas;

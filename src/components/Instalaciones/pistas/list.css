@@ -1,0 +1,7 @@
+.pistas_grid{
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

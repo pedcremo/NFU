@@ -109,5 +109,8 @@
     "Profile":"Profile",
     "LogOut":"LogOut",
     "Login":"Login"
+  },
+  "Navbar":{
+    "LOGOUT":"LogOut"
   }
 }

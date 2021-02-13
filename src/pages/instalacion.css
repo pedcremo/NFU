@@ -76,8 +76,6 @@
 .detail-content-left{
   display: flex;
   flex-direction: column;
-  width: 60%;
-  min-width: 300px;
   margin-bottom: 20px;
 }
 

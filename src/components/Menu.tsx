@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { Route } from "react-router-dom";
 import { AppContext } from '../State';
 import {
-  IonApp,
-  IonRouterOutlet,
   IonMenu,
   IonHeader,
   IonToolbar,
@@ -16,7 +14,6 @@ import {
   IonMenuToggle,
   IonImg,
 } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
 import { useTranslation } from 'react-i18next';
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,11 +37,12 @@ import { home, logIn, logOut, football, map, pin, people, notifications } from "
 
 const Menu = () => {
   const { state, dispatch } = useContext(AppContext);
-
+  const { t } = useTranslation();
+  
   const logout = () => {
     dispatch({type:'LOGOUT'});
   }
-  const { t } = useTranslation();
+
   return (
     <IonMenu contentId="NFU_Navigation">
       <IonHeader>

@@ -111,5 +111,8 @@
       "Profile":"Perfil",
       "LogOut":"Tancar Sessió",
       "Login":"Iniciar Sessió"
+  },
+  "Navbar":{
+    "LOGOUT":"Tancar Sessió"
   }
 }

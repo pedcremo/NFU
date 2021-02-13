@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { pinSharp, heartOutline, addCircle } from 'ionicons/icons';
+import { pinSharp } from 'ionicons/icons';
 import {
   IonContent, IonPage, IonIcon,
 } from '@ionic/react';

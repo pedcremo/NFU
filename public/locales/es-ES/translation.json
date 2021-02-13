@@ -109,5 +109,8 @@
     "Profile":"Perfil",
     "LogOut":"Cerrar Session",
     "Login":"Iniciar Session"
+  },
+  "Navbar":{
+    "LOGOUT":"Cerrar Session"
   }
 }
