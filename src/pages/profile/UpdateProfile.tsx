@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../../State';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   IonContent,
@@ -37,10 +37,11 @@ const UpdateProfile = () => {
   const [number, setNumber] = useState<React.ReactText | undefined>('');
   const [gender, setGender] = useState<React.ReactText | undefined>('');
   const [birthday, setBirthday] = useState<string>('');
+  const history = useHistory();
 
 
   if (!state.user) {
-    return <Redirect to="/" />
+    history.push("/");
   }
 
   return (

@@ -10,8 +10,16 @@ export class MapContainer extends React.Component {
   }
   render() {
     const coordinates_array = Object.values(this.props.coordinates);
+    const user_coordinates = this.props.user_coordinates
+
+    if(user_coordinates == "no") {
+      alert("Por favor, permite el acceso a la ubicacion");
+      // this.onInfoWindowClose
+      // return;
+    }
+
     return (
-      <Map google={this.props.google} zoom={2} onClick={this.mapClicked}>
+      <Map google={this.props.google} zoom={10} onClick={this.mapClicked} center={{ lat: user_coordinates.latitude, lng: user_coordinates.longitude }}>
 
         {
           coordinates_array.length>2

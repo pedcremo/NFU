@@ -5,7 +5,7 @@ import { IonLabel, IonInput, IonLoading, IonButton } from '@ionic/react';
 import './LocalOptions.css';
 import { useTranslation } from "react-i18next";
 
-const LocalOptions: React.FC<{ action: Function }> = ({ action }) => {
+const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
     const history = useHistory()
     const { dispatch } = useContext(AppContext);
     const [email, setEmail] = useState<React.ReactText | undefined>("");
