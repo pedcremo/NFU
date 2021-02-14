@@ -1,0 +1,25 @@
+import React, { useContext, useState } from 'react';
+import CommentList from './CommentList';
+import renderer from 'react-test-renderer';
+import { AppContext } from '../../State';
+import { AppContextProvider } from "../../State";
+
+
+
+test('Comprobación de renderizado de comentarios', () => {
+    const match = { params: { id: 1 }};
+    const comment = [{
+                "id": 1,
+                "title": "Test",
+                "body": "Test",
+                "author": "Test",
+                "date": "Test"  
+            }]
+    const component = renderer.create(
+        <AppContextProvider><CommentList comments = {comment}/></AppContextProvider>
+    );
+
+
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot()
+});

@@ -31,6 +31,9 @@ const Comments: React.FC = () => {
 
     let { id }  = useParams();
 
+    let props = useParams()
+
+    console.log(props);
     const imgStyle = {
         width: '50px'
     }
