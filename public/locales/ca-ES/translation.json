@@ -76,12 +76,9 @@
     "only": "Sols gent prop de mi",
     "submit": "Afegir"
   },
-  
-  "instalations": {
-    "ubication": "Ubicació",
-    "name": "nom",
-    "imagen" : "image",
-    "pistas" : "pistes"
+
+  "instalation": {
+    "title": "PISTES"
   },
   "login":{
     "initial_text":"Troba tornejos i partits per a l'esport que prefereixis",
@@ -105,5 +102,17 @@
     "create_account":"Crear compte",
     "forgotten_password":"He oblidat la contrasenya",
     "have_account":"Ja tinc un compte"
+  },
+  "Menu":{
+      "Home":"Inici",
+      "Match":"Partits",
+      "Notifications":"Notificacions",
+      "Instalations":"Instal·lacions",
+      "Profile":"Perfil",
+      "LogOut":"Tancar Sessió",
+      "Login":"Iniciar Sessió"
+  },
+  "Navbar":{
+    "LOGOUT":"Tancar Sessió"
   }
 }

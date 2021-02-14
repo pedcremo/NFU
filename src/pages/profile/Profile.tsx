@@ -43,19 +43,37 @@ const Profile: React.FC = () => {
                 backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
               }}
             ></div>
-            <Sports sportsList={["tennis", "basket", "football", "cs GO"]} />
+            <Sports sportsList={undefined} />
+            {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
             <h1>{state.user.name}</h1>
             <div className="Content__Buttons">
               <div>
-                <ButtonLink link="/app/create" text="New" icon={gameController} />
-                <ButtonLink link="/app/events" text="Matches" icon={basketball} />
+                <ButtonLink
+                  link="/app/create"
+                  text="New"
+                  icon={gameController}
+                />
+                <ButtonLink
+                  link="/app/events"
+                  text="Matches"
+                  icon={basketball}
+                />
               </div>
               <div>
-                <ButtonLink link="/app/notifications" text="Invitaciones" icon={share} />
-                <ButtonLink link="/app/settings" text="Settings" icon={settings} />
+
+                <ButtonLink
+                  link="/notifications"
+                  text="Invitaciones"
+                  icon={share}
+                />
+                <ButtonLink
+                  link="/settings"
+                  text="Settings"
+                  icon={settings}
+                />
               </div>
               <ButtonLink
-                link="/app/profile/update"
+                link="/profile/update"
                 text="Update"
                 icon={person}
               />

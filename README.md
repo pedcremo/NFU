@@ -16,3 +16,7 @@ npx cap open android
 https://www.robinwieruch.de/react-testing-library
 
 https://ionicframework.com/blog/testing-ionic-react-apps-with-jest-and-react-testing-library/
+
+https://blog.bitsrc.io/testing-with-react-testing-library-and-jest-3dffaa114c04
+
+https://jestjs.io/docs/en/tutorial-react

@@ -1,7 +1,7 @@
 import React, { useContext, useState  } from 'react';
 import { AppContext } from '../../State';
 import { ellipsisVertical} from 'ionicons/icons';
-
+import { useTranslation } from 'react-i18next';
 import {
     IonHeader,
     IonToolbar,
@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
     const { state, dispatch } = useContext(AppContext);
     const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
-
+    const { t } = useTranslation();
     const doLogout = () => {
         setShowUserMenuEvent(null);
         dispatch({ type: 'SET_LOGOUT' });
@@ -47,7 +47,7 @@ const Navbar = (props) => {
                 <IonContent>
                     <IonList>
                         <IonItem onClick={e => { e.preventDefault(); doLogout() }} detail={true} href="">
-                            <IonLabel>LOGOUT</IonLabel>
+                            <IonLabel>{t('Navbar.LOGOUT')}</IonLabel>
                         </IonItem>
                         <IonItem>
                             <IonLabel>{state.user}</IonLabel>
