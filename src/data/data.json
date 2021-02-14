@@ -9,6 +9,10 @@
             "status": "open",
             "time":"2021-2-1 06:40",
             "type":"Games",
+            "coordinates":{
+                "lat": 38.8108668,
+                "lng": -0.604796
+            },
             "author":{
                 "username": "Joel",
                 "image":"https://thispersondoesnotexist.com/image",
@@ -35,6 +39,10 @@
             "status": "open",
             "time":"2021-2-4 06:40",
             "type":"Sport",
+            "coordinates":{
+                "lat": 38.9908611,
+                "lng": -0.5305654
+            },
             "author":{
                 "username": "Tono Ipsum",
                 "image":"https://thispersondoesnotexist.com/image",
@@ -60,6 +68,10 @@
             "status": "open",
             "time":"2021-2-4 06:40",
             "type":"Sport",
+            "coordinates":{
+                "lat": 38.696278,
+                "lng": -0.4809465
+            },
             "author":{
                 "username": "Fake Person",
                 "image":"https://thispersondoesnotexist.com/image",
@@ -85,6 +97,10 @@
             "status": "open",
             "time":"2021-2-4 06:40",
             "type":"Sport",
+            "coordinates":{
+                "lat": 38.9893624,
+                "lng": -0.5144499
+            },
             "author":{
                 "username": "Vicente",
                 "image":"https://2.bp.blogspot.com/-9unW-4lkfEo/W_Kzb79JGFI/AAAAAAAAADI/aFHn3p8zT0gNaYuY3Zha7gGvUdrWewKhACLcBGAs/s1600/IMG_4422.JPG",
@@ -114,6 +130,10 @@
             "status": "open",
             "time":"2021-2-1 06:40",
             "type":"Games",
+            "coordinates":{
+                "lat": 38.8159493,
+                "lng": -0.6070603
+            },
             "author":{
                 "username": "Vicente",
                 "image":"https://2.bp.blogspot.com/-9unW-4lkfEo/W_Kzb79JGFI/AAAAAAAAADI/aFHn3p8zT0gNaYuY3Zha7gGvUdrWewKhACLcBGAs/s1600/IMG_4422.JPG",

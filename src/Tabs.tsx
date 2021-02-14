@@ -1,6 +1,8 @@
+import React, { useContext } from 'react';
+import { Route } from 'react-router-dom';
+import { AppContext } from './State';
+import { useTranslation } from 'react-i18next';
 
-import React from 'react';
-import { Redirect,Route } from 'react-router-dom';
 import {     
     IonTabs,
     IonTabBar,
@@ -12,36 +14,55 @@ import {
 
 import Home from './pages/Home';
 import Events from './pages/Events';
-import Details from './pages/Details.js';
+
 import Create from './pages/create/Create';
+
+
 import { home, people, addCircle } from 'ionicons/icons';
 
+import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
+
+
 const Tabs: React.FC = () => {
-        
+    const { state, dispatch } = useContext(AppContext);
+    const { t } = useTranslation();
+
     return (
         <IonTabs>
         <IonRouterOutlet>
-          <Route path="/app/home" component={Home} exact={true} />
-          <Route path="/app/events" component={Events} exact={true} />
-          <Route path="/app/event/:id" component={Details} />
-          <Route path="/app/create" component={Create} />          
+
+        <PublicRoute component={Home} path="/app/home" exact />
+        <PublicRoute component={Events} path="/app/events" exact />
+     
+        <PrivateRoute component={Create} path="/app/create" exact />
+
+        
+
         </IonRouterOutlet>
+
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/app/home">
             <IonIcon icon={home} />
-            <IonLabel>HOME</IonLabel>
+            <IonLabel>{t('tabs.home')}</IonLabel>
           </IonTabButton>
+
           <IonTabButton tab="events" href="/app/events">
             <IonIcon icon={people} />
-            <IonLabel>EVENTS</IonLabel>
+            <IonLabel>{t('tabs.events')}</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="create" href="/app/create">
-            <IonIcon icon={addCircle} />
-            <IonLabel>Añadir evento</IonLabel>
-          </IonTabButton>
+
+          {
+            (state.user)?
+              <IonTabButton tab="create" href="/app/create">
+                <IonIcon icon={addCircle} />
+                <IonLabel>{t('tabs.addevent')}</IonLabel>
+              </IonTabButton>
+            : <></>
+          }
+
         </IonTabBar>
       </IonTabs>      
-
     );
 };
 

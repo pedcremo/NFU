@@ -1,0 +1,116 @@
+{
+  "title": "Nos falta uno",
+  "welcome": {
+    "title": "Nos falta uno",
+    "welcome": "Bienvenido",
+    "description": " Busca campeonatos y partidas para el deporte que prefieras. Únete con un simple click",
+    "meet": "Encuentra nuevos amigos",
+    "meetDescription": "Encuentra nuevos amigos con el mismo interés y jugad juntos",
+    "find": "Envuentra los eventos más próximos a ti ",
+    "findDescription": "Escoje tus preferencias y te mostraremos los eventos relacionados más próximos a ti.",
+    "ready": "¿ Estás preparado ?",
+    "continue": "Continue"
+  },
+  "recover_password": {
+    "loading": "Espera por favor ...",
+    "title": "Recuperar contraseña",
+    "description": "Ingrese su dirección de correo electrónico para recibir instrucciones para restablecer su contraseña.",
+    "button": "Recuperar",
+    "back": "Atras"
+  },
+  "change_password": {
+    "loading": "Espera por favor ...",
+    "title": "Cambiar contraseña",
+    "description": "Hola {{variable}}, introduzca su nueva contraseña.",
+    "error_password_not_match": "Las contraseñas no coinciden",
+    "input_new_password": "Nueva contraseña ...",
+    "input_repeat_password": "Repite la contraseña ...",
+    "button_change": "Cambiar"
+  },
+  "updateProfile": {
+    "title": "Editar Perfil",
+    "changePhoto": "Cambiar Foto de Perfil",
+    "form": {
+      "name": "Tu Nombre",
+      "username": "Nombre de usuario",
+      "website": "Sitio Web",
+      "bio": "Biografia",
+      "advanced": {
+        "email": "Correo electrónico",
+        "phone": "Número de teléfono",
+        "gender": {
+          "title": "Género",
+          "prefer": "Prefiero no decirlo",
+          "male": "Hombre",
+          "female": "Mujer"
+        },
+        "birthday": "Fecha de nacimiento"
+      },
+      "edit": "Editar Perfil"
+    },
+    "personal": {
+      "title": "Información Personal",
+      "description": "Provee tu información personal, incluso si tu cuenta es usada para un negocio, una mascota o otra cosa. Esto no será parte de tu perfil público."
+    }
+  },
+  "tabs": {
+    "home": "Inicio",
+    "events": "Eventos",
+    "addevent": "Crear Evento"
+  },
+  "create": {
+    "title": "Crear Evento",
+    "add": "Añadir Evento",
+    "name": "Nombre del evento",
+    "players": "Jugadores totales",
+    "needplayers": "Jugadores que necesitas",
+    "location": "Localidad",
+    "city": "Ciudad",
+    "province": "Provincia",
+    "postal": "Código Postal",
+    "category": "Selecciona una categoría",
+    "gaming": "Gaming",
+    "sport": "Deporte",
+    "when": "Cuando es el evento?",
+    "only": "Solo gente cerca de mí",
+    "submit": "Añadir"
+  },
+  "instalation": {
+    "title": "PISTAS"
+  },
+  "login": {
+    "initial_text": "Encuentra torneos y partidos para el deporte que prefieras",
+    "social_options": {
+      "google": "Continua con Google",
+      "facebook": "Continua con Facebook",
+      "email": "Continua con Email"
+    },
+    "local_options": {
+      "password": "Contraseña..",
+      "login": "Iniciar Sesión",
+      "forgotten_password": "He olvidado mi contraseña",
+      "create_account": "Crear una cuenta",
+      "social_options": "Continuar con Google o Facebook"
+    }
+  },
+  "register": {
+    "initial_text": "Encuentra torneos y partidos para el deporte que prefieras",
+    "password": "Contraseña..",
+    "repeat_password": "Repetir Contraseña..",
+    "create_account": "Crear Cuenta",
+    "forgotten_password": "He olvidado mi contraseña",
+    "have_account": "Ya tengo una cuenta"
+  },
+  "Menu": {
+    "Home":"Inicio",
+    "Match":"Partidos",
+    "Notifications":"Notificaciones",
+    "Instalations":"Instalaciones",
+    "Profile":"Perfil",
+    "LogOut":"Cerrar Session",
+    "Login":"Iniciar Session"
+  },
+  "Navbar":{
+    "LOGOUT":"Cerrar Session"
+  }
+}

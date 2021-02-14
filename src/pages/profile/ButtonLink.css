@@ -1,0 +1,23 @@
+.ButtonLink__Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ButtonLink__Container p{
+    margin: 0.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+
+.ButtonLink {
+  background-color: rgb(71, 72, 82);
+  border-radius: 10px;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
