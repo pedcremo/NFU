@@ -12,18 +12,12 @@ import {
     IonIcon,
     IonInput,
     IonItem,
-    IonLabel,
-    IonList,
-    IonCard,
-    IonCardSubtitle,
-    IonCardContent
-
+    IonList
 } from '@ionic/react';
 import { ellipsisVertical } from 'ionicons/icons';
-
 import comments from '../data/comments.json';
-
-import CommentList from '../components/Comment/CommentList'
+import CommentList from '../components/Comment/CommentList';
+import { useTranslation } from 'react-i18next';
 
 
 const Comments: React.FC = () => {
@@ -31,16 +25,11 @@ const Comments: React.FC = () => {
 
     let { id }  = useParams();
 
+    const { t } = useTranslation();
+
     let props = useParams()
 
-    console.log(props);
-    const imgStyle = {
-        width: '50px'
-    }
-
-
     const history = useHistory();
-    const { state, dispatch } = useContext(AppContext);
     const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
     let com = [];
 
@@ -57,7 +46,7 @@ const Comments: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Comments</IonTitle>
+                    <IonTitle>{ t('Comments.title') }</IonTitle>
                     <IonButtons slot="end">
                         <IonButton fill="clear" onClick={e => { e.persist(); setShowUserMenuEvent(e) }}>
                             <IonIcon icon={ellipsisVertical} />
@@ -69,10 +58,9 @@ const Comments: React.FC = () => {
                 <form method="post" action="">
                     <IonList>
                         <IonItem>
-                            <IonInput placeholder="Type your message" type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
+                            <IonInput placeholder={ t('Comments.type') } type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
                         </IonItem>
-
-                        <IonButton expand="block" type="submit">{'Comment'}</IonButton>
+                        <IonButton expand="block" type="submit">{ t('Comments.send_comment') }</IonButton>
                     </IonList>
                 </form>
                 {component}

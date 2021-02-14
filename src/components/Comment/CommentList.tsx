@@ -50,7 +50,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
                             {j.body}
                         </IonCardContent>
                         <div></div>
-                        <IonButton fill="clear" type="button" onClick = {deleteComment}><IonIcon icon={trash} /></IonButton>
+                        <IonButton fill="clear" type="button" onClick = {deleteComment} id = "deleteButton"><IonIcon icon={trash} /></IonButton>
                     </IonCard>)
                 })
             }

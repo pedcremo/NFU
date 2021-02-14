@@ -112,5 +112,10 @@
   },
   "Navbar":{
     "LOGOUT":"LogOut"
+  },
+  "Comments": {
+    "type": "Type your message",
+    "send_comment": "Comment",
+    "title": "Comments"
   }
 }

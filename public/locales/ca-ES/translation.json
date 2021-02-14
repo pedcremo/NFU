@@ -114,5 +114,10 @@
   },
   "Navbar":{
     "LOGOUT":"Tancar Sessió"
+  },
+  "Comments": {
+    "type": "Escriu el teu missatge",
+    "send_comment": "Comentar",
+    "title": "Comentaris"
   }
 }
