@@ -12,7 +12,7 @@ const EventList = () => {
   const [segment, setSegment] = useState("all");
   const [yourEvents, setYourEvents] = useState([event_model]);
   
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   useEffect(() => {
     // All events
@@ -47,19 +47,19 @@ const EventList = () => {
 
   // IonSegment
   let msg;
-  if (segment == "all") {
+  if (segment === "all") {
     msg = <IonList className="eventsList">
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else if (segment == "yours") {
+  } else if (segment === "yours") {
     msg = <IonList className="eventsList">
             {yourEvents.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else if (segment == "related") {
+  } else if (segment === "related") {
     msg = <IonList className="eventsList">
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Route } from 'react-router-dom';
 import { AppContext } from './State';
 import { useTranslation } from 'react-i18next';
 
@@ -25,7 +24,7 @@ import PrivateRoute from './components/routes/PrivateRoute';
 
 
 const Tabs: React.FC = () => {
-    const { state, dispatch } = useContext(AppContext);
+    const { state } = useContext(AppContext);
     const { t } = useTranslation();
 
     return (

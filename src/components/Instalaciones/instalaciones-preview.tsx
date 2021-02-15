@@ -12,8 +12,7 @@ import {
 import './Instalaciones_preview.css';
 
 
-const InstalacionesPreview: React.FC = (props:any) => {
-
+const InstalacionesPreview = (props: any) => {
 
   const Props = props;
 

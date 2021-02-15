@@ -1,22 +1,17 @@
-import React, { useContext, useState, useCallback } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../State";
-import { Redirect } from "react-router-dom";
 
-import { IonContent, IonPage, IonModal, IonButton } from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
 
 import "./Home.css";
 import EventList from "../components/Event/Event_List";
 
-import MyModal from "../components/modal/MyModal";
-import data from "../data/data.json";
-
 import Header from "../components/header/header";
 
-const Home: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
-  const { state, dispatch } = useContext(AppContext);
+const Home = () => {
+  const { dispatch } = useContext(AppContext);
   
-  let actual_coordinates = (function(){
+  (function(){
     navigator.geolocation.getCurrentPosition(getCoordinates, errorGetCoordinates);
 
     function getCoordinates(position){  //Closure para establecer las coordenadas actuales del usuario

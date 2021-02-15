@@ -22,7 +22,7 @@ import './create.css';
 import { useTranslation } from 'react-i18next';
 
 const Create= () => {
-  const { state,dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
   if (!state.user) {
