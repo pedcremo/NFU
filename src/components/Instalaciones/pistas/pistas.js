@@ -1,14 +1,11 @@
 import React from 'react';
-import { useParams } from "react-router";
-
 import {
   IonCard,
 } from '@ionic/react';
 
-const Instalacion_pista = (props) => {
 
+const InstalacionPista = (props) => {
   console.log(props.item)
-
 
   // console.log(data)
   // //get id URL
@@ -23,7 +20,6 @@ const Instalacion_pista = (props) => {
   // let instalacion = instalaciones_ar.find(instalacion => instalacion.id === id);
   // console.log(instalacion.id)
   // console.log(instalacion.name)
-
 
   return (
     <>
@@ -41,4 +37,4 @@ const Instalacion_pista = (props) => {
   )
 }
 
-export default Instalacion_pista;
+export default InstalacionPista;

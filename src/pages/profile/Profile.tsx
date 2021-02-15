@@ -7,14 +7,13 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonText,
   IonButtons,
   IonMenuButton,
 } from "@ionic/react";
 import { basketball, settings, share, gameController, person } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 
 const Profile: React.FC = () => {
