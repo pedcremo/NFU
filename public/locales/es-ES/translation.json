@@ -27,6 +27,14 @@
     "input_repeat_password": "Repite la contraseña ...",
     "button_change": "Cambiar"
   },
+  "profile": {
+    "no_sports": "No has seleccionado ningún deporte aún",
+    "new": "Nuevo",
+    "matches": "Partidas",
+    "invitation": "Invitaciones",
+    "settings": "Ajustes",
+    "update": "Modificar"
+  },
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Cambiar Foto de Perfil",
@@ -102,15 +110,15 @@
     "have_account": "Ya tengo una cuenta"
   },
   "Menu": {
-    "Home":"Inicio",
-    "Match":"Partidos",
-    "Notifications":"Notificaciones",
-    "Instalations":"Instalaciones",
-    "Profile":"Perfil",
-    "LogOut":"Cerrar Session",
-    "Login":"Iniciar Session"
+    "Home": "Inicio",
+    "Match": "Partidos",
+    "Notifications": "Notificaciones",
+    "Instalations": "Instalaciones",
+    "Profile": "Perfil",
+    "LogOut": "Cerrar Session",
+    "Login": "Iniciar Session"
   },
-  "Navbar":{
-    "LOGOUT":"Cerrar Session"
+  "Navbar": {
+    "LOGOUT": "Cerrar Session"
   }
 }
