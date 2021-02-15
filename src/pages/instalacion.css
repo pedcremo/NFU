@@ -152,7 +152,51 @@
 }
 
 
+.listas{
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
 
+.pistas_grid{
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.lista-players{
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+}
+.lista-players span{
+  filter: drop-shadow( 0.5px 0.5px 2px black);
+}
+
+.badge-icon{
+  filter: drop-shadow( 0.5px 0.5px 2px black);
+  font-size: 14px;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.lista-location{
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+.lista-location span{
+  filter: drop-shadow( 0.5px 0.5px 2px black);
+}
+  
 
 
 
