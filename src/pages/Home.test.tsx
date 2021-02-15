@@ -12,7 +12,7 @@ const renderWithRouter = (ui, { route = "/" } = {}) => {
 
 // Comprobamos si el home se pinta bien
 it("Render HOME corrently", () => {
-  const { baseElement, container } = renderWithRouter(
+  const { baseElement, container,  } = renderWithRouter(
     <AppContextProvider>
       <Home />
     </AppContextProvider>
@@ -20,6 +20,13 @@ it("Render HOME corrently", () => {
   expect(baseElement).toBeDefined();
 
   // Comprobamos si los componentes se pintan correctamente.
-  const modal_maps = container.querySelector("ion-modal");
+  const modal_maps = container.querySelector("hydrated");
   expect(modal_maps).toBeDefined();
+
 });
+
+// Comprobamos si las funciones de ubicacion funcionan correctamente.
+// it("Location functionality", () => {
+//   const location = Home.getCoordinates(position);
+//   expect
+// });
