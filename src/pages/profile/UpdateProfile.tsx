@@ -157,7 +157,7 @@ const UpdateProfile = () => {
               </IonItem>
             </div>
 
-            <IonButton expand="block" type="submit">{t('updateProfile.form.edit')}</IonButton>
+            <IonButton data-testid="update-profile-button" expand="block" type="submit">{t('updateProfile.form.edit')}</IonButton>
           </IonList>
         </section>
       </IonContent>
