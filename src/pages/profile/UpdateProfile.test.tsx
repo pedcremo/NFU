@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import { AppContextProvider } from "../../State";
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import App from "../../App";
 import UpdateProfile from "./UpdateProfile";
@@ -50,5 +50,5 @@ test("renders Update Profile correctly", () => {
 });
 
 
-test("checks if the page has 7 inputs", () => {
-})
+// test("checks if the page has 7 inputs", () => {
+// })
