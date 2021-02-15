@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../State';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import {  useParams } from 'react-router-dom';
 import {
     IonContent,
     IonHeader,
@@ -29,14 +28,13 @@ const Comments: React.FC = () => {
 
     let props = useParams()
 
-    const history = useHistory();
-    const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+    const [ , setShowUserMenuEvent] = useState(null);
     let com = [];
 
     let component;
 
     Object.entries(comments.comments).map((j, k) => {
-        if (j[0] == id) com.push(j[1]);
+        if (j[0] === id) com.push(j[1]);
     })
 
     if (com.length <= 0) component = <p>Empty</p>

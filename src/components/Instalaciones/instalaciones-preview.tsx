@@ -12,8 +12,7 @@ import {
 import './Instalaciones_preview.css';
 
 
-const InstalacionesPreview: React.FC = (props:any) => {
-
+const InstalacionesPreview = (props: any) => {
 
   const Props = props;
 
@@ -33,7 +32,7 @@ const InstalacionesPreview: React.FC = (props:any) => {
                 <IonIcon icon={heartOutline} className="cardContent__operation--icon" />
               </article>
               <article className="cardContent__operation--option">
-                <Link to={"/instalacion/" + Props.info.id}>
+                <Link className="link" to={"/instalacion/" + Props.info.id}>
                   <div className="cardContent__operation--icon ">
                     <IonIcon
                       icon={enterOutline}

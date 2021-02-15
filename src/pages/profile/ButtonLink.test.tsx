@@ -14,4 +14,8 @@ test("RENDERS COMPONENTS -> BUTTON LINK", () => {
     </AppContextProvider>
   );
   expect(baseElement).toBeDefined();
+
+  // Expect an icon inside the container
+  let icon = container.querySelector(".ionicon");
+  expect(icon).toBeDefined();
 });

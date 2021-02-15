@@ -1,18 +1,20 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 // import credentials from "../../../public/credentials/credentials.json";
 
 // import { AppContext } from "../../State";
 
 export class MapContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
+    constructor(props) {
+      super(props)
+    }
+
+    render() {
+    // const Props = props;
     const coordinates_array = Object.values(this.props.coordinates);
     const user_coordinates = this.props.user_coordinates
 
-    if(user_coordinates == "no") {
+    if(user_coordinates === "no") {
       alert("Por favor, permite el acceso a la ubicacion");
       // this.onInfoWindowClose
       // return;
@@ -57,7 +59,7 @@ export class MapContainer extends React.Component {
         </InfoWindow>
       </Map>
     );
-  }
+      }
 }
 
 export default GoogleApiWrapper({

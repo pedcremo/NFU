@@ -13,5 +13,15 @@ test("RENDERS COMPONENTS -> PROFILE", () => {
       </App>
     </AppContextProvider>
   );
+  // Expecting that is rendered
   expect(baseElement).toBeDefined();
+
+  // Expect that there is a profile image
+  const image = container.querySelectorAll(".Content__ProfileImage");
+  expect(image).not.toBeNull();
+
+  // Expect that there is 5 button links
+  const buttonLinks = container.querySelectorAll(".Sports").length;
+  expect(buttonLinks).toBeDefined();
+  // expect(buttonLinks).toEqual(5)
 });

@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import { AppContextProvider } from "../../State";
-import { render, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
+import renderer from "react-test-renderer";
+
 import App from "../../App";
+import { AppContextProvider } from "../../State";
 import UpdateProfile from "./UpdateProfile";
 
 
-// Generate random state before every test
 let renderState;
 beforeEach(() => {
     renderState = (element, { route = "/app/profile/update" } = {}) => {
@@ -16,39 +17,38 @@ beforeEach(() => {
     };
 });
 
-
-const setup = () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App><UpdateProfile /></App>, div);
-
-  return div;
-}
-
-
-const setup2 = () => {
-  const element = renderState(
-    <AppContextProvider>
-      <UpdateProfile />
-    </AppContextProvider>
-  );
-
-  return element;
-}
+afterEach(cleanup);
 
 
 // Renders page without crashing
-test('renders page without crashing', () => {
-    const div = setup();
+it('renders page without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App><UpdateProfile /></App>, div);
+
     ReactDOM.unmountComponentAtNode(div)
 });
 
 
 // Renders page correctly
-test("renders Update Profile correctly", () => {
-    const element = setup2();
+it("renders Update Profile correctly", () => {
+    const element = renderState(
+      <AppContextProvider>
+        <UpdateProfile />
+      </AppContextProvider>
+    );
+
     expect(element).toBeDefined();
 });
 
 
-test("checks if the page has 7 inputs", () => {
-})
+// Renders button correctly
+it("renders button correctly", () => {
+  const { getByTestId } = renderState(
+    <AppContextProvider>
+      <UpdateProfile />
+    </AppContextProvider>
+  );
+
+  expect(getByTestId("update-profile-button")).toBeInTheDocument();
+  expect(getByTestId("update-profile-button")).toHaveTextContent("updateProfile.form.edit");
+});

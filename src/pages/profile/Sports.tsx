@@ -7,12 +7,15 @@ import {
   football,
   gameController,
 } from "ionicons/icons";
+import { useTranslation } from "react-i18next";
 
 const Sports: React.FC<{ sportsList: string[] }> = ({ sportsList }) => {
+  const { t } = useTranslation();
+
   if (!sportsList) {
     return (
       <div className="Sports">
-        <IonText color="primary">No tienes deportes seleccionados aún</IonText>
+        <IonText color="primary"> {t("profile.no_sports")}</IonText>
       </div>
     );
   }

@@ -7,18 +7,20 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonText,
   IonButtons,
   IonMenuButton,
 } from "@ionic/react";
 import { basketball, settings, share, gameController, person } from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
+import { useTranslation } from "react-i18next";
+
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
+  const { t } = useTranslation();
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -50,12 +52,12 @@ const Profile: React.FC = () => {
               <div>
                 <ButtonLink
                   link="/app/create"
-                  text="New"
+                  text={t("profile.new")}
                   icon={gameController}
                 />
                 <ButtonLink
                   link="/app/events"
-                  text="Matches"
+                  text={t("profile.matches")}
                   icon={basketball}
                 />
               </div>
@@ -63,18 +65,18 @@ const Profile: React.FC = () => {
 
                 <ButtonLink
                   link="/notifications"
-                  text="Invitaciones"
+                  text={t("profile.invitation")}
                   icon={share}
                 />
                 <ButtonLink
                   link="/settings"
-                  text="Settings"
+                  text={t("profile.settings")}
                   icon={settings}
                 />
               </div>
               <ButtonLink
                 link="/profile/update"
-                text="Update"
+                text={t("profile.update")}
                 icon={person}
               />
             </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../../State';
 import './CommentList.css'
 import {
@@ -18,8 +18,7 @@ type CommentProps = {
 }
 
 const CommentList: React.FC<CommentProps> = (props) => {
-    const [message, setMessage] = useState<React.ReactText | undefined>('');
-    const { state, dispatch } = useContext(AppContext);
+    const { state } = useContext(AppContext);
 
 
     console.log(state);
@@ -41,7 +40,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
                             <IonCardSubtitle>{j.date}</IonCardSubtitle>
                             <IonCardTitle>
                                 <div>
-                                    <img style={imgStyle} src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" />
+                                    <img style={imgStyle} src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" alt=""/>
                                     <span className = "username">{j.author}</span>
                                 </div>
                             </IonCardTitle>
