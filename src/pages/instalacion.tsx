@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { pinSharp } from 'ionicons/icons';
 import {
-  IonContent, IonPage, IonIcon,
+  IonContent, IonPage, IonIcon,IonCard
 } from '@ionic/react';
-import ListPistas from '../components/Instalaciones/pistas/ListPistas';
 import { useParams } from "react-router";
 import { useTranslation } from 'react-i18next';
 import data from '../data/dataInstalaciones.json';
@@ -24,6 +23,7 @@ const Instalacion: React.FC = () => {
   }
   const instalaciones_ar = Object.values(data);
   const instalacion = instalaciones_ar.find(instalacion => instalacion.id === id);
+  console.log(instalacion)
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
 
@@ -42,7 +42,8 @@ const Instalacion: React.FC = () => {
             <article className="detail-image">
               <img src={instalacion.imagen} alt="img"></img>
               <article className="detail-image-icons">
-                <span className="detail-image-icons-location icon-details icon-details-green"><span className="icon-details-icon"><IonIcon icon={pinSharp} /></span>
+                <span className="detail-image-icons-location icon-details icon-details-green"><span className="icon-details-icon">
+                  <IonIcon icon={pinSharp} /></span>
                   <h5>{instalacion.ubication}</h5>
                 </span>
 
@@ -53,9 +54,19 @@ const Instalacion: React.FC = () => {
             <article className="detail-content">
               <article className="detail-content-left">
                 <span className="detail-content-left-title">{t('instalation.title')}</span>
-
-                
-                    <ListPistas />
+                  <article className="pistas_grid">
+                  {instalacion.pistas.map((pista) => (
+                      <IonCard className="lista">
+                      <div className="lista-image">
+                            <img alt="" src={pista.Imagen}></img>
+                        </div>
+                        <div className="lista-content">
+                        <span className="lista-content-title">{pista.Nombre}</span>
+                        </div>
+                          </IonCard>
+                      ))}
+                  </article>
+               
 
               </article>
 
