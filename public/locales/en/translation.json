@@ -4,30 +4,37 @@
     "title": "We are missing one",
     "welcome": "Welcome",
     "description": "Find tournaments and matches for the sport you prefer. Join with a single click",
-    "meet" : "Meet new friends",
-    "meetDescription" : "Meet new friends with the same interests and play sports together",
-    "find" : "Find the nearest events",
-    "findDescription" : "Choose your preferences and we will show you the related events closest to you.",
-    "ready" : "Are you ready?",
+    "meet": "Meet new friends",
+    "meetDescription": "Meet new friends with the same interests and play sports together",
+    "find": "Find the nearest events",
+    "findDescription": "Choose your preferences and we will show you the related events closest to you.",
+    "ready": "Are you ready?",
     "continue": "Continue"
   },
-  "recover_password":{
+  "recover_password": {
     "loading": "Please wait ...",
     "title": "Recover Password",
     "description": "Enter your email address to receive instructions to reset your password.",
     "button": "Recover",
-    "back":"Back"
-  } ,
-  "change_password":{
+    "back": "Back"
+  },
+  "change_password": {
     "loading": "Please wait ...",
     "title": "Change password",
     "description": "Hello {{variable}}, please enter your new password.",
     "error_password_not_match": "Passwords do not match",
-    "input_new_password":"New password ...",
-    "input_repeat_password":"Repeat the password ...",
-    "button_change":"Change"
-  },     
-  
+    "input_new_password": "New password ...",
+    "input_repeat_password": "Repeat the password ...",
+    "button_change": "Change"
+  },
+  "profile": {
+    "no_sports": "Not selected sports yet",
+    "new": "New",
+    "matches": "Matches",
+    "invitation": "Invitation",
+    "settings": "Settings",
+    "update": "Update"
+  },
   "updateProfile": {
     "title": "Edit Profile",
     "changePhoto": "Change Profile Photo",
@@ -54,13 +61,11 @@
       "description": "Provide your personal information, even if the account is used for a business, a pet or something else. This won't be part of your public profile."
     }
   },
-
   "tabs": {
     "home": "Home",
     "events": "Events",
     "addevent": "Create Event"
   },
-  
   "create": {
     "title": "Create Event",
     "add": "Add Event",
@@ -78,27 +83,42 @@
     "only": "Only people close to me",
     "submit": "Submit"
   },
-  "login":{
-    "initial_text":"Find tournaments and matches for the sport that you prefer",
-    "social_options":{
-      "google":"Continue with Google",
-      "facebook":"Continue with Facebook",
-      "email":"Continue with Email"
+  "instalation": {
+    "title": "FIELDS"
+  },
+  "login": {
+    "initial_text": "Find tournaments and matches for the sport that you prefer",
+    "social_options": {
+      "google": "Continue with Google",
+      "facebook": "Continue with Facebook",
+      "email": "Continue with Email"
     },
-    "local_options":{
-      "password":"Password..",
-      "login":"Log In",
-      "forgotten_password":"I've forgotten my password",
-      "create_account":"Create account",
-      "social_options":"Continue with Google o Facebook"
+    "local_options": {
+      "password": "Password..",
+      "login": "Log In",
+      "forgotten_password": "I've forgotten my password",
+      "create_account": "Create account",
+      "social_options": "Continue with Google o Facebook"
     }
   },
-  "register":{
-    "initial_text":"Find tournaments and matches for the sport that you prefer",
-    "password":"Password..",
-    "repeat_password":"Repeat Password..",
-    "create_account":"Create Account",
-    "forgotten_password":"I've forgotten my password",
-    "have_account":"I've already have an account"
+  "register": {
+    "initial_text": "Find tournaments and matches for the sport that you prefer",
+    "password": "Password..",
+    "repeat_password": "Repeat Password..",
+    "create_account": "Create Account",
+    "forgotten_password": "I've forgotten my password",
+    "have_account": "I've already have an account"
+  },
+  "Menu": {
+    "Home": "Home",
+    "Match": "Match",
+    "Notifications": "Notifications",
+    "Instalations": "Instalations",
+    "Profile": "Profile",
+    "LogOut": "LogOut",
+    "Login": "Login"
+  },
+  "Navbar": {
+    "LOGOUT": "LogOut"
   }
 }

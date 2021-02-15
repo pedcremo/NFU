@@ -75,7 +75,7 @@ const Header = (props) =>{
               >
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
-              <IonItem routerLink={'/app/settings'} detail={true}>
+              <IonItem routerLink={'/settings'} detail={true}>
                 <IonLabel>Settings</IonLabel>
               </IonItem>
               <IonItem>

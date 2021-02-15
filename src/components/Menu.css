@@ -1,0 +1,12 @@
+.maps:hover{
+    cursor: pointer;
+}
+
+.maps{
+    width: 100px;
+    height: 100px;
+    margin-top: 20%;
+    margin-left:30%;
+    background-image: url("../img/map-marked-alt-solid.svg");
+    background-repeat: no-repeat;
+}

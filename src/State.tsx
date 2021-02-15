@@ -18,11 +18,11 @@ const initialState = {
   language: 'es',
   theme: 'Light',
   user: '',
-  coordinates: "",
   welcome: "",
-  BackLogin:""
-  
-}
+  BackLogin:"",
+  coordinates: "",
+  user_coordinates: "no"
+};
 
 let reducer = (state, action) => {
   switch (action.type) {
@@ -40,8 +40,12 @@ let reducer = (state, action) => {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
       return { ...state, coordinates: action.value };
     }
+    case "USER_COORDINATES":{
+      return {...state, user_coordinates: action.value}; //Aqui estan las coordenadas del usuario
+    }
     case "WELCOME": {
       return { ...state, welcome: action.value };
+
     }
   }
   return state;
@@ -55,12 +59,13 @@ const logger = (reducer) => {
       state
     );
     console.log("%cAction:", "color: #00A7F7; font-weight: 700;", action);
+    const actionReducer = reducer(state, action);
     console.log(
       "%cNext State:",
       "color: #47B04B; font-weight: 700;",
-      reducer(state, action)
+      actionReducer
     );
-    return reducer(state, action);
+    return actionReducer;
   };
   return reducerWithLogger;
 };

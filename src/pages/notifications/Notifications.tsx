@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Notifications.css";
 import events from '../../data/data.json';
 
@@ -16,14 +16,11 @@ import {
   IonList,
 } from "@ionic/react";
 
-import { AppContext } from "../../State";
 import Header from "../../components/header/header";
-import Event from "../../components/Event/EventsPreview";
 import { checkmark, close } from "ionicons/icons";
 import EventsPreview from "../../components/Event/EventsPreview";
 
 const Notifications: React.FC = () => {
-  const { state } = useContext(AppContext);
   return (
     <IonPage>
       <Header page={"Notifications"} />
