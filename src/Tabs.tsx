@@ -48,11 +48,15 @@ const Tabs: React.FC = () => {
             <IonLabel>{t('tabs.home')}</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="notifications" href="/app/notifications">
-            <IonBadge color="danger">{state.notifications}</IonBadge>
-            <IonIcon icon={notifications} />
-            <IonLabel>{t('tabs.notifications')}</IonLabel>
-          </IonTabButton>
+          {
+            (state.user)?
+            <IonTabButton tab="notifications" href="/app/notifications">
+              <IonBadge color="danger">{state.notifications}</IonBadge>
+              <IonIcon icon={notifications} />
+              <IonLabel>{t('tabs.notifications')}</IonLabel>
+            </IonTabButton>
+            : <></>
+          }
 
           <IonTabButton tab="events" href="/app/events">
             <IonIcon icon={people} />
