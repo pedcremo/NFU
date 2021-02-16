@@ -22,13 +22,17 @@ const initialState = {
   welcome: "",
   BackLogin:"",
   coordinates: "",
-  user_coordinates: "no"
+  user_coordinates: "no",
+  segment: "joined"
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
     case "SET_USER": {      
       return { ...state, user: action.value }
+    }
+    case "SET_SEGMENT": {      
+      return { ...state, segment: action.value }
     }
     case "LOGOUT": {
       return { ...state, user: "" };
@@ -46,7 +50,6 @@ let reducer = (state, action) => {
     }
     case "WELCOME": {
       return { ...state, welcome: action.value };
-
     }
   }
   return state;
@@ -87,7 +90,7 @@ function AppContextProvider(props) {
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme, welcome: state.welcome}))
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, segment: state.segment, theme: state.theme, welcome: state.welcome}))
   }, [state]);
 
   let value = { state, dispatch };

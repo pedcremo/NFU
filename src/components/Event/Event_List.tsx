@@ -10,13 +10,15 @@ import "./eventList.css";
 const EventList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
-  const [segment, setSegment] = useState("joined");
+  const [segment, setSegment] = useState("");
   const [yourEvents, setYourEvents] = useState([event_model]);
   const { t } = useTranslation();
   
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
+    setSegment(state.segment);
+
     // Joined events
     const joinedevents = Object.values(events.events);
     let tempSearchResult = joinedevents.filter((ele) => {
@@ -49,6 +51,10 @@ const EventList = () => {
 
   }, [searchQuery]);
 
+  let set_segment = (value) => {
+      dispatch({ type: "SET_SEGMENT", value: value });
+      setSegment(value);
+  }
 
   // IonSegment
   let msg;
@@ -82,7 +88,7 @@ const EventList = () => {
 
       {
         (state.user)?
-          <IonSegment value={segment} onIonChange={e => setSegment(e.detail.value)}>
+          <IonSegment value={segment} onIonChange={e => set_segment(e.detail.value)}>
 
             <IonSegmentButton value="joined">
               <IonLabel>{t("home.segments.joined")}</IonLabel>
