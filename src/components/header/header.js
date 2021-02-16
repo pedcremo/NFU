@@ -47,7 +47,7 @@ const Header = (props) => {
           </IonButtons>
           <IonTitle>{page}</IonTitle>
           {state.user ? (
-            <Link to="/profile" slot="end" className="navbar-user-link">
+            <Link to="/app/profile" slot="end" className="navbar-user-link">
               <IonChip className="navbar-user">
                 <IonAvatar>
                   <img src={generateGravatar()} />
