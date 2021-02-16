@@ -9,45 +9,48 @@ import "./eventList.css";
 const EventList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
-  const [segment, setSegment] = useState("all");
+  const [segment, setSegment] = useState("joined");
   const [yourEvents, setYourEvents] = useState([event_model]);
   
   const { state } = useContext(AppContext);
 
   useEffect(() => {
-    // All events
-    const allevents = Object.values(events.events);
-    let tempSearchResult = allevents.filter((ele) => {
+    // Joined events
+    const joinedevents = Object.values(events.events);
+    let tempSearchResult = joinedevents.filter((ele) => {
       let lowerCase = ele.title.toLowerCase();
       let searchToLowerCase = searchQuery.toLowerCase();
       return lowerCase.includes(searchToLowerCase)
     });
     setFilteredSearch([...tempSearchResult]);
 
-    // Related to you
-    const relatedevents = Object.values(events.events);
-    let tempRelatedEvents = relatedevents.filter((ele) => {
-      let lowerCase = ele.title.toLowerCase();
-      let searchToLowerCase = searchQuery.toLowerCase();
-      return lowerCase.includes(searchToLowerCase)
-    });
-    setFilteredSearch([...tempRelatedEvents]);
 
     // User events
     const yourevents = Object.values(events.events);
-    const example = [yourevents[0]];
+    const example = [yourevents[0], yourevents[1]];
     let tempYourEvents = example.filter((ele) => {
       let lowerCase = ele.title.toLowerCase();
       let searchToLowerCase = searchQuery.toLowerCase();
       return lowerCase.includes(searchToLowerCase)
     });
     setYourEvents([...tempYourEvents]);
+
+
+    // You are following
+    const followingevents = Object.values(events.events);
+    let tempFollowingEvents = followingevents.filter((ele) => {
+      let lowerCase = ele.title.toLowerCase();
+      let searchToLowerCase = searchQuery.toLowerCase();
+      return lowerCase.includes(searchToLowerCase)
+    });
+    setFilteredSearch([...tempFollowingEvents]);
+
   }, [searchQuery]);
 
 
   // IonSegment
   let msg;
-  if (segment === "all") {
+  if (segment === "joined") {
     msg = <IonList className="eventsList"  >
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
@@ -59,7 +62,7 @@ const EventList = () => {
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else if (segment === "related") {
+  } else if (segment === "following") {
     msg = <IonList className="eventsList">
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
@@ -72,19 +75,19 @@ const EventList = () => {
       <IonSearchbar
         value={searchQuery}
         onIonChange={(e) => setSearchQuery(e.detail.value!)}
-      ></IonSearchbar>
+      />
 
       {
         (state.user)?
-          <IonSegment onIonChange={e => setSegment(e.detail.value)}>
-            <IonSegmentButton value="all">
-              <IonLabel>All games</IonLabel>
+          <IonSegment value={segment} onIonChange={e => setSegment(e.detail.value)}>
+            <IonSegmentButton value="joined">
+              <IonLabel>Games joined</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="yours">
               <IonLabel>Your games</IonLabel>
             </IonSegmentButton>
-            <IonSegmentButton value="related">
-              <IonLabel>Related</IonLabel>
+            <IonSegmentButton value="following">
+              <IonLabel>Following</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         :
