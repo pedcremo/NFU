@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../State";
 import { Redirect, Link } from "react-router-dom";
 import { ellipsisVertical } from "ionicons/icons";
+import CryptoJS from "crypto-js";
 
 import {
   IonHeader,
@@ -28,6 +29,13 @@ const Header = (props) => {
     return <Redirect to="/welcome" />;
   }
 
+  //crypto-js We use a library to obtain an md5 of the authenticated user's email
+  function generateGravatar() {
+    var md5Hash = CryptoJS.MD5(state.user);
+    let url_image = "https://www.gravatar.com/avatar/" + md5Hash;
+    return url_image;
+  }
+
   const page = props.page;
   return (
     <>
@@ -41,7 +49,7 @@ const Header = (props) => {
             <Link to="/profile" slot="end" className="navbar-user-link">
               <IonChip className="navbar-user">
                 <IonAvatar>
-                  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+                  <img src={generateGravatar()} />
                 </IonAvatar>
                 <IonLabel>{state.user}</IonLabel>
               </IonChip>
