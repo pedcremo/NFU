@@ -11,6 +11,20 @@
     "ready": "Are you ready?",
     "continue": "Continue"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Search..."
+      }
+    },
+    "segments": {
+      "joined": "Games joined",
+      "yours": "Your games",
+      "following": "Following"
+    }
+  },
+
   "recover_password": {
     "loading": "Please wait ...",
     "title": "Recover Password",

@@ -13,6 +13,7 @@ import {
   IonMenuButton,
   IonChip,
   IonAvatar,
+  IonImg
 } from "@ionic/react";
 import "./header.css";
 
@@ -46,11 +47,12 @@ const Header = (props) => {
             <IonMenuButton></IonMenuButton>
           </IonButtons>
           <IonTitle>{page}</IonTitle>
+
           {state.user ? (
             <Link to="/app/profile" slot="end" className="navbar-user-link">
               <IonChip className="navbar-user">
                 <IonAvatar>
-                  <img src={generateGravatar()} />
+                  <IonImg src={generateGravatar()} />
                 </IonAvatar>
                 <IonLabel>{state.user}</IonLabel>
               </IonChip>
@@ -60,6 +62,7 @@ const Header = (props) => {
               <IonLabel>{t("header.login")}</IonLabel>
             </Link>
           )}
+          
         </IonToolbar>
       </IonHeader>
     </>
