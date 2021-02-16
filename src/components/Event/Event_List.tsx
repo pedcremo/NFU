@@ -51,11 +51,6 @@ const EventList = () => {
 
   }, [searchQuery]);
 
-  let set_segment = (value) => {
-      dispatch({ type: "SET_SEGMENT", value: value });
-      setSegment(value);
-  }
-
   // IonSegment
   let msg;
   if (segment === "joined") {
@@ -88,7 +83,10 @@ const EventList = () => {
 
       {
         (state.user)?
-          <IonSegment value={segment} onIonChange={e => set_segment(e.detail.value)}>
+          <IonSegment value={segment} onIonChange={e => {
+            setSegment(e.detail.value);
+            dispatch({ type: "SET_SEGMENT", value: e.detail.value });
+          }}>
 
             <IonSegmentButton value="joined">
               <IonLabel>{t("home.segments.joined")}</IonLabel>
