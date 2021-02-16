@@ -64,6 +64,7 @@
   "tabs": {
     "home": "Home",
     "events": "Events",
+    "notifications":"Notifications",
     "addevent": "Create Event"
   },
   "create": {
