@@ -11,6 +11,20 @@
     "ready": "Are you ready?",
     "continue": "Continue"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Search..."
+      }
+    },
+    "segments": {
+      "joined": "Games joined",
+      "yours": "Your games",
+      "following": "Following"
+    }
+  },
+
   "recover_password": {
     "loading": "Please wait ...",
     "title": "Recover Password",
@@ -64,6 +78,7 @@
   "tabs": {
     "home": "Home",
     "events": "Events",
+    "notifications":"Notifications",
     "addevent": "Create Event"
   },
   "create": {
@@ -111,7 +126,7 @@
   },
   "Menu": {
     "Home": "Home",
-    "Match": "Match",
+    "Settings": "Settings",
     "Notifications": "Notifications",
     "Instalations": "Instalations",
     "Profile": "Profile",
@@ -120,5 +135,15 @@
   },
   "Navbar": {
     "LOGOUT": "LogOut"
+  },
+  "header": {
+    "login": "LogIn"
+  },
+  "pages": {
+    "home": "Home",
+    "comments":"Comentarios",
+    "addevent": "Create Event",
+    "profile": "Profile",
+    "notifications": "Notifications"
   }
 }

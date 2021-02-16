@@ -11,6 +11,20 @@
     "ready": "Estàs preparat ?",
     "continue": "Continuar"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Cerca..."
+      }
+    },
+    "segments": {
+      "joined": "Partides unides",
+      "yours": "Partides teues",
+      "following": "Seguint"
+    }
+  },
+
   "recover_password": {
     "loading": "Espera siusplau...",
     "title": "Recuperar contrasenya",
@@ -63,6 +77,7 @@
   },
   "tabs": {
     "home": "Inici",
+    "notifications":"Notificacions",
     "events": "Events",
     "addevent": "Crear Event"
   },
@@ -113,7 +128,7 @@
   },
   "Menu": {
     "Home": "Inici",
-    "Match": "Partits",
+    "Settings": "Configuració",
     "Notifications": "Notificacions",
     "Instalations": "Instal·lacions",
     "Profile": "Perfil",
@@ -122,5 +137,15 @@
   },
   "Navbar": {
     "LOGOUT": "Tancar Sessió"
+  },
+  "header": {
+    "login": "Iniciar Sessió"
+  },
+  "pages": {
+    "home": "Inici",
+    "comments":"Comentaris",
+    "addevent": "Crear Event",
+    "profile": "Perfil",
+    "notifications": "Notificacions"
   }
 }

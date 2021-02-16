@@ -13,12 +13,19 @@ import {
 } from '@ionic/react';
 
 import Home from './pages/Home';
-import Events from './pages/Events';
-
 import Create from './pages/create/Create';
 
+// 
+import Settings from './pages/settings/Settings';
+import Comments from './pages/Comments';
+import Instalaciones from './pages/Instalaciones'
+import Details from './pages/Details'
+import Instalacion from './pages/instalacion'
+import Profile from "./pages/profile/Profile";
+import UpdateProfile from './pages/profile/UpdateProfile';
 
-import { home, people, addCircle, notifications } from 'ionicons/icons';
+
+import { home, addCircle, notifications } from 'ionicons/icons';
 
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
@@ -34,9 +41,20 @@ const Tabs: React.FC = () => {
         <IonRouterOutlet>
 
         <PublicRoute component={Home} path="/app/home" exact />
-        <PublicRoute component={Events} path="/app/events" exact />
         <PublicRoute component={Notifications} path="/app/notifications" exact />
         <PrivateRoute component={Create} path="/app/create" exact />
+
+        {/* ALL PAGES */}
+
+        <PublicRoute component={Comments} path="/app/comments/:id" exact />
+        <PublicRoute component={Instalaciones} path="/app/instalaciones" exact />
+        <PublicRoute component={Instalacion} path="/app/instalacion/:id" exact />
+        <PublicRoute component={Details} path="/app/event/:id" exact />
+
+        <PrivateRoute component={Settings} path="/app/settings" exact />
+        <PrivateRoute component={UpdateProfile} path="/app/profile/update" exact />   
+
+         <PrivateRoute component={Profile} path="/app/profile" exact />
 
         
 
@@ -58,10 +76,7 @@ const Tabs: React.FC = () => {
             : <></>
           }
 
-          <IonTabButton tab="events" href="/app/events">
-            <IonIcon icon={people} />
-            <IonLabel>{t('tabs.events')}</IonLabel>
-          </IonTabButton>
+   
 
           {
             (state.user)?

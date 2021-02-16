@@ -48,7 +48,7 @@ const EventsPreview = (props) => {
               className="eventContent__actions--icon"
             />
           </div>
-          <Link to={"/event/" + event.event.id}>
+          <Link to={"/app/event/" + event.event.id}>
             <div className="eventContent__actions--option option2">
               <IonIcon
                 icon={enterOutline}

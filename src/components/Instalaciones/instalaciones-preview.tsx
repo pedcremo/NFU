@@ -32,7 +32,7 @@ const InstalacionesPreview = (props: any) => {
                 <IonIcon icon={heartOutline} className="cardContent__operation--icon" />
               </article>
               <article className="cardContent__operation--option">
-                <Link className="link" to={"/instalacion/" + Props.info.id}>
+                <Link className="link" to={"/app/instalacion/" + Props.info.id}>
                   <div className="cardContent__operation--icon ">
                     <IonIcon
                       icon={enterOutline}

@@ -11,6 +11,20 @@
     "ready": "¿ Estás preparado ?",
     "continue": "Continue"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Busca..."
+      }
+    },
+    "segments": {
+      "joined": "Partidas unidas",
+      "yours": "Tus partidas",
+      "following": "Siguiendo"
+    }
+  },
+
   "recover_password": {
     "loading": "Espera por favor ...",
     "title": "Recuperar contraseña",
@@ -112,7 +126,7 @@
   },
   "Menu": {
     "Home": "Inicio",
-    "Match": "Partidos",
+    "Settings": "Ajustes",
     "Notifications": "Notificaciones",
     "Instalations": "Instalaciones",
     "Profile": "Perfil",
@@ -120,6 +134,16 @@
     "Login": "Iniciar Session"
   },
   "Navbar": {
-    "LOGOUT": "Cerrar Session"
+    "LOGOUT": "Cerrar Sesion"
+  },
+  "header": {
+    "login": "Iniciar Sesión"
+  },
+  "pages": {
+    "home": "Inicio",
+    "addevent": "Crear Evento",
+    "comments":"Comments",
+    "profile": "Perfil",
+    "notifications": "Notificaciones"
   }
 }
