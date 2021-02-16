@@ -25,7 +25,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
                 username: username.split('@')[0],
                 image: ''
             }
-            toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0').then(dataUrl => {user.image = dataUrl})
+            toDataURL('https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png').then(dataUrl => {user.image = dataUrl})
             setShowLoading(true);
             setTimeout(() => dispatch({ type: "SET_USER", value: user }), 5000);
         } catch (e) {
