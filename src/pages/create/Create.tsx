@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../../State';
+import React, { useContext } from "react";
+import { AppContext } from "../../State";
 import {
   IonContent,
   IonHeader,
@@ -15,13 +15,14 @@ import {
   IonSelectOption,
   IonDatetime,
   IonMenuButton,
-  IonButtons
-} from '@ionic/react';
-import { Redirect } from 'react-router-dom';
-import './create.css';
-import { useTranslation } from 'react-i18next';
+  IonButtons,
+} from "@ionic/react";
+import { Redirect } from "react-router-dom";
+import "./create.css";
+import Header from "../../components/header/header";
+import { useTranslation } from "react-i18next";
 
-const Create= () => {
+const Create = () => {
   const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
@@ -31,65 +32,57 @@ const Create= () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>{t ('create.title')}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{t ('create.title')}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <Header page={t("pages.addevent")} />
+      <IonContent>
         <section className="add-event">
-          <h1>{t ('create.add')}</h1>
+          <h1>{t("create.add")}</h1>
           <form className="add-event-form">
             <IonItem>
-              <IonLabel position="floating">{t ('create.name')}</IonLabel>
+              <IonLabel position="floating">{t("create.name")}</IonLabel>
               <IonInput />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t ('create.players')}</IonLabel>
+              <IonLabel position="floating">{t("create.players")}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t ('create.needplayers')}</IonLabel>
+              <IonLabel position="floating">{t("create.needplayers")}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t ('create.location')}</IonLabel>
+              <IonLabel position="floating">{t("create.location")}</IonLabel>
               <IonInput type="text" />
-              <IonLabel position="floating">{t ('create.city')}</IonLabel>
+              <IonLabel position="floating">{t("create.city")}</IonLabel>
               <IonInput type="text" />
-              <IonLabel position="floating">{t ('create.province')}</IonLabel>
+              <IonLabel position="floating">{t("create.province")}</IonLabel>
               <IonInput type="text" />
-              <IonLabel position="floating">{t ('create.postal')}</IonLabel>
+              <IonLabel position="floating">{t("create.postal")}</IonLabel>
               <IonInput type="number" />
             </IonItem>
             <IonItem>
-              <IonLabel>{t ('create.category')}</IonLabel>
+              <IonLabel>{t("create.category")}</IonLabel>
               <IonSelect value="gaming">
-                <IonSelectOption value="gaming">{t ('create.gaming')}</IonSelectOption>
-                <IonSelectOption value="deportes">{t ('create.sport')}</IonSelectOption>
+                <IonSelectOption value="gaming">
+                  {t("create.gaming")}
+                </IonSelectOption>
+                <IonSelectOption value="deportes">
+                  {t("create.sport")}
+                </IonSelectOption>
               </IonSelect>
             </IonItem>
             <IonItem>
-              <IonLabel>{t ('create.when')}</IonLabel>
+              <IonLabel>{t("create.when")}</IonLabel>
               <IonDatetime
                 value="2021-10-01T15:43:40.394Z"
                 display-timezone="utc"
               ></IonDatetime>
             </IonItem>
             <IonItem lines="none">
-              <IonLabel>{t ('create.only')}</IonLabel>
+              <IonLabel>{t("create.only")}</IonLabel>
               <IonCheckbox defaultChecked={true} slot="start" />
             </IonItem>
             <IonButton className="ion-margin-top" type="submit" expand="block">
-            {t ('create.submit')}
+              {t("create.submit")}
             </IonButton>
           </form>
         </section>

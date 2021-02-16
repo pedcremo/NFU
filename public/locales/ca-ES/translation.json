@@ -113,19 +113,29 @@
   },
   "Menu": {
     "Home": "Inici",
-    "Match": "Partits",
+    "Settings": "Configuració",
     "Notifications": "Notificacions",
     "Instalations": "Instal·lacions",
     "Profile": "Perfil",
     "LogOut": "Tancar Sessió",
     "Login": "Iniciar Sessió"
   },
-  "Navbar":{
-    "LOGOUT":"Tancar Sessió"
+  "Navbar": {
+    "LOGOUT": "Tancar Sessió"
   },
   "Comments": {
     "type": "Escriu el teu missatge",
     "send_comment": "Comentar",
     "title": "Comentaris"
+  },
+  "header": {
+    "login": "Iniciar Sessió"
+  },
+  "pages": {
+    "home": "Inici",
+    "comments":"Comentaris",
+    "addevent": "Crear Event",
+    "profile": "Perfil",
+    "notifications": "Notificacions"
   }
 }

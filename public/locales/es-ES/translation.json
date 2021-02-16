@@ -64,6 +64,7 @@
   "tabs": {
     "home": "Inicio",
     "events": "Eventos",
+    "notifications": "Notificaciones",
     "addevent": "Crear Evento"
   },
   "create": {
@@ -111,19 +112,29 @@
   },
   "Menu": {
     "Home": "Inicio",
-    "Match": "Partidos",
+    "Settings": "Ajustes",
     "Notifications": "Notificaciones",
     "Instalations": "Instalaciones",
     "Profile": "Perfil",
     "LogOut": "Cerrar Session",
     "Login": "Iniciar Session"
   },
-  "Navbar":{
-    "LOGOUT":"Cerrar Session"
+  "Navbar": {
+    "LOGOUT": "Cerrar Sesion"
   },
   "Comments": {
     "type": "Escribe tu mensaje",
     "send_comment": "Comentar",
     "title": "Comentarios"
+  },
+  "header": {
+    "login": "Iniciar Sesión"
+  },
+  "pages": {
+    "home": "Inicio",
+    "addevent": "Crear Evento",
+    "comments":"Comments",
+    "profile": "Perfil",
+    "notifications": "Notificaciones"
   }
 }

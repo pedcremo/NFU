@@ -14,8 +14,9 @@ export class MapContainer extends React.Component {
     const coordinates_array = Object.values(this.props.coordinates);
     const user_coordinates = this.props.user_coordinates
 
-    if(user_coordinates === "no") {
-      alert("Por favor, permite el acceso a la ubicacion");
+    if(user_coordinates == "no") {
+      console.log("Por favor, permite el acceso a la ubicacion");
+
       // this.onInfoWindowClose
       // return;
     }

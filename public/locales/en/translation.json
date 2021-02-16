@@ -111,19 +111,29 @@
   },
   "Menu": {
     "Home": "Home",
-    "Match": "Match",
+    "Settings": "Settings",
     "Notifications": "Notifications",
     "Instalations": "Instalations",
     "Profile": "Profile",
     "LogOut": "LogOut",
     "Login": "Login"
   },
-  "Navbar":{
-    "LOGOUT":"LogOut"
+  "Navbar": {
+    "LOGOUT": "LogOut"
   },
   "Comments": {
     "type": "Type your message",
     "send_comment": "Comment",
     "title": "Comments"
+  },
+  "header": {
+    "login": "LogIn"
+  },
+  "pages": {
+    "home": "Home",
+    "comments":"Comentarios",
+    "addevent": "Create Event",
+    "profile": "Profile",
+    "notifications": "Notifications"
   }
 }

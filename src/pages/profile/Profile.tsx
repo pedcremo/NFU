@@ -10,13 +10,19 @@ import {
   IonButtons,
   IonMenuButton,
 } from "@ionic/react";
-import { basketball, settings, share, gameController, person } from "ionicons/icons";
+import {
+  basketball,
+  settings,
+  share,
+  gameController,
+  person,
+} from "ionicons/icons";
 import Sports from "./Sports";
 import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
-
+import Header from "../../components/header/header";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -28,14 +34,7 @@ const Profile: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar color="light">
-          <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>{"NFU"}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header page={t("pages.profile")} />
       <IonContent>
         <div className="Content">
           <div className="Content__info">
@@ -62,20 +61,19 @@ const Profile: React.FC = () => {
                 />
               </div>
               <div>
-
                 <ButtonLink
-                  link="/notifications"
+                  link="/app/notifications"
                   text={t("profile.invitation")}
                   icon={share}
                 />
                 <ButtonLink
-                  link="/settings"
+                  link="/app/settings"
                   text={t("profile.settings")}
                   icon={settings}
                 />
               </div>
               <ButtonLink
-                link="/profile/update"
+                link="/app/profile/update"
                 text={t("profile.update")}
                 icon={person}
               />

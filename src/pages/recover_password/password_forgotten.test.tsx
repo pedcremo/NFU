@@ -6,7 +6,7 @@ import { AppContextProvider } from "../../State";
 import { render, screen, fireEvent } from "@testing-library/react";
 
 it("renders correctly", () => {
-  const { baseElement } = render(
+  const { baseElement, container } = render(
     <AppContextProvider>
       <PasswordForgotten />
     </AppContextProvider>
@@ -15,9 +15,26 @@ it("renders correctly", () => {
   expect(baseElement).toBeDefined();
   //We check if there is any item with EMail placeholder (the input)
   expect(screen.getByPlaceholderText("Email")).toBeInTheDocument();
-  expect(screen.getByRole("button")).toBeInTheDocument();
+  expect(container.querySelector("ion-button")).toBeInTheDocument();
+  expect(container.querySelector("ion-label")).toBeInTheDocument();
 });
 
+it("test email valid", () => {
+  const { container } = render(
+    <AppContextProvider>
+      <PasswordForgotten />
+    </AppContextProvider>
+  );
+
+  const button = container.querySelector("ion-button");
+  const input = container.querySelector(
+    'ion-input[type="email"]'
+  ) as HTMLInputElement;
+
+  input.value = "test@test.com";
+
+  fireEvent.click(button);
+});
 //Test send button with valid email
 //error cannot read property 'preset' of undefined
 // it("test email valid", async () => {
