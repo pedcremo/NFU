@@ -25,20 +25,35 @@ import './UpdateProfile.css';
 
 const UpdateProfile = () => {
 
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
 
   const [name, setName] = useState<React.ReactText | undefined>('');
   const [username, setUsername] = useState<React.ReactText | undefined>('');
   const [website, setWebsite] = useState<React.ReactText | undefined>('');
   const [bio, setBio] = useState<React.ReactText | undefined>('');
+  const [image, seImage] = useState<React.ReactText | undefined>('');
 
-  const [ , setEmail] = useState<React.ReactText | undefined>('');
+  const [, setEmail] = useState<React.ReactText | undefined>('');
   const [number, setNumber] = useState<React.ReactText | undefined>('');
   const [gender, setGender] = useState<React.ReactText | undefined>('');
   const [birthday, setBirthday] = useState<string>('');
   const history = useHistory();
 
+  // Convert selected image to base64 and dispatch the new user's state
+  function encodeImageFileAsURL(el) {
+    var file = el.target.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        // console.log('RESULT', reader.result)
+        let user = state.user
+        user.image = reader.result;
+        dispatch({ type: "SET_USER", value: user })
+      }
+      reader.readAsDataURL(file);
+    }
+  }
 
   if (!state.user) {
     history.push("/");
@@ -65,13 +80,16 @@ const UpdateProfile = () => {
           <div className="profile_photo">
             <IonAvatar className="profile_avatar">
               <img
-                src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+                // src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+                src={state.user.image}
                 alt=""
               />
             </IonAvatar>
             <IonLabel className="change_profile_photo">
               {t('updateProfile.changePhoto')}
             </IonLabel>
+            {/* <IonInput type="file" accept=".jpg,.jpeg,.png" multiple="false"> */}
+            <input type="file" id="uploadImgProfile" onChange={(el) => encodeImageFileAsURL(el)} />
           </div>
 
           <IonList>
@@ -122,7 +140,7 @@ const UpdateProfile = () => {
                 <IonInput
                   type="text"
                   required
-                  value={state.user}
+                  value={state.user.email}
                   onInput={(e) => setEmail(e.currentTarget.value)}
                 />
               </IonItem>

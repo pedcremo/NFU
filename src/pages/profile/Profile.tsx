@@ -16,6 +16,7 @@ import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
+import { stat } from "fs";
 
 
 const Profile: React.FC = () => {
@@ -47,7 +48,7 @@ const Profile: React.FC = () => {
             ></div>
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
-            <h1>{state.user.name}</h1>
+            <h1>{state.user.username}</h1>
             <div className="Content__Buttons">
               <div>
                 <ButtonLink

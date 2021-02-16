@@ -46,7 +46,6 @@ let reducer = (state, action) => {
     }
     case "WELCOME": {
       return { ...state, welcome: action.value };
-
     }
   }
   return state;

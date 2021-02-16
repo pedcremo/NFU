@@ -79,7 +79,7 @@ const Header = (props) =>{
                 <IonLabel>Settings</IonLabel>
               </IonItem>
               <IonItem>
-                <IonLabel>{state.user}</IonLabel>
+                <IonLabel>{state.user.username}</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>

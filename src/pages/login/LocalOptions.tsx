@@ -1,5 +1,6 @@
 import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../../State";
+import toDataURL from '../../utils'
 import { useHistory } from "react-router-dom";
 import { IonLabel, IonInput, IonLoading, IonButton } from '@ionic/react';
 import './LocalOptions.css';
@@ -18,8 +19,15 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            let username = email as string
+            let user = {
+                email: email,
+                username: username.split('@')[0],
+                image: ''
+            }
+            toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0').then(dataUrl => {user.image = dataUrl})
             setShowLoading(true);
-            setTimeout(() => dispatch({ type: "SET_USER", value: email }), 5000);
+            setTimeout(() => dispatch({ type: "SET_USER", value: user }), 5000);
         } catch (e) {
             console.error(e);
             setShowLoading(false);
