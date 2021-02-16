@@ -57,7 +57,7 @@ const Menu = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonImg src={""} />
+        <IonImg src={state.user.image} style={{width: "50%", margin: '10px auto auto auto'}}/>
         <IonList>
           <IonMenuToggle>
             <IonItem routerLink="/app/home" routerDirection="none" lines="none">
