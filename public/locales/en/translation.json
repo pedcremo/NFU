@@ -127,6 +127,7 @@
   "pages": {
     "home": "Home",
     "addevent": "Create Event",
-    "profile": "Profile"
+    "profile": "Profile",
+    "notifications": "Notifications"
   }
 }

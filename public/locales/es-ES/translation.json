@@ -128,6 +128,7 @@
   "pages": {
     "home": "Inicio",
     "addevent": "Crear Evento",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "notifications": "Notificaciones"
   }
 }
