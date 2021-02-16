@@ -120,5 +120,8 @@
   },
   "Navbar": {
     "LOGOUT": "LogOut"
+  },
+  "header": {
+    "login": "LogIn"
   }
 }

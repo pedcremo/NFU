@@ -122,5 +122,8 @@
   },
   "Navbar": {
     "LOGOUT": "Tancar Sessió"
+  },
+  "header": {
+    "login": "Iniciar Sessió"
   }
 }

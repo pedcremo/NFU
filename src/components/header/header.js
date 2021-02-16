@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../State";
 import { Redirect, Link } from "react-router-dom";
-import { ellipsisVertical } from "ionicons/icons";
+import { useTranslation } from "react-i18next";
 import CryptoJS from "crypto-js";
 
 import {
@@ -18,6 +18,7 @@ import "./header.css";
 
 const Header = (props) => {
   const { state, dispatch } = useContext(AppContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     state.theme === "Dark"
@@ -56,7 +57,7 @@ const Header = (props) => {
             </Link>
           ) : (
             <Link to="/login" slot="end" className="navbar-login">
-              <IonLabel>Login</IonLabel>
+              <IonLabel>{t("header.login")}</IonLabel>
             </Link>
           )}
         </IonToolbar>

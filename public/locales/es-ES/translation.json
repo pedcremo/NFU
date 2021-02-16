@@ -119,6 +119,9 @@
     "Login": "Iniciar Session"
   },
   "Navbar": {
-    "LOGOUT": "Cerrar Session"
+    "LOGOUT": "Cerrar Sesion"
+  },
+  "header": {
+    "login": "Iniciar Sesión"
   }
 }
