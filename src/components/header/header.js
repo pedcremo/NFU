@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../State";
 import { Redirect, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -18,7 +18,7 @@ import {
 import "./header.css";
 
 const Header = (props) => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
   useEffect(() => {

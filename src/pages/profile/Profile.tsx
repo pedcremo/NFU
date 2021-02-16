@@ -4,12 +4,8 @@ import "./Profile.css";
 import {
   IonContent,
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButtons,
-  IonMenuButton,
 } from "@ionic/react";
+
 import {
   basketball,
   settings,
@@ -17,6 +13,7 @@ import {
   gameController,
   person,
 } from "ionicons/icons";
+
 import Sports from "./Sports";
 import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
