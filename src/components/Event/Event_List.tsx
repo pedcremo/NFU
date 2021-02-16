@@ -48,13 +48,13 @@ const EventList = () => {
   // IonSegment
   let msg;
   if (segment === "all") {
-    msg = <IonList className="eventsList">
+    msg = <IonList className="eventsList"  >
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
   } else if (segment === "yours") {
-    msg = <IonList className="eventsList">
+    msg = <IonList className="eventsList"> 
             {yourEvents.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}

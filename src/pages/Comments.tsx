@@ -15,15 +15,17 @@ import {
 
 } from '@ionic/react';
 import { ellipsisVertical } from 'ionicons/icons';
-
+import Header from "../components/header/header";
 import comments from '../data/comments.json';
-
+import { useTranslation } from "react-i18next";
 import CommentList from '../components/Comment/CommentList'
 
 
 const Comments: React.FC = () => {
     const [message, setMessage] = useState<React.ReactText | undefined>('');
     let { id } = useParams();
+
+    const { t } = useTranslation();
 
     // const imgStyle = {
     //     width: '50px'
@@ -46,7 +48,7 @@ const Comments: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Comments</IonTitle>
+                <Header page={t("pages.comments")} />
                     <IonButtons slot="end">
                         <IonButton fill="clear" onClick={e => { e.persist(); setShowUserMenuEvent(e) }}>
                             <IonIcon icon={ellipsisVertical} />

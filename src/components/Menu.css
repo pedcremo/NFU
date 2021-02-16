@@ -1,12 +1,26 @@
-.maps:hover{
-    cursor: pointer;
+.maps:hover {
+  cursor: pointer;
 }
 
-.maps{
-    width: 100px;
-    height: 100px;
-    margin-top: 20%;
-    margin-left:30%;
-    background-image: url("../img/map-marked-alt-solid.svg");
-    background-repeat: no-repeat;
+.IconMenu {
+  width: 300px;
+  height: 100px;
+}
+
+.MenuTitle {
+  text-align: center;   
+  margin-left: 60px;
+  font-family: Poppins-SemiBold;
+  font-size: 26px;
+  color: #266b63;
+  text-shadow: 1px 1px 1.5px #000000;
+}
+
+.maps {
+  width: 100px;
+  height: 100px;
+  margin-top: 20%;
+  margin-left: 30%;
+  background-image: url("../img/map-marked-alt-solid.svg");
+  background-repeat: no-repeat;
 }

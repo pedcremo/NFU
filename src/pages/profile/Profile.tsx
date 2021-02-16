@@ -62,18 +62,18 @@ const Profile: React.FC = () => {
               </div>
               <div>
                 <ButtonLink
-                  link="/notifications"
+                  link="/app/notifications"
                   text={t("profile.invitation")}
                   icon={share}
                 />
                 <ButtonLink
-                  link="/settings"
+                  link="/app/settings"
                   text={t("profile.settings")}
                   icon={settings}
                 />
               </div>
               <ButtonLink
-                link="/profile/update"
+                link="/app/profile/update"
                 text={t("profile.update")}
                 icon={person}
               />

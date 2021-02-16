@@ -112,7 +112,7 @@
   },
   "Menu": {
     "Home": "Inicio",
-    "Match": "Partidos",
+    "Settings": "Ajustes",
     "Notifications": "Notificaciones",
     "Instalations": "Instalaciones",
     "Profile": "Perfil",
@@ -128,6 +128,7 @@
   "pages": {
     "home": "Inicio",
     "addevent": "Crear Evento",
+    "comments":"Comments",
     "profile": "Perfil",
     "notifications": "Notificaciones"
   }

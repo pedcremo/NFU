@@ -123,7 +123,7 @@ const Details = () => {
                 <IonButton
                   className="event-card-content-left-join"
                   color="success"
-                  href = {`/comments/${id}`}
+                  href = {`/app/comments/${id}`}
                 >
                   COMMENTS
                 </IonButton>

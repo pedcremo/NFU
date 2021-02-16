@@ -14,7 +14,7 @@ import {
   IonImg,
 } from "@ionic/react";
 import { useTranslation } from 'react-i18next';
-
+import icon from '../assets/img/icono.png'
 import data from "../data/data.json";
 import { IonModal, IonButton } from "@ionic/react";
 import MyModal from "../components/modal/MyModal";
@@ -37,7 +37,7 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import { home, logIn, logOut,  pin, notifications } from "ionicons/icons";
+import { settings, logIn,personCircleSharp, logOut,  locationOutline } from "ionicons/icons";
 
 const Menu = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -53,33 +53,22 @@ const Menu = () => {
     <IonMenu contentId="NFU_Navigation">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>NFU</IonTitle>
+             <IonImg  className="IconMenu" src={icon} alt="icon" />
+             <IonLabel className="MenuTitle">Nos Falta Uno</IonLabel>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonImg src={""} />
+     
         <IonList>
-          <IonMenuToggle>
-            <IonItem routerLink="/app/home" routerDirection="none" lines="none">
-              <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>{t('Menu.Home')}</IonLabel>
-            </IonItem>
-          </IonMenuToggle>
 
-          <IonMenuToggle>
-            <IonItem routerLink="/match" routerDirection="none" lines="none">
-              <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>{t('Menu.Match')}</IonLabel>
-            </IonItem>
-          </IonMenuToggle>
           
           <IonMenuToggle>
             <IonItem
-              routerLink="/instalaciones"
+              routerLink="/app/instalaciones"
               routerDirection="none"
               lines="none"
             >
-              <IonIcon  color="medium" slot="start" icon={pin} />
+              <IonIcon  color="medium" slot="start" icon={locationOutline} />
               <IonLabel>{t('Menu.Instalations')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
@@ -88,11 +77,18 @@ const Menu = () => {
             (state.user)?
             <>
             <IonMenuToggle>
-              <IonItem routerLink="/profile" routerDirection="none" lines="none">
-                <IonIcon color="medium" slot="start" icon={logIn} />
+              <IonItem routerLink="/app/profile" routerDirection="none" lines="none">
+                <IonIcon color="medium" slot="start" icon={personCircleSharp} />
                 <IonLabel>{t('Menu.Profile')}</IonLabel>
               </IonItem>
             </IonMenuToggle>
+
+            <IonMenuToggle>
+            <IonItem routerLink="/app/settings" routerDirection="none" lines="none">
+              <IonIcon color="medium" slot="start" icon={settings} />
+              <IonLabel>{t('Menu.Settings')}</IonLabel>
+            </IonItem>
+          </IonMenuToggle>
 
             <IonMenuToggle>
               <IonItem onClick={logout} routerLink="/app/home" routerDirection="none" lines="none">
