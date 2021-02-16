@@ -125,5 +125,10 @@
   },
   "header": {
     "login": "Iniciar Sessió"
+  },
+  "pages": {
+    "home": "Inici",
+    "addevent": "Crear Event",
+    "profile": "Perfil"
   }
 }

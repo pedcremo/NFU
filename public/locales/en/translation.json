@@ -123,5 +123,10 @@
   },
   "header": {
     "login": "LogIn"
+  },
+  "pages": {
+    "home": "Home",
+    "addevent": "Create Event",
+    "profile": "Profile"
   }
 }

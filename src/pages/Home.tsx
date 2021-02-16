@@ -8,32 +8,37 @@ import EventList from "../components/Event/Event_List";
 
 import Header from "../components/header/header";
 
+import { useTranslation } from "react-i18next";
+
 const Home = () => {
   const { dispatch } = useContext(AppContext);
-  
-  (function(){
-    navigator.geolocation.getCurrentPosition(getCoordinates, errorGetCoordinates);
+  const { t } = useTranslation();
 
-    function getCoordinates(position){  //Closure para establecer las coordenadas actuales del usuario
+  (function () {
+    navigator.geolocation.getCurrentPosition(
+      getCoordinates,
+      errorGetCoordinates
+    );
+
+    function getCoordinates(position) {
+      //Closure para establecer las coordenadas actuales del usuario
       let coords = {
-        "latitude":position.coords.latitude,
-        "longitude":position.coords.longitude
-      }
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      };
       // console.log("******************COORDENADAS DEL USER CAMBIADAS****************")
-      dispatch({type:'USER_COORDINATES',value:coords});
-      
+      dispatch({ type: "USER_COORDINATES", value: coords });
     }
 
-    function errorGetCoordinates(error){
+    function errorGetCoordinates(error) {
       alert("ALERTA! No se han podido obtener las coordenadas");
       console.log(error);
     }
   })();
 
-
   return (
     <IonPage>
-      <Header page="Home" />
+      <Header page={t("pages.home")} />
       <IonContent fullscreen>
         {/* <IonModal isOpen={showModal}>
         <MyModal></MyModal>
