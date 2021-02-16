@@ -74,13 +74,6 @@ const Menu = () => {
           </IonMenuToggle>
           
           <IonMenuToggle>
-            <IonItem routerLink="/notifications" routerDirection="none" lines="none">
-              <IonIcon color="medium" slot="start" icon={notifications} />
-              <IonLabel>{t('Menu.Notifications')}</IonLabel>
-            </IonItem>
-          </IonMenuToggle>
-
-          <IonMenuToggle>
             <IonItem
               routerLink="/instalaciones"
               routerDirection="none"

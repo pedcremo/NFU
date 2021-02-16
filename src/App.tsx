@@ -60,7 +60,6 @@ const App: React.FC = () => (
           <PublicRoute component={PasswordForgotten} path="/recover" exact />
           <PublicRoute component={ChangePassword} path="/recover/:token" exact />
           <PublicRoute component={Comments} path="/comments/:id" exact />
-        <PublicRoute component={Notifications} path="/notifications" exact />
         <PublicRoute component={Instalaciones} path="/instalaciones" exact />
         <PublicRoute component={Instalacion} path="/instalacion/:id" exact />
         <PublicRoute component={Details} path="/event/:id" exact />
