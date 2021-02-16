@@ -1,9 +1,6 @@
 import React, { useContext,useState } from "react";
-import { Route } from "react-router-dom";
 import { AppContext } from '../State';
 import {
-  IonApp,
-  IonRouterOutlet,
   IonMenu,
   IonHeader,
   IonToolbar,
@@ -16,10 +13,10 @@ import {
   IonMenuToggle,
   IonImg,
 } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
+import { useTranslation } from 'react-i18next';
 
 import data from "../data/data.json";
-import { IonPage, IonModal, IonButton } from "@ionic/react";
+import { IonModal, IonButton } from "@ionic/react";
 import MyModal from "../components/modal/MyModal";
 import "./Menu.css"
 
@@ -40,10 +37,11 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import { home, logIn, logOut, football, map, pin, people, notifications } from "ionicons/icons";
+import { home, logIn, logOut,  pin, notifications } from "ionicons/icons";
 
 const Menu = () => {
   const { state, dispatch } = useContext(AppContext);
+  const { t } = useTranslation();
 
   const [showModal, setShowModal] = useState(false);
 
@@ -64,32 +62,25 @@ const Menu = () => {
           <IonMenuToggle>
             <IonItem routerLink="/app/home" routerDirection="none" lines="none">
               <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>Home</IonLabel>
+              <IonLabel>{t('Menu.Home')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
 
           <IonMenuToggle>
             <IonItem routerLink="/match" routerDirection="none" lines="none">
               <IonIcon color="medium" slot="start" icon={home} />
-              <IonLabel>Match</IonLabel>
+              <IonLabel>{t('Menu.Match')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
           
           <IonMenuToggle>
-            <IonItem routerLink="/app/notifications" routerDirection="none" lines="none">
-              <IonIcon color="medium" slot="start" icon={notifications} />
-              <IonLabel>Notifications</IonLabel>
-            </IonItem>
-          </IonMenuToggle>
-
-          <IonMenuToggle>
             <IonItem
-              routerLink="/app/instalaciones"
+              routerLink="/instalaciones"
               routerDirection="none"
               lines="none"
             >
               <IonIcon  color="medium" slot="start" icon={pin} />
-              <IonLabel>Instalations</IonLabel>
+              <IonLabel>{t('Menu.Instalations')}</IonLabel>
             </IonItem>
           </IonMenuToggle>
 
@@ -99,14 +90,14 @@ const Menu = () => {
             <IonMenuToggle>
               <IonItem routerLink="/profile" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logIn} />
-                <IonLabel>Profile</IonLabel>
+                <IonLabel>{t('Menu.Profile')}</IonLabel>
               </IonItem>
             </IonMenuToggle>
 
             <IonMenuToggle>
               <IonItem onClick={logout} routerLink="/app/home" routerDirection="none" lines="none">
                 <IonIcon color="medium" slot="start" icon={logOut} />
-                <IonLabel>Logout</IonLabel>
+                <IonLabel>{t('Menu.LogOut')}</IonLabel>
               </IonItem>
             </IonMenuToggle>
             </>
@@ -114,7 +105,7 @@ const Menu = () => {
             <IonMenuToggle>
                 <IonItem routerLink="/login" routerDirection="none" lines="none">
                   <IonIcon color="medium" slot="start" icon={logIn} />
-                  <IonLabel>Login</IonLabel>
+                  <IonLabel>{t('Menu.Login')}</IonLabel>
                 </IonItem>
             </IonMenuToggle>
           }

@@ -1,7 +1,14 @@
 import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-import { IonContent, IonInput, IonPage, IonLoading } from "@ionic/react";
+import {
+  IonContent,
+  IonInput,
+  IonPage,
+  IonLoading,
+  IonButton,
+  IonLabel,
+} from "@ionic/react";
 
 import "./password_forgotten.css";
 import icon from "../../assets/img/icono.png";
@@ -68,20 +75,26 @@ const PasswordForgotten: React.FC = () => {
                   placeholder="Email"
                 />
               </div>
-              <button
+              <IonButton
                 className="recoverOption recoverOption--submit"
                 type="submit"
                 id="btnrecover"
-                title="button_recover"
               >
-                {t("recover_password.button")}
-              </button>
-              <div
+                {" "}
+                {t("recover_password.button")}{" "}
+              </IonButton>
+              <IonLabel
                 className="recoverOption recoverOption--local recoverOption--create"
                 onClick={() => history.goBack()}
               >
                 {t("recover_password.back")}
-              </div>
+              </IonLabel>
+              {/* <div
+                className="recoverOption recoverOption--local recoverOption--create"
+                onClick={() => history.goBack()}
+              >
+                {t("recover_password.back")}
+              </div> */}
             </div>
           </form>
         </div>

@@ -18,6 +18,7 @@ const initialState = {
   language: 'es',
   theme: 'Light',
   user: '',
+  notifications: Math.floor(Math.random() * (10 - 1) + 1),
   welcome: "",
   BackLogin:"",
   coordinates: "",
