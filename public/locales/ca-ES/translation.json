@@ -63,6 +63,7 @@
   },
   "tabs": {
     "home": "Inici",
+    "notifications":"Notificacions",
     "events": "Events",
     "addevent": "Crear Event"
   },
