@@ -10,29 +10,21 @@ import Header from "../components/header/header";
 
 import { useTranslation } from "react-i18next";
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 const Home = () => {
   const { dispatch } = useContext(AppContext);
   const { t } = useTranslation();
 
   (function () {
-    navigator.geolocation.getCurrentPosition(
-      getCoordinates,
-      errorGetCoordinates
-    );
-
-    function getCoordinates(position) {
-      //Closure para establecer las coordenadas actuales del usuario
+    Geolocation.getCurrentPosition().then(pos => {
+      // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
       let coords = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      };
-      // console.log("******************COORDENADAS DEL USER CAMBIADAS****************")
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+      }
       dispatch({ type: "USER_COORDINATES", value: coords });
-    }
-
-    function errorGetCoordinates(error){
-      console.log("****************ALERTA! No se han podido obtener las coordenadas****************");
-    }
+    });
   })();
 
   return (
