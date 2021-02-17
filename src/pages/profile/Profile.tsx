@@ -4,12 +4,8 @@ import "./Profile.css";
 import {
   IonContent,
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButtons,
-  IonMenuButton,
 } from "@ionic/react";
+
 import {
   basketball,
   settings,
@@ -17,11 +13,13 @@ import {
   gameController,
   person,
 } from "ionicons/icons";
+
 import Sports from "./Sports";
 import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
+
 import Header from "../../components/header/header";
 
 const Profile: React.FC = () => {
@@ -46,7 +44,7 @@ const Profile: React.FC = () => {
             ></div>
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
-            <h1>{state.user.name}</h1>
+            <h1>{state.user.username}</h1>
             <div className="Content__Buttons">
               <div>
                 <ButtonLink

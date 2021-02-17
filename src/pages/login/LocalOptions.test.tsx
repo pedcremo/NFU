@@ -3,10 +3,19 @@ import { AppContextProvider, AppContext } from '../../State';
 import { fireEvent, render, screen } from '@testing-library/react';
 import LocalOptions from "./LocalOptions";
 
+const TestLocalOptions = () => {
+    const {state,dispatch} = useContext(AppContext);
+
+    useEffect(()=>{
+        dispatch({type:'WELCOME',value:'true' as React.ReactText})
+    },[])
+
+    return(<LocalOptions/>)
+}
 
 test("renders Component LocalOptions", () => {
 
-    const { baseElement, container, findByText } = render(<AppContextProvider><LocalOptions /></AppContextProvider>);
+    const { baseElement, container, findByText } = render(<AppContextProvider><TestLocalOptions /></AppContextProvider>);
     expect(baseElement).toBeDefined();
 
     // Expect to be form with action HandleSubmit()

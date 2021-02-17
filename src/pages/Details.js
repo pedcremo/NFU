@@ -1,4 +1,3 @@
-// React, Ionic
 import React, { useContext, useState } from "react";
 import {
   IonContent,

@@ -4,17 +4,21 @@ import events from "../../data/data.json";
 import EventsPreview from "./EventsPreview.js";
 import event_model from "./Event.model.js";
 import { IonList, IonSearchbar, IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
+import { useTranslation } from 'react-i18next';
 import "./eventList.css";
 
 const EventList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
-  const [segment, setSegment] = useState("joined");
+  const [segment, setSegment] = useState("");
   const [yourEvents, setYourEvents] = useState([event_model]);
+  const { t } = useTranslation();
   
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
+    setSegment(state.segment);
+
     // Joined events
     const joinedevents = Object.values(events.events);
     let tempSearchResult = joinedevents.filter((ele) => {
@@ -47,7 +51,6 @@ const EventList = () => {
 
   }, [searchQuery]);
 
-
   // IonSegment
   let msg;
   if (segment === "joined") {
@@ -73,22 +76,30 @@ const EventList = () => {
   return (
     <>
       <IonSearchbar
+        placeholder={t("home.events.search.placeholder")}
         value={searchQuery}
         onIonChange={(e) => setSearchQuery(e.detail.value!)}
       />
 
       {
         (state.user)?
-          <IonSegment value={segment} onIonChange={e => setSegment(e.detail.value)}>
+          <IonSegment value={segment} onIonChange={e => {
+            setSegment(e.detail.value);
+            dispatch({ type: "SET_SEGMENT", value: e.detail.value });
+          }}>
+
             <IonSegmentButton value="joined">
-              <IonLabel>Games joined</IonLabel>
+              <IonLabel>{t("home.segments.joined")}</IonLabel>
             </IonSegmentButton>
+
             <IonSegmentButton value="yours">
-              <IonLabel>Your games</IonLabel>
+              <IonLabel>{t("home.segments.yours")}</IonLabel>
             </IonSegmentButton>
+
             <IonSegmentButton value="following">
-              <IonLabel>Following</IonLabel>
+              <IonLabel>{t("home.segments.following")}</IonLabel>
             </IonSegmentButton>
+            
           </IonSegment>
         :
           <></>

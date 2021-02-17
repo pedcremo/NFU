@@ -2,10 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../../State";
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonButton,
   IonLabel,
   IonInput,
@@ -14,8 +11,6 @@ import {
   IonSelect,
   IonSelectOption,
   IonDatetime,
-  IonMenuButton,
-  IonButtons,
 } from "@ionic/react";
 import { Redirect } from "react-router-dom";
 import "./create.css";

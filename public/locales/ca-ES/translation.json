@@ -11,6 +11,20 @@
     "ready": "Estàs preparat ?",
     "continue": "Continuar"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Cerca..."
+      }
+    },
+    "segments": {
+      "joined": "Partides unides",
+      "yours": "Partides teues",
+      "following": "Seguint"
+    }
+  },
+
   "recover_password": {
     "loading": "Espera siusplau...",
     "title": "Recuperar contrasenya",
@@ -40,6 +54,7 @@
     "changePhoto": "Canviar Foto de Perfil",
     "form": {
       "name": "El teu nom",
+      "surname": "Els teus cognoms",
       "username": "Nom d'usuari",
       "website": "Lloc Web",
       "bio": "Biografía",
@@ -63,6 +78,7 @@
   },
   "tabs": {
     "home": "Inici",
+    "notifications": "Notificacions",
     "events": "Events",
     "addevent": "Crear Event"
   },
@@ -133,7 +149,7 @@
   },
   "pages": {
     "home": "Inici",
-    "comments":"Comentaris",
+    "comments": "Comentaris",
     "addevent": "Crear Event",
     "profile": "Perfil",
     "notifications": "Notificacions"

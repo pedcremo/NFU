@@ -11,6 +11,20 @@
     "ready": "¿ Estás preparado ?",
     "continue": "Continue"
   },
+
+  "home": {
+    "events": {
+      "search": {
+        "placeholder": "Busca..."
+      }
+    },
+    "segments": {
+      "joined": "Partidas unidas",
+      "yours": "Tus partidas",
+      "following": "Siguiendo"
+    }
+  },
+
   "recover_password": {
     "loading": "Espera por favor ...",
     "title": "Recuperar contraseña",
@@ -40,6 +54,7 @@
     "changePhoto": "Cambiar Foto de Perfil",
     "form": {
       "name": "Tu Nombre",
+      "surname": "Tus Apellidos",
       "username": "Nombre de usuario",
       "website": "Sitio Web",
       "bio": "Biografia",
@@ -133,7 +148,7 @@
   "pages": {
     "home": "Inicio",
     "addevent": "Crear Evento",
-    "comments":"Comments",
+    "comments": "Comments",
     "profile": "Perfil",
     "notifications": "Notificaciones"
   }
