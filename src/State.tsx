@@ -28,6 +28,9 @@ const initialState = {
 
 let reducer = (state, action) => {
   switch (action.type) {
+    case "SET_STATE": {      
+      return { ...state, ...action.value }
+    }
     case "SET_USER": {      
       return { ...state, user: action.value }
     }
@@ -76,16 +79,11 @@ const logger = (reducer) => {
 
 const loggerReducer = logger(reducer);
 
-//GET CURRENT USER SAVED IN LOCALSTORAGE
-const persistedState = JSON.parse(
-  window.localStorage.getItem("persistedState")
-);
-
 function AppContextProvider(props) {
   const fullInitialState = {
-    ...initialState,
-    ...persistedState
+    ...initialState
   }
+
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
