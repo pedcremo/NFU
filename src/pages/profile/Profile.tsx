@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import "./Profile.css";
 
-import {
-  IonContent,
-  IonPage,
-} from "@ionic/react";
+import { IonContent, IonImg, IonItem, IonLabel, IonPage } from "@ionic/react";
 
 import {
   basketball,
@@ -26,6 +23,8 @@ const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
+  console.log(state.user);
+
   if (!state.user) {
     return <Redirect to="/" />;
   }
@@ -36,45 +35,51 @@ const Profile: React.FC = () => {
       <IonContent>
         <div className="Content">
           <div className="Content__info">
-            <div
-              className="Content__ProfileImage"
-              style={{
-                backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
-              }}
-            ></div>
+            <img
+              className="ProfileImage"
+              src={
+                "https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"
+              }
+            />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
             <h1>{state.user.username}</h1>
             <div className="Content__Buttons">
-              <div>
+              <IonItem>
                 <ButtonLink
                   link="/app/create"
                   text={t("profile.new")}
                   icon={gameController}
                 />
+              </IonItem>
+              <IonItem>
                 <ButtonLink
                   link="/app/events"
                   text={t("profile.matches")}
                   icon={basketball}
                 />
-              </div>
-              <div>
+              </IonItem>
+              <IonItem>
                 <ButtonLink
                   link="/app/notifications"
                   text={t("profile.invitation")}
                   icon={share}
                 />
+              </IonItem>
+              <IonItem>
                 <ButtonLink
                   link="/app/settings"
                   text={t("profile.settings")}
                   icon={settings}
                 />
-              </div>
-              <ButtonLink
-                link="/app/profile/update"
-                text={t("profile.update")}
-                icon={person}
-              />
+              </IonItem>
+              <IonItem>
+                <ButtonLink
+                  link="/app/profile/update"
+                  text={t("profile.update")}
+                  icon={person}
+                />{" "}
+              </IonItem>
             </div>
           </div>
         </div>
