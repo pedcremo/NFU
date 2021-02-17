@@ -54,6 +54,7 @@
     "changePhoto": "Change Profile Photo",
     "form": {
       "name": "Name",
+      "surname": "Surnames",
       "username": "Username",
       "website": "Website",
       "bio": "Bio",
@@ -78,7 +79,7 @@
   "tabs": {
     "home": "Home",
     "events": "Events",
-    "notifications":"Notifications",
+    "notifications": "Notifications",
     "addevent": "Create Event"
   },
   "create": {
@@ -141,7 +142,7 @@
   },
   "pages": {
     "home": "Home",
-    "comments":"Comentarios",
+    "comments": "Comentarios",
     "addevent": "Create Event",
     "profile": "Profile",
     "notifications": "Notifications"
