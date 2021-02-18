@@ -25,10 +25,7 @@ const initialState = {
   coordinates: "",
   user_coordinates: "no",
   segment: "joined",
-<<<<<<< HEAD
-=======
   currentAvatar: ""
->>>>>>> master
 };
 
 let reducer = (state, action) => {
