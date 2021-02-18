@@ -7,7 +7,7 @@ import {
   IonCardContent,
   IonCardSubtitle,
   IonCardTitle,
-  IonIcon,
+  IonIcon
 } from '@ionic/react';
 import './Instalaciones_preview.css';
 

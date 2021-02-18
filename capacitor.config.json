@@ -4,7 +4,7 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
-  "linuxAndroidStudioPath": "/home/pedcremo/Baixades/android-studio/bin/studio.sh",
+  "linuxAndroidStudioPath": "/usr/local/android-studio/bin/studio.sh",
 
   "plugins": {
     "SplashScreen": {

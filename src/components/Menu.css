@@ -17,6 +17,15 @@
   text-shadow: 1px 1px 1.5px #000000;
 }
 
+/* .userTitle {
+  text-align: center;   
+  margin-left: 60px;
+  font-family: Poppins-SemiBold;
+  font-size: 16px;
+  color: #266b63;
+  text-shadow: 1px 1px 1.5px #000000;
+} */
+
 .maps {
   width: 100px;
   height: 100px;

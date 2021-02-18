@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../State";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   IonContent,
@@ -48,12 +48,12 @@ const UpdateProfile = () => {
       reader.onloadend = function () {
         let user = state.user;
         user.image = reader.result;
+        user.imageLocal = reader.result;
         dispatch({ type: "SET_USER", value: user });
       };
       reader.readAsDataURL(file);
     }
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -74,6 +74,19 @@ const UpdateProfile = () => {
       setShowLoading(false);
     }
   };
+
+  const check_state = () =>{
+    
+    if(state.user.username == username &&
+      state.user.name == name &&
+      state.user.surname == surname &&
+      state.user.gender == gender &&
+      state.user.birthday == birthday){
+        return true
+    }else{
+      return false
+    }
+  }
 
   if (!state.user) {
     history.push("/");
@@ -104,8 +117,13 @@ const UpdateProfile = () => {
             <input
               type="file"
               id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
               onChange={(el) => encodeImageFileAsURL(el)}
             />
+            <br/>
+            <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
+              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">{t('updateProfile.changePhotoErr')}</IonLabel>
+            </Link>
           </div>
 
           <form className="form_update_profile" onSubmit={handleSubmit}>
@@ -173,7 +191,13 @@ const UpdateProfile = () => {
                 onIonChange={(e) => setBirthday(e.detail.value!)}
               ></IonDatetime>
             </IonItem>
-            <IonButton className="ion-margin-top" type="submit" expand="block">
+            <IonButton
+              className="ion-margin-top"
+              type="submit"
+              expand="block"
+              disabled={check_state()}
+              
+            >
               {t("updateProfile.form.edit")}
             </IonButton>
           </form>
