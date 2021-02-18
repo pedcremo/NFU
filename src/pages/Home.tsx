@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../State";
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { IonContent, IonPage } from "@ionic/react";
 
 import "./Home.css";
@@ -9,8 +9,6 @@ import EventList from "../components/Event/Event_List";
 import Header from "../components/header/header";
 
 import { useTranslation } from "react-i18next";
-
-import { Geolocation } from '@ionic-native/geolocation';
 
 const Home = () => {
   const { dispatch } = useContext(AppContext);

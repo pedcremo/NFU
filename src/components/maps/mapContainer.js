@@ -1,7 +1,6 @@
 import React from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 // import credentials from "../../../public/credentials/credentials.json";
-
 // import { AppContext } from "../../State";
 
 export class MapContainer extends React.Component {
