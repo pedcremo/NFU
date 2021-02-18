@@ -5,3 +5,46 @@
     align-items: center;
     padding: 0px 20px;
 }
+
+.filters-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.filters-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    height: 350px;
+    transition: 0.3s height;
+}
+
+.filters-container .filter-item {
+    max-width: 300px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.filters-container .header-label {
+    margin: 20px;
+}
+
+.filter-subitem {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 550px) {
+    .filters-container {
+        display: block;
+        overflow-y: scroll;
+    }
+
+    .filters-container .filter-item {
+        margin: 20px auto;
+    }
+}

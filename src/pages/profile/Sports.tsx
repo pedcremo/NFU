@@ -15,7 +15,9 @@ const Sports: React.FC<{ sportsList: string[] }> = ({ sportsList }) => {
   if (!sportsList) {
     return (
       <div className="Sports">
-        <IonText color="primary"> {t("profile.no_sports")}</IonText>
+        <IonText>
+          <h5 style={{color: "white"}}>{t("profile.no_sports")}</h5>
+        </IonText>
       </div>
     );
   }

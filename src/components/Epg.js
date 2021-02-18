@@ -47,7 +47,7 @@ function prepareAndConquer(aPrograms){
   for (let dow of daysGroups.keys()) {
     daysGroups.set(dow,newPrograms.filter(i => i.dayOfweek == dow))      
   }
-  debugger
+   
   return daysGroups;
 }
 

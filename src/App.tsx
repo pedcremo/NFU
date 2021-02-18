@@ -1,4 +1,4 @@
-import React,{ Suspense } from "react";
+import React,{ Suspense, useContext, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonPage } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -6,7 +6,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/login/Register";
 import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
-import { AppContextProvider } from "./State";
+import { AppContextProvider, AppContext } from "./State";
 import Tabs from "./Tabs";
 import PublicRoute from './components/routes/PublicRoute';
 // import PrivateRoute from './components/routes/PrivateRoute';
@@ -36,8 +36,17 @@ import "./theme/variables.css";
 import Welcome from './pages/Welcome';
 import Menu from "./components/Menu";
 
+const Autoload = () => {
+  const { dispatch } = useContext(AppContext);
+  useEffect(() => {
+    dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
+  },[]);
+  return (<></>);
+}
+
 const App: React.FC = () => (
   <AppContextProvider>
+    <Autoload/>
     <IonApp>
       <IonReactRouter>
       <Suspense fallback="loading">

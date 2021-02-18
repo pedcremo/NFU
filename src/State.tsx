@@ -25,10 +25,17 @@ const initialState = {
   coordinates: "",
   user_coordinates: "no",
   segment: "joined",
+<<<<<<< HEAD
+=======
+  currentAvatar: ""
+>>>>>>> master
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
+    case "SET_STATE": {      
+      return { ...state, ...action.value }
+    }
     case "SET_USER": {      
       return { ...state, user: action.value }
     }
@@ -51,11 +58,17 @@ let reducer = (state, action) => {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
       return { ...state, coordinates: action.value };
     }
+    case "SET_FILTERS": {
+      return { ...state, filters: action.value };
+    }
     case "USER_COORDINATES":{
       return {...state, user_coordinates: action.value}; //Aqui estan las coordenadas del usuario
     }
     case "WELCOME": {
       return { ...state, welcome: action.value };
+    }
+    case "SET_AVATAR_TYPE": {
+      return { ...state, currentAvatar: action.value };
     }
   }
   return state;
@@ -82,21 +95,17 @@ const logger = (reducer) => {
 
 const loggerReducer = logger(reducer);
 
-//GET CURRENT USER SAVED IN LOCALSTORAGE
-const persistedState = JSON.parse(
-  window.localStorage.getItem("persistedState")
-);
-
 function AppContextProvider(props) {
   const fullInitialState = {
-    ...initialState,
-    ...persistedState
+    ...initialState
   }
+
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, segment: state.segment, theme: state.theme, welcome: state.welcome, event: state.event}))
+
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, segment: state.segment, theme: state.theme, welcome: state.welcome, currentAvatar: state.currentAvatar, event: state.event}))
   }, [state]);
 
   let value = { state, dispatch };
