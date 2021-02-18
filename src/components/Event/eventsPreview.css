@@ -40,7 +40,6 @@
 }
 
 .eventTitle {
-    color: rgb(41, 41, 41);
     font-family: Poppins-SemiBold;
     font-size: 22px;
 }
@@ -169,5 +168,14 @@
     .eventContent__actions {
         position: absolute;
         visibility: hidden;
+    }
+
+    .filters-container {
+        display: block;
+        overflow-y: scroll;
+    }
+
+    .filters-container .filter-item {
+        margin: auto;
     }
 }

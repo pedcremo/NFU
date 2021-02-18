@@ -27,6 +27,7 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
+    min-width: 300px;
 }
 
 .filters-container .header-label {
@@ -35,4 +36,15 @@
 
 .filter-subitem {
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 550px) {
+    .filters-container {
+        display: block;
+        overflow-y: scroll;
+    }
+
+    .filters-container .filter-item {
+        margin: 20px auto;
+    }
 }
