@@ -52,6 +52,7 @@
   "updateProfile": {
     "title": "Edit Profile",
     "changePhoto": "Change Profile Photo",
+    "changePhotoErr":"Deactivate Gravatar option to change your profile image",
     "form": {
       "name": "Name",
       "surname": "Surnames",
@@ -146,5 +147,21 @@
     "addevent": "Create Event",
     "profile": "Profile",
     "notifications": "Notifications"
+  },
+  "settings": {
+    "divider":{
+      "notifications":"Notifications",
+      "appearance":"Appearance",
+      "others":"Others",
+      "profile":"Profile"
+    },
+    "showNotifications":"Display events notifications",
+    "soundNotifications":"Enable notifications sound",
+    "useGravatarImage":"Use gravatar image",
+    "changeTheme":"Change theme",
+    "lightMode":"Light",
+    "darkMode":"Dark",
+    "profileSettings":"Profile settings",
+    "about":"About"
   }
 }

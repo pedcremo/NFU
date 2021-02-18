@@ -10,8 +10,8 @@
 
 .ProfileImage {
   border-radius: 100%;
-  height: 10rem;
-  width: 10rem;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
   background-color: transparent;
   margin-top: 1rem;
@@ -21,7 +21,7 @@
 .Content__info {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  height: 60%;
+  /* height: 60%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,4 +40,5 @@
 
 .Content__Buttons {
   width: 100%;
+  max-width: 600px;
 }

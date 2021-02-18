@@ -19,6 +19,7 @@ import Create from "./pages/create/Create";
 import Settings from "./pages/settings/Settings";
 import Comments from "./pages/Comments";
 import Instalaciones from "./pages/Instalaciones";
+import Events from "./pages/Events";
 import Details from "./pages/Details";
 import Instalacion from "./pages/instalacion";
 import Profile from "./pages/profile/Profile";
@@ -58,6 +59,7 @@ const Tabs: React.FC = () => {
           path="/app/instalacion/:id"
           exact
         />
+        <PublicRoute component={Events} path="/app/events" exact />
         <PublicRoute component={Details} path="/app/event/:id" exact />
 
         <PrivateRoute component={Settings} path="/app/settings" exact />
