@@ -36,7 +36,7 @@ const Settings: React.FC = () => {
     if (gravatarMode) {
       user.image = generateGravatar(user.email);
     }else{
-      user.image = imageLocal;
+      user.image = state.user.imageLocal;
     }
     dispatch({ type: "SET_USER", value: user });
   }

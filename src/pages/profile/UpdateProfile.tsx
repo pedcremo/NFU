@@ -48,6 +48,7 @@ const UpdateProfile = () => {
       reader.onloadend = function () {
         let user = state.user;
         user.image = reader.result;
+        user.imageLocal = reader.result;
         dispatch({ type: "SET_USER", value: user });
       };
       reader.readAsDataURL(file);
