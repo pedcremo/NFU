@@ -20,6 +20,7 @@ it("PREVIEW INSTALACIONES TEST", () => {
     </AppContextProvider>
   );
 
+  // ADDINS THE MOCK FOR REACT i18 next translation
   expect(baseElement).toBeDefined();
 
   let cardList = container.getElementsByClassName("cardList");
@@ -38,6 +39,14 @@ it("PREVIEW INSTALACIONES TEST", () => {
 //     const component = renderer.create(
 //         <AppContextProvider><InstalacionesPreview Propps={Instalacion} /></AppContextProvider>
 //     );
+
+// jest.mock('react-i18next', () => ({
+//     // this mock makes sure any components using the translate HoC receive the t function as a prop
+//     withTranslation: () => Component => {
+//       Component.defaultProps = { ...Component.defaultProps, t: () => "" };
+//       return Component;
+//     },
+//   }));
 
 //     let testList = component.toJSON();
 //     expect(testList).toMatchSnapshot()
