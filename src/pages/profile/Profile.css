@@ -40,4 +40,5 @@
 
 .Content__Buttons {
   width: 100%;
+  max-width: 600px;
 }

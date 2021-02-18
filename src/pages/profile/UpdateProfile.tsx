@@ -53,7 +53,6 @@ const UpdateProfile = () => {
       reader.readAsDataURL(file);
     }
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -74,6 +73,19 @@ const UpdateProfile = () => {
       setShowLoading(false);
     }
   };
+
+  const check_state = () =>{
+    
+    if(state.user.username == username &&
+      state.user.name == name &&
+      state.user.surname == surname &&
+      state.user.gender == gender &&
+      state.user.birthday == birthday){
+        return true
+    }else{
+      return false
+    }
+  }
 
   if (!state.user) {
     history.push("/");
@@ -173,7 +185,13 @@ const UpdateProfile = () => {
                 onIonChange={(e) => setBirthday(e.detail.value!)}
               ></IonDatetime>
             </IonItem>
-            <IonButton className="ion-margin-top" type="submit" expand="block">
+            <IonButton
+              className="ion-margin-top"
+              type="submit"
+              expand="block"
+              disabled={check_state()}
+              
+            >
               {t("updateProfile.form.edit")}
             </IonButton>
           </form>
