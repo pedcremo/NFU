@@ -1,39 +1,35 @@
-import React, { useContext, useState, useCallback } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../State";
-import { Redirect } from "react-router-dom";
 
-import { IonContent, IonPage, IonModal, IonButton } from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
 
 import "./Home.css";
 import EventList from "../components/Event/Event_List";
 
-import MyModal from "../components/modal/MyModal";
-import data from "../data/data.json";
-
 import Header from "../components/header/header";
 
-const Home: React.FC = () => {
-  const { state, dispatch } = useContext(AppContext);
-  // navigator.geolocation.getCurrentPosition(getCoordinates, errorGetCoordinates);
+import { useTranslation } from "react-i18next";
 
-  function getCoordinates(position){  //Closure para establecer las coordenadas actuales del usuario
-    let coords = {
-      "latitude": position.coords.latitude,
-      "longitude": position.coords.longitude
-    }
-    // console.log("******************COORDENADAS DEL USER CAMBIADAS****************")
-    dispatch({type:'USER_COORDINATES',value:coords});
-    
-  }
+import { Geolocation } from '@ionic-native/geolocation';
 
-  // function errorGetCoordinates(error){
-  //   alert("ALERTA! No se han podido obtener las coordenadas");
-  //   console.log(error);
-  // }
+const Home = () => {
+  const { dispatch } = useContext(AppContext);
+  const { t } = useTranslation();
+
+  (function () {
+    Geolocation.getCurrentPosition().then(pos => {
+      // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+      let coords = {
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+      }
+      dispatch({ type: "USER_COORDINATES", value: coords });
+    });
+  })();
 
   return (
     <IonPage>
-      <Header page="Home" />
+      <Header page={t("pages.home")} />
       <IonContent fullscreen>
         <EventList />
       </IonContent>

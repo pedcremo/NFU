@@ -1,28 +1,22 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../State';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import {  useParams } from 'react-router-dom';
 import {
     IonContent,
     IonHeader,
     IonPage,
-    IonTitle,
     IonToolbar,
     IonButtons,
     IonButton,
     IonIcon,
     IonInput,
     IonItem,
-    IonLabel,
-    IonList,
-    IonCard,
-    IonCardSubtitle,
-    IonCardContent
+    IonList
 
 } from '@ionic/react';
 import { ellipsisVertical } from 'ionicons/icons';
-
+import Header from "../components/header/header";
 import comments from '../data/comments.json';
-
+import { useTranslation } from "react-i18next";
 import CommentList from '../components/Comment/CommentList'
 
 
@@ -30,20 +24,20 @@ const Comments: React.FC = () => {
     const [message, setMessage] = useState<React.ReactText | undefined>('');
     let { id } = useParams();
 
-    const imgStyle = {
-        width: '50px'
-    }
+    const { t } = useTranslation();
+
+    // const imgStyle = {
+    //     width: '50px'
+    // }
 
 
-    const history = useHistory();
-    const { state, dispatch } = useContext(AppContext);
-    const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+    const [ , setShowUserMenuEvent] = useState(null);
     let com = [];
 
     let component;
 
     Object.entries(comments.comments).map((j, k) => {
-        if (j[0] == id) com.push(j[1]);
+        if (j[0] === id) com.push(j[1]);
     })
 
     if (com.length <= 0) component = <p>Empty</p>
@@ -53,7 +47,7 @@ const Comments: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Comments</IonTitle>
+                <Header page={t("pages.comments")} />
                     <IonButtons slot="end">
                         <IonButton fill="clear" onClick={e => { e.persist(); setShowUserMenuEvent(e) }}>
                             <IonIcon icon={ellipsisVertical} />

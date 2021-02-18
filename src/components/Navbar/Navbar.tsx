@@ -50,7 +50,7 @@ const Navbar = (props) => {
                             <IonLabel>{t('Navbar.LOGOUT')}</IonLabel>
                         </IonItem>
                         <IonItem>
-                            <IonLabel>{state.user}</IonLabel>
+                            <IonLabel>{state.user.username}</IonLabel>
                         </IonItem>
                     </IonList>
                 </IonContent>

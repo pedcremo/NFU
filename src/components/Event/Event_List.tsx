@@ -4,62 +4,68 @@ import events from "../../data/data.json";
 import EventsPreview from "./EventsPreview.js";
 import event_model from "./Event.model.js";
 import { IonList, IonSearchbar, IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
+import { useTranslation } from 'react-i18next';
 import "./eventList.css";
 
 const EventList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
-  const [segment, setSegment] = useState("all");
+  const [segment, setSegment] = useState("");
   const [yourEvents, setYourEvents] = useState([event_model]);
+  const { t } = useTranslation();
   
   const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
-    // All events
-    const allevents = Object.values(events.events);
-    let tempSearchResult = allevents.filter((ele) => {
+    setSegment(state.segment);
+
+    // Joined events
+    const joinedevents = Object.values(events.events);
+    let tempSearchResult = joinedevents.filter((ele) => {
       let lowerCase = ele.title.toLowerCase();
       let searchToLowerCase = searchQuery.toLowerCase();
       return lowerCase.includes(searchToLowerCase)
     });
     setFilteredSearch([...tempSearchResult]);
 
-    // Related to you
-    const relatedevents = Object.values(events.events);
-    let tempRelatedEvents = relatedevents.filter((ele) => {
-      let lowerCase = ele.title.toLowerCase();
-      let searchToLowerCase = searchQuery.toLowerCase();
-      return lowerCase.includes(searchToLowerCase)
-    });
-    setFilteredSearch([...tempRelatedEvents]);
 
     // User events
     const yourevents = Object.values(events.events);
-    const example = [yourevents[0]];
+    const example = [yourevents[0], yourevents[1]];
     let tempYourEvents = example.filter((ele) => {
       let lowerCase = ele.title.toLowerCase();
       let searchToLowerCase = searchQuery.toLowerCase();
       return lowerCase.includes(searchToLowerCase)
     });
     setYourEvents([...tempYourEvents]);
-  }, [searchQuery]);
 
+
+    // You are following
+    const followingevents = Object.values(events.events);
+    let tempFollowingEvents = followingevents.filter((ele) => {
+      let lowerCase = ele.title.toLowerCase();
+      let searchToLowerCase = searchQuery.toLowerCase();
+      return lowerCase.includes(searchToLowerCase)
+    });
+    setFilteredSearch([...tempFollowingEvents]);
+
+  }, [searchQuery]);
 
   // IonSegment
   let msg;
-  if (segment == "all") {
-    msg = <IonList className="eventsList">
+  if (segment === "joined") {
+    msg = <IonList className="eventsList"  >
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else if (segment == "yours") {
-    msg = <IonList className="eventsList">
+  } else if (segment === "yours") {
+    msg = <IonList className="eventsList"> 
             {yourEvents.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
             ))}
           </IonList>
-  } else if (segment == "related") {
+  } else if (segment === "following") {
     msg = <IonList className="eventsList">
             {filteredSearch.map((event, index) => (
               <EventsPreview key={"event_" + index} event={event} />
@@ -70,22 +76,30 @@ const EventList = () => {
   return (
     <>
       <IonSearchbar
+        placeholder={t("home.events.search.placeholder")}
         value={searchQuery}
         onIonChange={(e) => setSearchQuery(e.detail.value!)}
-      ></IonSearchbar>
+      />
 
       {
         (state.user)?
-          <IonSegment onIonChange={e => setSegment(e.detail.value)}>
-            <IonSegmentButton value="all">
-              <IonLabel>All games</IonLabel>
+          <IonSegment value={segment} onIonChange={e => {
+            setSegment(e.detail.value);
+            dispatch({ type: "SET_SEGMENT", value: e.detail.value });
+          }}>
+
+            <IonSegmentButton value="joined">
+              <IonLabel>{t("home.segments.joined")}</IonLabel>
             </IonSegmentButton>
+
             <IonSegmentButton value="yours">
-              <IonLabel>Your games</IonLabel>
+              <IonLabel>{t("home.segments.yours")}</IonLabel>
             </IonSegmentButton>
-            <IonSegmentButton value="related">
-              <IonLabel>Related</IonLabel>
+
+            <IonSegmentButton value="following">
+              <IonLabel>{t("home.segments.following")}</IonLabel>
             </IonSegmentButton>
+            
           </IonSegment>
         :
           <></>

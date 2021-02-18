@@ -18,16 +18,24 @@ const initialState = {
   language: 'es',
   theme: 'Light',
   user: '',
+  notifications: Math.floor(Math.random() * (10 - 1) + 1),
   welcome: "",
   BackLogin:"",
   coordinates: "",
-  user_coordinates: "no"
+  user_coordinates: "no",
+  segment: "joined"
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
+    case "SET_STATE": {      
+      return { ...state, ...action.value }
+    }
     case "SET_USER": {      
       return { ...state, user: action.value }
+    }
+    case "SET_SEGMENT": {      
+      return { ...state, segment: action.value }
     }
     case "LOGOUT": {
       return { ...state, user: "" };
@@ -45,7 +53,6 @@ let reducer = (state, action) => {
     }
     case "WELCOME": {
       return { ...state, welcome: action.value };
-
     }
   }
   return state;
@@ -72,21 +79,16 @@ const logger = (reducer) => {
 
 const loggerReducer = logger(reducer);
 
-//GET CURRENT USER SAVED IN LOCALSTORAGE
-const persistedState = JSON.parse(
-  window.localStorage.getItem("persistedState")
-);
-
 function AppContextProvider(props) {
   const fullInitialState = {
-    ...initialState,
-    ...persistedState
+    ...initialState
   }
+
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, theme: state.theme, welcome: state.welcome}))
+    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, segment: state.segment, theme: state.theme, welcome: state.welcome}))
   }, [state]);
 
   let value = { state, dispatch };

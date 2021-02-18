@@ -1,13 +1,10 @@
 import { IonIcon } from "@ionic/react";
 import React from "react";
 import "./ButtonLink.css";
-import {
-  tennisball,
-  basketball,
-  football,
-  gameController,
-} from "ionicons/icons";
 import { Link } from "react-router-dom";
+import {
+  chevronForward
+} from "ionicons/icons";
 
 const ButtonLink: React.FC<{ link: string; text: string; icon: any }> = ({
   link,
@@ -15,14 +12,13 @@ const ButtonLink: React.FC<{ link: string; text: string; icon: any }> = ({
   icon,
 }) => {
   return (
-    <Link to={link}>
-      <div className="ButtonLink__Container">
-        <div className="ButtonLink">
-          <IonIcon style={{ color: "white", fontSize: "1.7rem" }} icon={icon} />
-        </div>
+    // <div className="ButtonLink__Container">
+      <Link to={link} className="ButtonLink__Container">
+        <IonIcon style={{ color: "grey", fontSize: "1.5rem" }} icon={icon} />
         <p>{text}</p>
-      </div>
-    </Link>
+        <IonIcon style={{ color: "grey", fontSize: "1.5rem" }} icon={chevronForward} />
+      </Link>
+    // </div>
   );
 };
 export default ButtonLink;

@@ -6,38 +6,25 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import { State } from "ionicons/dist/types/stencil-public-runtime";
 
-function Init() {
-  const { state, dispatch } = useContext(AppContext);
-  const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('true');
-  dispatch({ type: 'WELCOME', value: welcome})
-  return <div>{welcome}</div>
+const TestLogin = () => {
+  const {state,dispatch} = useContext(AppContext);
+
+  useEffect(()=>{
+      dispatch({type:'WELCOME',value:'true' as React.ReactText})
+  },[])
+
+  return(<Login/>)
 }
-// export default Init()
 
 const renderWithRouter = (ui, { route = "/" } = {}) => {
   window.history.pushState({}, "Test page", route);
   return render(ui, { wrapper: BrowserRouter } );
 };
 
-// export interface state {
-//   welcome: string;
-// }
+test("renders Login page", () => {  
 
-test("renders Login page", () => {
-
-  const state = { welcome: "true" }
-  
-
-  // const state: state = {
-  //   welcome:'true'
-  // } 
-  // Init()
-  // const  {debug}  = render(<Init/>); 
-  // const { result } = renderHook(() => <AppContextProvider>{Init()}</AppContextProvider>)
-
-  const  {baseElement, container, findByText}  = render(<AppContextProvider><Login /></AppContextProvider>);
+  const  {baseElement, container, findByText}  = renderWithRouter(<AppContextProvider><TestLogin /></AppContextProvider>);
   expect(baseElement).toBeDefined();
-  // findByText(state['welcome']);
 
   //Should render title
   const title = container.querySelector('.LoginTitleContainer')

@@ -1,4 +1,3 @@
-// React, Ionic
 import React, { useContext, useState } from "react";
 import {
   IonContent,
@@ -11,7 +10,7 @@ import {
   IonButton,
 } from "@ionic/react";
 
-import { compass, alarm } from "ionicons/icons";
+import { compass, alarm, share } from "ionicons/icons";
 import { useParams } from "react-router";
 import events from "../data/data.json";
 import Author from "../components/author/Author";
@@ -42,6 +41,20 @@ const Details = () => {
     return <Redirect to="/login" />;
   }
 
+
+  function handleClick(){
+    // http://localhost:3000/app/event/${event.id}
+    let mensaje = `
+        *¡Nos Falta Uno!*
+      ${event.title}
+      _${event.description}_
+    `
+    console.log("Id del evento: ", event.id)
+    console.log(event) 
+     //"http://localhost:3000/app/event/"+event.id
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje)+ "```<img href='"+event.image+"'/>```" + " https://www.youtube.com/watch?v=KIeAvaZYxig" );
+  }
+
   return (
     <IonPage>
       <Header page={event.title + "#" + id}></Header>
@@ -56,6 +69,9 @@ const Details = () => {
             <div className="event-card-image">
               <img src={event.image} alt="" />
               <div className="event-card-image-badges">
+                <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick()}>
+                <IonIcon icon={share} />             
+                </span>
                 <span className="event-card-image-badges-time badge-details badge-details-blue">
                   <span className="badge-details-icon">
                     <IonIcon icon={alarm} />
@@ -106,7 +122,7 @@ const Details = () => {
                 <IonButton
                   className="event-card-content-left-join"
                   color="success"
-                  href = {`/comments/${id}`}
+                  href = {`/app/comments/${id}`}
                 >
                   COMMENTS
                 </IonButton>

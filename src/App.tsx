@@ -1,4 +1,4 @@
-import React,{ Suspense } from "react";
+import React,{ Suspense, useContext, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonPage } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -6,18 +6,10 @@ import Login from "./pages/login/Login";
 import Register from "./pages/login/Register";
 import PasswordForgotten from "./pages/recover_password/password_forgotten";
 import ChangePassword from "./pages/recover_password/change_password";
-import Settings from './pages/settings/Settings';
-import Comments from './pages/Comments';
-import Instalaciones from './pages/Instalaciones'
-import Details from './pages/Details'
-import Instalacion from './pages/instalacion'
-
-import UpdateProfile from './pages/profile/UpdateProfile';
-import Notifications from './pages/notifications/Notifications';
-import { AppContextProvider } from "./State";
+import { AppContextProvider, AppContext } from "./State";
 import Tabs from "./Tabs";
 import PublicRoute from './components/routes/PublicRoute';
-import PrivateRoute from './components/routes/PrivateRoute';
+// import PrivateRoute from './components/routes/PrivateRoute';
 
 
 /* App style */
@@ -41,12 +33,23 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import Profile from "./pages/profile/Profile";
 import Welcome from './pages/Welcome';
 import Menu from "./components/Menu";
 
+const Autoload = () => {
+  const { dispatch } = useContext(AppContext);
+  console.log("AUTOLOAD");
+  useEffect(() => {
+    console.log("AUTOLOAD USEEFFECT");
+    dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
+  },[]);
+
+  return (<></>);
+}
+
 const App: React.FC = () => (
   <AppContextProvider>
+    <Autoload/>
     <IonApp>
       <IonReactRouter>
       <Suspense fallback="loading">
@@ -59,16 +62,8 @@ const App: React.FC = () => (
           <PublicRoute component={Welcome} path="/welcome" exact />
           <PublicRoute component={PasswordForgotten} path="/recover" exact />
           <PublicRoute component={ChangePassword} path="/recover/:token" exact />
-          <PublicRoute component={Comments} path="/comments/:id" exact />
-        <PublicRoute component={Notifications} path="/notifications" exact />
-        <PublicRoute component={Instalaciones} path="/instalaciones" exact />
-        <PublicRoute component={Instalacion} path="/instalacion/:id" exact />
-        <PublicRoute component={Details} path="/event/:id" exact />
 
-        <PrivateRoute component={Settings} path="/settings" exact />
-        <PrivateRoute component={UpdateProfile} path="/profile/update" exact />   
 
-          <PrivateRoute component={Profile} path="/profile" exact />
 
             <Route
               path="/"

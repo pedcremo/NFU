@@ -11,6 +11,8 @@ test("RENDERS COMPONENTS -> SPORTS", () => {
   );
   expect(baseElement).toBeDefined();
 
+  // Expect that there is the sports list
   const sports = container.querySelector(".Sports");
-  expect(sports).toBeDefined();
+  // Using not.toBeNull() because if query selector don't find anything it returns null
+  expect(sports).not.toBeNull();
 });

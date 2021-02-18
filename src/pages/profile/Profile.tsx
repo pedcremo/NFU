@@ -1,24 +1,29 @@
 import React, { useContext } from "react";
 import "./Profile.css";
 
+import { IonContent, IonImg, IonItem, IonLabel, IonPage } from "@ionic/react";
+
 import {
-  IonContent,
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonText,
-  IonButtons,
-  IonMenuButton,
-} from "@ionic/react";
-import { basketball, settings, share, gameController, person } from "ionicons/icons";
+  basketball,
+  settings,
+  share,
+  gameController,
+  person,
+} from "ionicons/icons";
+
 import Sports from "./Sports";
 import { AppContext } from "../../State";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
+import { useTranslation } from "react-i18next";
+
+import Header from "../../components/header/header";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
+  const { t } = useTranslation();
+
+  console.log(state.user);
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -26,57 +31,55 @@ const Profile: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar color="light">
-          <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>{"NFU"}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header page={t("pages.profile")} />
       <IonContent>
         <div className="Content">
           <div className="Content__info">
-            <div
-              className="Content__ProfileImage"
-              style={{
-                backgroundImage: `url('${"https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"}')`,
-              }}
-            ></div>
+            <img
+              className="ProfileImage"
+              src={
+                "https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"
+              }
+            />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
-            <h1>{state.user.name}</h1>
+            <h1>{state.user.username}</h1>
             <div className="Content__Buttons">
-              <div>
+              <IonItem>
                 <ButtonLink
                   link="/app/create"
-                  text="New"
+                  text={t("profile.new")}
                   icon={gameController}
                 />
+              </IonItem>
+              <IonItem>
                 <ButtonLink
                   link="/app/events"
-                  text="Matches"
+                  text={t("profile.matches")}
                   icon={basketball}
                 />
-              </div>
-              <div>
-
+              </IonItem>
+              <IonItem>
                 <ButtonLink
-                  link="/notifications"
-                  text="Invitaciones"
+                  link="/app/notifications"
+                  text={t("profile.invitation")}
                   icon={share}
                 />
+              </IonItem>
+              <IonItem>
                 <ButtonLink
-                  link="/settings"
-                  text="Settings"
+                  link="/app/settings"
+                  text={t("profile.settings")}
                   icon={settings}
                 />
-              </div>
-              <ButtonLink
-                link="/profile/update"
-                text="Update"
-                icon={person}
-              />
+              </IonItem>
+              <IonItem>
+                <ButtonLink
+                  link="/app/profile/update"
+                  text={t("profile.update")}
+                  icon={person}
+                />{" "}
+              </IonItem>
             </div>
           </div>
         </div>
