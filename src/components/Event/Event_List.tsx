@@ -35,7 +35,7 @@ const EventList = () => {
     time: null,
     available_players: "",
     max_players: "",
-    busy_players: ""
+    busy_players: "",
   });
 
   const { state, dispatch } = useContext(AppContext);
@@ -50,65 +50,59 @@ const EventList = () => {
     );
 
     // We filter by search.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => event.title.toLowerCase().includes(filters.search.toLowerCase())
+    eventsFiltred = eventsFiltred.filter((event) =>
+      event.title.toLowerCase().includes(filters.search.toLowerCase())
     );
 
     // We filter by available players.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => {
-        if ((event.maxplayers - event.players) == parseInt(filters.available_players))
-          return event
-        else if (filters.available_players == "")
-          return event
-      }
-    );
+    eventsFiltred = eventsFiltred.filter((event) => {
+      if (
+        event.maxplayers - event.players ==
+        parseInt(filters.available_players)
+      )
+        return event;
+      else if (filters.available_players == "") return event;
+    });
 
     // We filter by max players.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => {
-        if (event.maxplayers == parseInt(filters.max_players))
-          return event
-        else if (filters.max_players == "")
-          return event
-      }
-    );
+    eventsFiltred = eventsFiltred.filter((event) => {
+      if (event.maxplayers == parseInt(filters.max_players)) return event;
+      else if (filters.max_players == "") return event;
+    });
 
     // We filter by busy players.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => {
-        if (event.players == parseInt(filters.busy_players))
-          return event
-        else if (filters.busy_players == "")
-          return event
-      }
-    );
+    eventsFiltred = eventsFiltred.filter((event) => {
+      if (event.players == parseInt(filters.busy_players)) return event;
+      else if (filters.busy_players == "") return event;
+    });
 
     // We filter by date.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => {
-        let eventDate = new Date(event.time);
-        let filterDate = new Date(filters.date)
-        if (eventDate.getDay() +"/"+ eventDate.getMonth() +"/"+eventDate.getFullYear() == 
-        filterDate.getDay() +"/"+ filterDate.getMonth() +"/"+filterDate.getFullYear())
+    eventsFiltred = eventsFiltred.filter((event) => {
+      let eventDate = new Date(event.time);
+      let filterDate = new Date(filters.date);
+      if (
+        eventDate.getDay() +
+          "/" +
+          eventDate.getMonth() +
+          "/" +
+          eventDate.getFullYear() ==
+        filterDate.getDay() +
+          "/" +
+          filterDate.getMonth() +
+          "/" +
+          filterDate.getFullYear()
+      )
         return event;
-        else if (filters.date == null)
-          return event;
-      }
-    );
+      else if (filters.date == null) return event;
+    });
 
     // We filter by time.
-    eventsFiltred = eventsFiltred.filter(
-      (event) => {
-        let eventDate = new Date(event.time);
-        let filterDate = new Date(filters.time)
-        if (eventDate.getHours() == 
-        filterDate.getHours())
-        return event;
-        else if (filters.time == null)
-          return event;
-      }
-    );
+    eventsFiltred = eventsFiltred.filter((event) => {
+      let eventDate = new Date(event.time);
+      let filterDate = new Date(filters.time);
+      if (eventDate.getHours() == filterDate.getHours()) return event;
+      else if (filters.time == null) return event;
+    });
 
     return eventsFiltred;
   }
@@ -159,22 +153,35 @@ const EventList = () => {
 
   return (
     <>
-    <div className="filters-panel">
-      <IonButton onClick={() => setFilterPanel(true)} style={{display: (filterPanel ? 'none' : 'block')}}>Más filtros</IonButton>
-      <IonButton onClick={() => setFilterPanel(false)} style={{display: (filterPanel ? 'block' : 'none')}}>Ocultar filtros</IonButton>
-      <IonSearchbar
-        placeholder={t("home.events.search.placeholder")}
-        value={filters.search}
-        onIonChange={(e) =>
-          setFilter((prevFilters) => ({
-            ...prevFilters,
-            search: e.detail.value,
-          }))
-        }
-      />
-    </div>
-      
-      <div style={{height: (filterPanel ? '350px' : '0px')}} className="filters-container">
+      <div className="filters-panel">
+        <IonButton
+          onClick={() => setFilterPanel(true)}
+          style={{ display: filterPanel ? "none" : "block" }}
+        >
+          {t("home.events.filters.button.open")}
+        </IonButton>
+        <IonButton
+          onClick={() => setFilterPanel(false)}
+          style={{ display: filterPanel ? "block" : "none" }}
+        >
+          {t("home.events.filters.button.hide")}
+        </IonButton>
+        <IonSearchbar
+          placeholder={t("home.events.search.placeholder")}
+          value={filters.search}
+          onIonChange={(e) =>
+            setFilter((prevFilters) => ({
+              ...prevFilters,
+              search: e.detail.value,
+            }))
+          }
+        />
+      </div>
+
+      <div
+        style={{ height: filterPanel ? "350px" : "0px" }}
+        className="filters-container"
+      >
         <IonItem className="filter-item">
           <IonRadioGroup
             value={filters.valuation}
@@ -185,14 +192,17 @@ const EventList = () => {
               }))
             }
           >
-            <IonLabel className="header-label">Valoracion de Usuario</IonLabel>
+            <IonLabel className="header-label">
+              {t("home.events.filters.stars")}
+            </IonLabel>
             <IonItem>
               <IonLabel>
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
-                <IonIcon color="warning" slot="start" icon={starOutline} />o mas
+                <IonIcon color="warning" slot="start" icon={starOutline} />
+                {t("home.events.filters.more")}
               </IonLabel>
               <IonRadio slot="start" color="success" value="1"></IonRadio>
             </IonItem>
@@ -203,7 +213,8 @@ const EventList = () => {
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
-                <IonIcon color="warning" slot="start" icon={starOutline} />o mas
+                <IonIcon color="warning" slot="start" icon={starOutline} />
+                {t("home.events.filters.more")}
               </IonLabel>
               <IonRadio slot="start" color="success" value="2"></IonRadio>
             </IonItem>
@@ -214,7 +225,8 @@ const EventList = () => {
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={starOutline} />
-                <IonIcon color="warning" slot="start" icon={starOutline} />o mas
+                <IonIcon color="warning" slot="start" icon={starOutline} />
+                {t("home.events.filters.more")}
               </IonLabel>
               <IonRadio slot="start" color="success" value="3"></IonRadio>
             </IonItem>
@@ -225,7 +237,8 @@ const EventList = () => {
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={star} />
-                <IonIcon color="warning" slot="start" icon={starOutline} />o mas
+                <IonIcon color="warning" slot="start" icon={starOutline} />
+                {t("home.events.filters.more")}
               </IonLabel>
               <IonRadio slot="start" color="success" value="4"></IonRadio>
             </IonItem>
@@ -236,7 +249,8 @@ const EventList = () => {
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={star} />
                 <IonIcon color="warning" slot="start" icon={star} />
-                <IonIcon color="warning" slot="start" icon={star} />o mas
+                <IonIcon color="warning" slot="start" icon={star} />
+                {t("home.events.filters.more")}
               </IonLabel>
               <IonRadio slot="start" color="success" value="5"></IonRadio>
             </IonItem>
@@ -244,74 +258,79 @@ const EventList = () => {
         </IonItem>
         <div className="filter-item">
           <IonItem className="filter-subitem">
-            <IonLabel>Participantes disponibles</IonLabel>
+            <IonLabel>{t("home.events.filters.available_players")}</IonLabel>
             <IonInput
-            value={filters.available_players}
-            placeholder="Numero"
-            onIonChange={e => 
-              setFilter((prevFilters) => ({
-                ...prevFilters,
-                available_players: e.detail.value,
-            }))}></IonInput>
+              value={filters.available_players}
+              placeholder={t("home.events.filters.number")}
+              onIonChange={(e) =>
+                setFilter((prevFilters) => ({
+                  ...prevFilters,
+                  available_players: e.detail.value,
+                }))
+              }
+            ></IonInput>
           </IonItem>
 
           <IonItem className="filter-subitem">
-            <IonLabel>Maximo participantes</IonLabel>
+            <IonLabel>{t("home.events.filters.max_players")}</IonLabel>
             <IonInput
-            value={filters.max_players}
-            placeholder="Numero"
-            onIonChange={e => 
-              setFilter((prevFilters) => ({
-                ...prevFilters,
-                max_players: e.detail.value,
-            }))}></IonInput>
+              value={filters.max_players}
+              placeholder={t("home.events.filters.number")}
+              onIonChange={(e) =>
+                setFilter((prevFilters) => ({
+                  ...prevFilters,
+                  max_players: e.detail.value,
+                }))
+              }
+            ></IonInput>
           </IonItem>
 
           <IonItem className="filter-subitem">
-            <IonLabel>Participantes apuntados</IonLabel>
+            <IonLabel>{t("home.events.filters.busy_players")}</IonLabel>
             <IonInput
-            value={filters.busy_players}
-            placeholder="Numero"
-            onIonChange={e => 
-              setFilter((prevFilters) => ({
-                ...prevFilters,
-                busy_players: e.detail.value,
-            }))}></IonInput>
+              value={filters.busy_players}
+              placeholder={t("home.events.filters.number")}
+              onIonChange={(e) =>
+                setFilter((prevFilters) => ({
+                  ...prevFilters,
+                  busy_players: e.detail.value,
+                }))
+              }
+            ></IonInput>
           </IonItem>
         </div>
 
         <div className="filter-item">
-        <IonItem className="filter-subitem">
-              <IonLabel>Por fecha</IonLabel>
+          <IonItem className="filter-subitem">
+            <IonLabel>{t("home.events.filters.date")}</IonLabel>
             <IonDatetime
               displayFormat="YY-MM-DD"
-              placeholder="Selecciona fecha"
+              placeholder={t("home.events.filters.date_select")}
               value={filters.date}
               onIonChange={(e) =>
-              setFilter((prevFilters) => ({
-                ...prevFilters,
-                date: e.detail.value,
-              }))
-            }
+                setFilter((prevFilters) => ({
+                  ...prevFilters,
+                  date: e.detail.value,
+                }))
+              }
             ></IonDatetime>
           </IonItem>
 
-          <IonItem className="filter-subitem" >
-              <IonLabel>Por Hora</IonLabel>
+          <IonItem className="filter-subitem">
+            <IonLabel>{t("home.events.filters.time")}</IonLabel>
             <IonDatetime
               displayFormat="HH"
-              placeholder="Selecciona hora"
+              placeholder={t("home.events.filters.time_select")}
               value={filters.time}
               onIonChange={(e) =>
-              setFilter((prevFilters) => ({
-                ...prevFilters,
-                time: e.detail.value,
-              }))
-            }
+                setFilter((prevFilters) => ({
+                  ...prevFilters,
+                  time: e.detail.value,
+                }))
+              }
             ></IonDatetime>
           </IonItem>
         </div>
-  
       </div>
       {state.user ? (
         <IonSegment

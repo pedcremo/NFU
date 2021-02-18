@@ -14,6 +14,22 @@
 
   "home": {
     "events": {
+      "filters": {
+        "time": "Por hora",
+        "date": "Por fecha",
+        "busy_players": "Participantes apuntados",
+        "max_players": "Maximo participantes",
+        "available_players": "Participantes disponibles",
+        "more": "o mas",
+        "number": "Numero",
+        "date_select": "Selecciona fecha",
+        "time_select": "Selecionar hora",
+        "stars": "Valoracion de Usuario",
+        "button": {
+          "hide": "Ocultar filtros",
+          "open": "Más filtros"
+        }
+      },
       "search": {
         "placeholder": "Cerca..."
       }
@@ -52,7 +68,7 @@
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Canviar Foto de Perfil",
-    "changePhotoErr":"Desactiva l'opció de gravatar per canviar la teva foto de perfil",
+    "changePhotoErr": "Desactiva l'opció de gravatar per canviar la teva foto de perfil",
     "form": {
       "name": "El teu nom",
       "surname": "Els teus cognoms",
@@ -156,19 +172,19 @@
     "notifications": "Notificacions"
   },
   "settings": {
-    "divider":{
-      "notifications":"Notificacions",
-      "appearance":"Aparença",
-      "others":"Altres",
-      "profile":"Perfil"
+    "divider": {
+      "notifications": "Notificacions",
+      "appearance": "Aparença",
+      "others": "Altres",
+      "profile": "Perfil"
     },
-    "showNotifications":"Mostra notificacions d'esdeveniments",
-    "soundNotifications":"Activar so de notificacions",
-    "useGravatarImage":"Utilitzar imatge de Gravatar",
-    "changeTheme":"Canviar tema",
-    "lightMode":"Clar",
-    "darkMode":"Fosc",
-    "profileSettings":"Ajustaments de perfil",
-    "about":"Sobre nosaltres"
+    "showNotifications": "Mostra notificacions d'esdeveniments",
+    "soundNotifications": "Activar so de notificacions",
+    "useGravatarImage": "Utilitzar imatge de Gravatar",
+    "changeTheme": "Canviar tema",
+    "lightMode": "Clar",
+    "darkMode": "Fosc",
+    "profileSettings": "Ajustaments de perfil",
+    "about": "Sobre nosaltres"
   }
 }

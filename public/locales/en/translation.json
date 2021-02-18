@@ -14,6 +14,22 @@
 
   "home": {
     "events": {
+      "filters": {
+        "time": "Hour",
+        "date": "Date",
+        "busy_players": "Inscribed participants",
+        "max_players": "Max participants",
+        "available_players": "Available participants",
+        "more": "or more",
+        "stars": "User Rating",
+        "number": "Number",
+        "date_select": "Select date",
+        "time_select": "Select time",
+        "button": {
+          "hide": "Hide filters",
+          "open": "More filters"
+        }
+      },
       "search": {
         "placeholder": "Search..."
       }
@@ -52,7 +68,7 @@
   "updateProfile": {
     "title": "Edit Profile",
     "changePhoto": "Change Profile Photo",
-    "changePhotoErr":"Deactivate Gravatar option to change your profile image",
+    "changePhotoErr": "Deactivate Gravatar option to change your profile image",
     "form": {
       "name": "Name",
       "surname": "Surnames",
@@ -154,19 +170,19 @@
     "notifications": "Notifications"
   },
   "settings": {
-    "divider":{
-      "notifications":"Notifications",
-      "appearance":"Appearance",
-      "others":"Others",
-      "profile":"Profile"
+    "divider": {
+      "notifications": "Notifications",
+      "appearance": "Appearance",
+      "others": "Others",
+      "profile": "Profile"
     },
-    "showNotifications":"Display events notifications",
-    "soundNotifications":"Enable notifications sound",
-    "useGravatarImage":"Use gravatar image",
-    "changeTheme":"Change theme",
-    "lightMode":"Light",
-    "darkMode":"Dark",
-    "profileSettings":"Profile settings",
-    "about":"About"
+    "showNotifications": "Display events notifications",
+    "soundNotifications": "Enable notifications sound",
+    "useGravatarImage": "Use gravatar image",
+    "changeTheme": "Change theme",
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "profileSettings": "Profile settings",
+    "about": "About"
   }
 }

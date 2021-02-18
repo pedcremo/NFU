@@ -14,14 +14,27 @@
 
   "home": {
     "events": {
+      "filters": {
+        "time": "Por hora",
+        "date": "Por fecha",
+        "busy_players": "Participantes apuntados",
+        "max_players": "Maximo participantes",
+        "available_players": "Participantes disponibles",
+        "more": "o mas",
+        "stars": "Valoracion de Usuario",
+        "buttons": {
+          "hide": "Ocultar filtros",
+          "open": "Más filtros"
+        }
+      },
       "search": {
-        "placeholder": "Busca..."
+        "placeholder": "Cerca..."
       }
     },
     "segments": {
-      "joined": "Partidas unidas",
-      "yours": "Tus partidas",
-      "following": "Siguiendo"
+      "joined": "Partides unides",
+      "yours": "Partides teues",
+      "following": "Seguint"
     }
   },
 
@@ -52,7 +65,7 @@
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Cambiar Foto de Perfil",
-    "changePhotoErr":"Desactiva la opcion de gravatar para cambiar tu foto de perfil",
+    "changePhotoErr": "Desactiva la opcion de gravatar para cambiar tu foto de perfil",
     "form": {
       "name": "Tu Nombre",
       "surname": "Tus Apellidos",
@@ -154,19 +167,19 @@
     "notifications": "Notificaciones"
   },
   "settings": {
-    "divider":{
-      "notifications":"Notificaciones",
-      "appearance":"Apariencia",
-      "others":"Otros",
-      "profile":"Perfil"
+    "divider": {
+      "notifications": "Notificaciones",
+      "appearance": "Apariencia",
+      "others": "Otros",
+      "profile": "Perfil"
     },
-    "showNotifications":"Mostrar notificaciones de eventos",
-    "soundNotifications":"Activar sonido de notificaciones",
-    "useGravatarImage":"Utilizar imagen de Gravatar",
-    "changeTheme":"Cambiar tema",
-    "lightMode":"Claro",
-    "darkMode":"Oscuro",
-    "profileSettings":"Ajustes de perfil",
-    "about":"Sobre nosotros"
+    "showNotifications": "Mostrar notificaciones de eventos",
+    "soundNotifications": "Activar sonido de notificaciones",
+    "useGravatarImage": "Utilizar imagen de Gravatar",
+    "changeTheme": "Cambiar tema",
+    "lightMode": "Claro",
+    "darkMode": "Oscuro",
+    "profileSettings": "Ajustes de perfil",
+    "about": "Sobre nosotros"
   }
 }
