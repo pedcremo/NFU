@@ -146,5 +146,21 @@
     "comments": "Comments",
     "profile": "Perfil",
     "notifications": "Notificaciones"
+  },
+  "settings": {
+    "divider":{
+      "notifications":"Notificaciones",
+      "appearance":"Apariencia",
+      "others":"Otros",
+      "profile":"Perfil"
+    },
+    "showNotifications":"Mostrar notificaciones de eventos",
+    "soundNotifications":"Activar sonido de notificaciones",
+    "useGravatarImage":"Utilizar imagen de Gravatar",
+    "changeTheme":"Cambiar tema",
+    "lightMode":"Claro",
+    "darkMode":"Oscuro",
+    "profileSettings":"Ajustes de perfil",
+    "about":"Sobre nosotros"
   }
 }

@@ -148,5 +148,21 @@
     "addevent": "Crear Event",
     "profile": "Perfil",
     "notifications": "Notificacions"
+  },
+  "settings": {
+    "divider":{
+      "notifications":"Notificacions",
+      "appearance":"Aparença",
+      "others":"Altres",
+      "profile":"Perfil"
+    },
+    "showNotifications":"Mostra notificacions d'esdeveniments",
+    "soundNotifications":"Activar so de notificacions",
+    "useGravatarImage":"Utilitzar imatge de Gravatar",
+    "changeTheme":"Canviar tema",
+    "lightMode":"Clar",
+    "darkMode":"Fosc",
+    "profileSettings":"Ajustaments de perfil",
+    "about":"Sobre nosaltres"
   }
 }
