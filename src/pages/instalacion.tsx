@@ -58,7 +58,7 @@ const Instalacion: React.FC = () => {
                   {instalacion.pistas.map((pista) => (
                       <IonCard className="lista">
                       <div className="lista-image">
-                          <img alt="" src={pista.Imagen}/>
+                          <img alt="img" src={pista.Imagen}/>
                         </div>
                         <div className="lista-content">
                         <span className="lista-content-title">{pista.Nombre}</span>
