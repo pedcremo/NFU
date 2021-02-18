@@ -1,4 +1,5 @@
-import React, { useContext,useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import {generateGravatar, toDataURL, imageLocal} from '../../utils'
 import { AppContext } from "../../State";
 import { Link, Redirect } from "react-router-dom";
 import {
@@ -19,21 +20,26 @@ import Header from "../../components/header/header";
 const Settings: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const [theme, setTheme] = useState<React.ReactText | undefined>(state.theme);
-  const [gravatarMode, setgravatarMode] = useState<boolean | undefined>(true);
-
+  const [gravatarMode, setGravatarMode] = useState<boolean | undefined>(state.currentAvatar === 'gravatar' ? true : false);
   const [showToastSettings, setShowToastSettings] = useState(false);
 
   useEffect(() => {
     dispatch({ type: "SET_THEME", value: theme });
+    setAvatarUser();
     setShowToastSettings(true);
-  }, [theme, dispatch]);
+  }, [theme, gravatarMode]);
+  const toggleDarkModeHandler = () => { };
 
-  const toggleDarkModeHandler = () => {};
-
-  const toggleGravatar = (e) => {
-    console.log(e.detail.checked);
-  };
-
+  let setAvatarUser = () => {
+    dispatch({ type: "SET_AVATAR_TYPE", value: (gravatarMode ? 'gravatar' : 'local') });
+    let user = state.user;
+    if (gravatarMode) {
+      user.image = generateGravatar(user.email);
+    }else{
+      user.image = imageLocal;
+    }
+    dispatch({ type: "SET_USER", value: user });
+  }
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -54,12 +60,12 @@ const Settings: React.FC = () => {
             </IonLabel>
           </IonItem>
           <IonItem className="settings-item">
-            <IonLabel className="settings-label"> 
+            <IonLabel className="settings-label">
               Activar sonido de notificaciones <IonToggle color="secondary" />
             </IonLabel>
           </IonItem>
         </IonItemGroup>
-        <br/>
+        <br />
         <IonItemGroup>
           <IonItemDivider>
             <IonLabel>Profile</IonLabel>
@@ -67,11 +73,11 @@ const Settings: React.FC = () => {
 
           <IonItem className="settings-item">
             <IonLabel className="settings-label">Utilizar imagen de gravatar{" "}
-              <IonToggle color="secondary" name="darkMode" checked={gravatarMode} onIonChange={(e) => toggleGravatar(e)} />
+              <IonToggle color="secondary" name="darkMode" checked={gravatarMode} onIonChange={(e) => setGravatarMode(e.detail.checked)} />
             </IonLabel>
           </IonItem>
         </IonItemGroup>
-        <br/>
+        <br />
         <IonItemGroup>
           <IonItemDivider>
             <IonLabel>Appearance</IonLabel>
@@ -99,7 +105,7 @@ const Settings: React.FC = () => {
               <IonLabel className="settings-label">About</IonLabel>
             </IonItem>
           </Link>
-          
+
         </IonItemGroup>
         <IonToast isOpen={showToastSettings} onDidDismiss={() => setShowToastSettings(false)} message="Your settings have been saved." duration={1200} />
       </IonContent>
