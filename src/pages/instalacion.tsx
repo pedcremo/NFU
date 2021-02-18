@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { pinSharp } from 'ionicons/icons';
 import {
-  IonContent, IonPage, IonIcon,IonCard, IonImg
+  IonContent, IonPage, IonIcon,IonCard
 } from '@ionic/react';
 import { useParams } from "react-router";
 import { useTranslation } from 'react-i18next';
@@ -40,7 +40,7 @@ const Instalacion: React.FC = () => {
         <section className="details-page">
           <article className="detail">
             <article className="detail-image">
-              <IonImg src={instalacion.imagen} alt="img"/>
+             <img src={instalacion.imagen} alt="img"/>
               <article className="detail-image-icons">
                 <span className="detail-image-icons-location icon-details icon-details-green"><span className="icon-details-icon">
                   <IonIcon icon={pinSharp} /></span>
@@ -58,7 +58,7 @@ const Instalacion: React.FC = () => {
                   {instalacion.pistas.map((pista) => (
                       <IonCard className="lista">
                       <div className="lista-image">
-                            <IonImg alt="" src={pista.Imagen}/>
+                          <img alt="" src={pista.Imagen}/>
                         </div>
                         <div className="lista-content">
                         <span className="lista-content-title">{pista.Nombre}</span>

@@ -19,8 +19,8 @@ it("PREVIEW INSTALACIONES TEST", () => {
       </App>
     </AppContextProvider>
   );
-
   // ADDINS THE MOCK FOR REACT i18 next translation
+  
   expect(baseElement).toBeDefined();
 
   let cardList = container.getElementsByClassName("cardList");
