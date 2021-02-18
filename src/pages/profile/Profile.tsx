@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Profile.css";
 
-import { IonContent, IonImg, IonItem, IonLabel, IonPage } from "@ionic/react";
+import { IonContent, IonItem, IonPage } from "@ionic/react";
 
 import {
   basketball,

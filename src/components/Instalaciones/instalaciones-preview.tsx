@@ -8,6 +8,7 @@ import {
   IonCardSubtitle,
   IonCardTitle,
   IonIcon,
+  IonImg,
 } from '@ionic/react';
 import './Instalaciones_preview.css';
 
@@ -20,7 +21,7 @@ const InstalacionesPreview = (props: any) => {
     <IonCard className="cardList">
       <section className="cardContent">
         <article className="cardContent__left">
-          <img src={Props.info.imagen} alt="img" />
+          <IonImg src={Props.info.imagen} alt="img" />
         </article>
         <article className="cardContent__right">
           <IonCardTitle>{Props.info.name}</IonCardTitle>
