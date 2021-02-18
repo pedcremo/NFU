@@ -122,7 +122,7 @@ const UpdateProfile = () => {
             />
             <br/>
             <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
-              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">Desactiva la opcion de gravatar para cambiar tu foto de perfil</IonLabel>
+              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">{t('updateProfile.changePhotoErr')}</IonLabel>
             </Link>
           </div>
 

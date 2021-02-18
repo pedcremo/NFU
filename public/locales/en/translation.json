@@ -52,6 +52,7 @@
   "updateProfile": {
     "title": "Edit Profile",
     "changePhoto": "Change Profile Photo",
+    "changePhotoErr":"Deactivate Gravatar option to change your profile image",
     "form": {
       "name": "Name",
       "surname": "Surnames",

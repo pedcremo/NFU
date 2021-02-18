@@ -52,6 +52,7 @@
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Cambiar Foto de Perfil",
+    "changePhotoErr":"Desactiva la opcion de gravatar para cambiar tu foto de perfil",
     "form": {
       "name": "Tu Nombre",
       "surname": "Tus Apellidos",
