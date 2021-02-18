@@ -4,7 +4,6 @@ import {
   IonMenu,
   IonHeader,
   IonToolbar,
-  IonTitle,
   IonContent,
   IonList,
   IonItem,
@@ -58,7 +57,7 @@ const Menu = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-     
+        <IonImg src={state.user.image} style={{width: "50%", margin: '10px auto auto auto'}}/>
         <IonList>
 
           

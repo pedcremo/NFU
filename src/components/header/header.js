@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../State";
 import { Redirect, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -13,11 +13,12 @@ import {
   IonMenuButton,
   IonChip,
   IonAvatar,
+  IonImg
 } from "@ionic/react";
 import "./header.css";
 
 const Header = (props) => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Header = (props) => {
 
   //crypto-js We use a library to obtain an md5 of the authenticated user's email
   function generateGravatar() {
-    var md5Hash = CryptoJS.MD5(state.user);
+    var md5Hash = CryptoJS.MD5(state.user.email);
     let url_image = "https://www.gravatar.com/avatar/" + md5Hash;
     return url_image;
   }
@@ -46,13 +47,14 @@ const Header = (props) => {
             <IonMenuButton></IonMenuButton>
           </IonButtons>
           <IonTitle>{page}</IonTitle>
+
           {state.user ? (
             <Link to="/app/profile" slot="end" className="navbar-user-link">
               <IonChip className="navbar-user">
                 <IonAvatar>
-                  <img src={generateGravatar()} />
+                  <IonImg src={generateGravatar()} />
                 </IonAvatar>
-                <IonLabel>{state.user}</IonLabel>
+                <IonLabel>{state.user.username}</IonLabel>
               </IonChip>
             </Link>
           ) : (
@@ -60,6 +62,7 @@ const Header = (props) => {
               <IonLabel>{t("header.login")}</IonLabel>
             </Link>
           )}
+          
         </IonToolbar>
       </IonHeader>
     </>
