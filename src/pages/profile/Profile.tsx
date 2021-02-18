@@ -54,7 +54,7 @@ const Profile: React.FC = () => {
               </IonItem>
               <IonItem>
                 <ButtonLink
-                  link="/app/events"
+                  link="/app/home"
                   text={t("profile.matches")}
                   icon={basketball}
                 />
