@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../../State";
-import toDataURL from '../../utils'
+import { generateGravatar, imageLocal } from '../../utils'
 import { useHistory } from "react-router-dom";
 import { IonLabel, IonInput, IonLoading, IonButton } from '@ionic/react';
 import './LocalOptions.css';
@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
     const history = useHistory()
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, state } = useContext(AppContext);
     const [email, setEmail] = useState<React.ReactText | undefined>("");
     const [password, setPassword] = useState<React.ReactText | undefined>("");
     const [, setFormErrors] = useState(null);
@@ -23,9 +23,9 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
             let user = {
                 email: email,
                 username: username.split('@')[0],
-                image: ''
+                image: state.currentAvatar === "gravatar" ? generateGravatar(email) : imageLocal,
+                imageLocal: imageLocal
             }
-            toDataURL('https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png').then(dataUrl => {user.image = dataUrl})
             setShowLoading(true);
             setTimeout(() => dispatch({ type: "SET_USER", value: user }), 5000);
         } catch (e) {

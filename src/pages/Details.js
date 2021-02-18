@@ -11,7 +11,7 @@ import {
   IonImg,
 } from "@ionic/react";
 
-import { compass, alarm, share } from "ionicons/icons";
+import { compass, alarm, logoWhatsapp } from "ionicons/icons";
 import { useParams } from "react-router";
 import events from "../data/data.json";
 import Author from "../components/author/Author";
@@ -43,17 +43,23 @@ const Details = () => {
   }
 
 
-  function handleClick(){
-    // http://localhost:3000/app/event/${event.id}
-    let mensaje = `
-        *¡Nos Falta Uno!*
-      ${event.title}
-      _${event.description}_
-    `
-    console.log("Id del evento: ", event.id)
-    console.log(event) 
-     //"http://localhost:3000/app/event/"+event.id
-    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje)+ "```<img href='"+event.image+"'/>```" + " https://www.youtube.com/watch?v=KIeAvaZYxig" );
+  function handleClick(type){
+
+    switch(type){
+      case "was":
+        // http://localhost:3000/app/event/${event.id}
+        let mensaje = `
+          *¡Nos Falta Uno!*
+          ${event.title}
+          _${event.description}_
+        `
+        console.log("Id del evento: ", event.id)
+        console.log(event) 
+         //"http://localhost:3000/app/event/"+event.id
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje)+ "```<img href='"+event.image+"'/>```" + " https://www.youtube.com/watch?v=KIeAvaZYxig" );
+
+      break;
+    }
   }
 
   return (
@@ -70,8 +76,8 @@ const Details = () => {
             <div className="event-card-image">
               <IonImg src={event.image} alt="" />
               <div className="event-card-image-badges">
-                <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick()}>
-                <IonIcon icon={share} />             
+                <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick("was")}>
+                <IonIcon icon={logoWhatsapp} />             
                 </span>
                 <span className="event-card-image-badges-time badge-details badge-details-blue">
                   <span className="badge-details-icon">
