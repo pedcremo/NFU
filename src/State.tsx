@@ -25,7 +25,8 @@ const initialState = {
   coordinates: "",
   user_coordinates: "no",
   segment: "joined",
-  currentAvatar: ""
+  currentAvatar: "",
+  event: []
 };
 
 let reducer = (state, action) => {
