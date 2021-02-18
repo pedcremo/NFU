@@ -32,6 +32,7 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
+    time: null,
     available_players: "",
     max_players: "",
     busy_players: ""
@@ -80,6 +81,32 @@ const EventList = () => {
           return event
         else if (filters.busy_players == "")
           return event
+      }
+    );
+
+    // We filter by date.
+    eventsFiltred = eventsFiltred.filter(
+      (event) => {
+        let eventDate = new Date(event.time);
+        let filterDate = new Date(filters.date)
+        if (eventDate.getDay() +"/"+ eventDate.getMonth() +"/"+eventDate.getFullYear() == 
+        filterDate.getDay() +"/"+ filterDate.getMonth() +"/"+filterDate.getFullYear())
+        return event;
+        else if (filters.date == null)
+          return event;
+      }
+    );
+
+    // We filter by time.
+    eventsFiltred = eventsFiltred.filter(
+      (event) => {
+        let eventDate = new Date(event.time);
+        let filterDate = new Date(filters.time)
+        if (eventDate.getHours() == 
+        filterDate.getHours())
+        return event;
+        else if (filters.time == null)
+          return event;
       }
     );
 
@@ -220,6 +247,7 @@ const EventList = () => {
             <IonLabel>Participantes disponibles</IonLabel>
             <IonInput
             value={filters.available_players}
+            placeholder="Numero"
             onIonChange={e => 
               setFilter((prevFilters) => ({
                 ...prevFilters,
@@ -231,6 +259,7 @@ const EventList = () => {
             <IonLabel>Maximo participantes</IonLabel>
             <IonInput
             value={filters.max_players}
+            placeholder="Numero"
             onIonChange={e => 
               setFilter((prevFilters) => ({
                 ...prevFilters,
@@ -242,6 +271,7 @@ const EventList = () => {
             <IonLabel>Participantes apuntados</IonLabel>
             <IonInput
             value={filters.busy_players}
+            placeholder="Numero"
             onIonChange={e => 
               setFilter((prevFilters) => ({
                 ...prevFilters,
@@ -250,11 +280,12 @@ const EventList = () => {
           </IonItem>
         </div>
 
-        {/* <IonItem className="filter-item">
+        <div className="filter-item">
+        <IonItem className="filter-subitem">
               <IonLabel>Por fecha</IonLabel>
             <IonDatetime
-              displayFormat="MM/DD/YY"
-              placeholder="Select Date"
+              displayFormat="YY-MM-DD"
+              placeholder="Selecciona fecha"
               value={filters.date}
               onIonChange={(e) =>
               setFilter((prevFilters) => ({
@@ -263,7 +294,24 @@ const EventList = () => {
               }))
             }
             ></IonDatetime>
-          </IonItem> */}
+          </IonItem>
+
+          <IonItem className="filter-subitem" >
+              <IonLabel>Por Hora</IonLabel>
+            <IonDatetime
+              displayFormat="HH"
+              placeholder="Selecciona hora"
+              value={filters.time}
+              onIonChange={(e) =>
+              setFilter((prevFilters) => ({
+                ...prevFilters,
+                time: e.detail.value,
+              }))
+            }
+            ></IonDatetime>
+          </IonItem>
+        </div>
+  
       </div>
       {state.user ? (
         <IonSegment
