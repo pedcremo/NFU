@@ -54,6 +54,7 @@
     "changePhoto": "Cambiar Foto de Perfil",
     "form": {
       "name": "Tu Nombre",
+      "surname": "Tus Apellidos",
       "username": "Nombre de usuario",
       "website": "Sitio Web",
       "bio": "Biografia",
@@ -142,7 +143,7 @@
   "pages": {
     "home": "Inicio",
     "addevent": "Crear Evento",
-    "comments":"Comments",
+    "comments": "Comments",
     "profile": "Perfil",
     "notifications": "Notificaciones"
   }
