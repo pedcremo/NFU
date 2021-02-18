@@ -38,12 +38,9 @@ import Menu from "./components/Menu";
 
 const Autoload = () => {
   const { dispatch } = useContext(AppContext);
-  console.log("AUTOLOAD");
   useEffect(() => {
-    console.log("AUTOLOAD USEEFFECT");
     dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
   },[]);
-
   return (<></>);
 }
 
