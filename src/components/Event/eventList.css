@@ -23,7 +23,7 @@
 }
 
 .filters-container .filter-item {
-    width: 250px;
+    max-width: 300px;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -31,4 +31,8 @@
 
 .filters-container .header-label {
     margin: 20px;
+}
+
+.filter-subitem {
+    margin-bottom: 20px;
 }

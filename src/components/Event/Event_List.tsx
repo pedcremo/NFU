@@ -13,13 +13,13 @@ import {
   IonCheckbox,
   IonIcon,
   IonRadioGroup,
-  IonListHeader,
+  IonInput,
   IonRadio,
   IonDatetime,
   IonButton,
 } from "@ionic/react";
 import { useTranslation } from "react-i18next";
-import { starOutline, star } from "ionicons/icons";
+import { starOutline, star, filter } from "ionicons/icons";
 import "./eventList.css";
 
 const EventList = () => {
@@ -32,7 +32,9 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
-    players: null,
+    available_players: "",
+    max_players: "",
+    busy_players: ""
   });
 
   const { state, dispatch } = useContext(AppContext);
@@ -47,8 +49,38 @@ const EventList = () => {
     );
 
     // We filter by search.
-    eventsFiltred = eventsFiltred.filter((event) =>
-      event.title.toLowerCase().includes(filters.search.toLowerCase())
+    eventsFiltred = eventsFiltred.filter(
+      (event) => event.title.toLowerCase().includes(filters.search.toLowerCase())
+    );
+
+    // We filter by available players.
+    eventsFiltred = eventsFiltred.filter(
+      (event) => {
+        if ((event.maxplayers - event.players) == parseInt(filters.available_players))
+          return event
+        else if (filters.available_players == "")
+          return event
+      }
+    );
+
+    // We filter by max players.
+    eventsFiltred = eventsFiltred.filter(
+      (event) => {
+        if (event.maxplayers == parseInt(filters.max_players))
+          return event
+        else if (filters.max_players == "")
+          return event
+      }
+    );
+
+    // We filter by busy players.
+    eventsFiltred = eventsFiltred.filter(
+      (event) => {
+        if (event.players == parseInt(filters.busy_players))
+          return event
+        else if (filters.busy_players == "")
+          return event
+      }
     );
 
     return eventsFiltred;
@@ -183,6 +215,41 @@ const EventList = () => {
             </IonItem>
           </IonRadioGroup>
         </IonItem>
+        <div className="filter-item">
+          <IonItem className="filter-subitem">
+            <IonLabel>Participantes disponibles</IonLabel>
+            <IonInput
+            value={filters.available_players}
+            onIonChange={e => 
+              setFilter((prevFilters) => ({
+                ...prevFilters,
+                available_players: e.detail.value,
+            }))}></IonInput>
+          </IonItem>
+
+          <IonItem className="filter-subitem">
+            <IonLabel>Maximo participantes</IonLabel>
+            <IonInput
+            value={filters.max_players}
+            onIonChange={e => 
+              setFilter((prevFilters) => ({
+                ...prevFilters,
+                max_players: e.detail.value,
+            }))}></IonInput>
+          </IonItem>
+
+          <IonItem className="filter-subitem">
+            <IonLabel>Participantes apuntados</IonLabel>
+            <IonInput
+            value={filters.busy_players}
+            onIonChange={e => 
+              setFilter((prevFilters) => ({
+                ...prevFilters,
+                busy_players: e.detail.value,
+            }))}></IonInput>
+          </IonItem>
+        </div>
+
         {/* <IonItem className="filter-item">
               <IonLabel>Por fecha</IonLabel>
             <IonDatetime
