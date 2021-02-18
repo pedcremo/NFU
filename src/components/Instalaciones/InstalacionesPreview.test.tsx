@@ -22,6 +22,23 @@ it("PREVIEW INSTALACIONES TEST", () => {
 
   expect(baseElement).toBeDefined();
 
-  let list = container.getElementsByClassName("eventsList");
-  expect(list.length).toBe(1);
+  let cardList = container.getElementsByClassName("cardList");
+  expect(cardList.length).toBe(3);
 });
+
+//here is a test with an object called installation to simulate the data that comes from the json of installationsdata
+
+// test("renders a Instalaciones List Page,link", () => {
+//     const Instalacion = [{
+//         "id": 1,
+//         "imagen": "Test",
+//         "name": "JestTest",
+//         "ubication": "TESTING",
+//     }]
+//     const component = renderer.create(
+//         <AppContextProvider><InstalacionesPreview Propps={Instalacion} /></AppContextProvider>
+//     );
+
+//     let testList = component.toJSON();
+//     expect(testList).toMatchSnapshot()
+// });
