@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../State";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   IonContent,
@@ -48,6 +48,7 @@ const UpdateProfile = () => {
       reader.onloadend = function () {
         let user = state.user;
         user.image = reader.result;
+        user.imageLocal = reader.result;
         dispatch({ type: "SET_USER", value: user });
       };
       reader.readAsDataURL(file);
@@ -116,8 +117,13 @@ const UpdateProfile = () => {
             <input
               type="file"
               id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
               onChange={(el) => encodeImageFileAsURL(el)}
             />
+            <br/>
+            <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
+              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">Desactiva la opcion de gravatar para cambiar tu foto de perfil</IonLabel>
+            </Link>
           </div>
 
           <form className="form_update_profile" onSubmit={handleSubmit}>
