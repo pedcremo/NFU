@@ -37,9 +37,7 @@ const Profile: React.FC = () => {
           <div className="Content__info">
             <img
               className="ProfileImage"
-              src={
-                "https://img2.freepng.es/20180408/tvw/kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d03e6c3f5.6041125615232156199452.jpg"
-              }
+              src={state.user.image}
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
