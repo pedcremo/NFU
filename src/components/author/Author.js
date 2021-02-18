@@ -1,7 +1,7 @@
 import React from 'react';
 import { star } from 'ionicons/icons';
 import {  
-    IonIcon,
+    IonIcon, IonImg,
 } from '@ionic/react';
 import './author.css'
 
@@ -11,7 +11,7 @@ const Author = (props) =>{
     return (
         <>
           <div className="authorinfo-left">
-            <img src={author.image} alt="" />
+            <IonImg src={author.image} alt="" />
           </div>
           <div className="authorinfo-right">
               <span className="authorinfo-right-username">{author.username}</span>

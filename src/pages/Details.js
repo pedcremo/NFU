@@ -8,6 +8,7 @@ import {
   IonToolbar,
   IonIcon,
   IonButton,
+  IonImg,
 } from "@ionic/react";
 
 import { compass, alarm, share } from "ionicons/icons";
@@ -67,7 +68,7 @@ const Details = () => {
         <div className="details-page">
           <div className="event-card">
             <div className="event-card-image">
-              <img src={event.image} alt="" />
+              <IonImg src={event.image} alt="" />
               <div className="event-card-image-badges">
                 <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick()}>
                 <IonIcon icon={share} />             
