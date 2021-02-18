@@ -117,8 +117,11 @@ const UpdateProfile = () => {
             <input
               type="file"
               id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
               onChange={(el) => encodeImageFileAsURL(el)}
             />
+            <br/>
+            <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">Desactiva la opcion de gravatar para cambiar tu foto de perfil</IonLabel>
           </div>
 
           <form className="form_update_profile" onSubmit={handleSubmit}>
