@@ -5,3 +5,30 @@
     align-items: center;
     padding: 0px 20px;
 }
+
+.filters-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.filters-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    height: 350px;
+    transition: 0.3s height;
+}
+
+.filters-container .filter-item {
+    width: 250px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filters-container .header-label {
+    margin: 20px;
+}

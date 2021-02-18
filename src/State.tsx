@@ -48,6 +48,9 @@ let reducer = (state, action) => {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
       return { ...state, coordinates: action.value };
     }
+    case "SET_FILTERS": {
+      return { ...state, filters: action.value };
+    }
     case "USER_COORDINATES":{
       return {...state, user_coordinates: action.value}; //Aqui estan las coordenadas del usuario
     }
