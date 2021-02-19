@@ -1,22 +1,17 @@
 import React from "react";
-import MapContainer from './mapContainer';
-// import { AppContextProvider } from "../State";
-import App from "../../App";
-import { fireEvent, render, screen } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks'
+import { AppContextProvider } from "../../State";
+import { render } from "@testing-library/react";
+import App from '../../App';
+import MapContainer from "./mapContainer";
 
-test ("Check MapContainer rendered", ()=>{
 
+it('renders map correctly', () => {
     const { baseElement,container } = render(
-        <App>
-          <MapContainer />
-        </App>
-    );
-
-    // Expecting that is rendered
-    expect(baseElement).toBeDefined();
-
-    //Check if GoogleMaps button is rendered
-    // const Map = container.querySelector("Map");
-    // expect(Map).toBeDefined();
-})
+        <AppContextProvider> 
+            <App>
+              <MapContainer />
+          </App>
+        </AppContextProvider>
+      );
+      expect(baseElement).toBeDefined();
+});

@@ -14,6 +14,22 @@
 
   "home": {
     "events": {
+      "filters": {
+        "time": "Por hora",
+        "date": "Por fecha",
+        "busy_players": "Participantes apuntados",
+        "max_players": "Maximo participantes",
+        "available_players": "Participantes disponibles",
+        "more": "o mas",
+        "number": "Numero",
+        "date_select": "Selecciona fecha",
+        "time_select": "Selecionar hora",
+        "stars": "Valoracion de Usuario",
+        "button": {
+          "hide": "Ocultar filtros",
+          "open": "Más filtros"
+        }
+      },
       "search": {
         "placeholder": "Cerca..."
       }
@@ -52,6 +68,7 @@
   "updateProfile": {
     "title": "Editar Perfil",
     "changePhoto": "Canviar Foto de Perfil",
+    "changePhotoErr": "Desactiva l'opció de gravatar per canviar la teva foto de perfil",
     "form": {
       "name": "El teu nom",
       "surname": "Els teus cognoms",
@@ -89,11 +106,11 @@
     "name": "Nom del event",
     "players": "Jugadors totals",
     "needplayers": "Jugadors que necessites",
-    "location": "Localitat",
+    "country": "País",
     "city": "Ciutat",
     "province": "Provincia",
     "postal": "Codi Postal",
-    "category": "Selecciona una categoría",
+    "type": "Selecciona una categoría",
     "gaming": "Gaming",
     "sport": "Esport",
     "when": "Quan es l'event??",
@@ -139,6 +156,11 @@
   "Navbar": {
     "LOGOUT": "Tancar Sessió"
   },
+  "Comments": {
+    "type": "Escriu el teu missatge",
+    "send_comment": "Comentar",
+    "title": "Comentaris"
+  },
   "header": {
     "login": "Iniciar Sessió"
   },
@@ -148,5 +170,21 @@
     "addevent": "Crear Event",
     "profile": "Perfil",
     "notifications": "Notificacions"
+  },
+  "settings": {
+    "divider": {
+      "notifications": "Notificacions",
+      "appearance": "Aparença",
+      "others": "Altres",
+      "profile": "Perfil"
+    },
+    "showNotifications": "Mostra notificacions d'esdeveniments",
+    "soundNotifications": "Activar so de notificacions",
+    "useGravatarImage": "Utilitzar imatge de Gravatar",
+    "changeTheme": "Canviar tema",
+    "lightMode": "Clar",
+    "darkMode": "Fosc",
+    "profileSettings": "Ajustaments de perfil",
+    "about": "Sobre nosaltres"
   }
 }

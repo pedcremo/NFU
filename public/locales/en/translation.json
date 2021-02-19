@@ -14,6 +14,22 @@
 
   "home": {
     "events": {
+      "filters": {
+        "time": "Hour",
+        "date": "Date",
+        "busy_players": "Inscribed participants",
+        "max_players": "Max participants",
+        "available_players": "Available participants",
+        "more": "or more",
+        "stars": "User Rating",
+        "number": "Number",
+        "date_select": "Select date",
+        "time_select": "Select time",
+        "button": {
+          "hide": "Hide filters",
+          "open": "More filters"
+        }
+      },
       "search": {
         "placeholder": "Search..."
       }
@@ -52,6 +68,7 @@
   "updateProfile": {
     "title": "Edit Profile",
     "changePhoto": "Change Profile Photo",
+    "changePhotoErr": "Deactivate Gravatar option to change your profile image",
     "form": {
       "name": "Name",
       "surname": "Surnames",
@@ -88,11 +105,11 @@
     "name": "Name of event",
     "players": "Total players",
     "needplayers": "Players you need",
-    "location": "Location",
+    "country": "Country",
     "city": "City",
     "province": "Province",
     "postal": "Postal Code",
-    "category": "Select a category",
+    "type": "Select a category",
     "gaming": "Gaming",
     "sport": "Sport",
     "when": "When is the event?",
@@ -137,6 +154,11 @@
   "Navbar": {
     "LOGOUT": "LogOut"
   },
+  "Comments": {
+    "type": "Type your message",
+    "send_comment": "Comment",
+    "title": "Comments"
+  },
   "header": {
     "login": "LogIn"
   },
@@ -146,5 +168,21 @@
     "addevent": "Create Event",
     "profile": "Profile",
     "notifications": "Notifications"
+  },
+  "settings": {
+    "divider": {
+      "notifications": "Notifications",
+      "appearance": "Appearance",
+      "others": "Others",
+      "profile": "Profile"
+    },
+    "showNotifications": "Display events notifications",
+    "soundNotifications": "Enable notifications sound",
+    "useGravatarImage": "Use gravatar image",
+    "changeTheme": "Change theme",
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "profileSettings": "Profile settings",
+    "about": "About"
   }
 }

@@ -7,7 +7,7 @@ import {
   enterOutline,
 } from "ionicons/icons";
 import { Link } from "react-router-dom";
-import { IonCard, IonIcon } from "@ionic/react";
+import { IonCard, IonIcon, IonLabel } from "@ionic/react";
 import "./eventsPreview.css";
 
 const EventsPreview = (props) => {
@@ -20,7 +20,7 @@ const EventsPreview = (props) => {
           <img src={event.event.image} alt="Ion Card img" />
         </div>
         <div className="eventContent__right">
-          <span className="eventTitle">{event.event.title}</span>
+          <IonLabel className="eventTitle">{event.event.title}</IonLabel>
           <span className="eventLocation">
             <IonIcon icon={locationOutline} className="playersIcon" />
             {event.event.location.country} - {event.event.location.postalcode} -{" "}
