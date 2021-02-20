@@ -10,7 +10,6 @@
  * https://ionicframework.com/blog/a-state-management-pattern-for-ionic-react-with-react-hooks/
  */
 
-import { stat } from "fs";
 import React, { useReducer, useEffect } from "react";
 
 let AppContext = React.createContext(null);

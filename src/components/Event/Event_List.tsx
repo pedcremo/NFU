@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../State";
-import EventsPreview from "./EventsPreview.js";
+import EventsPreview from "./EventsPreview";
 import event_model from "./Event.model.js";
 import {
   IonList,
@@ -18,7 +18,7 @@ import {
   IonButton,
 } from "@ionic/react";
 import { useTranslation } from "react-i18next";
-import { starOutline, star, filter } from "ionicons/icons";
+import { starOutline, star } from "ionicons/icons";
 import "./eventList.css";
 
 const EventList = () => {
