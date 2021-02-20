@@ -101,7 +101,7 @@
     "add": "Añadir Evento",
     "name": "Nombre del evento",
     "players": "Jugadores totales",
-    "needplayers": "Jugadores que necesitas",
+    "description": "Descripción",
     "country": "País",
     "city": "Ciudad",
     "province": "Provincia",
@@ -110,7 +110,7 @@
     "gaming": "Gaming",
     "sport": "Deporte",
     "when": "Cuando es el evento?",
-    "only": "Solo gente cerca de mí",
+    "image": "Imagen",
     "submit": "Añadir"
   },
   "instalation": {

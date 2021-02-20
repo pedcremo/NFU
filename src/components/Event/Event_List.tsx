@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../State";
-import events from "../../data/data.json";
 import EventsPreview from "./EventsPreview.js";
 import event_model from "./Event.model.js";
 import {
@@ -10,7 +9,7 @@ import {
   IonSegmentButton,
   IonLabel,
   IonItem,
-  IonCheckbox,
+  // IonCheckbox,
   IonIcon,
   IonRadioGroup,
   IonInput,
@@ -110,18 +109,18 @@ const EventList = () => {
   useEffect(() => {
     setSegment(state.segment);
     // Joined events
-    const tempSearchResult = filterEvents(Object.values(events.events));
+    const tempSearchResult = filterEvents(Object.values(state.events));
     setFilteredSearch([...tempSearchResult]);
 
     // User events
-    const yourevents = Object.values(events.events);
+    const yourevents = Object.values(state.events);
     const tempYourEvents = filterEvents([yourevents[0], yourevents[1]]);
     setYourEvents([...tempYourEvents]);
 
     // You are following
-    const tempFollowingEvents = filterEvents(Object.values(events.events));
+    const tempFollowingEvents = filterEvents(Object.values(state.events));
     setFilteredSearch([...tempFollowingEvents]);
-  }, [filters]);
+  }, [filters,state]);
 
   // IonSegment
   let msg;

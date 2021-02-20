@@ -13,7 +13,7 @@ import {
 } from "@ionic/react";
 
 import Home from "./pages/Home";
-import Create from "./pages/create/Create";
+import CreateEvent from "./pages/create/CreateEvent";
 
 //
 import Settings from "./pages/settings/Settings";
@@ -44,7 +44,7 @@ const Tabs: React.FC = () => {
           path="/app/notifications"
           exact
         />
-        <PrivateRoute component={Create} path="/app/create" exact />
+        <PrivateRoute component={CreateEvent} path="/app/create" exact />
 
         {/* ALL PAGES */}
 

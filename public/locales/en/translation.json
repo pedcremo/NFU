@@ -104,7 +104,7 @@
     "add": "Add Event",
     "name": "Name of event",
     "players": "Total players",
-    "needplayers": "Players you need",
+    "description": "Description",
     "country": "Country",
     "city": "City",
     "province": "Province",
@@ -113,7 +113,7 @@
     "gaming": "Gaming",
     "sport": "Sport",
     "when": "When is the event?",
-    "only": "Only people close to me",
+    "image": "Image",
     "submit": "Submit"
   },
   "instalation": {

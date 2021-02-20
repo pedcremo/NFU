@@ -12,7 +12,7 @@ import {
 
 import { compass, alarm, logoWhatsapp } from "ionicons/icons";
 import { useParams } from "react-router";
-import events from "../data/data.json";
+// import events from "../data/data.json";
 import Author from "../components/author/Author";
 import { Redirect } from "react-router-dom";
 import { AppContext } from "../State";
@@ -22,9 +22,12 @@ import "./details.css";
 import MyModal from "../components/modal/MyModal";
 
 const Details = () => {
+  const [showModal, setShowModal] = useState(false);
+  const { state, dispatch } = useContext(AppContext);
+
   //get id URL
   const { id } = useParams();
-  const events_array = Object.values(events.events);
+  const events_array = Object.values(state.events);
   //gfet event by id
   // eslint-disable-next-line
   let event = events_array.find((event) => event.id == id);
@@ -34,8 +37,6 @@ const Details = () => {
   console.log(event.p);
   // const { state } = useContext(AppContext);
 
-  const [showModal, setShowModal] = useState(false);
-  const { state, dispatch } = useContext(AppContext);
 
   if (!state.user) {
     return <Redirect to="/login" />;
