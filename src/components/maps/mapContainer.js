@@ -10,15 +10,47 @@ export class MapContainer extends React.Component {
     }
 
     render() {
-    // const Props = props;
-
-    // console.log(this.props.google.maps)
-    // this.props.google.maps.LatLng = {"lat":38.8108668,"lng":-0.604796};
 
     const coordinates_array = Object.values(this.props.coordinates);
     // const user_coordinates = this.props.user_coordinates
-    
-    let coordenadas_sesion = JSON.parse(sessionStorage.getItem("user_coordinates")) //Coordenadas del user, solo mostrar cuando son todos los eventos
+
+    //Volvemos a coger las coordenadas del usuario por si se ha movido y las guardamos en sessionStorage
+    let getCoords = () => {
+      try{
+        Geolocation.getCurrentPosition().then(pos => {
+          // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+          let coords = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+          }
+          if(coords){
+            sessionStorage.setItem("user_coordinates",JSON.stringify(coords));
+            return coords;
+          }else{
+            console.log("NO HAY COORDS")
+          }
+        });
+      }catch(e){
+        console.log("Error get location: ", e)
+      }
+      
+    };
+
+    //Si no podemos volver a obtener las coordenadas, cogemos las que habian anteriormente en sessionStorage
+    let coordenadas_sesion = getCoords()?"":JSON.parse(sessionStorage.getItem("user_coordinates"));
+
+    if (coordenadas_sesion){
+      console.log("TENEMOS COORDENADAS")
+    }else{
+      console.log("NO HAY COORDENADAS DEL USER, NO PODEMOS MOSTRAR LOS EVENTOS CERCANOS")
+      //Aqui hay que decirle que no muestre el maps, de momento ponemos unas coordenadas aleatorias
+      coordenadas_sesion = {
+        "latitude": coordinates_array[0].lat,
+        "longitude": coordinates_array[0].lng
+      }
+      console.log(coordenadas_sesion)
+    }
+    // let coordenadas_sesion = JSON.parse(sessionStorage.getItem("user_coordinates")) //Coordenadas del user, solo mostrar cuando son todos los eventos
     let center_lat = null;
     let center_long = null;
 
