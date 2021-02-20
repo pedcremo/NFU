@@ -35,9 +35,9 @@
       }
     },
     "segments": {
-      "joined": "Games joined",
+      "recent": "Recent games",
       "yours": "Your games",
-      "following": "Following"
+      "favorited": "Favorites"
     }
   },
 

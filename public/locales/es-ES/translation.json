@@ -32,9 +32,9 @@
       }
     },
     "segments": {
-      "joined": "Partides unides",
-      "yours": "Partides teues",
-      "following": "Seguint"
+      "recent": "Partidas recientes",
+      "yours": "Tus partidas",
+      "favorited": "Favoritas"
     }
   },
 

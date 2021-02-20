@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "./State";
 import { useTranslation } from "react-i18next";
+import { Route } from 'react-router-dom';
 
 import {
   IonTabs,
@@ -24,6 +25,7 @@ import Details from "./pages/Details";
 import Instalacion from "./pages/instalacion";
 import Profile from "./pages/profile/Profile";
 import UpdateProfile from "./pages/profile/UpdateProfile";
+import Error404 from "./pages/errors/404";
 
 import { home, addCircle, notifications } from "ionicons/icons";
 
@@ -70,6 +72,8 @@ const Tabs: React.FC = () => {
         />
 
         <PrivateRoute component={Profile} path="/app/profile" exact />
+
+        <Route component={Error404} />
       </IonRouterOutlet>
 
       <IonTabBar slot="bottom">

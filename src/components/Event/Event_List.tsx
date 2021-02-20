@@ -108,7 +108,7 @@ const EventList = () => {
 
   useEffect(() => {
     setSegment(state.segment);
-    // Joined events
+    // Recent events
     const tempSearchResult = filterEvents(Object.values(state.events));
     setFilteredSearch([...tempSearchResult]);
 
@@ -117,14 +117,14 @@ const EventList = () => {
     const tempYourEvents = filterEvents([yourevents[0], yourevents[1]]);
     setYourEvents([...tempYourEvents]);
 
-    // You are following
+    // Favorited events
     const tempFollowingEvents = filterEvents(Object.values(state.events));
     setFilteredSearch([...tempFollowingEvents]);
   }, [filters,state]);
 
   // IonSegment
   let msg;
-  if (segment === "joined") {
+  if (segment === "recent") {
     msg = (
       <IonList className="eventsList">
         {filteredSearch.map((event, index) => (
@@ -140,7 +140,7 @@ const EventList = () => {
         ))}
       </IonList>
     );
-  } else if (segment === "following") {
+  } else if (segment === "favorited") {
     msg = (
       <IonList className="eventsList">
         {filteredSearch.map((event, index) => (
@@ -339,16 +339,16 @@ const EventList = () => {
             dispatch({ type: "SET_SEGMENT", value: e.detail.value });
           }}
         >
-          <IonSegmentButton value="joined">
-            <IonLabel>{t("home.segments.joined")}</IonLabel>
+          <IonSegmentButton value="recent">
+            <IonLabel>{t("home.segments.recent")}</IonLabel>
           </IonSegmentButton>
 
           <IonSegmentButton value="yours">
             <IonLabel>{t("home.segments.yours")}</IonLabel>
           </IonSegmentButton>
 
-          <IonSegmentButton value="following">
-            <IonLabel>{t("home.segments.following")}</IonLabel>
+          <IonSegmentButton value="favorited">
+            <IonLabel>{t("home.segments.favorited")}</IonLabel>
           </IonSegmentButton>
         </IonSegment>
       ) : (

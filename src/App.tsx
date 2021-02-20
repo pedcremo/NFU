@@ -35,6 +35,7 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import Welcome from './pages/Welcome';
+import Error404 from "./pages/errors/404";
 import Menu from "./components/Menu";
 import events from './data/data.json';
 
@@ -95,7 +96,7 @@ const App: React.FC = () => (
               exact={true}
             />
             <Route path="/app" component={Tabs} />
-            
+            <Route component={Error404} />
 
           </IonRouterOutlet>
         </IonPage>

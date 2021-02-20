@@ -35,9 +35,9 @@
       }
     },
     "segments": {
-      "joined": "Partides unides",
+      "recent": "Partides recents",
       "yours": "Partides teues",
-      "following": "Seguint"
+      "favorited": "Favorites"
     }
   },
 
