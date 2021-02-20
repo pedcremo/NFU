@@ -1,5 +1,6 @@
 import React from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper, LatLng } from "google-maps-react";
+import { Geolocation } from '@ionic-native/geolocation';
 // import credentials from "../../../public/credentials/credentials.json";
 // import { AppContext } from "../../State";
 
@@ -10,18 +11,30 @@ export class MapContainer extends React.Component {
 
     render() {
     // const Props = props;
+
+    // console.log(this.props.google.maps)
+    // this.props.google.maps.LatLng = {"lat":38.8108668,"lng":-0.604796};
+
     const coordinates_array = Object.values(this.props.coordinates);
-    const user_coordinates = this.props.user_coordinates
+    // const user_coordinates = this.props.user_coordinates
+    
+    let coordenadas_sesion = JSON.parse(sessionStorage.getItem("user_coordinates")) //Coordenadas del user, solo mostrar cuando son todos los eventos
+    let center_lat = null;
+    let center_long = null;
 
-    if(user_coordinates === "no") {
-      console.log("Por favor, permite el acceso a la ubicacion");
+    if(coordinates_array.length>2){ //Si son todos los eventos mostramos el mapa centrado a donde está el user
+      center_lat=coordenadas_sesion.latitude;
+      center_long=coordenadas_sesion.longitude;
 
-      // this.onInfoWindowClose
-      // return;
+    }else{ //Si solo es un evento, mostramos el mapa centrado a donde está el evento
+      center_lat=coordinates_array[0];
+      center_long=coordinates_array[1];
     }
+    
 
     return (
-      <Map google={this.props.google} zoom={10} onClick={this.mapClicked} center={{ lat: user_coordinates.latitude, lng: user_coordinates.longitude }}>
+      // if user coords
+      <Map google={this.props.google} zoom={10} onClick={this.mapClicked} initialCenter={{ lat: center_lat, lng: center_long }}>
 
         {
           coordinates_array.length>2
