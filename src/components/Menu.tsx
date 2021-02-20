@@ -13,7 +13,7 @@ import {
   IonImg,
 } from "@ionic/react";
 import { useTranslation } from 'react-i18next';
-import icon from '../assets/img/icono.png'
+import icon from '../assets/img/nfu_icon.png'
 import data from "../data/data.json";
 import { IonModal, IonButton } from "@ionic/react";
 import MyModal from "../components/modal/MyModal";

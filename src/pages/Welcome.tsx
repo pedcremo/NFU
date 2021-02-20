@@ -10,7 +10,7 @@ import {
   IonSlides,
 } from "@ionic/react";
 import "./Welcome.css";
-import icon from "../assets/img/icono.png";
+import icon from '../assets/img/nfu_icon.png'
 import DeporteImg from "../assets/img/deporte_img.png";
 import geo from "../assets/img/geo.png";
 import friends from "../assets/img/friends-welcome.png";
