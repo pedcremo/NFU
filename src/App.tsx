@@ -9,6 +9,7 @@ import ChangePassword from "./pages/recover_password/change_password";
 import { AppContextProvider, AppContext } from "./State";
 import Tabs from "./Tabs";
 import PublicRoute from './components/routes/PublicRoute';
+import { Geolocation } from '@ionic-native/geolocation';
 // import PrivateRoute from './components/routes/PrivateRoute';
 
 
@@ -37,6 +38,27 @@ import Welcome from './pages/Welcome';
 import Menu from "./components/Menu";
 import events from './data/data.json';
 
+// const UserCoordinates = () =>{
+  
+//Get user actual coordinates
+  (function () {
+    try{
+      Geolocation.getCurrentPosition().then(pos => {
+        // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        let coords = {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+        }
+        sessionStorage.setItem("user_coordinates",JSON.stringify(coords)); //Guardamos en sessionStorage las coordenadas actuales del usuario
+        // dispatch({ type: "USER_COORDINATES", value: coords });
+      });
+    }catch(e){
+      console.log("Error get location: ", e)
+    }
+    
+  })();
+// }
+
 const Autoload = () => {
   const { dispatch } = useContext(AppContext);
   useEffect(() => {
@@ -47,6 +69,7 @@ const Autoload = () => {
   },[]);
   return (<></>);
 }
+
 
 const App: React.FC = () => (
   <AppContextProvider>

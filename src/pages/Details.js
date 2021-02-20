@@ -55,8 +55,8 @@ const Details = () => {
         `
         console.log("Id del evento: ", event.id)
         console.log(event) 
-         //"http://localhost:3000/app/event/"+event.id
-        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje)+ "```<img href='"+event.image+"'/>```" + " https://www.youtube.com/watch?v=KIeAvaZYxig" );
+         //"http://localhost:3000/app/event/"+event.id          // "```<img href='"+event.image+"'/>```" +
+        window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje)+ " https://www.youtube.com/watch?v=KIeAvaZYxig" );
 
       break;
     }
