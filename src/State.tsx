@@ -26,7 +26,7 @@ const initialState = {
   user_coordinates: "no",
   segment: "joined",
   currentAvatar: "",
-  event: []
+  events: []
 };
 
 let reducer = (state, action) => {
@@ -37,10 +37,8 @@ let reducer = (state, action) => {
     case "SET_USER": {      
       return { ...state, user: action.value }
     }
-    case "SET_EVENT": {  
-      let events = [...state.event]
-      events.push(action.value)
-      return { ...state, event: events }
+    case "SET_EVENTS": {  
+      return { ...state, events: action.value }
     }
     case "SET_SEGMENT": {      
       return { ...state, segment: action.value }

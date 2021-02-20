@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 
 import "./password_forgotten.css";
-import icon from "../../assets/img/icono.png";
+import icon from '../../assets/img/nfu_icon.png'
 
 import { useTranslation } from "react-i18next";
 

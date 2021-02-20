@@ -105,7 +105,7 @@
     "add": "Afegir Event",
     "name": "Nom del event",
     "players": "Jugadors totals",
-    "needplayers": "Jugadors que necessites",
+    "description": "Descripció",
     "country": "País",
     "city": "Ciutat",
     "province": "Provincia",
@@ -114,7 +114,7 @@
     "gaming": "Gaming",
     "sport": "Esport",
     "when": "Quan es l'event??",
-    "only": "Sols gent prop de mi",
+    "image": "Imatge",
     "submit": "Afegir"
   },
 

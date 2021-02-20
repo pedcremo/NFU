@@ -12,7 +12,6 @@ import "./eventsPreview.css";
 
 const EventsPreview = (props) => {
   const event = props;
-  console.log(event);
   return (
     <IonCard className="eventCard">
       <div className="eventContent">
