@@ -16,7 +16,7 @@ import { useParams } from "react-router";
 import Author from "../components/author/Author";
 import { Redirect } from "react-router-dom";
 import { AppContext } from "../State";
-import Header from "../components/header/header";
+import Header from "../components/header/HeaderComponent";
 
 import "./details.css";
 import MyModal from "../components/modal/MyModal";
