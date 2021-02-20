@@ -35,11 +35,15 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import Welcome from './pages/Welcome';
 import Menu from "./components/Menu";
+import events from './data/data.json';
 
 const Autoload = () => {
   const { dispatch } = useContext(AppContext);
   useEffect(() => {
     dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
+    /*PROVISIONAL. LOAD CURRENT EVENTS FROM JSON FOR ENABLE CREATE EVENTS, FAV EVENTS, ETC
+    THIS SHOULDN'T BE IN CASE OF HAVING A BACKEND*/
+    dispatch({type:'SET_EVENTS',value:events.events}) 
   },[]);
   return (<></>);
 }
