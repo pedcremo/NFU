@@ -16,7 +16,7 @@ import {
   IonLoading,
 } from "@ionic/react";
 import "./UpdateProfile.css";
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 
 const UpdateProfile = () => {
   const { state, dispatch } = useContext(AppContext);

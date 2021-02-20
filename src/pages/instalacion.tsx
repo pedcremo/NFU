@@ -11,7 +11,7 @@ import { AppContext } from '../State';
 
 
 import './instalacion.css'
-import Header from '../components/header/header';
+import Header from '../components/header/HeaderComponent';
 
 import Footer from '../components/Footer/Footer';
 

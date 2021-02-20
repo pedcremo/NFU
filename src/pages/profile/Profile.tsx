@@ -17,7 +17,7 @@ import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
 
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);

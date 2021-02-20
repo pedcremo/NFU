@@ -15,7 +15,7 @@ import {
   IonToggle,
 } from "@ionic/react";
 import "./Settings.css";
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 import { useTranslation } from "react-i18next";
 
 const Settings: React.FC = () => {

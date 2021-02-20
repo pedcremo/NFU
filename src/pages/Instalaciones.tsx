@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage } from '@ionic/react';
-import Header from '../components/header/header';
+import Header from '../components/header/HeaderComponent';
 import Footer from '../components/Footer/Footer';
 import InstalacionesList from '../components/Instalaciones/instalacionesList';
 
