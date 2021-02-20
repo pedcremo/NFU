@@ -14,12 +14,11 @@ import {
     IonToast
 } from '@ionic/react';
 import { ellipsisVertical } from 'ionicons/icons';
-import Header from "../components/header/header";
+import Header from '../components/header/HeaderComponent';
 import comments from '../data/comments.json';
 import { useTranslation } from "react-i18next";
 import CommentList from '../components/Comment/CommentList'
 import { AppContext } from '../State';
-
 
 
 const Comments: React.FC = () => {

@@ -8,7 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import "./Home.css";
 import EventList from "../components/Event/Event_List";
 
-import Header from "../components/header/header";
+import Header from "../components/header/HeaderComponent";
 
 import { useTranslation } from "react-i18next";
 

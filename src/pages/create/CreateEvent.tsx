@@ -17,7 +17,7 @@ import {
 } from "@ionic/react";
 import { Redirect, useHistory } from "react-router-dom";
 import "./CreateEvent.css";
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 import { useTranslation } from "react-i18next";
 // import { read, stat } from "fs";
 

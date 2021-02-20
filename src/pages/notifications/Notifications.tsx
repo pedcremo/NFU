@@ -17,7 +17,7 @@ import {
   IonList,
 } from "@ionic/react";
 
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 import { checkmark, close } from "ionicons/icons";
 import EventsPreview from "../../components/Event/EventsPreview";
 

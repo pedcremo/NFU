@@ -16,7 +16,11 @@ import {
 } from "@ionic/react";
 import "./header.css";
 
-const Header = (props) => {
+type HeaderProps = {
+  page: string;
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
   const { state } = useContext(AppContext);
   const { t } = useTranslation();
 
