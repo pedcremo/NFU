@@ -26,7 +26,9 @@ const initialState = {
   user_coordinates: "no",
   segment: "joined",
   currentAvatar: "",
-  events: []
+  events: [],
+  likes: {'proof':[1,2], 'proof1':[2,1]}
+
 };
 
 let reducer = (state, action) => {
@@ -65,6 +67,9 @@ let reducer = (state, action) => {
     }
     case "SET_AVATAR_TYPE": {
       return { ...state, currentAvatar: action.value };
+    }
+    case "LIKES": {
+      return { ...state, likes: action.value };
     }
   }
   return state;

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../State";
+
 import {
   peopleOutline,
   locationOutline,
@@ -11,6 +13,8 @@ import { IonCard, IonIcon, IonLabel } from "@ionic/react";
 import "./eventsPreview.css";
 
 const EventsPreview = (props) => {
+  const { state, dispatch } = useContext(AppContext);
+
   const event = props;
   return (
     <IonCard className="eventCard">
@@ -45,6 +49,7 @@ const EventsPreview = (props) => {
             <IonIcon
               icon={heartOutline}
               className="eventContent__actions--icon"
+              onClick={ (e) =>  e.target.className= e.target.className.includes("liked") ? e.target.className.replace(" liked", "") : e.target.className += " liked" }
             />
           </div>
           <Link to={"/app/event/" + event.event.id}>
@@ -53,7 +58,8 @@ const EventsPreview = (props) => {
                 icon={enterOutline}
                 className="eventContent__actions--icon"
               />
-            </div>
+            </div> 
+
           </Link>
         </div>
         <div className="shadowMobileCard"></div>
@@ -63,3 +69,5 @@ const EventsPreview = (props) => {
 };
 
 export default EventsPreview;
+
+
