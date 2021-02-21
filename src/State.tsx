@@ -145,10 +145,7 @@ function AppContextProvider(props) {
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
         event: state.event,
-<<<<<<< HEAD
         user_notifications: state.user_notifications,
-=======
->>>>>>> 30661a6bfe27081a484251e6edea10911803c4b1
       })
     );
   }, [state]);
