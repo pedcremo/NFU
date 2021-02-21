@@ -10,7 +10,11 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { IonCard, IonIcon, IonLabel } from "@ionic/react";
 import "./eventsPreview.css";
-
+import { State } from "ionicons/dist/types/stencil-public-runtime";
+type CommentProps = {
+  comments: any[],
+  gameID: number
+}
 type EventsPreviewProps = {
   event: {
     id: number,
@@ -35,7 +39,8 @@ type EventsPreviewProps = {
       image: string,
       bio: string,
       rate: string
-    }
+    },
+    comments: Array<CommentProps>
 
   }
 }

@@ -24,5 +24,6 @@ const event_model = {
   },
   image: "",
   p: {},
+  comments: []
 };
 export default event_model;

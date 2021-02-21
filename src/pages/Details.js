@@ -17,6 +17,9 @@ import Author from "../components/author/Author";
 import { Redirect } from "react-router-dom";
 import { AppContext } from "../State";
 import Header from "../components/header/HeaderComponent";
+import NFUComments from '../components/Comment/NFUComments'
+
+
 
 import "./details.css";
 import MyModal from "../components/modal/MyModal";
@@ -34,7 +37,7 @@ const Details = () => {
   //get players event
 
   let players = Object.values(event.p);
-  console.log(event.p);
+  const comments = event.comments;
   // const { state } = useContext(AppContext);
 
 
@@ -129,14 +132,8 @@ const Details = () => {
                 >
                   JOIN
                 </IonButton>
-                <IonButton
-                  className="event-card-content-left-join"
-                  color="success"
-                  href = {`/app/comments/${id}`}
-                >
-                  COMMENTS
-                </IonButton>
               </div>
+
               <div className="event-card-content-right">
                 <span className="event-card-content-right-title">PLAYERS</span>
                 <div className="event-card-content-right-players">
@@ -150,13 +147,7 @@ const Details = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-                    {/* MODAL */}
-        <IonModal isOpen={showModal}>
-          <MyModal></MyModal>
-          <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
-        </IonModal>
-        <p
+                <p
           className="mapsDetails"
           onClick={() => {
             let newCoordinates = {
@@ -167,6 +158,14 @@ const Details = () => {
             setShowModal(true);
           }}
         ></p>
+              </div>
+              <NFUComments comments={comments} gameID = {event.id}/>
+                    {/* MODAL */}
+        <IonModal isOpen={showModal}>
+          <MyModal></MyModal>
+          <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
+        </IonModal>
+
 
         {/* END MODAL */}
 
