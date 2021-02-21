@@ -30,7 +30,7 @@ const UpdateProfile = () => {
   const [gender, setGender] = useState<React.ReactText | undefined>(
     state.user.gender
   );
-  const [email, setEmail] = useState<React.ReactText | undefined>(
+  const [email,] = useState<React.ReactText | undefined>(
     state.user.email
   );
   const [surname, setSurname] = useState<React.ReactText | undefined>(
@@ -77,11 +77,11 @@ const UpdateProfile = () => {
 
   const check_state = () =>{
     
-    if(state.user.username == username &&
-      state.user.name == name &&
-      state.user.surname == surname &&
-      state.user.gender == gender &&
-      state.user.birthday == birthday){
+    if(state.user.username === username &&
+      state.user.name === name &&
+      state.user.surname === surname &&
+      state.user.gender === gender &&
+      state.user.birthday === birthday){
         return true
     }else{
       return false

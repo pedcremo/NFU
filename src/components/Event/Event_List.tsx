@@ -56,23 +56,22 @@ const EventList = () => {
     // We filter by available players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (
-        event.maxplayers - event.players ==
-        parseInt(filters.available_players)
+        event.maxplayers - event.players === parseInt(filters.available_players)
       )
         return event;
-      else if (filters.available_players == "") return event;
+      else if (filters.available_players === "") return event;
     });
 
     // We filter by max players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.maxplayers == parseInt(filters.max_players)) return event;
-      else if (filters.max_players == "") return event;
+      if (event.maxplayers === parseInt(filters.max_players)) return event;
+      else if (filters.max_players === "") return event;
     });
 
     // We filter by busy players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.players == parseInt(filters.busy_players)) return event;
-      else if (filters.busy_players == "") return event;
+      if (event.players === parseInt(filters.busy_players)) return event;
+      else if (filters.busy_players === "") return event;
     });
 
     // We filter by date.
@@ -84,8 +83,7 @@ const EventList = () => {
           "/" +
           eventDate.getMonth() +
           "/" +
-          eventDate.getFullYear() ==
-        filterDate.getDay() +
+          eventDate.getFullYear() === filterDate.getDay() +
           "/" +
           filterDate.getMonth() +
           "/" +
@@ -99,7 +97,7 @@ const EventList = () => {
     eventsFiltred = eventsFiltred.filter((event) => {
       let eventDate = new Date(event.time);
       let filterDate = new Date(filters.time);
-      if (eventDate.getHours() == filterDate.getHours()) return event;
+      if (eventDate.getHours() === filterDate.getHours()) return event;
       else if (filters.time == null) return event;
     });
 

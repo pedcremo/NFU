@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper, LatLng } from "google-maps-react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { Geolocation } from '@ionic-native/geolocation';
 // import credentials from "../../../public/credentials/credentials.json";
 // import { AppContext } from "../../State";

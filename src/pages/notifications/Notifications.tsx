@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./Notifications.css";
-import events from "../../data/data.json";
 import { useTranslation } from "react-i18next";
 
 import {

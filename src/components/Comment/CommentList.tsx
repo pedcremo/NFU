@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../../State';
+import React, {  useState } from 'react';
 import './CommentList.css'
 import {
     IonButton,
@@ -13,7 +12,6 @@ import {
 
 } from '@ionic/react';
 import { trash } from 'ionicons/icons';
-import { JsxEmit } from 'typescript';
 
 type CommentProps = {
     comments: any[],
@@ -21,7 +19,6 @@ type CommentProps = {
 }
 
 const CommentList: React.FC<CommentProps> = (props) => {
-    const { state } = useContext(AppContext);
     const [showToastDelete, setShowToastDelete] = useState(false);
 
     const imgStyle = {
@@ -35,7 +32,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
         let commentsLocal = JSON.parse(localStorage.getItem('comments'));
         let index = 0;
         commentsLocal[props.gameID].map((j, k) => {
-            if (j.id == id) index = k; 
+            if (j.id === id) index = k; 
         })
 
         if (index > -1) {
