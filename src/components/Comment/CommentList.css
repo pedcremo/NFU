@@ -117,3 +117,7 @@
         justify-content: center;
     }
 }
+
+.no_comments_label{
+    padding: 50px;
+}

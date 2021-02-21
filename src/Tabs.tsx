@@ -18,7 +18,6 @@ import CreateEvent from "./pages/create/CreateEvent";
 
 //
 import Settings from "./pages/settings/Settings";
-import Comments from "./pages/Comments";
 import Instalaciones from "./pages/Instalaciones";
 import Events from "./pages/Events";
 import Details from "./pages/Details";
@@ -50,7 +49,6 @@ const Tabs: React.FC = () => {
 
         {/* ALL PAGES */}
 
-        <PublicRoute component={Comments} path="/app/comments/:id" exact />
         <PublicRoute
           component={Instalaciones}
           path="/app/instalaciones"

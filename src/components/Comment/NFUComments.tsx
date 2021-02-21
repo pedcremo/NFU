@@ -7,7 +7,7 @@ import {
     IonInput
 
 } from '@ionic/react';
-import CommentList from './CommentList'
+import NFUCommentList from './NFUCommentList'
 import { AppContext } from '../../State';
 import { useTranslation } from "react-i18next";
 
@@ -34,10 +34,10 @@ const NFUComments: React.FC<CommentProps> = (props) => {
             body: message,
             date: new Date().toLocaleString()
           })
-          
+
           setTimeout(() => {
             dispatch({ type: "SET_EVENTS", value: state.events });
-          }, 1000);
+          }, 500);
         } catch (e) {
           console.log("fail");
         }
@@ -45,13 +45,13 @@ const NFUComments: React.FC<CommentProps> = (props) => {
 
     return (
         <>
-            <form method="post" action="" className="form_add_comment">
+            <form method="post" onSubmit={addComment} className="form_add_comment">
                 <IonItem className="form_add_comment--input">
                     <IonInput placeholder={t('Comments.type')} type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
                 </IonItem>
-                <IonButton expand="block" type="button" className="form_add_comment--button" onClick={addComment}>{t('Comments.send_comment')}</IonButton>
+                <IonButton expand="block" type="submit" className="form_add_comment--button">{t('Comments.send_comment')}</IonButton>
             </form>
-            <CommentList comments={props.comments} gameID = {props.gameID}/>
+            <NFUCommentList comments={props.comments} gameID = {props.gameID}/>
             <IonToast
                 isOpen={showToastComment}
                 onDidDismiss={() => setShowToastComment(false)}

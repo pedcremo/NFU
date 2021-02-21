@@ -85,30 +85,6 @@
                 "0":"Vicente"
             },
             "comments":[
-                {
-                    "id": 1,
-                    "title": "Test 1.1",
-                    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum elementum augue, eu vestibulum dui venenatis at. In a iaculis quam, id vulputate augue. Quisque hendrerit elementum tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ut mi a felis rhoncus convallis. Fusce ultrices cursus leo, ac tincidunt magna egestas ut. Nunc ut iaculis lorem, ac porttitor risus. Maecenas vel risus finibus, luctus purus in, luctus risus.",
-                    "author":{
-                        "username": "Vicente",
-                        "image":"https://thispersondoesnotexist.com/image",
-                        "rate":"10",
-                        "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
-                    },
-                    "date": "12/12/2020 18:26"  
-                },            
-                {
-                    "id": 2,
-                    "title": "Test 1.2",
-                    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum elementum augue, eu vestibulum dui venenatis at. In a iaculis quam, id vulputate augue. Quisque hendrerit elementum tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ut mi a felis rhoncus convallis. Fusce ultrices cursus leo, ac tincidunt magna egestas ut. Nunc ut iaculis lorem, ac porttitor risus. Maecenas vel risus finibus, luctus purus in, luctus risus.",
-                    "author": {
-                        "username": "Vicente",
-                        "image":"https://thispersondoesnotexist.com/image",
-                        "rate":"10",
-                        "bio":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
-                    },
-                    "date": "12/12/2020 18:26"  
-                }
             ]
         },
         "1608062402": {

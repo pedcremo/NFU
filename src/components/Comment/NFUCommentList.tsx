@@ -3,15 +3,8 @@ import './CommentList.css'
 import {
     IonButton,
     IonIcon,
-    IonCard,
-    IonCardSubtitle,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
     IonToast,
-    IonList,
-    IonItem,
-    IonInput
+    IonLabel
 
 } from '@ionic/react';
 import { AppContext } from '../../State';
@@ -23,7 +16,7 @@ type CommentProps = {
     gameID: number
 }
 
-const CommentList: React.FC<CommentProps> = (props) => {
+const NFUCommentList: React.FC<CommentProps> = (props) => {
     const [showToastDelete, setShowToastDelete] = useState(false);
     const { state,dispatch } = useContext(AppContext);
 
@@ -42,9 +35,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
         try{
             const comments = Object.keys(event.comments).map(key => event.comments[key]).filter((comment) => comment !== e)
             event.comments = comments
-            setTimeout(() => {
-                dispatch({ type: "SET_EVENTS", value: state_copy });
-            }, 500);
+            dispatch({ type: "SET_EVENTS", value: state_copy });
         }catch{
             console.log("FAIL DELETE COMMENT");
         }
@@ -82,6 +73,9 @@ const CommentList: React.FC<CommentProps> = (props) => {
                   </div>)
                 })
             }
+            <IonLabel className="no_comments_label" hidden={comments.length !== 0}>
+                No comments
+            </IonLabel>
             <IonToast
                 isOpen={showToastDelete}
                 onDidDismiss={() => setShowToastDelete(false)}
@@ -94,4 +88,4 @@ const CommentList: React.FC<CommentProps> = (props) => {
     );
 };
 
-export default CommentList;
+export default NFUCommentList;
