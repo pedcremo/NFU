@@ -4,17 +4,19 @@ import {
   IonModal,
   IonHeader,
   IonPage,
+  IonLoading,
   IonTitle,
   IonToolbar,
+  IonToast,
   IonIcon,
   IonButton
 } from "@ionic/react";
 
 import { compass, alarm, logoWhatsapp } from "ionicons/icons";
 import { useParams } from "react-router";
-// import events from "../data/data.json";
+import { trash } from 'ionicons/icons';
 import Author from "../components/author/Author";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { AppContext } from "../State";
 import Header from "../components/header/HeaderComponent";
 import NFUComments from '../components/Comment/NFUComments'
@@ -27,6 +29,9 @@ import MyModal from "../components/modal/MyModal";
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(AppContext);
+  const [showLoading, setShowLoading] = useState(false);
+  const [showToastDeleted, setShowToastDeleted] = useState(false);
+  const history = useHistory()
 
   //get id URL
   const { id } = useParams();
@@ -34,17 +39,28 @@ const Details = () => {
   //gfet event by id
   // eslint-disable-next-line
   let event = events_array.find((event) => event.id == id);
-  //get players event
+  if (!event) return (<Redirect to="/app/home"/>)
 
   let players = Object.values(event.p);
   const comments = event.comments;
-  // const { state } = useContext(AppContext);
 
 
   if (!state.user) {
     return <Redirect to="/login" />;
   }
 
+  let deleteEvent = () => {
+    if (state.user.username === event.author.username){
+      let eventsPush = events_array.filter(( e => e.id !== event.id ))
+      setShowLoading(true);
+      setTimeout(() => { 
+        setShowLoading(false);
+        dispatch({ type: "SET_EVENTS", value: eventsPush })
+        history.push('/app/home')
+        setShowToastDeleted(true);  
+      }, 1500);
+    }
+  }
 
   function handleClick(type){
 
@@ -78,9 +94,12 @@ const Details = () => {
           <div className="event-card">
             <div className="event-card-image">
               <img src={event.image} alt="" />
+              <span className="remove-event-btn" onClick={() => deleteEvent()} style={{display: state.user.username === event.author.username ? "block":"none"}}>DELETE 
+                <IonIcon icon={trash} />
+              </span>
               <div className="event-card-image-badges">
                 <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick("was")}>
-                <IonIcon icon={logoWhatsapp} />             
+                  <IonIcon icon={logoWhatsapp} />             
                 </span>
                 {/* <span className="share-content badge-details badge-details-icon" onClick={()=>handleClick("disc")}>
                 <IonIcon icon={logoDiscord} />             
@@ -183,7 +202,8 @@ const Details = () => {
             </div>
           </div>
         </div>
-        
+        <IonLoading isOpen={showLoading} message={"Deleting event"} />
+        <IonToast isOpen={showToastDeleted} onDidDismiss={() => setShowToastDeleted(false)} message="Event has been deleted correctly" duration={2000} />
       </IonContent>
     </IonPage>
   );
