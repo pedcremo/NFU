@@ -166,7 +166,7 @@ function AppContextProvider(props) {
         theme: state.theme,
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
-        event: state.event,
+        events: state.events,
         user_notifications: state.user_notifications,
       })
     );
