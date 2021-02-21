@@ -1,11 +1,11 @@
 import React from 'react';
-import Comments from './Comments';
+import NFUComments from './NFUComments';
 import renderer from 'react-test-renderer';
 
 test('Comprobación de renderizado de comentarios', () => {
-    const match = { params: { id: 1 }};
+    const comments=[]
     const component = renderer.create(
-        <Comments />
+        <NFUComments comments={comments} gameID = {1}/>
     );
 
 

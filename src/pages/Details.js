@@ -17,6 +17,9 @@ import Author from "../components/author/Author";
 import { Redirect } from "react-router-dom";
 import { AppContext } from "../State";
 import Header from "../components/header/HeaderComponent";
+import NFUComments from '../components/Comment/NFUComments'
+
+
 
 import "./details.css";
 import MyModal from "../components/modal/MyModal";
@@ -34,7 +37,7 @@ const Details = () => {
   //get players event
 
   let players = Object.values(event.p);
-  console.log(event.p);
+  const comments = event.comments;
   // const { state } = useContext(AppContext);
 
 
@@ -124,19 +127,23 @@ const Details = () => {
                   ></Author>
                 </div>
                 <IonButton
+                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "none" : "block" }}
                   className="event-card-content-left-join"
                   color="success"
-                >
+                  onClick={() => dispatch({ type: "SET_JOIN", value: event.id}) }
+                  >
                   JOIN
                 </IonButton>
                 <IonButton
+                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "block" : "none" }}
                   className="event-card-content-left-join"
                   color="success"
-                  href = {`/app/comments/${id}`}
-                >
-                  COMMENTS
+                  onClick={() => dispatch({ type: "REMOVE_JOIN", value: event.id}) }
+                  >
+                  REMOVE JOIN
                 </IonButton>
               </div>
+
               <div className="event-card-content-right">
                 <span className="event-card-content-right-title">PLAYERS</span>
                 <div className="event-card-content-right-players">
@@ -150,23 +157,25 @@ const Details = () => {
                     </div>
                   ))}
                 </div>
+                <p
+                className="mapsDetails"
+                onClick={() => {
+                  let newCoordinates = {
+                    lat: event.coordinates.lat,
+                    lng: event.coordinates.lng,
+                  };
+                  dispatch({ type: "ALL_COORDINATES", value: newCoordinates });
+                  setShowModal(true);
+                    }}
+                ></p>
               </div>
+              <NFUComments comments={comments} gameID = {event.id}/>
                     {/* MODAL */}
         <IonModal isOpen={showModal}>
           <MyModal></MyModal>
           <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
         </IonModal>
-        <p
-          className="mapsDetails"
-          onClick={() => {
-            let newCoordinates = {
-              lat: event.coordinates.lat,
-              lng: event.coordinates.lng,
-            };
-            dispatch({ type: "ALL_COORDINATES", value: newCoordinates });
-            setShowModal(true);
-          }}
-        ></p>
+
 
         {/* END MODAL */}
 

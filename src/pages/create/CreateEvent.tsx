@@ -82,6 +82,7 @@ const CreateEvent = () => {
         p: {
           0: state.user.username
         },
+        comments:[]
       }
 
       events.push(event);

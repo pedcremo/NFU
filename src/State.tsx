@@ -27,6 +27,7 @@ const initialState = {
   segment: "joined",
   currentAvatar: "",
   events: [],
+  events_joined: [],
 };
 
 let reducer = (state, action) => {
@@ -71,6 +72,36 @@ let reducer = (state, action) => {
     case "SET_AVATAR_TYPE": {
       return { ...state, currentAvatar: action.value };
     }
+    case "SET_JOIN": {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...{
+            events_joined: state.user.events_joined
+              ? [...state.user.events_joined, action.value]
+              : [action.value],
+          },
+        },
+      };
+    }
+    case "REMOVE_JOIN": {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...{
+            events_joined:
+              state.user.events_joined.indexOf(action.value) > -1
+                ? state.user.events_joined.splice(
+                    state.user.events_joined.indexOf(action.value),
+                    1
+                  ) ? state.user.events_joined : ["error"]
+                : state.user.events_joined,
+          },
+        },
+      };
+    }
   }
   return state;
 };
@@ -114,7 +145,10 @@ function AppContextProvider(props) {
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
         event: state.event,
+<<<<<<< HEAD
         user_notifications: state.user_notifications,
+=======
+>>>>>>> 30661a6bfe27081a484251e6edea10911803c4b1
       })
     );
   }, [state]);
