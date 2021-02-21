@@ -145,7 +145,7 @@ const Details = () => {
               </div>
 
               <div className="event-card-content-right">
-                <span className="event-card-content-right-title">PLAYERS</span>
+                <span className="event-card-content-right-title">PLAYERS {event.players + "/" + event.maxplayers}</span>
                 <div className="event-card-content-right-players">
                   {players.map((player, index, arr) => (
                     <div key={index} className="player">

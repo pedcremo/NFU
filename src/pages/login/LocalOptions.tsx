@@ -24,7 +24,8 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
                 email: email,
                 username: username.split('@')[0],
                 image: state.currentAvatar === "gravatar" ? generateGravatar(email) : imageLocal,
-                imageLocal: imageLocal
+                imageLocal: imageLocal,
+                events_joined: []
             }
             setShowLoading(true);
             setTimeout(() => dispatch({ type: "SET_USER", value: user }), 5000);

@@ -11,6 +11,7 @@
  */
 
 import React, { useReducer, useEffect } from "react";
+import event_model from "./components/Event/Event.model";
 
 let AppContext = React.createContext(null);
 
@@ -23,10 +24,9 @@ const initialState = {
   BackLogin: "",
   coordinates: "",
   user_coordinates: "no",
-  segment: "joined",
+  segment: "recent",
   currentAvatar: "",
   events: [],
-  events_joined: [],
 };
 
 let reducer = (state, action) => {
@@ -76,6 +76,11 @@ let reducer = (state, action) => {
               : [action.value],
           },
         },
+        events: Object.values(state.events).map((event: typeof event_model) =>
+          event.id == action.value
+            ? { ...event, ...{ p: [...event.p, [state.user.username]] } }
+            : event
+        ),
       };
     }
     case "REMOVE_JOIN": {
@@ -89,10 +94,27 @@ let reducer = (state, action) => {
                 ? state.user.events_joined.splice(
                     state.user.events_joined.indexOf(action.value),
                     1
-                  ) ? state.user.events_joined : ["error"]
+                  )
+                  ? state.user.events_joined
+                  : ["error"]
                 : state.user.events_joined,
           },
         },
+        events: Object.values(state.events).map((event: typeof event_model) =>
+          event.id == action.value
+            ? {
+                ...event,
+                ...{
+                  p: event.p.splice(
+                    event.p.indexOf(action.value),
+                    1
+                  )
+                    ? event.p
+                    : "error",
+                },
+              }
+            : event
+        ),
       };
     }
   }
@@ -137,7 +159,7 @@ function AppContextProvider(props) {
         theme: state.theme,
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
-        event: state.event,
+        events: state.events,
       })
     );
   }, [state]);

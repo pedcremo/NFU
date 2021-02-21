@@ -64,6 +64,7 @@ const UpdateProfile = () => {
       user.surname = surname;
       user.birthday = birthday;
       user.username = username;
+      user.events_joined= state.user.events_joined;
 
       //Here send email with unique token.
       setTimeout(() => {
