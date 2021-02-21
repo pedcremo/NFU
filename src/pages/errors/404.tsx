@@ -14,7 +14,7 @@ const Error404: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
           <div className="error404">
-              <IonImg className="image404" src="https://www.bigbluedoor.net/sites/default/files/404.png" />
+              <IonImg className="image404" src={require('../../img/errors/404.png') } />
               <Link to="/app/home" slot="end" className="error_home">
               <IonLabel>Go Home</IonLabel>
             </Link>

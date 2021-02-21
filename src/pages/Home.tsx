@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AppContext } from "../State";
+import React from "react";
 // import { Geolocation } from '@ionic-native/geolocation';
 import { IonContent, IonPage } from "@ionic/react";
 
