@@ -2,14 +2,7 @@ import React, { useState, useContext } from 'react';
 import './CommentList.css'
 import {
     IonButton,
-    IonIcon,
-    IonCard,
-    IonCardSubtitle,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
     IonToast,
-    IonList,
     IonItem,
     IonInput
 

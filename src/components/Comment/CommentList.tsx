@@ -67,30 +67,6 @@ const CommentList: React.FC<CommentProps> = (props) => {
                       </div>
                     </div>
                   </div>)
-                    // return (<IonCard id={j.id} key={k} className="comment">
-                    //     <IonCardHeader>
-                    //         <IonCardSubtitle>{j.date}</IonCardSubtitle>
-                    //         <IonCardTitle>
-                    //             <div>
-                    //                 <img style={imgStyle} src={j.author.image} alt="" />
-                    //                 <span className="username">{j.author.username}</span>
-                    //             </div>
-                    //         </IonCardTitle>
-                    //     </IonCardHeader>
-                    //     <IonCardContent>
-                    //         {j.body}
-                    //     </IonCardContent>
-                    //     <div></div>
-                    //     <IonButton fill="clear" type="button" onClick={() => {deleteComment(j.id)}} id="deleteButton"><IonIcon icon={trash} /></IonButton>
-                    //     <IonToast
-                    //         isOpen={showToastDelete}
-                    //         onDidDismiss={() => setShowToastDelete(false)}
-                    //         message="Comment deleted"
-                    //         duration={500}
-                    //         color="success"
-                    //         position="top"
-                    //     />
-                    // </IonCard>)
                 })
             }
         </>
