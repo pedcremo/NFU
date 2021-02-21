@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Notifications.css";
 import { useTranslation } from "react-i18next";
 
@@ -15,22 +15,35 @@ import {
   IonItemOptions,
   IonList,
   IonToast,
+  IonButtons,
 } from "@ionic/react";
 
 import Header from "../../components/header/HeaderComponent";
 import { checkmark, close } from "ionicons/icons";
 import { AppContext } from "../../State";
-import EventsPreview from "../../components/Event/EventsPreview";
+import NotificationItem from "../../components/notifications/NotificationItem";
 
 const Notifications: React.FC = () => {
   const { t } = useTranslation();
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   const [showToast, setShowToast] = useState(false);
   const [toastMode, setToastMode] = useState(false);
 
-  const ACCEPTED = "Perfect! Invitation accepted";
-  const DENIED = "Not for you! Invitation denied";
+  const ACCEPTED = "Notification accepted";
+  const DENIED = "Notification denied";
+
+  const readNotification = (noti: any, index: number) => {
+    const { user_notifications } = state;
+    user_notifications[index].read = !user_notifications[index].read;
+    dispatch({ type: "SET_USER_NOTIFICATIONS", value: user_notifications });
+    setToastMode(user_notifications[index].read);
+    setShowToast(true);
+  };
+
+  const seeState = () => {
+    console.log(state.user_notifications);
+  };
 
   return (
     <IonPage>
@@ -42,32 +55,30 @@ const Notifications: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonList className="eventsList">
-          {Object.values(state.events).map((event, index) => (
+          {Object.values(state.user_notifications).map((noti: any, index) => (
             <IonItemSliding
               key={"item" + index}
               className="fit  ion-no-padding  primary--bg"
             >
               <IonItem className="ion-no-padding  primary--bg">
-                <EventsPreview key={"event_" + index} event={event as any} />
+                <NotificationItem
+                  message={noti.msg}
+                  date={noti.date}
+                  read={noti.read}
+                />
               </IonItem>
               <IonItemOptions
                 className="ion-no-padding  primary--bg"
-                side="end"
+                side="start"
               >
-                <IonItemOption color="primary" onClick={() => {setToastMode(true); setShowToast(true)}}>
+                <IonItemOption
+                  color={`${noti.read ? "danger" : "primary"}`}
+                  onClick={() => readNotification(noti, index)}
+                >
                   <IonIcon
                     style={{ fontSize: "2rem" }}
                     color="light"
-                    icon={checkmark}
-                  />
-                </IonItemOption>
-              </IonItemOptions>
-              <IonItemOptions className="danger--bg" side="start">
-                <IonItemOption color="danger" onClick={() => {setToastMode(false); setShowToast(true)}}>
-                  <IonIcon
-                    style={{ fontSize: "2rem" }}
-                    color="light"
-                    icon={close}
+                    icon={noti.read ? close : checkmark}
                   />
                 </IonItemOption>
               </IonItemOptions>

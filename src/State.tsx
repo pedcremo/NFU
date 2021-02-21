@@ -20,6 +20,7 @@ const initialState = {
   theme: "Light",
   user: "",
   notifications: Math.floor(Math.random() * (10 - 1) + 1),
+  user_notifications: [],
   welcome: "",
   BackLogin: "",
   coordinates: "",
@@ -36,6 +37,9 @@ let reducer = (state, action) => {
     }
     case "SET_USER": {
       return { ...state, user: action.value };
+    }
+    case "SET_USER_NOTIFICATIONS": {
+      return { ...state, user_coordinates: action.value };
     }
     case "SET_EVENTS": {
       return { ...state, events: action.value };
@@ -55,6 +59,9 @@ let reducer = (state, action) => {
     case "ALL_COORDINATES": {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
       return { ...state, coordinates: action.value };
+    }
+    case "SET_FILTERS": {
+      return { ...state, filters: action.value };
     }
     case "USER_COORDINATES": {
       return { ...state, user_coordinates: action.value }; //Aqui estan las coordenadas del usuario
@@ -159,7 +166,8 @@ function AppContextProvider(props) {
         theme: state.theme,
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
-        events: state.events,
+        event: state.event,
+        user_notifications: state.user_notifications,
       })
     );
   }, [state]);
