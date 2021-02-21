@@ -34,7 +34,7 @@ const NFUComments: React.FC<CommentProps> = (props) => {
             body: message,
             date: new Date().toLocaleString()
           })
-
+          
           setTimeout(() => {
             dispatch({ type: "SET_EVENTS", value: state.events });
           }, 1000);

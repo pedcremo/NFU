@@ -148,16 +148,16 @@ const Details = () => {
                   ))}
                 </div>
                 <p
-          className="mapsDetails"
-          onClick={() => {
-            let newCoordinates = {
-              lat: event.coordinates.lat,
-              lng: event.coordinates.lng,
-            };
-            dispatch({ type: "ALL_COORDINATES", value: newCoordinates });
-            setShowModal(true);
-          }}
-        ></p>
+                className="mapsDetails"
+                onClick={() => {
+                  let newCoordinates = {
+                    lat: event.coordinates.lat,
+                    lng: event.coordinates.lng,
+                  };
+                  dispatch({ type: "ALL_COORDINATES", value: newCoordinates });
+                  setShowModal(true);
+                    }}
+                ></p>
               </div>
               <NFUComments comments={comments} gameID = {event.id}/>
                     {/* MODAL */}

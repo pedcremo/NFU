@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './CommentList.css'
 import {
     IonButton,
@@ -14,6 +14,8 @@ import {
     IonInput
 
 } from '@ionic/react';
+import { AppContext } from '../../State';
+
 import { trash } from 'ionicons/icons';
 
 type CommentProps = {
@@ -23,6 +25,8 @@ type CommentProps = {
 
 const CommentList: React.FC<CommentProps> = (props) => {
     const [showToastDelete, setShowToastDelete] = useState(false);
+    const { state,dispatch } = useContext(AppContext);
+
     console.log("COMMENTS LIST");
     console.log(props);
     const imgStyle = {
@@ -31,19 +35,28 @@ const CommentList: React.FC<CommentProps> = (props) => {
 
     let comments = props.comments;
 
-    const deleteComment = (id) => {
+    const deleteComment = async (e) => {
         setShowToastDelete(true);
-        let commentsLocal = JSON.parse(localStorage.getItem('comments'));
-        let index = 0;
-        commentsLocal[props.gameID].map((j, k) => {
-            if (j.id === id) index = k; 
-        })
-
-        if (index > -1) {
-            commentsLocal[props.gameID].splice(index, 1);
-            localStorage.setItem('comments', JSON.stringify(commentsLocal));
+        let state_copy = state.events;
+        const event = Object.keys(state_copy).map(key => state_copy[key]).find((event) => event.id == props.gameID); 
+        try{
+            const comments = Object.keys(event.comments).map(key => event.comments[key]).filter((comment) => comment !== e)
+            event.comments = comments
+            setTimeout(() => {
+                dispatch({ type: "SET_EVENTS", value: state_copy });
+            }, 500);
+        }catch{
+            console.log("FAIL DELETE COMMENT");
         }
     }
+
+    const check_author = (comment) =>{
+        if(comment.author.email == state.user.email){
+            return false
+        }else{
+            return true
+        }
+      }
 
     return (
         <>
@@ -58,7 +71,7 @@ const CommentList: React.FC<CommentProps> = (props) => {
                       <div className="info row center">
                         <div id="info-username">{j.author.username}</div>
                         <div>{j.date}</div>
-                        <IonButton className="delete_comment" fill="clear" type="button" onClick={() => {deleteComment(j.id)}} id="deleteButton"><IonIcon icon={trash} /></IonButton>
+                        <IonButton  hidden={check_author(j)} className="delete_comment" fill="clear" type="button" onClick={() => {deleteComment(j)}} id="deleteButton"><IonIcon icon={trash} /></IonButton>
 
                       </div>
                 
@@ -69,6 +82,14 @@ const CommentList: React.FC<CommentProps> = (props) => {
                   </div>)
                 })
             }
+            <IonToast
+                isOpen={showToastDelete}
+                onDidDismiss={() => setShowToastDelete(false)}
+                message="Comment deleted"
+                duration={2000}
+                color = "danger"
+                position = "bottom"
+            />
         </>
     );
 };
