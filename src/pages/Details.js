@@ -127,10 +127,20 @@ const Details = () => {
                   ></Author>
                 </div>
                 <IonButton
+                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "none" : "block" }}
                   className="event-card-content-left-join"
                   color="success"
-                >
+                  onClick={() => dispatch({ type: "SET_JOIN", value: event.id}) }
+                  >
                   JOIN
+                </IonButton>
+                <IonButton
+                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "block" : "none" }}
+                  className="event-card-content-left-join"
+                  color="success"
+                  onClick={() => dispatch({ type: "REMOVE_JOIN", value: event.id}) }
+                  >
+                  REMOVE JOIN
                 </IonButton>
               </div>
 

@@ -56,7 +56,8 @@ const EventList = () => {
     // We filter by available players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (
-        event.maxplayers - event.players === parseInt(filters.available_players)
+        event.maxplayers - event.players ===
+        parseInt(filters.available_players)
       )
         return event;
       else if (filters.available_players === "") return event;
@@ -83,7 +84,8 @@ const EventList = () => {
           "/" +
           eventDate.getMonth() +
           "/" +
-          eventDate.getFullYear() === filterDate.getDay() +
+          eventDate.getFullYear() ===
+        filterDate.getDay() +
           "/" +
           filterDate.getMonth() +
           "/" +
@@ -105,48 +107,31 @@ const EventList = () => {
   }
 
   useEffect(() => {
+    // Select option from global state
     setSegment(state.segment);
-    // Recent events
-    const tempSearchResult = filterEvents(Object.values(state.events));
-    setFilteredSearch([...tempSearchResult]);
 
-    // User events
-    const yourevents = Object.values(state.events);
-    const tempYourEvents = filterEvents([yourevents[0], yourevents[1]]);
-    setYourEvents([...tempYourEvents]);
+    switch (state.segment) {
+      case "recent":
+        // Recent events
+        const tempSearchResult = filterEvents(Object.values(state.events));
+        setFilteredSearch([...tempSearchResult]);
+        break;
+    
+      case "yours":
+        // User events
+        const tempYourEvents = filterEvents(
+          Object.values(state.events).filter((event: typeof event_model) => state.user.events_joined.indexOf(event.id) > -1)
+        );
+        setFilteredSearch([...tempYourEvents]);
+        break;
 
-    // Favorited events
-    const tempFollowingEvents = filterEvents(Object.values(state.events));
-    setFilteredSearch([...tempFollowingEvents]);
+      case "favorited":
+        // Favorited events
+        const tempFollowingEvents = filterEvents(Object.values(state.events));
+        setFilteredSearch([...tempFollowingEvents]);
+        break;
+    }
   }, [filters, state]);
-
-  // IonSegment
-  let msg;
-  if (segment === "recent") {
-    msg = (
-      <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  } else if (segment === "yours") {
-    msg = (
-      <IonList className="eventsList">
-        {yourEvents.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  } else if (segment === "favorited") {
-    msg = (
-      <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  }
 
   return (
     <>
@@ -353,7 +338,11 @@ const EventList = () => {
         <></>
       )}
 
-      {msg}
+      <IonList className="eventsList">
+        {filteredSearch.map((event, index) => (
+          <EventsPreview key={"event_" + index} event={event} />
+        ))}
+      </IonList>
     </>
   );
 };
