@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Notifications.css";
 import { useTranslation } from "react-i18next";
 
@@ -14,6 +14,7 @@ import {
   IonItemOption,
   IonItemOptions,
   IonList,
+  IonToast,
 } from "@ionic/react";
 
 import Header from "../../components/header/HeaderComponent";
@@ -24,6 +25,12 @@ import EventsPreview from "../../components/Event/EventsPreview";
 const Notifications: React.FC = () => {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
+
+  const [showToast, setShowToast] = useState(false);
+  const [toastMode, setToastMode] = useState(false);
+
+  const ACCEPTED = "Perfect! Invitation accepted";
+  const DENIED = "Not for you! Invitation denied";
 
   return (
     <IonPage>
@@ -47,7 +54,7 @@ const Notifications: React.FC = () => {
                 className="ion-no-padding  primary--bg"
                 side="end"
               >
-                <IonItemOption color="primary" onClick={() => alert("Accept")}>
+                <IonItemOption color="primary" onClick={() => {setToastMode(true); setShowToast(true)}}>
                   <IonIcon
                     style={{ fontSize: "2rem" }}
                     color="light"
@@ -56,7 +63,7 @@ const Notifications: React.FC = () => {
                 </IonItemOption>
               </IonItemOptions>
               <IonItemOptions className="danger--bg" side="start">
-                <IonItemOption color="danger" onClick={() => alert("Deny")}>
+                <IonItemOption color="danger" onClick={() => {setToastMode(false); setShowToast(true)}}>
                   <IonIcon
                     style={{ fontSize: "2rem" }}
                     color="light"
@@ -67,6 +74,14 @@ const Notifications: React.FC = () => {
             </IonItemSliding>
           ))}
         </IonList>
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message={toastMode ? ACCEPTED : DENIED}
+          duration={3000}
+          mode="ios"
+          color={toastMode ? "success" : "danger"}
+        />
       </IonContent>
     </IonPage>
   );
