@@ -38,6 +38,7 @@ const Profile: React.FC = () => {
             <img
               className="ProfileImage"
               src={state.user.image}
+              alt=""
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}

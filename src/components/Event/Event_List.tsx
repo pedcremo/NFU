@@ -118,7 +118,7 @@ const EventList = () => {
     // Favorited events
     const tempFollowingEvents = filterEvents(Object.values(state.events));
     setFilteredSearch([...tempFollowingEvents]);
-  }, [filters,state]);
+  }, [filters, state]);
 
   // IonSegment
   let msg;
