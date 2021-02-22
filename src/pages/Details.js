@@ -146,7 +146,8 @@ const Details = () => {
                   ></Author>
                 </div>
                 <IonButton
-                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "none" : "block" }}
+                  style={{ display: state.events_joined.indexOf(event.id) > -1 ? "none" : "block" }}
+                  disabled={ event.maxplayers == event.p.length ? true : false }
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => dispatch({ type: "SET_JOIN", value: event.id}) }
@@ -154,7 +155,7 @@ const Details = () => {
                   JOIN
                 </IonButton>
                 <IonButton
-                  style={{ display: state.user.events_joined.indexOf(event.id) > -1 ? "block" : "none" }}
+                  style={{ display: state.events_joined.indexOf(event.id) > -1 ? "block" : "none" }}
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => dispatch({ type: "REMOVE_JOIN", value: event.id}) }
@@ -164,7 +165,7 @@ const Details = () => {
               </div>
 
               <div className="event-card-content-right">
-                <span className="event-card-content-right-title">PLAYERS {event.players + "/" + event.maxplayers}</span>
+                <span className="event-card-content-right-title">PLAYERS {event.p.length + "/" + event.maxplayers}</span>
                 <div className="event-card-content-right-players">
                   {players.map((player, index, arr) => (
                     <div key={index} className="player">

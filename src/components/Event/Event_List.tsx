@@ -120,7 +120,7 @@ const EventList = () => {
       case "yours":
         // User events
         const tempYourEvents = filterEvents(
-          Object.values(state.events).filter((event: typeof event_model) => state.user.events_joined.indexOf(event.id) > -1)
+          Object.values(state.events).filter((event: typeof event_model) => state.events_joined.indexOf(event.id) > -1)
         );
         setFilteredSearch([...tempYourEvents]);
         break;
@@ -133,6 +133,7 @@ const EventList = () => {
         setFilteredSearch([...tempFavoriteEvents]);
         break;
     }
+    console.log(state.events_joined);
   }, [filters, state]);
 
   return (
