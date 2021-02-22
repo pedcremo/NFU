@@ -9,16 +9,13 @@ import {
   IonToolbar,
   IonToast,
   IonIcon,
-  IonButton,
-  IonLabel,
+  IonButton
 } from "@ionic/react";
 
 import {
   compass,
   alarm,
   logoWhatsapp,
-  mapOutline,
-  mapSharp,
   compassSharp,
 } from "ionicons/icons";
 import { useParams } from "react-router";
