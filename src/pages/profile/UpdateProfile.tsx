@@ -197,7 +197,7 @@ const UpdateProfile = () => {
               type="submit"
               expand="block"
               disabled={check_state()}
-              
+              data-testid="update-profile-button"
             >
               {t("updateProfile.form.edit")}
             </IonButton>
