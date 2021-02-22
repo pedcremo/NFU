@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../State";
+
 import {
   peopleOutline,
   locationOutline,
@@ -6,7 +8,7 @@ import {
   heartOutline,
   enterOutline,
 } from "ionicons/icons";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { IonCard, IonIcon, IonLabel } from "@ionic/react";
 import "./eventsPreview.css";
@@ -50,6 +52,30 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
 
   const EVENT_DETAILS_PATH = '/app/event/';
 
+  const { state, dispatch } = useContext(AppContext);
+
+  let likes = (e, id)=>{
+   
+    if (state.user){
+      let LikeIndex =state.likes.indexOf(id);
+
+      if ( (e.target.className.includes("liked"))  && (LikeIndex!= -1) ){
+        e.target.className= e.target.className.replace(" liked", "") 
+        state.likes.splice(LikeIndex, 1);
+
+      }else{
+        e.target.className= e.target.className += " liked"
+        state.likes.push(id)
+      }
+    dispatch ({ type: "LIKES", value: state.likes})
+    }else{
+       return <Redirect to="/login" />      
+    }
+
+
+
+
+  }
   return (
     <IonCard className="eventCard">
       <div className="eventContent">
@@ -79,10 +105,11 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
           </div>
         </div>
         <div className="eventContent__actions">
-          <div className="eventContent__actions--option option1">
+          <div  className={state.likes.includes(event.id) ? 'eventContent__actions--option option1 liked':'eventContent__actions--option option1' }>
             <IonIcon
               icon={heartOutline}
               className="eventContent__actions--icon"
+              onClick={ (e) =>{ likes(e, event.id)  } }
             />
           </div>
           <Link to={EVENT_DETAILS_PATH + event.id}>
@@ -91,14 +118,15 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
                 icon={enterOutline}
                 className="eventContent__actions--icon"
               />
-            </div>
+            </div> 
+
           </Link>
         </div>
         <div className="shadowMobileCard"></div>
       </div>
     </IonCard>
 
-  )
-}
 
+  );
+};
 export default EventsPreview;

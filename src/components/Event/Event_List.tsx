@@ -31,7 +31,7 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
-    time: null,
+    time: null, 
     available_players: "",
     max_players: "",
     busy_players: "",
@@ -127,8 +127,10 @@ const EventList = () => {
 
       case "favorited":
         // Favorited events
-        const tempFollowingEvents = filterEvents(Object.values(state.events));
-        setFilteredSearch([...tempFollowingEvents]);
+        const tempFavoriteEvents = filterEvents(
+          Object.values(state.events).filter((event: typeof event_model) => state.likes.includes(event.id))
+        );
+        setFilteredSearch([...tempFavoriteEvents]);
         break;
     }
   }, [filters, state]);
