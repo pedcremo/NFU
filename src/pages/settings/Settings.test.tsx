@@ -27,10 +27,10 @@ const TestSettingsInit = () => {
     dispatch({ type: 'SET_USER', value: user })
   }, [])
 
-  // return(<>{setTimeout(() => {
-  //   return (<Settings/>)
-  // }, 500)}</>)
-  return <Settings/>
+  return(<>{setTimeout(() => {
+    return (<Settings/>)
+  }, 500)}</>)
+  // return <Settings/>
 
 }
 
@@ -41,7 +41,7 @@ test("renders Component Settings", () => {
   expect(baseElement).toBeDefined();
 
   const darkToggle = container.querySelector('#dark-toggle')
-  screen.debug();
+  // screen.debug();
   console.log(container);
   console.log(darkToggle);
 
