@@ -1,42 +1,46 @@
-import React, { useContext, useState } from 'react';
+import React from "react";
 import NFUCommentList from './NFUCommentList';
-import renderer from 'react-test-renderer';
-import TestRenderer from 'react-test-renderer';
-import { AppContext } from '../../State';
 import { AppContextProvider } from "../../State";
-import { fireEvent, getByTestId, render } from '@testing-library/react'
+import { render,fireEvent } from '@testing-library/react'
 
-
-test('Comprobación de renderizado de comentarios', () => {
-    const comment = [{
-        "id": 1,
-        "title": "Test",
-        "body": "Test",
-        "author": "Test",
-        "date": "Test"
-    }]
-    const component = renderer.create(
-        <AppContextProvider><NFUCommentList comments={comment} gameID={1} /></AppContextProvider>
-    );
-
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot()
+test('Render comments', () => {
+    const comments = [
+        {
+          "id": 1,
+          "title": "Test 1.1",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum elementum augue, eu vestibulum dui venenatis at. In a iaculis quam, id vulputate augue. Quisque hendrerit elementum tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ut mi a felis rhoncus convallis. Fusce ultrices cursus leo, ac tincidunt magna egestas ut. Nunc ut iaculis lorem, ac porttitor risus. Maecenas vel risus finibus, luctus purus in, luctus risus.",
+          "author": {
+            "username": "Vicente",
+            "image": "https://thispersondoesnotexist.com/image",
+            "rate": "10",
+            "bio": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
+          },
+          "date": "12/12/2020 18:26"
+        },
+        {
+          "id": 2,
+          "title": "Test 1.2",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum elementum augue, eu vestibulum dui venenatis at. In a iaculis quam, id vulputate augue. Quisque hendrerit elementum tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ut mi a felis rhoncus convallis. Fusce ultrices cursus leo, ac tincidunt magna egestas ut. Nunc ut iaculis lorem, ac porttitor risus. Maecenas vel risus finibus, luctus purus in, luctus risus.",
+          "author": {
+            "username": "Vicente",
+            "image": "https://thispersondoesnotexist.com/image",
+            "rate": "10",
+            "bio": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
+          },
+          "date": "12/12/2020 18:26"
+        }
+      ]
+    const { baseElement, container } = render(<AppContextProvider><NFUCommentList comments={comments} gameID={1}/></AppContextProvider>);
+    expect(baseElement).toBeDefined();
+    const comments_rendered = container.querySelectorAll('.comment');
+    expect(comments_rendered.length).toBe(2);
 });
 
-test('Click button delete', () => {
-    const comment = [{
-        "id": 1,
-        "title": "Test",
-        "body": "Test",
-        "author": "Test",
-        "date": "Test"
-    }]
-    const component = TestRenderer.create(
-        <AppContextProvider><NFUCommentList comments={comment} gameID={1}/></AppContextProvider>
-    );
+test('Render Label No Comments', () => {
+    const comments = []
+    const { baseElement, container } = render(<AppContextProvider><NFUCommentList comments={comments} gameID={1}/></AppContextProvider>);
+    expect(baseElement).toBeDefined();
+    const label_no_comments = container.querySelectorAll('ion-label');
+    expect(label_no_comments.length).toBe(1);
 
-
-
-    const button = component.findByProps;
-    fireEvent.click(button);
 })
