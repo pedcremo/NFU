@@ -103,7 +103,7 @@ let reducer = (state, action) => {
               1
             )
             ? state.events_joined
-            : ["error"]
+            : "error"
           : state.events_joined;
 
       // Actualizamos los eventos

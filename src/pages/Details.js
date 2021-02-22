@@ -30,7 +30,8 @@ const Details = () => {
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(AppContext);
   const [showLoading, setShowLoading] = useState(false);
-  const [showToastDeleted, setShowToastDeleted] = useState(false);
+  const [message, setMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const history = useHistory();
 
   //get id URL
@@ -66,7 +67,8 @@ const Details = () => {
         setShowLoading(false);
         dispatch({ type: "SET_EVENTS", value: eventsPush });
         history.push("/app/home");
-        setShowToastDeleted(true);
+        setMessage("Event has been deleted correctly");
+        setShowToast(true);
       }, 1500);
     }
   };
@@ -180,8 +182,12 @@ const Details = () => {
                   disabled={event.maxplayers == event.p.length ? true : false}
                   className="event-card-content-left-join"
                   color="success"
-                  onClick={() =>
-                    dispatch({ type: "SET_JOIN", value: event.id })
+                  onClick={() => {
+                    if (event.maxplayers == event.p.length) {
+                      setShowToast(true);
+                      setMessage("This event is completed");
+                    } else
+                      dispatch({ type: "SET_JOIN", value: event.id })}
                   }
                 >
                   JOIN
@@ -195,9 +201,7 @@ const Details = () => {
                   }}
                   className="event-card-content-left-join"
                   color="success"
-                  onClick={() =>
-                    dispatch({ type: "REMOVE_JOIN", value: event.id })
-                  }
+                  onClick={() =>dispatch({ type: "REMOVE_JOIN", value: event.id })}
                 >
                   REMOVE JOIN
                 </IonButton>
@@ -268,9 +272,9 @@ const Details = () => {
         </div>
         <IonLoading isOpen={showLoading} message={"Deleting event"} />
         <IonToast
-          isOpen={showToastDeleted}
-          onDidDismiss={() => setShowToastDeleted(false)}
-          message="Event has been deleted correctly"
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message={message}
           duration={2000}
         />
       </IonContent>
