@@ -19,7 +19,7 @@ import {
 } from "@ionic/react";
 
 import Header from "../../components/header/HeaderComponent";
-import { checkmark, close } from "ionicons/icons";
+import { checkmark, close, remove, trash } from "ionicons/icons";
 import { AppContext } from "../../State";
 import NotificationItem from "../../components/notifications/NotificationItem";
 
@@ -30,20 +30,22 @@ const Notifications: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMode, setToastMode] = useState(false);
 
-  const ACCEPTED = "Notification accepted";
-  const DENIED = "Notification denied";
+  const ACCEPTED = "Perfect! Notification accepted";
+  const DENIED = "Not for you! Notification denied";
+  const REMOVED = "Maybe another day! Notification removed";
 
-  const readNotification = (noti: any, index: number) => {
-    const { user_notifications } = state;
-    user_notifications[index].read = !user_notifications[index].read;
+  const { user_notifications } = state;
+
+  const readNotification = (notificationIndex: number) => {
+    user_notifications[notificationIndex].read = !user_notifications[notificationIndex].read;
     dispatch({ type: "SET_USER_NOTIFICATIONS", value: user_notifications });
-    setToastMode(user_notifications[index].read);
+    setToastMode(user_notifications[notificationIndex].read);
     setShowToast(true);
   };
 
-  useEffect(() => {
-    console.log(state)
-  }, [])
+  const removeNotification = (notificationIndex: number) => {
+
+  }
 
   return (
     <IonPage>
@@ -58,7 +60,7 @@ const Notifications: React.FC = () => {
           {Object.values(state.user_notifications).map((noti: any, index) => (
             <IonItemSliding
               key={"item" + index}
-              className="fit  ion-no-padding  primary--bg"
+              className={`fit  ion-no-padding ${noti.read ? "danger--bg" : "primary--bg"}`}
             >
               <IonItem className="ion-no-padding  primary--bg">
                 <NotificationItem
@@ -68,17 +70,32 @@ const Notifications: React.FC = () => {
                 />
               </IonItem>
               <IonItemOptions
-                className="ion-no-padding  primary--bg"
+                className={`ion-no-padding  ${noti.read ? "danger" : "primary"}`}
                 side="start"
               >
                 <IonItemOption
                   color={`${noti.read ? "danger" : "primary"}`}
-                  onClick={() => readNotification(noti, index)}
+                  onClick={() => readNotification(index)}
                 >
                   <IonIcon
                     style={{ fontSize: "2rem" }}
                     color="light"
                     icon={noti.read ? close : checkmark}
+                  />
+                </IonItemOption>
+              </IonItemOptions>
+              <IonItemOptions
+                className={"ion-no-padding  danger--bg"}
+                side="end"
+              >
+                <IonItemOption
+                  color="danger"
+                  onClick={() => readNotification(index)}
+                >
+                  <IonIcon
+                    style={{ fontSize: "2rem" }}
+                    color="light"
+                    icon={trash}
                   />
                 </IonItemOption>
               </IonItemOptions>
