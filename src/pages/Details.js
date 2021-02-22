@@ -35,7 +35,6 @@ import MyModal from "../components/modal/MyModal";
 
 const Details = () => {
   const instalaciones = Object.values(instalations);
-
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(AppContext);
   const [showLoading, setShowLoading] = useState(false);
@@ -57,7 +56,7 @@ const Details = () => {
     return <Redirect to="/login" />;
   }
 
-  let proof = (city) => {
+  let goInstalation = (city) => {
     let pista = instalaciones.filter((pista) => pista.ubication == city);
 
     if (pista[0]) {
@@ -66,6 +65,8 @@ const Details = () => {
       return "/app/instalaciones";
     }
   };
+
+
   let deleteEvent = () => {
     if (state.user.username === event.author.username) {
       let eventsPush = events_array.filter((e) => e.id !== event.id);
@@ -244,7 +245,7 @@ const Details = () => {
                   INSTALATIONS
                 </span>
                 <div className="event-card-content-right-players">
-                  <Link className="link" to={proof(event.location.city)}>
+                  <Link className="link" to={goInstalation(event.location.city)}>
                     <div className="cardContent__operation--icon ">
                       <IonButton>
                         <IonIcon
