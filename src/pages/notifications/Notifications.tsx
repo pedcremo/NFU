@@ -41,9 +41,9 @@ const Notifications: React.FC = () => {
     setShowToast(true);
   };
 
-  const seeState = () => {
-    console.log(state.user_notifications);
-  };
+  useEffect(() => {
+    console.log(state)
+  }, [])
 
   return (
     <IonPage>

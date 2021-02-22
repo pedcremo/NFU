@@ -39,7 +39,7 @@ let reducer = (state, action) => {
       return { ...state, user: action.value };
     }
     case "SET_USER_NOTIFICATIONS": {
-      return { ...state, user_coordinates: action.value };
+      return { ...state, user_notifications: action.value };
     }
     case "SET_EVENTS": {
       return { ...state, events: action.value };
