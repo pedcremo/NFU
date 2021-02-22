@@ -118,7 +118,7 @@ const CreateEvent = () => {
             </IonItem>
             <IonItem>
               <IonLabel position="floating">{t("create.players")}</IonLabel>
-              <IonInput type="number" value={maxPlayers} onInput={e => setMaxPlayers(e.currentTarget.value)} />
+              <IonInput type="number" min="1" value={maxPlayers} onInput={e => setMaxPlayers(e.currentTarget.value)} />
             </IonItem>
             <IonItem>
               <IonLabel position="floating">{t("create.description")}</IonLabel>
