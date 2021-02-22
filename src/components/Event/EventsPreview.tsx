@@ -69,9 +69,9 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
         e.target.className = e.target.className += " liked";
         state.likes.push(id);
       }
-      dispatch({ type: "LIKES", value: state.likes });
-    } else {
-      return <Redirect to="/login" />;
+    dispatch ({ type: "LIKES", value: state.likes})
+    }else{
+      history.push('/login')
     }
   };
   return (
