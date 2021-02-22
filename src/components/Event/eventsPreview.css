@@ -63,15 +63,20 @@
     font-size: 32px;
 }
 
-.option1:hover .eventContent__actions--icon {
-    color: rgb(211, 51, 51);
+.eventContent__actions--icon:hover {
+    color: rgb(156, 51, 51);
     font-size: 34px;
+}
+
+.liked {
+    color :red
 }
 
 .option2:hover .eventContent__actions--icon {
     color: rgb(82, 170, 177);
     font-size: 34px;
 }
+
 
 .eventInfo {
     height: 100%;

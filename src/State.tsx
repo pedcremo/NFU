@@ -28,6 +28,8 @@ const initialState = {
   segment: "recent",
   currentAvatar: "",
   events: [],
+  likes: []
+
 };
 
 let reducer = (state, action) => {
@@ -71,6 +73,9 @@ let reducer = (state, action) => {
     }
     case "SET_AVATAR_TYPE": {
       return { ...state, currentAvatar: action.value };
+    }
+    case "LIKES": {
+      return { ...state, likes: action.value };
     }
     case "SET_JOIN": {
       return {
