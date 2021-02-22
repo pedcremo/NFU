@@ -1,5 +1,5 @@
 let GeolocationReact = require("@react-native-community/geolocation")
-let GeolocationIonic = require('@ionic-native/geolocation');
+// let GeolocationIonic = require('@ionic-native/geolocation');
 
 //Get coordenadas by React
 export let getCoordsReact = () => {
@@ -20,22 +20,22 @@ export let getCoordsReact = () => {
 };
 
 //Get coordenas by Ionic
-export let getCoordsIonic = () =>{
-    try{
-        GeolocationIonic.getCurrentPosition().then(pos => {
-        // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-        let coords = {
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude,
-        }
-        sessionStorage.setItem("user_coordinates",JSON.stringify(coords)); //Guardamos en sessionStorage las coordenadas actuales del usuario
-        // dispatch({ type: "USER_COORDINATES", value: coords });
-      });
-    }catch(e){
-        console.log("--------------ERROR coords by IONIC-----------------")
-      console.log(e)
-    }
-}
+// export let getCoordsIonic = () =>{
+//     try{
+//         GeolocationIonic.getCurrentPosition().then(pos => {
+//         // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+//         let coords = {
+//           latitude: pos.coords.latitude,
+//           longitude: pos.coords.longitude,
+//         }
+//         sessionStorage.setItem("user_coordinates",JSON.stringify(coords)); //Guardamos en sessionStorage las coordenadas actuales del usuario
+//         // dispatch({ type: "USER_COORDINATES", value: coords });
+//       });
+//     }catch(e){
+//         console.log("--------------ERROR coords by IONIC-----------------")
+//       console.log(e)
+//     }
+// }
 
 //Get coordenadas by navigator api
 export let getCoordsNavigator = () => {
