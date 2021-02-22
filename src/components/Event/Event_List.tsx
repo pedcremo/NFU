@@ -9,7 +9,6 @@ import {
   IonSegmentButton,
   IonLabel,
   IonItem,
-  // IonCheckbox,
   IonIcon,
   IonRadioGroup,
   IonInput,
@@ -25,7 +24,6 @@ const EventList = () => {
   const [filterPanel, setFilterPanel] = useState(Boolean);
   const [filteredSearch, setFilteredSearch] = useState([event_model]);
   const [segment, setSegment] = useState("");
-  const [yourEvents, setYourEvents] = useState([event_model]);
   const { t } = useTranslation();
   const [filters, setFilter] = useState({
     search: "",
@@ -61,18 +59,21 @@ const EventList = () => {
       )
         return event;
       else if (filters.available_players === "") return event;
+      return null;
     });
 
     // We filter by max players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (event.maxplayers === parseInt(filters.max_players)) return event;
       else if (filters.max_players === "") return event;
+      return null;
     });
 
     // We filter by busy players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (event.p.length === parseInt(filters.busy_players)) return event;
       else if (filters.busy_players === "") return event;
+      return null;
     });
 
     // We filter by date.
@@ -93,6 +94,7 @@ const EventList = () => {
       )
         return event;
       else if (filters.date == null) return event;
+      return null;
     });
 
     // We filter by time.
@@ -101,6 +103,7 @@ const EventList = () => {
       let filterDate = new Date(filters.time);
       if (eventDate.getHours() === filterDate.getHours()) return event;
       else if (filters.time == null) return event;
+      return null;
     });
 
     return eventsFiltred;

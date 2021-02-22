@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Notifications.css";
 import { useTranslation } from "react-i18next";
 
@@ -18,7 +18,7 @@ import {
 } from "@ionic/react";
 
 import Header from "../../components/header/HeaderComponent";
-import { checkmark, close, notifications, trash } from "ionicons/icons";
+import { checkmark, close, trash } from "ionicons/icons";
 import { AppContext } from "../../State";
 import NotificationItem from "../../components/notifications/NotificationItem";
 

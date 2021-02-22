@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import "./Notification.css";
-import { useTranslation } from "react-i18next";
 
 import {
   IonText,
