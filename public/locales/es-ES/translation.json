@@ -180,6 +180,10 @@
     "lightMode": "Claro",
     "darkMode": "Oscuro",
     "profileSettings": "Ajustes de perfil",
-    "about": "Sobre nosotros"
+    "about": "Sobre nosotros",
+    "lang": "Cambiar idioma",
+    "esp": "Castellano",
+    "cat": "Catalán",
+    "en": "Inglés"
   }
 }

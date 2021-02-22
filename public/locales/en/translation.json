@@ -183,6 +183,10 @@
     "lightMode": "Light",
     "darkMode": "Dark",
     "profileSettings": "Profile settings",
-    "about": "About"
+    "about": "About",
+    "lang": "Change language",
+    "esp": "Spanish",
+    "cat": "Catalan",
+    "en": "English"
   }
 }

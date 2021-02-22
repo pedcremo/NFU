@@ -21,6 +21,8 @@ import { useTranslation } from "react-i18next";
 const Settings: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const [theme, setTheme] = useState<React.ReactText | undefined>(state.theme);
+  const [ lang, setLang ] = useState<React.ReactText | undefined>(state.language);
+  console.log(state);
   const [gravatarMode, setGravatarMode] = useState<boolean | undefined>(state.currentAvatar === 'gravatar' ? true : false);
   const [showToastSettings, setShowToastSettings] = useState(false);
   const { t } = useTranslation();
@@ -40,6 +42,12 @@ const Settings: React.FC = () => {
       user.image = state.user.imageLocal;
     }
     dispatch({ type: "SET_USER", value: user });
+  }
+
+  const updateLang = (lang) => {
+    dispatch({ type: "SET_LANG", value: lang.toString()});
+    setLang(lang.toString());
+    window.location.reload();
   }
 
   if (!state.user) {
@@ -89,6 +97,14 @@ const Settings: React.FC = () => {
             <IonSelect value={theme} onIonChange={(e) => setTheme(e.detail.value)} >
                 <IonSelectOption value="Light">{t("settings.lightMode")}</IonSelectOption>
                 <IonSelectOption value="Dark">{t("settings.darkMode")}</IonSelectOption>
+              </IonSelect>
+          </IonItem>
+          <IonItem className="settings-item">
+            <IonLabel className="settings-label"> {t("settings.lang")} </IonLabel>
+            <IonSelect value={lang} onIonChange={(e) => updateLang(e.detail.value)} >
+                <IonSelectOption value="es-ES">{t("settings.esp")}</IonSelectOption>
+                <IonSelectOption value="ca-ES">{t("settings.cat")}</IonSelectOption>
+                <IonSelectOption value="en">{t("settings.en")}</IonSelectOption>
               </IonSelect>
           </IonItem>
         </IonItemGroup>

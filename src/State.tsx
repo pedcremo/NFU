@@ -16,7 +16,7 @@ import event_model from "./components/Event/Event.model";
 let AppContext = React.createContext(null);
 
 const initialState = {
-  language: "es",
+  language: localStorage.getItem('i18nextLng') ? localStorage.getItem('i18nextLng') : "es-ES",
   theme: "Light",
   user: "",
   notifications: Math.floor(Math.random() * (10 - 1) + 1),
@@ -57,6 +57,10 @@ let reducer = (state, action) => {
         ? document.body.classList.add("dark")
         : document.body.classList.remove("dark");
       return { ...state, theme: action.value };
+    }
+    case "SET_LANG": {
+      localStorage.setItem('i18nextLng', action.value);
+      return { ...state, language: action.value};
     }
     case "ALL_COORDINATES": {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
