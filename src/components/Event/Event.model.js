@@ -23,6 +23,7 @@ const event_model = {
     city: "",
   },
   image: "",
-  p: {},
+  p: [],
+  comments: []
 };
 export default event_model;

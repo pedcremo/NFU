@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "./State";
 import { useTranslation } from "react-i18next";
+import { Route } from 'react-router-dom';
 
 import {
   IonTabs,
@@ -17,13 +18,13 @@ import CreateEvent from "./pages/create/CreateEvent";
 
 //
 import Settings from "./pages/settings/Settings";
-import Comments from "./pages/Comments";
 import Instalaciones from "./pages/Instalaciones";
 import Events from "./pages/Events";
 import Details from "./pages/Details";
 import Instalacion from "./pages/instalacion";
 import Profile from "./pages/profile/Profile";
 import UpdateProfile from "./pages/profile/UpdateProfile";
+import Error404 from "./pages/errors/404";
 
 import { home, addCircle, notifications } from "ionicons/icons";
 
@@ -48,7 +49,6 @@ const Tabs: React.FC = () => {
 
         {/* ALL PAGES */}
 
-        <PublicRoute component={Comments} path="/app/comments/:id" exact />
         <PublicRoute
           component={Instalaciones}
           path="/app/instalaciones"
@@ -70,6 +70,8 @@ const Tabs: React.FC = () => {
         />
 
         <PrivateRoute component={Profile} path="/app/profile" exact />
+
+        <Route component={Error404} />
       </IonRouterOutlet>
 
       <IonTabBar slot="bottom">

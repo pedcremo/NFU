@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import CommentList from './CommentList';
+import NFUCommentList from './NFUCommentList';
 import renderer from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import { AppContext } from '../../State';
@@ -16,7 +16,7 @@ test('Comprobación de renderizado de comentarios', () => {
         "date": "Test"
     }]
     const component = renderer.create(
-        <AppContextProvider><CommentList comments={comment} /></AppContextProvider>
+        <AppContextProvider><NFUCommentList comments={comment} gameID={1} /></AppContextProvider>
     );
 
     let tree = component.toJSON();
@@ -32,7 +32,7 @@ test('Click button delete', () => {
         "date": "Test"
     }]
     const component = TestRenderer.create(
-        <AppContextProvider><CommentList comments={comment} /></AppContextProvider>
+        <AppContextProvider><NFUCommentList comments={comment} gameID={1}/></AppContextProvider>
     );
 
 

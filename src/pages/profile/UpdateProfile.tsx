@@ -16,7 +16,7 @@ import {
   IonLoading,
 } from "@ionic/react";
 import "./UpdateProfile.css";
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 
 const UpdateProfile = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -30,7 +30,7 @@ const UpdateProfile = () => {
   const [gender, setGender] = useState<React.ReactText | undefined>(
     state.user.gender
   );
-  const [email, setEmail] = useState<React.ReactText | undefined>(
+  const [email,] = useState<React.ReactText | undefined>(
     state.user.email
   );
   const [surname, setSurname] = useState<React.ReactText | undefined>(
@@ -64,6 +64,7 @@ const UpdateProfile = () => {
       user.surname = surname;
       user.birthday = birthday;
       user.username = username;
+      user.events_joined= state.user.events_joined;
 
       //Here send email with unique token.
       setTimeout(() => {
@@ -77,11 +78,11 @@ const UpdateProfile = () => {
 
   const check_state = () =>{
     
-    if(state.user.username == username &&
-      state.user.name == name &&
-      state.user.surname == surname &&
-      state.user.gender == gender &&
-      state.user.birthday == birthday){
+    if(state.user.username === username &&
+      state.user.name === name &&
+      state.user.surname === surname &&
+      state.user.gender === gender &&
+      state.user.birthday === birthday){
         return true
     }else{
       return false

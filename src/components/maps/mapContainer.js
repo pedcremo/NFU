@@ -1,7 +1,7 @@
 import React from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Geolocation } from '@ionic-native/geolocation';
 // import credentials from "../../../public/credentials/credentials.json";
-
 // import { AppContext } from "../../State";
 
 export class MapContainer extends React.Component {
@@ -10,19 +10,63 @@ export class MapContainer extends React.Component {
     }
 
     render() {
-    // const Props = props;
+
     const coordinates_array = Object.values(this.props.coordinates);
-    const user_coordinates = this.props.user_coordinates
+    // const user_coordinates = this.props.user_coordinates
 
-    if(user_coordinates === "no") {
-      console.log("Por favor, permite el acceso a la ubicacion");
+    //Volvemos a coger las coordenadas del usuario por si se ha movido y las guardamos en sessionStorage
+    let getCoords = () => {
+      try{
+        Geolocation.getCurrentPosition().then(pos => {
+          // console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+          let coords = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+          }
+          if(coords){
+            sessionStorage.setItem("user_coordinates",JSON.stringify(coords));
+            return coords;
+          }else{
+            console.log("NO HAY COORDS")
+          }
+        });
+      }catch(e){
+        console.log("Error get location: ", e)
+      }
+      
+    };
 
-      // this.onInfoWindowClose
-      // return;
+    //Si no podemos volver a obtener las coordenadas, cogemos las que habian anteriormente en sessionStorage
+    let coordenadas_sesion = getCoords()?"":JSON.parse(sessionStorage.getItem("user_coordinates"));
+
+    if (coordenadas_sesion){
+      console.log("TENEMOS COORDENADAS")
+    }else{
+      console.log("NO HAY COORDENADAS DEL USER, NO PODEMOS MOSTRAR LOS EVENTOS CERCANOS")
+      //Aqui hay que decirle que no muestre el maps, de momento ponemos unas coordenadas aleatorias
+      coordenadas_sesion = {
+        "latitude": coordinates_array[0].lat,
+        "longitude": coordinates_array[0].lng
+      }
+      console.log(coordenadas_sesion)
     }
+    // let coordenadas_sesion = JSON.parse(sessionStorage.getItem("user_coordinates")) //Coordenadas del user, solo mostrar cuando son todos los eventos
+    let center_lat = null;
+    let center_long = null;
+
+    if(coordinates_array.length>2){ //Si son todos los eventos mostramos el mapa centrado a donde está el user
+      center_lat=coordenadas_sesion.latitude;
+      center_long=coordenadas_sesion.longitude;
+
+    }else{ //Si solo es un evento, mostramos el mapa centrado a donde está el evento
+      center_lat=coordinates_array[0];
+      center_long=coordinates_array[1];
+    }
+    
 
     return (
-      <Map google={this.props.google} zoom={10} onClick={this.mapClicked} center={{ lat: user_coordinates.latitude, lng: user_coordinates.longitude }}>
+      // if user coords
+      <Map google={this.props.google} zoom={10} onClick={this.mapClicked} initialCenter={{ lat: center_lat, lng: center_long }}>
 
         {
           coordinates_array.length>2

@@ -17,7 +17,7 @@ import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
 
-import Header from "../../components/header/header";
+import Header from "../../components/header/HeaderComponent";
 
 const Profile: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -38,6 +38,7 @@ const Profile: React.FC = () => {
             <img
               className="ProfileImage"
               src={state.user.image}
+              alt=""
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}

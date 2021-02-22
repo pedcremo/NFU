@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../State";
-import EventsPreview from "./EventsPreview.js";
+import EventsPreview from "./EventsPreview";
 import event_model from "./Event.model.js";
 import {
   IonList,
@@ -18,7 +18,7 @@ import {
   IonButton,
 } from "@ionic/react";
 import { useTranslation } from "react-i18next";
-import { starOutline, star, filter } from "ionicons/icons";
+import { starOutline, star } from "ionicons/icons";
 import "./eventList.css";
 
 const EventList = () => {
@@ -56,23 +56,23 @@ const EventList = () => {
     // We filter by available players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (
-        event.maxplayers - event.players ==
+        event.maxplayers - event.players ===
         parseInt(filters.available_players)
       )
         return event;
-      else if (filters.available_players == "") return event;
+      else if (filters.available_players === "") return event;
     });
 
     // We filter by max players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.maxplayers == parseInt(filters.max_players)) return event;
-      else if (filters.max_players == "") return event;
+      if (event.maxplayers === parseInt(filters.max_players)) return event;
+      else if (filters.max_players === "") return event;
     });
 
     // We filter by busy players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.players == parseInt(filters.busy_players)) return event;
-      else if (filters.busy_players == "") return event;
+      if (event.players === parseInt(filters.busy_players)) return event;
+      else if (filters.busy_players === "") return event;
     });
 
     // We filter by date.
@@ -84,7 +84,7 @@ const EventList = () => {
           "/" +
           eventDate.getMonth() +
           "/" +
-          eventDate.getFullYear() ==
+          eventDate.getFullYear() ===
         filterDate.getDay() +
           "/" +
           filterDate.getMonth() +
@@ -99,7 +99,7 @@ const EventList = () => {
     eventsFiltred = eventsFiltred.filter((event) => {
       let eventDate = new Date(event.time);
       let filterDate = new Date(filters.time);
-      if (eventDate.getHours() == filterDate.getHours()) return event;
+      if (eventDate.getHours() === filterDate.getHours()) return event;
       else if (filters.time == null) return event;
     });
 
@@ -107,48 +107,33 @@ const EventList = () => {
   }
 
   useEffect(() => {
+    // Select option from global state
     setSegment(state.segment);
-    // Joined events
-    const tempSearchResult = filterEvents(Object.values(state.events));
-    setFilteredSearch([...tempSearchResult]);
 
-    // User events
-    const yourevents = Object.values(state.events);
-    const tempYourEvents = filterEvents([yourevents[0], yourevents[1]]);
-    setYourEvents([...tempYourEvents]);
+    switch (state.segment) {
+      case "recent":
+        // Recent events
+        const tempSearchResult = filterEvents(Object.values(state.events));
+        setFilteredSearch([...tempSearchResult]);
+        break;
+    
+      case "yours":
+        // User events
+        const tempYourEvents = filterEvents(
+          Object.values(state.events).filter((event: typeof event_model) => state.user.events_joined.indexOf(event.id) > -1)
+        );
+        setFilteredSearch([...tempYourEvents]);
+        break;
 
-    // You are following
-    const tempFollowingEvents = filterEvents(Object.values(state.events));
-    setFilteredSearch([...tempFollowingEvents]);
-  }, [filters,state]);
-
-  // IonSegment
-  let msg;
-  if (segment === "joined") {
-    msg = (
-      <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  } else if (segment === "yours") {
-    msg = (
-      <IonList className="eventsList">
-        {yourEvents.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  } else if (segment === "following") {
-    msg = (
-      <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
-          <EventsPreview key={"event_" + index} event={event} />
-        ))}
-      </IonList>
-    );
-  }
+      case "favorited":
+        // Favorited events
+        const tempFavoriteEvents = filterEvents(
+          Object.values(state.events).filter((event: typeof event_model) => state.likes.includes(event.id))
+        );
+        setFilteredSearch([...tempFavoriteEvents]);
+        break;
+    }
+  }, [filters, state]);
 
   return (
     <>
@@ -339,23 +324,27 @@ const EventList = () => {
             dispatch({ type: "SET_SEGMENT", value: e.detail.value });
           }}
         >
-          <IonSegmentButton value="joined">
-            <IonLabel>{t("home.segments.joined")}</IonLabel>
+          <IonSegmentButton value="recent">
+            <IonLabel>{t("home.segments.recent")}</IonLabel>
           </IonSegmentButton>
 
           <IonSegmentButton value="yours">
             <IonLabel>{t("home.segments.yours")}</IonLabel>
           </IonSegmentButton>
 
-          <IonSegmentButton value="following">
-            <IonLabel>{t("home.segments.following")}</IonLabel>
+          <IonSegmentButton value="favorited">
+            <IonLabel>{t("home.segments.favorited")}</IonLabel>
           </IonSegmentButton>
         </IonSegment>
       ) : (
         <></>
       )}
 
-      {msg}
+      <IonList className="eventsList">
+        {filteredSearch.map((event, index) => (
+          <EventsPreview key={"event_" + index} event={event} />
+        ))}
+      </IonList>
     </>
   );
 };

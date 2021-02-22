@@ -1,0 +1,31 @@
+.error404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.image404 {
+    height: 50vh;
+    width: 50vw;
+}
+
+.error_home {
+    margin-top: 60px;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid green;
+    width: 20%;
+    text-align: center;
+    color: green;
+    border-radius: 6px;
+}
+
+.error_home:hover {
+    transition: 0.3s;
+    color: rgb(1, 58, 1);
+    background-color: rgb(223, 221, 221);
+}
