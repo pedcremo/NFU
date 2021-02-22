@@ -14,7 +14,7 @@ const ButtonLink: React.FC<{ link: string; text: string; icon: any }> = ({
   return (
     // <div className="ButtonLink__Container">
       <Link to={link} className="ButtonLink__Container">
-        <IonIcon style={{ color: "grey", fontSize: "1.5rem" }} icon={icon} />
+        <IonIcon style={{ color: "primary", fontSize: "1.5rem" }} icon={icon} />
         <p>{text}</p>
         <IonIcon style={{ color: "grey", fontSize: "1.5rem" }} icon={chevronForward} />
       </Link>
