@@ -8,6 +8,7 @@ npm start
 npx cap add android  //Afegir plataforma android  una vegada
 
 ### To run everytime we want to compile an .apk for android
+npm install -g @ionic/cli
 ionic build
 npx cap copy 
 npx cap open android 

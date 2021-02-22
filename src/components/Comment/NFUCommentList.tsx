@@ -20,12 +20,6 @@ const NFUCommentList: React.FC<CommentProps> = (props) => {
     const [showToastDelete, setShowToastDelete] = useState(false);
     const { state,dispatch } = useContext(AppContext);
 
-    console.log("COMMENTS LIST");
-    console.log(props);
-    const imgStyle = {
-        width: '100px'
-    }
-
     let comments = props.comments;
 
     const deleteComment = async (e) => {

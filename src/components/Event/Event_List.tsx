@@ -31,7 +31,7 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
-    time: null,
+    time: null, 
     available_players: "",
     max_players: "",
     busy_players: "",
@@ -56,7 +56,7 @@ const EventList = () => {
     // We filter by available players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (
-        event.maxplayers - event.players ===
+        event.maxplayers - event.p.length ===
         parseInt(filters.available_players)
       )
         return event;
@@ -71,7 +71,7 @@ const EventList = () => {
 
     // We filter by busy players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.players === parseInt(filters.busy_players)) return event;
+      if (event.p.length === parseInt(filters.busy_players)) return event;
       else if (filters.busy_players === "") return event;
     });
 
@@ -120,7 +120,7 @@ const EventList = () => {
       case "yours":
         // User events
         const tempYourEvents = filterEvents(
-          Object.values(state.events).filter((event: typeof event_model) => state.user.events_joined.indexOf(event.id) > -1)
+          Object.values(state.events).filter((event: typeof event_model) => state.events_joined.indexOf(event.id) > -1)
         );
         setFilteredSearch([...tempYourEvents]);
         break;
@@ -133,6 +133,7 @@ const EventList = () => {
         setFilteredSearch([...tempFavoriteEvents]);
         break;
     }
+    console.log(state.events_joined);
   }, [filters, state]);
 
   return (

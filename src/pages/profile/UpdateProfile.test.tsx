@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { render, cleanup } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
-import renderer from "react-test-renderer";
 
 import App from "../../App";
 import { AppContextProvider } from "../../State";

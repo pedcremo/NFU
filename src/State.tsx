@@ -28,8 +28,8 @@ const initialState = {
   segment: "recent",
   currentAvatar: "",
   events: [],
-  likes: []
-
+  events_joined: [],
+  likes: [],
 };
 
 let reducer = (state, action) => {
@@ -78,56 +78,50 @@ let reducer = (state, action) => {
       return { ...state, likes: action.value };
     }
     case "SET_JOIN": {
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          ...{
-            events_joined: state.user.events_joined
-              ? [...state.user.events_joined, action.value]
-              : [action.value],
-          },
-        },
-        events: Object.values(state.events).map((event: typeof event_model) =>
-          event.id == action.value
+      // Añadimos el idevento al state.
+      let new_events_joined = state.events_joined
+        ? [...state.events_joined, action.value]
+        : [action.value];
+
+      // Actualizamos los eventos
+      let new_events = Object.values(state.events).map(
+        (event: typeof event_model) => {
+          return event.id == action.value
             ? { ...event, ...{ p: [...event.p, [state.user.username]] } }
-            : event
-        ),
-      };
+            : event;
+        }
+      );
+
+      return { ...state, events_joined: new_events_joined, events: new_events };
     }
     case "REMOVE_JOIN": {
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          ...{
-            events_joined:
-              state.user.events_joined.indexOf(action.value) > -1
-                ? state.user.events_joined.splice(
-                    state.user.events_joined.indexOf(action.value),
-                    1
-                  )
-                  ? state.user.events_joined
-                  : ["error"]
-                : state.user.events_joined,
-          },
-        },
-        events: Object.values(state.events).map((event: typeof event_model) =>
+      // Eliminamos el idevento al state.
+      let new_events_joined =
+        state.events_joined.indexOf(action.value) > -1
+          ? state.events_joined.splice(
+              state.events_joined.indexOf(action.value),
+              1
+            )
+            ? state.events_joined
+            : "error"
+          : state.events_joined;
+
+      // Actualizamos los eventos
+      let new_events = Object.values(state.events).map(
+        (event: typeof event_model) =>
           event.id == action.value
             ? {
                 ...event,
                 ...{
-                  p: event.p.splice(
-                    event.p.indexOf(action.value),
-                    1
-                  )
+                  p: event.p.splice(event.p.indexOf(action.value), 1)
                     ? event.p
                     : "error",
                 },
               }
             : event
-        ),
-      };
+      );
+
+      return { ...state, events_joined: new_events_joined, events: new_events };
     }
   }
   return state;
@@ -171,7 +165,6 @@ function AppContextProvider(props) {
         theme: state.theme,
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
-        events: state.events,
         user_notifications: state.user_notifications,
       })
     );
