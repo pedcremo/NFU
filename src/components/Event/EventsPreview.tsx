@@ -69,7 +69,7 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
       }
     dispatch ({ type: "LIKES", value: state.likes})
     }else{
-       return <Redirect to="/login" />      
+      history.push('/login')
     }
 
 
