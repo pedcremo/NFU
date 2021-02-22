@@ -31,7 +31,7 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
-    time: null,
+    time: null, 
     available_players: "",
     max_players: "",
     busy_players: "",
