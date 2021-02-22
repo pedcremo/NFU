@@ -82,7 +82,9 @@ const Tabs: React.FC = () => {
 
         {state.user ? (
           <IonTabButton tab="notifications" href="/app/notifications">
-            <IonBadge color="danger">{state.user_notifications && state.user_notifications.length}</IonBadge>
+            {state.user_notifications && state.user_notifications.length > 0 ? (
+              <IonBadge color="danger">{state.user_notifications.length}</IonBadge>
+            ) : (<></>)}
             <IonIcon icon={notifications} />
             <IonLabel>{t("tabs.notifications")}</IonLabel>
           </IonTabButton>
