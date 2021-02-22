@@ -46,18 +46,21 @@ const Details = () => {
   console.log(event);
   console.log("IFFFFFFFFFF");
 
-  // console.log(all);
-  // const elements =  all.forEach((element) => {
-  //   const elements = element;
-  //   return elements;
-  // });
+  console.log(all);
 
-  // console.log(elements);
+  all.find((pista) =>{  console.log(pista.ubication); return all.pista});
+
+  console.log(all.pista)
+
+
   console.log(event.location.city);
-  if (event.location.city == all[0].ubication || all[1].ubication || all[3].ubication) {
+  if (
+    event.location.city == all[0].ubication ||
+    all[1].ubication ||
+    all[3].ubication
+  ) {
     console.log("emtra");
-    console.log(all[1].id)
-    
+    console.log(all[1].id);
   }
 
   if (!state.user) {
@@ -151,17 +154,42 @@ const Details = () => {
                   ></Author>
                 </div>
                 <IonButton
+                  style={{
+                    display:
+                      state.user.events_joined.indexOf(event.id) > -1
+                        ? "none"
+                        : "block",
+                  }}
                   className="event-card-content-left-join"
                   color="success"
+                  onClick={() =>
+                    dispatch({ type: "SET_JOIN", value: event.id })
+                  }
                 >
                   JOIN
+                </IonButton>
+                <IonButton
+                  style={{
+                    display:
+                      state.user.events_joined.indexOf(event.id) > -1
+                        ? "block"
+                        : "none",
+                  }}
+                  className="event-card-content-left-join"
+                  color="success"
+                  onClick={() =>
+                    dispatch({ type: "REMOVE_JOIN", value: event.id })
+                  }
+                >
+                  REMOVE JOIN
                 </IonButton>
               </div>
 
               <div className="event-card-content-right">
                 <span className="event-card-content-right-title">
-                  PLAYERS {event.players}/{event.maxplayers}
+                  PLAYERS {event.players + "/" + event.maxplayers}
                 </span>
+
                 <div className="event-card-content-right-players">
                   {players.map((player, index, arr) => (
                     <div key={index} className="player">

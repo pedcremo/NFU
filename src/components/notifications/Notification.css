@@ -1,0 +1,21 @@
+.card {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notiText {
+  margin-left: 2rem;
+}
+
+.readed {
+  text-decoration: line-through;
+}
+
+.notiDate {
+    border-radius: 10px;
+    background-color: aqua;
+    padding: 0.2rem;
+    color: rgb(34, 34, 34);
+}

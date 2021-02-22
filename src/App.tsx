@@ -38,6 +38,7 @@ import Welcome from './pages/Welcome';
 import Error404 from "./pages/errors/404";
 import Menu from "./components/Menu";
 import events from './data/data.json';
+import { State } from "ionicons/dist/types/stencil-public-runtime";
 
 // const UserCoordinates = () =>{
   
@@ -66,7 +67,8 @@ const Autoload = () => {
     dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
     /*PROVISIONAL. LOAD CURRENT EVENTS FROM JSON FOR ENABLE CREATE EVENTS, FAV EVENTS, ETC
     THIS SHOULDN'T BE IN CASE OF HAVING A BACKEND*/
-    dispatch({type:'SET_EVENTS',value:events.events}) 
+    if (!window.localStorage.getItem("persistedState"))
+      dispatch({type:'SET_EVENTS',value: events.events}) 
   },[]);
   return (<></>);
 }

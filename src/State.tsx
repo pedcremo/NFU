@@ -2,52 +2,59 @@
  * This is a simple redux-like state management pattern for React using hooks
  * that might be useful in your simpler Ionic React apps that don't
  * require something as complex as Redux.
- * 
+ *
  * See each page for an example of how to read from state and
  * dispatch actions.
- * 
+ *
  * Learn more:
  * https://ionicframework.com/blog/a-state-management-pattern-for-ionic-react-with-react-hooks/
  */
 
 import React, { useReducer, useEffect } from "react";
+import event_model from "./components/Event/Event.model";
 
 let AppContext = React.createContext(null);
 
 const initialState = {
-  language: 'es',
-  theme: 'Light',
-  user: '',
+  language: "es",
+  theme: "Light",
+  user: "",
   notifications: Math.floor(Math.random() * (10 - 1) + 1),
+  user_notifications: [],
   welcome: "",
-  BackLogin:"",
+  BackLogin: "",
   coordinates: "",
   user_coordinates: "no",
-  segment: "joined",
+  segment: "recent",
   currentAvatar: "",
-  events: []
+  events: [],
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
-    case "SET_STATE": {      
-      return { ...state, ...action.value }
+    case "SET_STATE": {
+      return { ...state, ...action.value };
     }
-    case "SET_USER": {      
-      return { ...state, user: action.value }
+    case "SET_USER": {
+      return { ...state, user: action.value };
     }
-    case "SET_EVENTS": {  
-      return { ...state, events: action.value }
+    case "SET_USER_NOTIFICATIONS": {
+      return { ...state, user_coordinates: action.value };
     }
-    case "SET_SEGMENT": {      
-      return { ...state, segment: action.value }
+    case "SET_EVENTS": {
+      return { ...state, events: action.value };
+    }
+    case "SET_SEGMENT": {
+      return { ...state, segment: action.value };
     }
     case "LOGOUT": {
       return { ...state, user: "" };
     }
     case "SET_THEME": {
-      action.value === "Dark" ? document.body.classList.add("dark") : document.body.classList.remove("dark")
-      return { ...state, theme: action.value }
+      action.value === "Dark"
+        ? document.body.classList.add("dark")
+        : document.body.classList.remove("dark");
+      return { ...state, theme: action.value };
     }
     case "ALL_COORDINATES": {
       //Cambiamos la latitud y longitud de lo que queremos mostrar en el map, ya sea uno solo o todos
@@ -56,14 +63,66 @@ let reducer = (state, action) => {
     case "SET_FILTERS": {
       return { ...state, filters: action.value };
     }
-    case "USER_COORDINATES":{
-      return {...state, user_coordinates: action.value}; //Aqui estan las coordenadas del usuario
+    case "USER_COORDINATES": {
+      return { ...state, user_coordinates: action.value }; //Aqui estan las coordenadas del usuario
     }
     case "WELCOME": {
       return { ...state, welcome: action.value };
     }
     case "SET_AVATAR_TYPE": {
       return { ...state, currentAvatar: action.value };
+    }
+    case "SET_JOIN": {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...{
+            events_joined: state.user.events_joined
+              ? [...state.user.events_joined, action.value]
+              : [action.value],
+          },
+        },
+        events: Object.values(state.events).map((event: typeof event_model) =>
+          event.id == action.value
+            ? { ...event, ...{ p: [...event.p, [state.user.username]] } }
+            : event
+        ),
+      };
+    }
+    case "REMOVE_JOIN": {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...{
+            events_joined:
+              state.user.events_joined.indexOf(action.value) > -1
+                ? state.user.events_joined.splice(
+                    state.user.events_joined.indexOf(action.value),
+                    1
+                  )
+                  ? state.user.events_joined
+                  : ["error"]
+                : state.user.events_joined,
+          },
+        },
+        events: Object.values(state.events).map((event: typeof event_model) =>
+          event.id == action.value
+            ? {
+                ...event,
+                ...{
+                  p: event.p.splice(
+                    event.p.indexOf(action.value),
+                    1
+                  )
+                    ? event.p
+                    : "error",
+                },
+              }
+            : event
+        ),
+      };
     }
   }
   return state;
@@ -92,15 +151,25 @@ const loggerReducer = logger(reducer);
 
 function AppContextProvider(props) {
   const fullInitialState = {
-    ...initialState
-  }
+    ...initialState,
+  };
 
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
 
   // SAVE IN LOCALSTORAGE THE LOGGED USER
   useEffect(() => {
-
-    window.localStorage.setItem('persistedState', JSON.stringify({user: state.user, segment: state.segment, theme: state.theme, welcome: state.welcome, currentAvatar: state.currentAvatar, event: state.event}))
+    window.localStorage.setItem(
+      "persistedState",
+      JSON.stringify({
+        user: state.user,
+        segment: state.segment,
+        theme: state.theme,
+        welcome: state.welcome,
+        currentAvatar: state.currentAvatar,
+        events: state.events,
+        user_notifications: state.user_notifications,
+      })
+    );
   }, [state]);
 
   let value = { state, dispatch };
@@ -114,4 +183,6 @@ let AppContextConsumer = AppContext.Consumer;
 
 export { AppContext, AppContextProvider, AppContextConsumer };
 
-export const isLogin =(state) => { return state.user ? true: false }
+export const isLogin = (state) => {
+  return state.user ? true : false;
+};
