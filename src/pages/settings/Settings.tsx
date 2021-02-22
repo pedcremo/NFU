@@ -22,7 +22,6 @@ const Settings: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const [theme, setTheme] = useState<React.ReactText | undefined>(state.theme);
   const [ lang, setLang ] = useState<React.ReactText | undefined>(state.language);
-  console.log(state);
   const [gravatarMode, setGravatarMode] = useState<boolean | undefined>(state.currentAvatar === 'gravatar' ? true : false);
   const [showToastSettings, setShowToastSettings] = useState(false);
   const { t } = useTranslation();

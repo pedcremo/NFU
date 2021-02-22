@@ -54,6 +54,10 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
 
   const { state, dispatch } = useContext(AppContext);
 
+  if (state.user.username == props.event.author.username) {
+    console.log('autor');
+  }
+
   let likes = (e, id) => {
     if (state.user) {
       let LikeIndex = state.likes.indexOf(id);
