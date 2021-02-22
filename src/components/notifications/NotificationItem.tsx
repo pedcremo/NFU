@@ -3,19 +3,6 @@ import "./Notification.css";
 import { useTranslation } from "react-i18next";
 
 import {
-  IonContent,
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonItem,
-  IonItemSliding,
-  IonIcon,
-  IonItemOption,
-  IonItemOptions,
-  IonList,
-  IonToast,
-  IonCard,
   IonText,
 } from "@ionic/react";
 
