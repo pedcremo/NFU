@@ -56,7 +56,7 @@ const EventList = () => {
     // We filter by available players.
     eventsFiltred = eventsFiltred.filter((event) => {
       if (
-        event.maxplayers - event.players ===
+        event.maxplayers - event.p.length ===
         parseInt(filters.available_players)
       )
         return event;
@@ -71,7 +71,7 @@ const EventList = () => {
 
     // We filter by busy players.
     eventsFiltred = eventsFiltred.filter((event) => {
-      if (event.players === parseInt(filters.busy_players)) return event;
+      if (event.p.length === parseInt(filters.busy_players)) return event;
       else if (filters.busy_players === "") return event;
     });
 
