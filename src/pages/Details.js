@@ -4,17 +4,28 @@ import {
   IonModal,
   IonHeader,
   IonPage,
+  IonLoading,
   IonTitle,
   IonToolbar,
+  IonToast,
   IonIcon,
   IonButton,
+  IonLabel,
 } from "@ionic/react";
 
-import { compass, alarm, logoWhatsapp } from "ionicons/icons";
+import {
+  compass,
+  alarm,
+  logoWhatsapp,
+  mapOutline,
+  mapSharp,
+  compassSharp,
+} from "ionicons/icons";
 import { useParams } from "react-router";
+import { trash } from "ionicons/icons";
 import instalations from "../data/dataInstalaciones.json";
 import Author from "../components/author/Author";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { AppContext } from "../State";
 import Header from "../components/header/HeaderComponent";
 import NFUComments from "../components/Comment/NFUComments";
@@ -24,13 +35,12 @@ import MyModal from "../components/modal/MyModal";
 
 const Details = () => {
   const instalaciones = Object.values(instalations);
-  const all = instalaciones.map((pista) => {
-    const all = pista;
-    return all;
-  });
 
   const [showModal, setShowModal] = useState(false);
   const { state, dispatch } = useContext(AppContext);
+  const [showLoading, setShowLoading] = useState(false);
+  const [showToastDeleted, setShowToastDeleted] = useState(false);
+  const history = useHistory();
 
   //get id URL
   const { id } = useParams();
@@ -38,34 +48,36 @@ const Details = () => {
   //get event by id
   // eslint-disable-next-line
   let event = events_array.find((event) => event.id == id);
-  //get players event
+  if (!event) return <Redirect to="/app/home" />;
 
   let players = Object.values(event.p);
   const comments = event.comments;
-  // const { state } = useContext(AppContext);
-  console.log(event);
-  console.log("IFFFFFFFFFF");
-
-  console.log(all);
-
-  all.find((pista) =>{  console.log(pista.ubication); return all.pista});
-
-  console.log(all.pista)
-
-
-  console.log(event.location.city);
-  if (
-    event.location.city == all[0].ubication ||
-    all[1].ubication ||
-    all[3].ubication
-  ) {
-    console.log("emtra");
-    console.log(all[1].id);
-  }
 
   if (!state.user) {
     return <Redirect to="/login" />;
   }
+
+  let proof = (city) => {
+    let pista = instalaciones.filter((pista) => pista.ubication == city);
+
+    if (pista[0]) {
+      return "/app/instalacion/" + pista[0].id;
+    } else {
+      return "/app/instalaciones";
+    }
+  };
+  let deleteEvent = () => {
+    if (state.user.username === event.author.username) {
+      let eventsPush = events_array.filter((e) => e.id !== event.id);
+      setShowLoading(true);
+      setTimeout(() => {
+        setShowLoading(false);
+        dispatch({ type: "SET_EVENTS", value: eventsPush });
+        history.push("/app/home");
+        setShowToastDeleted(true);
+      }, 1500);
+    }
+  };
 
   function handleClick(type) {
     switch (type) {
@@ -102,6 +114,19 @@ const Details = () => {
           <div className="event-card">
             <div className="event-card-image">
               <img src={event.image} alt="" />
+              <span
+                className="remove-event-btn"
+                onClick={() => deleteEvent()}
+                style={{
+                  display:
+                    state.user.username === event.author.username
+                      ? "block"
+                      : "none",
+                }}
+              >
+                DELETE
+                <IonIcon icon={trash} />
+              </span>
               <div className="event-card-image-badges">
                 <span
                   className="share-content badge-details badge-details-icon"
@@ -189,7 +214,6 @@ const Details = () => {
                 <span className="event-card-content-right-title">
                   PLAYERS {event.players + "/" + event.maxplayers}
                 </span>
-
                 <div className="event-card-content-right-players">
                   {players.map((player, index, arr) => (
                     <div key={index} className="player">
@@ -201,7 +225,7 @@ const Details = () => {
                     </div>
                   ))}
                 </div>
-                <span className="event-card-content-right-title"> MAP</span>
+                <span className="event-card-content-right-title">MAPA</span>
                 <p
                   className="mapsDetails"
                   onClick={() => {
@@ -217,12 +241,20 @@ const Details = () => {
                   }}
                 ></p>
                 <span className="event-card-content-right-title">
-                  INSTALATION
+                  INSTALATIONS
                 </span>
                 <div className="event-card-content-right-players">
-                  <IonButton href={"/app/instalaciones/"}>
-                    GO INSTALATION
-                  </IonButton>
+                  <Link className="link" to={proof(event.location.city)}>
+                    <div className="cardContent__operation--icon ">
+                      <IonButton>
+                        <IonIcon
+                          icon={compassSharp}
+                          className="eventContent__actions--icon"
+                        />&nbsp;&nbsp;
+                        GO INSTALATIONS 
+                      </IonButton>
+                    </div>
+                  </Link>
                 </div>
               </div>
               <NFUComments comments={comments} gameID={event.id} />
@@ -238,6 +270,13 @@ const Details = () => {
             </div>
           </div>
         </div>
+        <IonLoading isOpen={showLoading} message={"Deleting event"} />
+        <IonToast
+          isOpen={showToastDeleted}
+          onDidDismiss={() => setShowToastDeleted(false)}
+          message="Event has been deleted correctly"
+          duration={2000}
+        />
       </IonContent>
     </IonPage>
   );

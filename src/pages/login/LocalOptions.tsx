@@ -32,6 +32,8 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
       };
       setShowLoading(true);
       setTimeout(() => {
+        console.log("Añadiendo las notificaciones");
+        
         dispatch({
           type: "SET_USER_NOTIFICATIONS",
           value: [{ msg: "Wellcome to NFU", date: "10/10/2021", read: false }],
