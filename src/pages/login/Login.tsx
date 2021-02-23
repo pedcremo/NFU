@@ -30,10 +30,9 @@ const Login: React.FC = () => {
         <IonAlert
           isOpen={showRedeemCode}
           onDidDismiss={() => setShowRedeemCode(false)}
-          header={'Congratulations!'}
-          subHeader={'Here\'s your redeem code: '}
+          header={t("login.congratulations")}
           message={'20DISCOUNTCODE'}
-          buttons={['Thanks, I got it']}
+          buttons={[t("login.thanks")]}
           onWillDismiss={() => setClick(0)}
         />
         <div className="loginPageContent">
