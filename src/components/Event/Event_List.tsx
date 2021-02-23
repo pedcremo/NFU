@@ -167,6 +167,22 @@ const EventList = () => {
         style={{ height: filterPanel ? "350px" : "0px" }}
         className="filters-container"
       >
+
+        <IonButton
+          onClick={() => setFilter({
+            search: "",
+            valuation: "1",
+            date: null,
+            time: null, 
+            available_players: "",
+            max_players: "",
+            busy_players: "",
+          })}
+          className="clear-filters"
+        >
+          {t("home.events.filters.button.clear")}
+        </IonButton>
+
         <IonItem className="filter-item">
           <IonRadioGroup
             value={filters.valuation}

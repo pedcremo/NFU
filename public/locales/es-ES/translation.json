@@ -23,6 +23,7 @@
         "more": "o mas",
         "stars": "Valoracion de Usuario",
         "buttons": {
+          "clear": "Borrar filtros",
           "hide": "Ocultar filtros",
           "open": "Más filtros"
         }

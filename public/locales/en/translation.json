@@ -26,6 +26,7 @@
         "date_select": "Select date",
         "time_select": "Select time",
         "button": {
+          "clear": "Clear filters",
           "hide": "Hide filters",
           "open": "More filters"
         }

@@ -26,6 +26,7 @@
         "time_select": "Selecionar hora",
         "stars": "Valoracion de Usuario",
         "button": {
+          "clear": "Borrar filtros",
           "hide": "Ocultar filtros",
           "open": "Más filtros"
         }
