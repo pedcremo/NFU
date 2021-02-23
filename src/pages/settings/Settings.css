@@ -12,6 +12,7 @@
 .settings-item{
   border-bottom: none !important;
   --inner-border-width: 0;
+  cursor: pointer;
 }
 
 .settings-label{

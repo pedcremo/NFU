@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { generateGravatar } from '../../utils'
 import { AppContext } from "../../State";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import {
   IonContent,
   IonPage,
@@ -25,6 +25,7 @@ const Settings: React.FC = () => {
   const [gravatarMode, setGravatarMode] = useState<boolean | undefined>(state.currentAvatar === 'gravatar' ? true : false);
   const [showToastSettings, setShowToastSettings] = useState(false);
   const { t } = useTranslation();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch({ type: "SET_THEME", value: theme });
@@ -47,6 +48,11 @@ const Settings: React.FC = () => {
     dispatch({ type: "SET_LANG", value: lang.toString()});
     setLang(lang.toString());
     window.location.reload();
+  }
+
+  const redirectWelcome = () => {
+    dispatch({ type: "WELCOME", value: true})
+    history.push('/welcome');
   }
 
   if (!state.user) {
@@ -115,11 +121,9 @@ const Settings: React.FC = () => {
           <IonItem className="settings-item settings-option" routerLink="/app/profile/update" routerDirection="none" lines="none">
             <IonLabel className="settings-label">{t("settings.profileSettings")}</IonLabel>
           </IonItem>
-          <Link to={{ pathname: '/welcome', state: { about: true } }} style={{textDecoration:'none'}}>
-            <IonItem className="settings-item settings-option">
+            <IonItem className="settings-item settings-option" onClick = {() => redirectWelcome()}>
               <IonLabel className="settings-label">{t("settings.about")}</IonLabel>
             </IonItem>
-          </Link>
 
         </IonItemGroup>
         <IonToast isOpen={showToastSettings} onDidDismiss={() => setShowToastSettings(false)} message="Your settings have been saved." duration={1200} />
