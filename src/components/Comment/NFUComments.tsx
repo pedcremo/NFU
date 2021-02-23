@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from "react-router-dom";
+
 import './CommentList.css'
 import {
     IonButton,
@@ -23,29 +25,36 @@ const NFUComments: React.FC<CommentProps> = (props) => {
     const [showToastComment, setShowToastComment] = useState(false);
     const { t } = useTranslation();
     const event = Object.keys(state.events).map(key => state.events[key]).find((event) => event.id == props.gameID); 
+    const history = useHistory();
     const addComment = async (e) => {
-        setShowToastComment(true);
-        e.preventDefault();
-        try {  
-          event.comments.push({
-            id: Math.floor(Math.random() * 1010),
-            title: state.user.username,
-            author: state.user,
-            body: message,
-            date: new Date().toLocaleString()
-          })
-
-          setTimeout(() => {
-            dispatch({ type: "SET_EVENTS", value: state.events });
-          }, 500);
-        } catch (e) {
-          console.log("fail");
+        if (!state.user) {
+            history.push('/login')
+        }else{
+            setShowToastComment(true);
+            e.preventDefault();
+            try {  
+              event.comments.push({
+                id: Math.floor(Math.random() * 1010),
+                title: state.user.username,
+                author: state.user,
+                body: message,
+                date: new Date().toLocaleString()
+              })
+    
+              setTimeout(() => {
+                dispatch({ type: "SET_EVENTS", value: state.events });
+              }, 500);
+            } catch (e) {
+              console.log("fail");
+            }
         }
+
     }
 
     return (
         <>
-            <form method="post" onSubmit={addComment} className="form_add_comment">
+            
+            <form method="post" onSubmit={addComment} className="form_add_comment" hidden={!state.user}>
                 <IonItem className="form_add_comment--input">
                     <IonInput placeholder={t('Comments.type')} type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
                 </IonItem>

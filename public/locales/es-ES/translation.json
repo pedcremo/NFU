@@ -154,7 +154,8 @@
   "Comments": {
     "type": "Escribe tu mensaje",
     "send_comment": "Comentar",
-    "title": "Comentarios"
+    "title": "Comentarios",
+    "no_login":"Necesitas estar logeado"
   },
   "header": {
     "login": "Iniciar Sesión"

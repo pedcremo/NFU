@@ -157,7 +157,8 @@
   "Comments": {
     "type": "Type your message",
     "send_comment": "Comment",
-    "title": "Comments"
+    "title": "Comments",
+    "no_login":"You need to be logged in"
   },
   "header": {
     "login": "LogIn"

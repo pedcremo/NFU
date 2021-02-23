@@ -159,7 +159,8 @@
   "Comments": {
     "type": "Escriu el teu missatge",
     "send_comment": "Comentar",
-    "title": "Comentaris"
+    "title": "Comentaris",
+    "no_login":"Necessites estar logeado"
   },
   "header": {
     "login": "Iniciar Sessió"
