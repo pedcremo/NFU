@@ -2,7 +2,13 @@ import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../../State";
 import { generateGravatar, imageLocal } from "../../utils";
 import { useHistory } from "react-router-dom";
-import { IonLabel, IonInput, IonLoading, IonButton } from "@ionic/react";
+import {
+  IonLabel,
+  IonInput,
+  IonLoading,
+  IonButton,
+  IonToast,
+} from "@ionic/react";
 import "./LocalOptions.css";
 import { useTranslation } from "react-i18next";
 
@@ -15,6 +21,19 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   const [showLoading, setShowLoading] = useState(false);
   const formRef = useRef(null);
   const { t } = useTranslation();
+  const [message, setMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
+  const keyPressed = (event) => {
+    if (event.key == "Enter") {
+      if (email) {
+        handleSubmit(event);
+      } else {
+        setMessage("Debes introducir el email!");
+        setShowToast(true);
+      }
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,17 +47,18 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
             ? generateGravatar(email)
             : imageLocal,
         imageLocal: imageLocal,
-        events_joined: []
+        events_joined: [],
       };
       setShowLoading(true);
       setTimeout(() => {
         console.log("Añadiendo las notificaciones");
-        
+
         dispatch({
           type: "SET_USER_NOTIFICATIONS",
           value: [{ msg: "Wellcome to NFU", date: "10/10/2021", read: false }],
         });
-        dispatch({ type: "SET_USER", value: user })}, 5000);
+        dispatch({ type: "SET_USER", value: user });
+      }, 5000);
     } catch (e) {
       console.error(e);
       setShowLoading(false);
@@ -53,6 +73,9 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
       name="login_form"
       ref={formRef}
       className="loginOptionsContainer_form"
+      onKeyDown={(event) => {
+        keyPressed(event);
+      }}
     >
       <IonLoading
         isOpen={showLoading}
@@ -105,6 +128,13 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         {" "}
         {t("login.local_options.social_options")}
       </IonLabel>
+      <IonToast
+        isOpen={showToast}
+        onDidDismiss={() => setShowToast(false)}
+        message={message}
+        duration={2000}
+      />
+      
     </form>
   );
 };
