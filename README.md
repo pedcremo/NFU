@@ -26,5 +26,3 @@ https://jestjs.io/docs/en/tutorial-react
 Actividades
 
 Faciles
-
-
