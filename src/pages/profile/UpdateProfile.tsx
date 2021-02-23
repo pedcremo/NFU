@@ -11,13 +11,14 @@ import {
   IonItem,
   IonAvatar,
   IonSelect,
+  IonToast,
   IonSelectOption,
   IonDatetime,
   IonLoading,
 } from "@ionic/react";
 import "./UpdateProfile.css";
 import Header from "../../components/header/HeaderComponent";
-
+import {validateImgSize, validateMimetype} from '../../utils'
 const UpdateProfile = () => {
   const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
@@ -39,19 +40,24 @@ const UpdateProfile = () => {
   const [birthday, setBirthday] = useState<string>(state.user.birthday);
   const history = useHistory();
   const [showLoading, setShowLoading] = useState(false);
+  const [showToastProfileError, setShowToastProfileError] = useState(false);
+  const [showToastProfile, setShowToastProfile] = useState(false);
 
   // Convert selected image to base64 and dispatch the new user's state
   function encodeImageFileAsURL(el) {
     var file = el.target.files[0];
-    if (file) {
+    if (file && validateImgSize(file) && validateMimetype(file)) {
       var reader = new FileReader();
       reader.onloadend = function () {
         let user = state.user;
         user.image = reader.result;
         user.imageLocal = reader.result;
         dispatch({ type: "SET_USER", value: user });
+        setShowToastProfile(true);
       };
       reader.readAsDataURL(file);
+    }else{
+      setShowToastProfileError(true);
     }
   }
   const handleSubmit = async (e) => {
@@ -203,6 +209,8 @@ const UpdateProfile = () => {
             </IonButton>
           </form>
         </section>
+        <IonToast color="success" isOpen={showToastProfile} onDidDismiss={() => setShowToastProfile(false)} message={t('profile.toastImage')} duration={1200} />
+        <IonToast color="danger" isOpen={showToastProfileError} onDidDismiss={() => setShowToastProfileError(false)} message={t('profile.toastImageError')} duration={1200} />
       </IonContent>
     </IonPage>
   );

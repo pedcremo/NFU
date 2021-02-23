@@ -64,7 +64,9 @@
     "matches": "Partides",
     "invitation": "Invitacions",
     "settings": "Ajustos",
-    "update": "Modificar"
+    "update": "Modificar",
+    "toastImage":"Imatge canviada correctament",
+    "toastImageError":"No pots pujar aquest fitxer!!"
   },
   "updateProfile": {
     "title": "Editar Perfil",

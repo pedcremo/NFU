@@ -61,7 +61,9 @@
     "matches": "Partidas",
     "invitation": "Invitaciones",
     "settings": "Ajustes",
-    "update": "Modificar"
+    "update": "Modificar",
+    "toastImage":"Imagen cambiada correctamente",
+    "toastImageError":"No puedes poner este archivo!"
   },
   "updateProfile": {
     "title": "Editar Perfil",

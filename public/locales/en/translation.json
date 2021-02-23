@@ -64,7 +64,9 @@
     "matches": "Matches",
     "invitation": "Invitation",
     "settings": "Settings",
-    "update": "Update"
+    "update": "Update",
+    "toastImage":"Image uploaded successfully",
+    "toastImageError":"You can't upload this file!!"
   },
   "updateProfile": {
     "title": "Edit Profile",
