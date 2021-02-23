@@ -120,6 +120,7 @@
     "title": "FIELDS"
   },
   "login": {
+    "back": "Go home",
     "initial_text": "Find tournaments and matches for the sport that you prefer",
     "social_options": {
       "google": "Continue with Google",

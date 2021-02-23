@@ -117,6 +117,7 @@
     "title": "PISTAS"
   },
   "login": {
+    "back": "Ir al home",
     "initial_text": "Encuentra torneos y partidos para el deporte que prefieras",
     "social_options": {
       "google": "Continua con Google",

@@ -122,6 +122,7 @@
     "title": "PISTES"
   },
   "login": {
+    "back": "Ir al home",
     "initial_text": "Troba tornejos i partits per a l'esport que prefereixis",
     "social_options": {
       "google": "Continua amb Google",
