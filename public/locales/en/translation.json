@@ -27,7 +27,8 @@
         "time_select": "Select time",
         "button": {
           "hide": "Hide filters",
-          "open": "More filters"
+          "open": "More filters",
+          "reset":"Reset filters"
         }
       },
       "search": {

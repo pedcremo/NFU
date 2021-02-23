@@ -151,14 +151,29 @@ const EventList = () => {
         >
           {t("home.events.filters.button.hide")}
         </IonButton>
+        <IonButton
+          color="danger"
+          onClick={() => setFilter(() => ({
+            search: "",
+            valuation: "1",
+            date: null,
+            time: null, 
+            available_players: "",
+            max_players: "",
+            busy_players: "",
+          }))}
+          style={{ display: !filterPanel ? "none" : "block" }}
+        >
+          {t("home.events.filters.button.reset")}
+        </IonButton>
         <IonSearchbar
           placeholder={t("home.events.search.placeholder")}
           value={filters.search}
           onIonChange={(e) =>
-            setFilter((prevFilters) => ({
-              ...prevFilters,
-              search: e.detail.value,
-            }))
+              setFilter((prevFilters) => ({
+                ...prevFilters,
+                search: e.detail.value,
+              }))
           }
         />
       </div>

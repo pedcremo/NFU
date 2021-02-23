@@ -22,9 +22,10 @@
         "available_players": "Participantes disponibles",
         "more": "o mas",
         "stars": "Valoracion de Usuario",
-        "buttons": {
+        "button": {
           "hide": "Ocultar filtros",
-          "open": "Más filtros"
+          "open": "Más filtros",
+          "reset":"Reestablecer Filtros"
         }
       },
       "search": {
