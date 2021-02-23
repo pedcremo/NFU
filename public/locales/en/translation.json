@@ -124,7 +124,8 @@
     "social_options": {
       "google": "Continue with Google",
       "facebook": "Continue with Facebook",
-      "email": "Continue with Email"
+      "email": "Continue with Email",
+      "back": "Go back Home"
     },
     "local_options": {
       "password": "Password..",

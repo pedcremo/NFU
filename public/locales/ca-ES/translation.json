@@ -126,7 +126,8 @@
     "social_options": {
       "google": "Continua amb Google",
       "facebook": "Continua amb Facebook",
-      "email": "Continua amb Email"
+      "email": "Continua amb Email",
+      "back": "Torna a l'Inici"
     },
     "local_options": {
       "password": "Contrasenya..",
