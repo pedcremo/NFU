@@ -133,3 +133,33 @@ p b {
   margin-top: 8px;
 }
 
+
+/* */
+
+.btnNext{
+  margin-top: 25px;
+  background-color: blue;
+  color: wheat;
+  font-size: 32px;
+  font-weight: bold;
+
+}
+
+.btnNext:hover{
+  background-color: red;
+}
+
+
+.btnPrev{
+  margin-top: 25px;
+  background-color: blue;
+  color: wheat;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: bold;
+
+}
+
+.btnPrev:hover{
+  background-color: red;
+}

@@ -63,6 +63,11 @@ const Welcome: React.FC = () => {
 
                 <h2 className="slideTitle">{t("welcome.welcome")}</h2>
                 <p className="slideText">{t("welcome.description")}</p>
+                {isPlatform("desktop") ? (
+                  <button className="btnNext" onClick={next}> {t("welcome.next")} </button>
+                ) : (
+                  ""
+                )}
               </div>
             </IonSlide>
 
@@ -81,6 +86,16 @@ const Welcome: React.FC = () => {
 
                 <h2 className="slideTitle">{t("welcome.meet")}</h2>
                 <p className="slideText">{t("welcome.meetDescription")}</p>
+                {isPlatform("desktop") ? (
+                  <button  className="btnNext" onClick={next}>  {t("welcome.next")} </button>
+                ) : (
+                  ""
+                )}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {isPlatform("desktop") ? (
+                  <button  className="btnPrev"onClick={prev}>  {t("welcome.previous")} </button>
+                ) : (
+                  ""
+                )}
               </div>
             </IonSlide>
 
@@ -99,6 +114,17 @@ const Welcome: React.FC = () => {
 
                 <h2 className="slideTitle">{t("welcome.find")}</h2>
                 <p className="slideText">{t("welcome.findDescription")}</p>
+
+                {isPlatform("desktop") ? (
+                  <button  className="btnNext" onClick={next}>  {t("welcome.next")} </button>
+                ) : (
+                  ""
+                )}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {isPlatform("desktop") ? (
+                  <button className="btnPrev" onClick={prev}> {t("welcome.previous")} </button>
+                ) : (
+                  ""
+                )}
               </div>
             </IonSlide>
 
@@ -126,7 +152,7 @@ const Welcome: React.FC = () => {
                 </IonButton>
                 <br></br>
                 {isPlatform("desktop") ? (
-                  <button onClick={prev}> PREVIOUS </button>
+                  <button className="btnPrev" onClick={prev}> {t("welcome.previous")} </button>
                 ) : (
                   ""
                 )}

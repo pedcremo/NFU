@@ -9,7 +9,9 @@
     "find": "Troba els events més pròxims a tu ",
     "findDescription": "Escull les teues preferències i et mostrarem els events relacionats més pròxims a tu.",
     "ready": "Estàs preparat ?",
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "next":"SEGUENT",
+    "previous":"ANTERIOR"
   },
 
   "home": {
