@@ -22,6 +22,7 @@ const initialState = {
   notifications: Math.floor(Math.random() * (10 - 1) + 1),
   user_notifications: [],
   welcome: "",
+  EasterEgg: false,
   BackLogin: "",
   coordinates: "",
   user_coordinates: "no",
@@ -36,6 +37,9 @@ let reducer = (state, action) => {
   switch (action.type) {
     case "SET_STATE": {
       return { ...state, ...action.value };
+    }
+    case "SET_EGG": {
+      return { ...state, EasterEgg: action.value };
     }
     case "SET_USER": {
       return { ...state, user: action.value };
@@ -167,6 +171,7 @@ function AppContextProvider(props) {
         user: state.user,
         segment: state.segment,
         theme: state.theme,
+        EasterEgg: state.EasterEgg,
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
         user_notifications: state.user_notifications,
