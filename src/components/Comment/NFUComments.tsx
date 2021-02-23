@@ -7,6 +7,7 @@ import {
     IonInput
 
 } from '@ionic/react';
+import { useHistory } from 'react-router-dom';
 import NFUCommentList from './NFUCommentList'
 import { AppContext } from '../../State';
 import { useTranslation } from "react-i18next";
@@ -22,25 +23,33 @@ const NFUComments: React.FC<CommentProps> = (props) => {
     const { state,dispatch } = useContext(AppContext);
     const [showToastComment, setShowToastComment] = useState(false);
     const { t } = useTranslation();
+    const history = useHistory();
     const event = Object.keys(state.events).map(key => state.events[key]).find((event) => event.id == props.gameID); 
-    const addComment = async (e) => {
-        setShowToastComment(true);
-        e.preventDefault();
-        try {  
-          event.comments.push({
-            id: Math.floor(Math.random() * 1010),
-            title: state.user.username,
-            author: state.user,
-            body: message,
-            date: new Date().toLocaleString()
-          })
 
-          setTimeout(() => {
-            dispatch({ type: "SET_EVENTS", value: state.events });
-          }, 500);
-        } catch (e) {
-          console.log("fail");
+    const addComment = async (e) => {
+        e.preventDefault();
+
+        if (state.user) {
+            setShowToastComment(true);
+            try {  
+              event.comments.push({
+                id: Math.floor(Math.random() * 1010),
+                title: state.user.username,
+                author: state.user,
+                body: message,
+                date: new Date().toLocaleString()
+              })
+    
+              setTimeout(() => {
+                dispatch({ type: "SET_EVENTS", value: state.events });
+              }, 500);
+            } catch (e) {
+              console.log("fail");
+            }
+        } else {
+            history.push("/login");
         }
+        
     }
 
     return (
