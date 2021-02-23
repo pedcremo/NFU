@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Profile.css";
 
-import { IonContent, IonItem, IonPage } from "@ionic/react";
+import { IonContent, IonItem, IonPage, IonToast } from "@ionic/react";
 
 import {
   basketball,
@@ -22,6 +22,8 @@ import Header from "../../components/header/HeaderComponent";
 const Profile: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
+  const [showToast, setShowToast] = useState(false);
+  const [message, setMessage] = useState("");
 
   console.log(state.user);
 
@@ -29,8 +31,29 @@ const Profile: React.FC = () => {
     return <Redirect to="/" />;
   }
 
-  function encodeImageFileAsURL(el) {
+  function checkFile(el) {
     var file = el.target.files[0];
+
+    // Comprobamos el tamaño.
+    var size = file.size < 2000000 ? true : "El tamaño es superior a 2MB";
+    if (size != true)  {
+      setShowToast(true);
+      setMessage("El tamaño es superior a 2MB");
+      return false;
+    }
+
+    // Comprobamos el tipo de archivo.
+    var type = file.type == "image/jpeg" || file.type == "image/png" ? true : "El tipo de archivo no es valido";
+    if (type != true) {
+      setShowToast(true);
+      setMessage("El tipo de archivo no es valido");
+      return false;
+    }
+
+    encodeImageFileAsURL(file)
+  }
+
+  function encodeImageFileAsURL(file) {
     if (file) {
       var reader = new FileReader();
       reader.onloadend = function () {
@@ -67,7 +90,7 @@ const Profile: React.FC = () => {
               type="file"
               id="uploadImgProfile"
               disabled={(state.currentAvatar === 'gravatar' ? true: false)}
-              onChange={(el) => encodeImageFileAsURL(el)}
+              onChange={(el) => checkFile(el)}
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
@@ -111,6 +134,12 @@ const Profile: React.FC = () => {
             </div>
           </div>
         </div>
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message={message}
+          duration={2000}
+        />
       </IonContent>
     </IonPage>
   );

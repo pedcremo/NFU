@@ -47,9 +47,7 @@ const Menu = () => {
   const logout = () => {
     dispatch({type:'LOGOUT'});
   }
-  console.log(state);
   
-  console.log(state.user.image)
 
   return (
     <IonMenu contentId="NFU_Navigation">
