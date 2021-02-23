@@ -47,7 +47,7 @@ const Login: React.FC = () => {
           <IonLabel onClick={() => {
             history.push(HOME_PATH)
           }} className="take-look">
-            Maybe you want take a look first!
+            {t("login.take_look")}
           </IonLabel>
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
         </div>
