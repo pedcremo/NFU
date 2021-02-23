@@ -4,13 +4,14 @@ import { IonContent, IonPage, IonIcon, IonCard } from "@ionic/react";
 import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import data from "../data/dataInstalaciones.json";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { AppContext } from "../State";
 
 import "./instalacion.css";
 import Header from "../components/header/HeaderComponent";
 
 import Footer from "../components/Footer/Footer";
+import { createEvent } from "@testing-library/react";
 
 const Instalacion: React.FC = () => {
   //get id URL
@@ -24,9 +25,14 @@ const Instalacion: React.FC = () => {
   console.log(instalacion);
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
+  const history = useHistory();
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
+  let createEvent = () => {
+    if (state.user) {
+      history.push('/app/create');
+    }else{
+      history.push('/login')
+    }
   }
 
   return (
@@ -55,7 +61,7 @@ const Instalacion: React.FC = () => {
                 <article className="pistas_grid">
                   {instalacion.pistas.map((pista) => (
                     <IonCard className="lista">
-                      <a href="/app/create" className="minimodal">CREAR EVENTO</a>
+                      <a onClick={() => createEvent()} className="minimodal">CREAR EVENTO</a>
                       <div className="lista-image">
                         <img alt="img" src={pista.Imagen} />
                       </div>
