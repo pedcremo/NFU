@@ -3,6 +3,8 @@
         "id": "1",
         "ubication": "Ontinyent",
         "name": "Polideportivo Ontinyent",
+        "cp": "468700",
+        "country": "Spain",
         "imagen": "https://estaticos-cdn.prensaiberica.es/clip/6a4607f2-8199-44f3-ac8a-68eee7a21561_16-9-discover-aspect-ratio_50p_0.jpg",
         "pistas": [
             {
@@ -42,6 +44,8 @@
     "xativaSportsCenter3": {
         "id": "2",
         "ubication": "Xativa",
+        "cp": "46800",
+        "country": "Spain",
         "name": "Polideportivo Xativa",
         "imagen": "http://www.xativa.es/sites/default/files/images/SeccioDeports.jpg",
         "pistas": [
@@ -74,6 +78,8 @@
     "olleriaSportsCenter2": {
         "id": "3",
         "ubication": "L'Olleria",
+        "cp": "46870",
+        "country": "Spain",
         "name": "Polideportivo Olleria",
         "imagen": "https://lolleria.org.es/wp-content/uploads/2017/04/poliesportiu_municipal_olleria1-2.jpg",
         "pistas": [

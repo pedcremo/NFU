@@ -19,6 +19,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import "./CreateEvent.css";
 import Header from "../../components/header/HeaderComponent";
 import { useTranslation } from "react-i18next";
+import instalaciones from '../../data/dataInstalaciones.json';
+
 // import { read, stat } from "fs";
 
 const CreateEvent = () => {
@@ -39,6 +41,8 @@ const CreateEvent = () => {
   const [postal, setPostal] = useState<React.ReactText | undefined>('46870');
   const [type, setType] = useState<React.ReactText | undefined>('');
   const [image, setImage] = useState<React.ReactText | undefined>('');
+  const [ instalacion, setInstalacion ] = useState<React.ReactText | undefined>('');
+  const instalacionesVar = Object.values(instalaciones);
 
   let EventImageAsBase64 = (el) => {
     var file = el.target.files[0];
@@ -53,7 +57,7 @@ const CreateEvent = () => {
     console.log("submit");
     e.preventDefault();
     try {
-      
+      let findInst = instalacionesVar.find(k => k.id == instalacion);
       let event = {
         id: (Math.max.apply(null, events.map(item => item.id)) + 1),
         title: title,
@@ -74,9 +78,9 @@ const CreateEvent = () => {
           bio: "User biography lorem ipsum",
         },
         location: {
-          country: country,
-          postalcode: postal,
-          city: city,
+          country: findInst.country,
+          postalcode: findInst.cp,
+          city: findInst.ubication,
         },
         image: image ? image : `../../assets/images/${type}.jpg`,
         p: {
@@ -99,7 +103,6 @@ const CreateEvent = () => {
       setShowLoading(false);
     }
   }
-
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -127,12 +130,16 @@ const CreateEvent = () => {
               <IonTextarea></IonTextarea>
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t("create.country")}</IonLabel>
-              <IonInput type="text" value={country} onInput={e => setCountry(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.city")}</IonLabel>
-              <IonInput type="text" value={city} onInput={e => setCity(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.postal")}</IonLabel>
-              <IonInput type="number" value={postal} onInput={e => setPostal(e.currentTarget.value)} />
+            <IonLabel >{t("create.inst")}</IonLabel>
+            <IonSelect value={instalacion} placeholder="Select One" onIonChange={e => setInstalacion(e.detail.value)}>
+                {
+                  instalacionesVar.map((instalacion, index) => {
+                    return (<IonSelectOption value={instalacion.id}>
+                      { instalacion.name }
+                    </IonSelectOption>)
+                  })
+                }
+              </IonSelect>
             </IonItem>
             <IonItem>
               <IonLabel>{t("create.type")}</IonLabel>

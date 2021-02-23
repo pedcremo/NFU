@@ -114,7 +114,8 @@
     "counter": "CSGO",
     "when": "Cuando es el evento?",
     "image": "Imagen",
-    "submit": "Añadir"
+    "submit": "Añadir",
+    "inst": "Instalación"
   },
   "instalation": {
     "title": "PISTAS"

@@ -117,7 +117,8 @@
     "counter": "CSGO",
     "when": "When is the event?",
     "image": "Image",
-    "submit": "Submit"
+    "submit": "Submit",
+    "inst": "Facility"
   },
   "instalation": {
     "title": "FIELDS"

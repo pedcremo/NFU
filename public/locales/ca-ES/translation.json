@@ -118,7 +118,8 @@
     "counter": "CSGO",
     "when": "Quan es l'event??",
     "image": "Imatge",
-    "submit": "Afegir"
+    "submit": "Afegir",
+    "inst": "Instal·lació" 
   },
 
   "instalation": {
