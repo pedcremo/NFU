@@ -14,6 +14,7 @@ import {
   IonSelectOption,
   IonDatetime,
   IonLoading,
+  IonToast,
 } from "@ionic/react";
 import "./UpdateProfile.css";
 import Header from "../../components/header/HeaderComponent";
@@ -39,19 +40,25 @@ const UpdateProfile = () => {
   const [birthday, setBirthday] = useState<string>(state.user.birthday);
   const history = useHistory();
   const [showLoading, setShowLoading] = useState(false);
+  const [fileError, setFileError] = useState(false);
 
   // Convert selected image to base64 and dispatch the new user's state
   function encodeImageFileAsURL(el) {
     var file = el.target.files[0];
     if (file) {
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        let user = state.user;
-        user.image = reader.result;
-        user.imageLocal = reader.result;
-        dispatch({ type: "SET_USER", value: user });
-      };
-      reader.readAsDataURL(file);
+      if (file.size <= 2000000) {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+          let user = state.user;
+          user.image = reader.result;
+          user.imageLocal = reader.result;
+          dispatch({ type: "SET_USER", value: user });
+        };
+        reader.readAsDataURL(file);
+      } else {
+        console.log("Archivo muy grande");
+        setFileError(true)
+      }
     }
   }
   const handleSubmit = async (e) => {
@@ -77,7 +84,7 @@ const UpdateProfile = () => {
   };
 
   const check_state = () =>{
-    
+
     if(state.user.username === username &&
       state.user.name === name &&
       state.user.surname === surname &&
@@ -95,6 +102,13 @@ const UpdateProfile = () => {
 
   return (
     <IonPage>
+      <IonToast
+        isOpen={fileError}
+        onDidDismiss={() => setFileError(false)}
+        message={t("fileSize")}
+        duration={2000}
+        position="middle"
+      />
       <Header page={t("updateProfile.title")} />
       <IonContent fullscreen>
         <IonLoading

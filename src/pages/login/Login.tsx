@@ -58,8 +58,6 @@ const Login: React.FC = () => {
 
         <div className="loginPageContent">
           <AppTitle />
-            <IonIcon style={{fontSize: "10rem"}} icon={chevronBack} />
-
             <IonImg
               src={DeporteImg}
               alt="Deporte IMG"
