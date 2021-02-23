@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect,useRef } from 'react';
 import { AppContext } from '../State';
 import { Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,10 @@ import {
   IonPage,
   IonSlide,
   IonSlides,
+  IonIcon
 } from "@ionic/react";
+import { arrowForwardOutline, arrowBackOutline } from "ionicons/icons";
+
 import "./Welcome.css";
 import icon from '../assets/img/nfu_icon.png'
 import DeporteImg from "../assets/img/deporte_img.png";
@@ -24,6 +27,11 @@ const Welcome: React.FC = () => {
   const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('');
   const { t } = useTranslation();
 
+
+const RefSlider = useRef<HTMLIonSlidesElement>(null);
+const forward = () => RefSlider.current.slideNext();
+const back = () => RefSlider.current.slidePrev();
+
   useEffect(() => {
     dispatch({ type: 'WELCOME', value: welcome})
   }, [welcome, dispatch]);
@@ -34,7 +42,7 @@ const Welcome: React.FC = () => {
     <IonPage>
       <IonContent fullscreen className="welcome-page-content" scroll-y="false">
         <div className="welcome-page-content">
-          <IonSlides pager={true}>
+          <IonSlides pager={true} ref={RefSlider}>
             <IonSlide>
               <div className="slide">
                 <div className="topSlide">
@@ -53,8 +61,12 @@ const Welcome: React.FC = () => {
                 <p className="slideText">
                 {t('welcome.description')} 
                
+
                 </p>
+                <IonIcon icon={arrowForwardOutline} size="large" onClick={ ()=> forward() }/>
+                
               </div>
+
             </IonSlide>
 
             <IonSlide>
@@ -72,6 +84,10 @@ const Welcome: React.FC = () => {
                 {t('welcome.meetDescription')}
                   
                 </p>
+                <IonIcon icon={arrowBackOutline} size="large" onClick={ ()=> back() }/>
+
+                <IonIcon icon={arrowForwardOutline} size="large" onClick={ ()=> forward() }/>
+
               </div>
             </IonSlide>
 
@@ -93,6 +109,9 @@ const Welcome: React.FC = () => {
                 <p className="slideText">
                   {t('welcome.findDescription')}                  
                 </p>
+                <IonIcon icon={arrowBackOutline} size="large" onClick={ ()=> back() }/>
+                <IonIcon icon={arrowForwardOutline} size="large" onClick={ ()=> forward() }/>
+
               </div>
             </IonSlide>
 
@@ -112,6 +131,8 @@ const Welcome: React.FC = () => {
 
                 <h2 className="slideTitle">{t('welcome.ready')}</h2>
                 <IonButton fill="clear" className="welcome-btn continue-welcome-btn" onClick={() => setWelcome('true')}>{t('welcome.continue')}</IonButton>
+                <IonIcon icon={arrowBackOutline}   size="large" onClick={ ()=> back() }/>
+
               </div>
             </IonSlide>
           </IonSlides>
