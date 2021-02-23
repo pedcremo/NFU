@@ -28,21 +28,58 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
             ? generateGravatar(email)
             : imageLocal,
         imageLocal: imageLocal,
-        events_joined: []
+        events_joined: [],
       };
       setShowLoading(true);
       setTimeout(() => {
         console.log("Añadiendo las notificaciones");
-        
+
         dispatch({
           type: "SET_USER_NOTIFICATIONS",
           value: [{ msg: "Wellcome to NFU", date: "10/10/2021", read: false }],
         });
-        dispatch({ type: "SET_USER", value: user })}, 5000);
+        dispatch({ type: "SET_USER", value: user });
+      }, 5000);
     } catch (e) {
       console.error(e);
       setShowLoading(false);
       setFormErrors(e);
+    }
+  };
+
+
+  //KEY ENTER LOGIN
+  const KEYENTER__LOGIN = (event) => {
+    if (event.key === "Enter") {
+      try {
+        let username = email as string;
+        let user = {
+          email: email,
+          username: username.split("@")[0],
+          image:
+            state.currentAvatar === "gravatar"
+              ? generateGravatar(email)
+              : imageLocal,
+          imageLocal: imageLocal,
+          events_joined: [],
+        };
+        setShowLoading(true);
+        setTimeout(() => {
+          console.log("Añadiendo las notificaciones");
+
+          dispatch({
+            type: "SET_USER_NOTIFICATIONS",
+            value: [
+              { msg: "Wellcome to NFU", date: "10/10/2021", read: false },
+            ],
+          });
+          dispatch({ type: "SET_USER", value: user });
+        }, 5000);
+      } catch (e) {
+        console.error(e);
+        setShowLoading(false);
+        setFormErrors(e);
+      }
     }
   };
 
@@ -73,6 +110,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         className="loginOption loginOption--input inputFieldLogin"
         required
         onInput={(e) => setPassword(e.currentTarget.value)}
+        onKeyDown={KEYENTER__LOGIN}
         placeholder={t("login.local_options.password")}
       />
       <IonButton
