@@ -1,10 +1,12 @@
 import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../../State";
 import { generateGravatar, imageLocal } from "../../utils";
-import { useHistory } from "react-router-dom";
-import { IonLabel, IonInput, IonLoading, IonButton } from "@ionic/react";
+import { useHistory, Link } from "react-router-dom";
+import { IonLabel, IonInput, IonLoading, IonButton, IonIcon } from "@ionic/react";
 import "./LocalOptions.css";
 import { useTranslation } from "react-i18next";
+import { home } from "ionicons/icons";
+
 
 const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   const history = useHistory();
@@ -105,6 +107,21 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         {" "}
         {t("login.local_options.social_options")}
       </IonLabel>
+
+      <Link
+        className="link"
+        to={'/app/home'}
+      >
+        <div className="cardContent__operation--icon ">
+          <IonButton>
+            <IonIcon
+              icon={home}
+              className="eventContent__actions--icon"
+            />
+            &nbsp;&nbsp; HOME
+          </IonButton>
+          </div>
+        </Link>
     </form>
   );
 };

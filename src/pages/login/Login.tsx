@@ -1,7 +1,8 @@
 import React, { useContext, useState} from "react";
 import { AppContext } from "../../State";
-import { Redirect } from "react-router-dom";
-import { IonContent, IonPage, IonImg, IonLabel } from "@ionic/react";
+import { Redirect, Link } from "react-router-dom";
+import { IonContent, IonPage, IonImg, IonLabel, IonButton, IonIcon } from "@ionic/react";
+import { home } from "ionicons/icons";
 import "./login.css";
 import DeporteImg from "../../assets/img/deporte_img.png";
 import AppTitle from '../../components/shared/AppTitle'
@@ -26,6 +27,20 @@ const Login: React.FC = () => {
           <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
+          <Link
+            className="link"
+            to={'/app/home'}
+          >
+          <div className="cardContent__operation--icon ">
+          <IonButton>
+            <IonIcon
+              icon={home}
+              className="eventContent__actions--icon"
+            />
+            &nbsp;&nbsp; HOME
+          </IonButton>
+          </div>
+        </Link>
         </div>
       </IonContent>
     </IonPage>
