@@ -21,3 +21,10 @@ https://ionicframework.com/blog/testing-ionic-react-apps-with-jest-and-react-tes
 https://blog.bitsrc.io/testing-with-react-testing-library-and-jest-3dffaa114c04
 
 https://jestjs.io/docs/en/tutorial-react
+
+
+Actividades
+
+Faciles
+
+
