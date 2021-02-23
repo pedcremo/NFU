@@ -41,19 +41,7 @@ const UpdateProfile = () => {
   const [showLoading, setShowLoading] = useState(false);
 
   // Convert selected image to base64 and dispatch the new user's state
-  function encodeImageFileAsURL(el) {
-    var file = el.target.files[0];
-    if (file) {
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        let user = state.user;
-        user.image = reader.result;
-        user.imageLocal = reader.result;
-        dispatch({ type: "SET_USER", value: user });
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -111,16 +99,9 @@ const UpdateProfile = () => {
                 alt=""
               />
             </IonAvatar>
-            <IonLabel className="change_profile_photo">
-              {t("updateProfile.changePhoto")}
-            </IonLabel>
+
             {/* <IonInput type="file" accept=".jpg,.jpeg,.png" multiple="false"> */}
-            <input
-              type="file"
-              id="uploadImgProfile"
-              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
-              onChange={(el) => encodeImageFileAsURL(el)}
-            />
+            
             <br/>
             <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
               <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">{t('updateProfile.changePhotoErr')}</IonLabel>

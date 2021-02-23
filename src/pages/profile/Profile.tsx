@@ -29,6 +29,25 @@ const Profile: React.FC = () => {
     return <Redirect to="/" />;
   }
 
+  function encodeImageFileAsURL(el) {
+    var file = el.target.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        let user = state.user;
+        user.image = reader.result;
+        user.imageLocal = reader.result;
+        dispatch({ type: "SET_USER", value: user });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // let importBtn = document.getElementById('import');
+  // importBtn.addEventListener('click', function() {    
+     
+  // });
+
   return (
     <IonPage>
       <Header page={t("pages.profile")} />
@@ -39,6 +58,16 @@ const Profile: React.FC = () => {
               className="ProfileImage"
               src={state.user.image}
               alt=""
+              onClick={() => { 
+                let link = document.getElementById('uploadImgProfile');             
+                link.click();
+              }}
+            />
+            <input
+              type="file"
+              id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
+              onChange={(el) => encodeImageFileAsURL(el)}
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
