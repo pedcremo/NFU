@@ -57,6 +57,7 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
   let likes = (e, id) => {
     if (state.user) {
       let LikeIndex = state.likes.indexOf(id);
+      console.log(state);
 
       if (e.target.className.includes("liked") && LikeIndex != -1) {
         e.target.className = e.target.className.replace(" liked", "");
@@ -65,9 +66,9 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
         e.target.className = e.target.className += " liked";
         state.likes.push(id);
       }
-    dispatch ({ type: "LIKES", value: state.likes})
-    }else{
-      history.push('/login')
+      dispatch({ type: "LIKES", value: state.likes });
+    } else {
+      history.push("/login");
     }
   };
   return (

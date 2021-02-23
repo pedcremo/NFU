@@ -42,7 +42,7 @@ const EventList = () => {
   // Function to filter events, receives events and applies state filters.
   function filterEvents(events) {
     let eventsFiltred = [...events];
-
+    console.log(eventsFiltred)
     // We filter by valuation.
     eventsFiltred = eventsFiltred.filter(
       (event) => event.author.rate > filters.valuation

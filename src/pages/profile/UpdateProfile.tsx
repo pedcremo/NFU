@@ -118,6 +118,9 @@ const UpdateProfile = () => {
             <input
               type="file"
               id="uploadImgProfile"
+              data-max-size="2048"
+              accept="image/png, image/jpeg"
+
               disabled={(state.currentAvatar === 'gravatar' ? true: false)}
               onChange={(el) => encodeImageFileAsURL(el)}
             />

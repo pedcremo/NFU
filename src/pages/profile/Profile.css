@@ -14,8 +14,12 @@
   width: 200px;
   object-fit: cover;
   background-color: transparent;
+  transition: transform .2s; /* Animation */
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.ProfileImage:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .Content__info {

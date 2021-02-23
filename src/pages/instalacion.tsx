@@ -25,9 +25,6 @@ const Instalacion: React.FC = () => {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
 
   return (
     <IonPage>

@@ -109,6 +109,7 @@ const CreateEvent = () => {
     <IonPage>
       <Header page={t("pages.addevent")} />
       <IonContent>
+      
         <section className="add-event">
           <h1>{t("create.add")}</h1>
           <form onSubmit={handleSubmit} method="post" className="add-event-form">
@@ -148,7 +149,7 @@ const CreateEvent = () => {
             <IonItem>
               <IonLabel>{t("create.when")}</IonLabel>
               <IonDatetime
-                displayFormat="D MMM YYYY H:mm"
+                displayFormat="DDDD MMMM, YYYY  H:mm"
                 min="2021"
                 max="2060"
                 display-timezone="utc"
@@ -156,6 +157,7 @@ const CreateEvent = () => {
                 onIonChange={e => setDate(e.detail.value!)}
               >
               </IonDatetime>
+    
             </IonItem>
             <IonItem lines="none">
               <IonLabel>{t("create.image")}</IonLabel>
