@@ -190,5 +190,10 @@
     "esp": "Castellà",
     "cat": "Català",
     "en": "Anglés"
+  },
+
+  "translation":{
+    "next":"Següent",
+    "prev":"Anterior"
   }
 }

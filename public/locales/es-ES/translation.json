@@ -185,5 +185,9 @@
     "esp": "Castellano",
     "cat": "Catalán",
     "en": "Inglés"
+  },
+  "translation":{
+    "next":"Siguiente",
+    "prev":"Anterior"
   }
 }

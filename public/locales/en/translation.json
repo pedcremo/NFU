@@ -188,5 +188,9 @@
     "esp": "Spanish",
     "cat": "Catalan",
     "en": "English"
+  },
+  "translation":{
+    "next":"Next",
+    "prev":"Prev"
   }
 }
