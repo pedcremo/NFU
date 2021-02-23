@@ -15,6 +15,7 @@ import './Instalaciones_preview.css';
 const InstalacionesPreview = (props: any) => {
 
   const Props = props;
+  console.log(Props.info.pistas);
 
   return (
     <IonCard className="cardList">
@@ -24,6 +25,12 @@ const InstalacionesPreview = (props: any) => {
         </article>
         <article className="cardContent__right">
           <IonCardTitle>{Props.info.name}</IonCardTitle>
+          <div className="pistas">
+            {Props.info.pistas.map((data, index) => (
+              <span key={"info_" + index}>{data.Nombre}</span>
+            ))}
+          </div>
+
           <IonCardSubtitle className="cardContent__ubications"><IonIcon icon={pinSharp} className="playersIcon" />{Props.info.ubication}</IonCardSubtitle>
           <IonCardContent className="cardContent__operation">
             <section>

@@ -95,3 +95,10 @@
         max-width: 100%;
     }
 }
+.pistas{
+    top: 80px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
