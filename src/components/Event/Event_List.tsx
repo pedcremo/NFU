@@ -103,9 +103,6 @@ const EventList = () => {
       else if (filters.time == null) return event;
     });
 
-    // Sort date
-    eventsFiltred = eventsFiltred.sort((event_b,event_a) => new Date(event_a.time).getTime() < new Date(event_b.time).getTime() ? 1 : -1);
-
     return eventsFiltred;
   }
 
@@ -116,15 +113,19 @@ const EventList = () => {
     switch (state.segment) {
       case "recent":
         // Recent events
-        const tempSearchResult = filterEvents(Object.values(state.events));
+        let tempSearchResult = filterEvents(Object.values(state.events));
+        // Sort date
+        tempSearchResult = tempSearchResult.sort((event_b,event_a) => new Date(event_a.time).getTime() < new Date(event_b.time).getTime() ? 1 : -1);
         setFilteredSearch([...tempSearchResult]);
         break;
     
       case "yours":
         // User events
-        const tempYourEvents = filterEvents(
+        let tempYourEvents = filterEvents(
           Object.values(state.events).filter((event: typeof event_model) => state.events_joined.indexOf(event.id) > -1)
         );
+        // Sort date
+        tempYourEvents = tempYourEvents.sort((event_b,event_a) => new Date(event_a.time).getTime() < new Date(event_b.time).getTime() ? 1 : -1);
         setFilteredSearch([...tempYourEvents]);
         break;
 
