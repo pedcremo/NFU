@@ -23,7 +23,7 @@ const Login: React.FC = () => {
   if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
   if (state.user) return <Redirect to="/app/home" />;
 
-  let proof =()=>{
+  let clickEasterEgg =()=>{
     let now = new Date()
     let date = now.getTime() - time.getTime()
     let sec = Math.floor((date/1000) % 60);
@@ -38,10 +38,10 @@ const Login: React.FC = () => {
 
     if (count_click == 21 ){
       if( easteregg){
-        alert("NO SEAS ABUSON")
+        alert("Do not be abusive")
         setCount(0)
       }else{
-        alert("HAS DESCUBIERTO UN EASTER EGG")
+        alert("You discovered an easteregg")
         setCount(0)
         setEasterEgg(true)
       }
@@ -54,7 +54,7 @@ const Login: React.FC = () => {
       <IonContent fullscreen>
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={ (e) => proof()} />
+          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={ (e) => clickEasterEgg()} />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
           <Link
