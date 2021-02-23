@@ -46,7 +46,6 @@ const Login: React.FC = () => {
       <IonContent fullscreen>
         <IonToast
           isOpen={showToast === 22}
-          // onDidDismiss={() => setShowToast1(false)}
           message={`${t("easterEgg")}`}
           duration={3000}
         />

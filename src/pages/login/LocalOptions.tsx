@@ -2,7 +2,13 @@ import React, { useContext, useState, useRef } from "react";
 import { AppContext } from "../../State";
 import { generateGravatar, imageLocal } from "../../utils";
 import { useHistory } from "react-router-dom";
-import { IonLabel, IonInput, IonLoading, IonButton } from "@ionic/react";
+import {
+  IonLabel,
+  IonInput,
+  IonLoading,
+  IonButton,
+  IonToast,
+} from "@ionic/react";
 import "./LocalOptions.css";
 import { useTranslation } from "react-i18next";
 
@@ -15,9 +21,10 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   const [showLoading, setShowLoading] = useState(false);
   const formRef = useRef(null);
   const { t } = useTranslation();
+  const [invalidEmail, setInvalidEmail] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e && e.preventDefault();
     try {
       let username = email as string;
       let user = {
@@ -28,17 +35,18 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
             ? generateGravatar(email)
             : imageLocal,
         imageLocal: imageLocal,
-        events_joined: []
+        events_joined: [],
       };
       setShowLoading(true);
       setTimeout(() => {
         console.log("Añadiendo las notificaciones");
-        
+
         dispatch({
           type: "SET_USER_NOTIFICATIONS",
           value: [{ msg: "Wellcome to NFU", date: "10/10/2021", read: false }],
         });
-        dispatch({ type: "SET_USER", value: user })}, 5000);
+        dispatch({ type: "SET_USER", value: user });
+      }, 5000);
     } catch (e) {
       console.error(e);
       setShowLoading(false);
@@ -47,10 +55,24 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   };
 
   const keyPress = (e) => {
-    if(e.key === 'Enter') { 
-      
+    if (e.key === "Enter") {
+      var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      if (regex.test(email.toString())) {
+        if (password.toString().length > 10) {
+          console.log("eee");
+          
+          handleSubmit(undefined);
+        } else {
+          console.log("ooo");
+
+          setInvalidEmail(true);
+        }
+      } else {
+        setInvalidEmail(true);
+      }
     }
-  }
+  };
 
   return (
     <form
@@ -60,6 +82,11 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
       ref={formRef}
       className="loginOptionsContainer_form"
     >
+      <IonToast
+        isOpen={invalidEmail}
+        message={`${t("invalidEmail")}`}
+        duration={3000}
+      />
       <IonLoading
         isOpen={showLoading}
         message={"Logging in"}
