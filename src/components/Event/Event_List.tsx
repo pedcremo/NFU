@@ -31,7 +31,7 @@ const EventList = () => {
     search: "",
     valuation: "1",
     date: null,
-    time: null, 
+    time: null,
     available_players: "",
     max_players: "",
     busy_players: "",
@@ -116,11 +116,14 @@ const EventList = () => {
         const tempSearchResult = filterEvents(Object.values(state.events));
         setFilteredSearch([...tempSearchResult]);
         break;
-    
+
       case "yours":
         // User events
         const tempYourEvents = filterEvents(
-          Object.values(state.events).filter((event: typeof event_model) => state.events_joined.indexOf(event.id) > -1)
+          Object.values(state.events).filter(
+            (event: typeof event_model) =>
+              state.events_joined.indexOf(event.id) > -1
+          )
         );
         setFilteredSearch([...tempYourEvents]);
         break;
@@ -128,7 +131,9 @@ const EventList = () => {
       case "favorited":
         // Favorited events
         const tempFavoriteEvents = filterEvents(
-          Object.values(state.events).filter((event: typeof event_model) => state.likes.includes(event.id))
+          Object.values(state.events).filter((event: typeof event_model) =>
+            state.likes.includes(event.id)
+          )
         );
         setFilteredSearch([...tempFavoriteEvents]);
         break;
@@ -139,6 +144,21 @@ const EventList = () => {
   return (
     <>
       <div className="filters-panel">
+        <IonButton
+          onClick={() =>
+            setFilter({
+              search: "",
+              valuation: "1",
+              date: null,
+              time: null,
+              available_players: "",
+              max_players: "",
+              busy_players: "",
+            })
+          }
+        >
+          Clean Filters
+        </IonButton>
         <IonButton
           onClick={() => setFilterPanel(true)}
           style={{ display: filterPanel ? "none" : "block" }}
