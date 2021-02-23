@@ -8,6 +8,7 @@ import {
   IonLabel,
   IonButton,
   IonToast,
+  IonIcon,
 } from "@ionic/react";
 import "./login.css";
 import DeporteImg from "../../assets/img/deporte_img.png";
@@ -16,6 +17,12 @@ import SocialOptions from "./SocialOptions";
 import LocalOptions from "./LocalOptions";
 import { useTranslation } from "react-i18next";
 import { Toast } from "@capacitor/core";
+import {
+  chevronBack,
+  chevronForward,
+  chevronForwardCircleOutline,
+  timeOutline,
+} from "ionicons/icons";
 
 const Login: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -25,7 +32,6 @@ const Login: React.FC = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const [showToast, setShowToast] = useState(0);
-  
 
   const anonimousLogin = (e) => {
     history.push("/");
@@ -52,14 +58,16 @@ const Login: React.FC = () => {
 
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg
-            src={DeporteImg}
-            alt="Deporte IMG"
-            className="loginImg"
-            onClick={(e) => {
-              handleEasterEgg(e);
-            }}
-          />
+            <IonIcon style={{fontSize: "10rem"}} icon={chevronBack} />
+
+            <IonImg
+              src={DeporteImg}
+              alt="Deporte IMG"
+              className="loginImg"
+              onClick={(e) => {
+                handleEasterEgg(e);
+              }}
+            />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel>
           <IonButton
             onClick={(e) => {

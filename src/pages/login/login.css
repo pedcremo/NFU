@@ -182,3 +182,11 @@
     background-color: rgba(125, 202, 179, 0.281);
 
 }
+
+.controller {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
