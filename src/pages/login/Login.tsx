@@ -23,30 +23,30 @@ const Login: React.FC = () => {
   if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
   if (state.user) return <Redirect to="/app/home" />;
 
-  let clickEasterEgg =()=>{
+  let clickEasterEgg =(e)=>{
     let now = new Date()
     let date = now.getTime() - time.getTime()
     let sec = Math.floor((date/1000) % 60);
 
     setTime(new Date())
-      
-    if (sec <1){
-      setCount(count_click + 1)
-    } else{
-      setCount(0)
-    }
+    sec<1? setCount(count_click + 1) : setCount(0)
+
 
     if (count_click == 21 ){
+      setCount(0)
+
+      e.target.className = e.target.className += " easteregg";
+
       if( easteregg){
         alert("Do not be abusive")
-        setCount(0)
       }else{
         alert("You discovered an easteregg")
-        setCount(0)
         setEasterEgg(true)
       }
     }
+
   }
+
 
 //"initial_text":"Find tournaments and matches for the sport that you prefer",
   return (
@@ -54,7 +54,7 @@ const Login: React.FC = () => {
       <IonContent fullscreen>
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={ (e) => clickEasterEgg()} />
+          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={ (e) => clickEasterEgg(e)} />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
           <Link

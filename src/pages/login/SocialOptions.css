@@ -85,6 +85,11 @@
   max-width: 290px;
 }
 
+.easteregg{
+  transition: transform 0.5s ease;
+  transform: rotate3d(5,1,1,180deg);
+}
+
 .prhaseLogin{
   text-align: center;
   font-family: Poppins-ExtraBold;
