@@ -111,8 +111,11 @@
     "province": "Provincia",
     "postal": "Codi Postal",
     "type": "Selecciona una categoría",
-    "gaming": "Gaming",
-    "sport": "Esport",
+    "tennis": "Tenis",
+    "football": "Futbol",
+    "basket": "Bàsquet",
+    "paddle": "Pàdel",
+    "counter": "CSGO",
     "when": "Quan es l'event??",
     "image": "Imatge",
     "submit": "Afegir"

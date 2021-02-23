@@ -110,8 +110,11 @@
     "province": "Province",
     "postal": "Postal Code",
     "type": "Select a category",
-    "gaming": "Gaming",
-    "sport": "Sport",
+    "tennis": "Tennis",
+    "football": "Football",
+    "basket": "Basket",
+    "paddle": "Paddle",
+    "counter": "CSGO",
     "when": "When is the event?",
     "image": "Image",
     "submit": "Submit"

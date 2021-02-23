@@ -78,7 +78,7 @@ const CreateEvent = () => {
           postalcode: postal,
           city: city,
         },
-        image: image,
+        image: image ? image : `../../assets/images/${type}.jpg`,
         p: {
           0: state.user.username
         },
@@ -137,11 +137,20 @@ const CreateEvent = () => {
             <IonItem>
               <IonLabel>{t("create.type")}</IonLabel>
               <IonSelect value={type} placeholder="Select One" onIonChange={e => setType(e.detail.value)}>
-                <IonSelectOption value="gaming">
-                  {t("create.gaming")}
+                <IonSelectOption value="tennis">
+                  {t("create.tennis")}
                 </IonSelectOption>
-                <IonSelectOption value="sport">
-                  {t("create.sport")}
+                <IonSelectOption value="football">
+                  {t("create.football")}
+                </IonSelectOption>
+                <IonSelectOption value="basket">
+                  {t("create.basket")}
+                </IonSelectOption>
+                <IonSelectOption value="paddle">
+                  {t("create.paddle")}
+                </IonSelectOption>
+                <IonSelectOption value="counter">
+                  {t("create.counter")}
                 </IonSelectOption>
               </IonSelect>
             </IonItem>
