@@ -19,6 +19,7 @@ const Login: React.FC = () => {
   const CLICKS_TO_EASTER = 22;
   const [currentClicks, setClick] = useState(0);
   const [showRedeemCode, setShowRedeemCode] = useState(false);
+  const [usedRedeemCode, setUsedRedeemCode] = useState(false);
 
   /* istanbul ignore if */
   if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
@@ -33,13 +34,13 @@ const Login: React.FC = () => {
           header={t("login.congratulations")}
           message={'20DISCOUNTCODE'}
           buttons={[t("login.thanks")]}
-          onWillDismiss={() => setClick(0)}
+          onWillDismiss={() => setUsedRedeemCode(true)}
         />
         <div className="loginPageContent">
           <AppTitle />
           <IonImg onClick={() => {
-            setClick(currentClicks + 1);
-            if (currentClicks === CLICKS_TO_EASTER) {
+            if (!usedRedeemCode) setClick(currentClicks + 1);
+            if (!usedRedeemCode && currentClicks === CLICKS_TO_EASTER) {
               setShowRedeemCode(true);
             }
           }} src={DeporteImg} alt="Deporte IMG" className="loginImg" />
