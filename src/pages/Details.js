@@ -45,9 +45,7 @@ const Details = () => {
   let players = Object.values(event.p);
   const comments = event.comments;
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
+  const LOGIN_PATH = "/login"
 
   let goInstalation = (city) => {
     let pista = instalaciones.filter((pista) => pista.ubication == city);
@@ -60,17 +58,22 @@ const Details = () => {
   };
 
   let deleteEvent = () => {
-    if (state.user.username === event.author.username) {
-      let eventsPush = events_array.filter((e) => e.id !== event.id);
-      setShowLoading(true);
-      setTimeout(() => {
-        setShowLoading(false);
-        dispatch({ type: "SET_EVENTS", value: eventsPush });
-        history.push("/app/home");
-        setMessage("Event has been deleted correctly");
-        setShowToast(true);
-      }, 1500);
+    if (!state.user) {
+      history.push(LOGIN_PATH)
+    } else {
+      if (state.user.username === event.author.username) {
+        let eventsPush = events_array.filter((e) => e.id !== event.id);
+        setShowLoading(true);
+        setTimeout(() => {
+          setShowLoading(false);
+          dispatch({ type: "SET_EVENTS", value: eventsPush });
+          history.push("/app/home");
+          setMessage("Event has been deleted correctly");
+          setShowToast(true);
+        }, 1500);
+      }
     }
+
   };
 
   function handleClick(type) {
@@ -183,11 +186,16 @@ const Details = () => {
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => {
-                    if (event.maxplayers == event.p.length) {
-                      setShowToast(true);
-                      setMessage("This event is completed");
-                    } else
-                      dispatch({ type: "SET_JOIN", value: event.id })}
+                    if (!state.user) {
+                      history.push(LOGIN_PATH)
+
+                    } else {
+                      if (event.maxplayers == event.p.length) {
+                        setShowToast(true);
+                        setMessage("This event is completed");
+                      } else
+                        dispatch({ type: "SET_JOIN", value: event.id })}
+                      }
                   }
                 >
                   JOIN

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import './CommentList.css'
 import {
     IonButton,
@@ -19,20 +20,27 @@ type CommentProps = {
 const NFUCommentList: React.FC<CommentProps> = (props) => {
     const [showToastDelete, setShowToastDelete] = useState(false);
     const { state,dispatch } = useContext(AppContext);
+    const history = useHistory();
+    const LOGIN_PATH = "/login";
 
     let comments = props.comments;
 
     const deleteComment = async (e) => {
-        setShowToastDelete(true);
-        let state_copy = state.events;
-        const event = Object.keys(state_copy).map(key => state_copy[key]).find((event) => event.id == props.gameID); 
-        try{
-            const comments = Object.keys(event.comments).map(key => event.comments[key]).filter((comment) => comment !== e)
-            event.comments = comments
-            dispatch({ type: "SET_EVENTS", value: state_copy });
-        }catch{
-            console.log("FAIL DELETE COMMENT");
+        if (!state.user) {
+            history.push(LOGIN_PATH);
+        } else {
+            setShowToastDelete(true);
+            let state_copy = state.events;
+            const event = Object.keys(state_copy).map(key => state_copy[key]).find((event) => event.id == props.gameID); 
+            try{
+                const comments = Object.keys(event.comments).map(key => event.comments[key]).filter((comment) => comment !== e)
+                event.comments = comments
+                dispatch({ type: "SET_EVENTS", value: state_copy });
+            }catch{
+                console.log("FAIL DELETE COMMENT");
+            }
         }
+
     }
 
     const check_author = (comment) =>{
