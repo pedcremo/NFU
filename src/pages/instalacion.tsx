@@ -25,7 +25,6 @@ const Instalacion: React.FC = () => {
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
 
-
   return (
     <IonPage>
       <Header page={instalacion.name}></Header>
@@ -49,10 +48,52 @@ const Instalacion: React.FC = () => {
                 <span className="detail-content-left-title">
                   {t("instalation.title")}
                 </span>
+                {state.user ? (
+                  <article className="pistas_grid">
+                    {instalacion.pistas.map((pista) => (
+                      <IonCard className="lista">
+                        <a href="/app/create" className="minimodal">
+                          CREAR EVENTO
+                        </a>
+
+                        <div className="lista-image">
+                          <img alt="img" src={pista.Imagen} />
+                        </div>
+                        <div className="lista-content">
+                          <h3 className="lista-content-title">
+                            {pista.Nombre}
+                          </h3>
+                        </div>
+                      </IonCard>
+                    ))}
+                  </article>
+                ) : (
+                  <article className="pistas_grid">
+                    {instalacion.pistas.map((pista) => (
+                      <IonCard className="lista">
+                        <a href="/login" className="minimodal">
+                          CREAR EVENTO
+                        </a>
+
+                        <div className="lista-image">
+                          <img alt="img" src={pista.Imagen} />
+                        </div>
+                        <div className="lista-content">
+                          <h3 className="lista-content-title">
+                            {pista.Nombre}
+                          </h3>
+                        </div>
+                      </IonCard>
+                    ))}
+                  </article>
+                )}
                 <article className="pistas_grid">
                   {instalacion.pistas.map((pista) => (
                     <IonCard className="lista">
-                      <a href="/app/create" className="minimodal">CREAR EVENTO</a>
+                      <a href="/app/create" className="minimodal">
+                        CREAR EVENTO
+                      </a>
+
                       <div className="lista-image">
                         <img alt="img" src={pista.Imagen} />
                       </div>
