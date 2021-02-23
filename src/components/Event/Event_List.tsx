@@ -358,7 +358,8 @@ const EventList = () => {
       )}
 
       <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
+      {/* filteredSearch.sort((a, b) => a.date < b.date ? 1 : -1).map */}
+        {filteredSearch.sort((a, b) => a.time < b.time ? 1 : -1).map((event, index) => (
           <EventsPreview key={"event_" + index} event={event} />
         ))}
       </IonList>
