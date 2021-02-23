@@ -30,6 +30,7 @@ const initialState = {
   events: [],
   events_joined: [],
   likes: [],
+  EasterEggClick: 0,
 };
 
 let reducer = (state, action) => {
@@ -122,6 +123,9 @@ let reducer = (state, action) => {
       );
 
       return { ...state, events_joined: new_events_joined, events: new_events };
+    }
+    case "EASTER__EGG": {
+      return { ...state, EasterEggClick: action.value };
     }
   }
   return state;

@@ -126,6 +126,7 @@
   "login": {
     "initial_text": "Troba tornejos i partits per a l'esport que prefereixis",
     "home":"INICI",
+    "egg":"HAS TROBAT UN EASTER EGG ENHORABONA",
     "social_options": {
       "google": "Continua amb Google",
       "facebook": "Continua amb Facebook",

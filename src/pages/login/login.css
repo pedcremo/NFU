@@ -182,3 +182,39 @@
     background-color: rgba(125, 202, 179, 0.281);
 
 }
+
+
+/* */
+
+.loginImg__Easter{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation-name: animations_egg;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+@keyframes animations_egg {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+
+  .Easter__title{
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Poppins-SemiBold;
+    font-size: 26px;
+    color: darkslateblue;
+    text-shadow: 1px 1px 1.5px #000000;
+    font-weight: bolder;
+  }

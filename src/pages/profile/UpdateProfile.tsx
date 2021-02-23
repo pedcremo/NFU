@@ -30,9 +30,7 @@ const UpdateProfile = () => {
   const [gender, setGender] = useState<React.ReactText | undefined>(
     state.user.gender
   );
-  const [email,] = useState<React.ReactText | undefined>(
-    state.user.email
-  );
+  const [email] = useState<React.ReactText | undefined>(state.user.email);
   const [surname, setSurname] = useState<React.ReactText | undefined>(
     state.user.surname
   );
@@ -44,7 +42,10 @@ const UpdateProfile = () => {
   function encodeImageFileAsURL(el) {
     var file = el.target.files[0];
     if (file) {
-      var reader = new FileReader();
+      let reader = new FileReader();
+      let sizeInMB = file.size.toFixed(2);
+
+      alert(sizeInMB + "MB");
       reader.onloadend = function () {
         let user = state.user;
         user.image = reader.result;
@@ -64,7 +65,7 @@ const UpdateProfile = () => {
       user.surname = surname;
       user.birthday = birthday;
       user.username = username;
-      user.events_joined= state.user.events_joined;
+      user.events_joined = state.user.events_joined;
 
       //Here send email with unique token.
       setTimeout(() => {
@@ -76,18 +77,19 @@ const UpdateProfile = () => {
     }
   };
 
-  const check_state = () =>{
-    
-    if(state.user.username === username &&
+  const check_state = () => {
+    if (
+      state.user.username === username &&
       state.user.name === name &&
       state.user.surname === surname &&
       state.user.gender === gender &&
-      state.user.birthday === birthday){
-        return true
-    }else{
-      return false
+      state.user.birthday === birthday
+    ) {
+      return true;
+    } else {
+      return false;
     }
-  }
+  };
 
   if (!state.user) {
     history.push("/");
@@ -114,16 +116,29 @@ const UpdateProfile = () => {
             <IonLabel className="change_profile_photo">
               {t("updateProfile.changePhoto")}
             </IonLabel>
-            {/* <IonInput type="file" accept=".jpg,.jpeg,.png" multiple="false"> */}
+
             <input
               type="file"
+              accept=".jpeg,.png"
+              data-max-size="2048"
               id="uploadImgProfile"
-              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
+              disabled={state.currentAvatar === "gravatar" ? true : false}
               onChange={(el) => encodeImageFileAsURL(el)}
             />
-            <br/>
-            <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
-              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">{t('updateProfile.changePhotoErr')}</IonLabel>
+            <br />
+            <Link
+              to={{ pathname: "/app/settings" }}
+              style={{ textDecoration: "none" }}
+            >
+              <IonLabel
+                style={{
+                  display:
+                    state.currentAvatar === "gravatar" ? "block" : "none",
+                }}
+                className="err-label-update"
+              >
+                {t("updateProfile.changePhotoErr")}
+              </IonLabel>
             </Link>
           </div>
 

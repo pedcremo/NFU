@@ -124,6 +124,7 @@
   "login": {
     "home":"HOME",
     "initial_text": "Find tournaments and matches for the sport that you prefer",
+    "egg":"YOU JUST FOUND AN EASTER EGG CONGRATULATIONS",
     "social_options": {
       "google": "Continue with Google",
       "facebook": "Continue with Facebook",
