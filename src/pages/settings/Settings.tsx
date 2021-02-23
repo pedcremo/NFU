@@ -115,11 +115,9 @@ const Settings: React.FC = () => {
           <IonItem className="settings-item settings-option" routerLink="/app/profile/update" routerDirection="none" lines="none">
             <IonLabel className="settings-label">{t("settings.profileSettings")}</IonLabel>
           </IonItem>
-          <Link to={{ pathname: '/welcome', state: { about: true } }} style={{textDecoration:'none'}}>
             <IonItem className="settings-item settings-option">
               <IonLabel className="settings-label">{t("settings.about")}</IonLabel>
             </IonItem>
-          </Link>
 
         </IonItemGroup>
         <IonToast isOpen={showToastSettings} onDidDismiss={() => setShowToastSettings(false)} message="Your settings have been saved." duration={1200} />
