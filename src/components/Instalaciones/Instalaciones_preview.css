@@ -95,3 +95,26 @@
         max-width: 100%;
     }
 }
+
+.medium-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tags-pistas-container{
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -40px;
+}
+
+.tags-pistas-container li {
+    list-style: none;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: rgb(202, 240, 197);
+    margin: 5px;
+    cursor: pointer;
+}
