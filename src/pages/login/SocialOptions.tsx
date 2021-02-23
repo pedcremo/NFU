@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 const SocialOptions: React.FC<{action?: Function}> = ({action}) => {
   const { t } = useTranslation();
   const history = useHistory();
+  
   return (
     <div className="loginOptionsContainer">
       <IonItem className="socialOption socialOption--google">
