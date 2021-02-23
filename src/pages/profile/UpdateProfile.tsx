@@ -186,7 +186,7 @@ const UpdateProfile = () => {
             <IonItem>
               <IonLabel>{t("updateProfile.form.advanced.birthday")}</IonLabel>
               <IonDatetime
-                displayFormat="MM DD YY"
+                displayFormat="DD MM YYYY"
                 placeholder="Select Date"
                 value={birthday}
                 onIonChange={(e) => setBirthday(e.detail.value!)}
