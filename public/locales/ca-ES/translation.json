@@ -27,7 +27,8 @@
         "stars": "Valoracion de Usuario",
         "button": {
           "hide": "Ocultar filtros",
-          "open": "Más filtros"
+          "open": "Más filtros",
+          "restart": "Reinicia filtres"
         }
       },
       "search": {
