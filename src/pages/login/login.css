@@ -182,3 +182,9 @@
     background-color: rgba(125, 202, 179, 0.281);
 
 }
+
+.login-home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
