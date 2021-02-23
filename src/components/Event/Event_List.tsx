@@ -38,7 +38,17 @@ const EventList = () => {
   });
 
   const { state, dispatch } = useContext(AppContext);
-
+  function resetFilters(){
+    setFilter({
+      search: "",
+      valuation: "1",
+      date: null,
+      time: null, 
+      available_players: "",
+      max_players: "",
+      busy_players: "",
+    })
+  }
   // Function to filter events, receives events and applies state filters.
   function filterEvents(events) {
     let eventsFiltred = [...events];
@@ -150,6 +160,12 @@ const EventList = () => {
           style={{ display: filterPanel ? "block" : "none" }}
         >
           {t("home.events.filters.button.hide")}
+        </IonButton>
+        <IonButton
+          onClick={() => resetFilters()}
+          style={{ display: filterPanel ? "block" : "none" }}
+        >
+          CLEAR FILTERS
         </IonButton>
         <IonSearchbar
           placeholder={t("home.events.search.placeholder")}
