@@ -125,6 +125,7 @@
   },
   "login": {
     "initial_text": "Find tournaments and matches for the sport that you prefer",
+    "return": "Return to home",
     "social_options": {
       "google": "Continue with Google",
       "facebook": "Continue with Facebook",

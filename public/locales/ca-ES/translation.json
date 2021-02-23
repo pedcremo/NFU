@@ -127,6 +127,7 @@
   },
   "login": {
     "initial_text": "Troba tornejos i partits per a l'esport que prefereixis",
+    "return": "Tornar a l'inici",
     "social_options": {
       "google": "Continua amb Google",
       "facebook": "Continua amb Facebook",

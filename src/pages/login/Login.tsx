@@ -29,7 +29,7 @@ const Login: React.FC = () => {
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel>
           <br></br>
           <IonItem className="socialOption socialOption--local" onClick={() => history.push('app/home')}>
-            <IonLabel className="socialOption--local-label">Return</IonLabel>
+            <IonLabel className="socialOption--local-label">{t("login.return")}</IonLabel>
           </IonItem>
           {currentOptions === "Social" ? <SocialOptions action={setCurrentOptions} /> : <LocalOptions action={setCurrentOptions} />}
         </div>

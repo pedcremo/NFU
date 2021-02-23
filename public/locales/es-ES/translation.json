@@ -122,6 +122,7 @@
   },
   "login": {
     "initial_text": "Encuentra torneos y partidos para el deporte que prefieras",
+    "return": "Volver al Inicio",
     "social_options": {
       "google": "Continua con Google",
       "facebook": "Continua con Facebook",
