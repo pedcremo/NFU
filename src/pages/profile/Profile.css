@@ -16,6 +16,8 @@
   background-color: transparent;
   margin-top: 1rem;
   margin-bottom: 1rem;
+
+  cursor: pointer;
 }
 
 .Content__info {

@@ -20,8 +20,22 @@ import { useTranslation } from "react-i18next";
 import Header from "../../components/header/HeaderComponent";
 
 const Profile: React.FC = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
+
+  const encodeImageFileAsURL = (el) => {
+    var file = el.target.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        let user = state.user;
+        user.image = reader.result;
+        user.imageLocal = reader.result;
+        dispatch({ type: "SET_USER", value: user });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   console.log(state.user);
 
@@ -35,10 +49,23 @@ const Profile: React.FC = () => {
       <IonContent>
         <div className="Content">
           <div className="Content__info">
+            <input
+              type="file"
+              id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
+              onChange={(el) => encodeImageFileAsURL(el)}
+              hidden={true}
+            />
             <img
               className="ProfileImage"
               src={state.user.image}
               alt=""
+              onClick={() => {
+                state.user.image = null;
+                if (!state.user.image) {
+                  if (document.getElementById('uploadImgProfile')) document.getElementById('uploadImgProfile').click();
+                }
+              }}
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
