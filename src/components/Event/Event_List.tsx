@@ -106,6 +106,14 @@ const EventList = () => {
     return eventsFiltred;
   }
 
+  const orderListByDate = (events: any) => {
+    return events.sort((a: any, b: any) => {
+      if (new Date(a.time) > new Date(b.time)) return -1;
+      if (new Date(a.time) < new Date(b.time)) return 1;
+      return 0;
+    });
+  }
+
   useEffect(() => {
     // Select option from global state
     setSegment(state.segment);
@@ -114,7 +122,7 @@ const EventList = () => {
       case "recent":
         // Recent events
         const tempSearchResult = filterEvents(Object.values(state.events));
-        setFilteredSearch([...tempSearchResult]);
+        setFilteredSearch([...orderListByDate(tempSearchResult)]);
         break;
     
       case "yours":
@@ -122,7 +130,7 @@ const EventList = () => {
         const tempYourEvents = filterEvents(
           Object.values(state.events).filter((event: typeof event_model) => state.events_joined.indexOf(event.id) > -1)
         );
-        setFilteredSearch([...tempYourEvents]);
+        setFilteredSearch([...orderListByDate(tempSearchResult)]);
         break;
 
       case "favorited":
@@ -130,7 +138,7 @@ const EventList = () => {
         const tempFavoriteEvents = filterEvents(
           Object.values(state.events).filter((event: typeof event_model) => state.likes.includes(event.id))
         );
-        setFilteredSearch([...tempFavoriteEvents]);
+        setFilteredSearch([...orderListByDate(tempSearchResult)]);
         break;
     }
     console.log(state.events_joined);
