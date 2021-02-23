@@ -22,7 +22,7 @@ const Login: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
         <div className="loginPageContent">
-          <IonButton className="login-home-btn" routerLink="/app/home">Home</IonButton>
+          <IonButton className="login-home-btn" routerLink="/app/home">{t("login.home")}</IonButton>
           <AppTitle />
           <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
