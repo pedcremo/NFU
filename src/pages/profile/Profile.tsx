@@ -20,8 +20,12 @@ import { useTranslation } from "react-i18next";
 import Header from "../../components/header/HeaderComponent";
 
 const Profile: React.FC = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
+
+  const setSegment = () => {
+    dispatch({ type: "SET_SEGMENT", value: 'yours' })
+  }
 
   console.log(state.user);
 
@@ -51,7 +55,7 @@ const Profile: React.FC = () => {
                   icon={gameController}
                 />
               </IonItem>
-              <IonItem>
+              <IonItem onClick={() => setSegment()}>
                 <ButtonLink
                   link="/app/home"
                   text={t("profile.matches")}
