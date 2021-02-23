@@ -84,7 +84,8 @@
         },
         "birthday": "Fecha de nacimiento"
       },
-      "edit": "Editar Perfil"
+      "edit": "Editar Perfil",
+      "save": "Guardar"
     },
     "personal": {
       "title": "Información Personal",

@@ -87,7 +87,8 @@
         },
         "birthday": "Birthday"
       },
-      "edit": "Edit Profile"
+      "edit": "Edit Profile",
+      "save": "Save"
     },
     "personal": {
       "title": "Personal Information",

@@ -118,12 +118,23 @@ const UpdateProfile = () => {
             <input
               type="file"
               id="uploadImgProfile"
-              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
+              disabled={state.currentAvatar === "gravatar" ? true : false}
               onChange={(el) => encodeImageFileAsURL(el)}
             />
-            <br/>
-            <Link to={{ pathname: '/app/settings' }} style={{textDecoration: 'none'}}>
-              <IonLabel style={{display: (state.currentAvatar === 'gravatar' ? 'block': 'none')}} className="err-label-update">{t('updateProfile.changePhotoErr')}</IonLabel>
+            <br />
+            <Link
+              to={{ pathname: "/app/settings" }}
+              style={{ textDecoration: "none" }}
+            >
+              <IonLabel
+                style={{
+                  display:
+                    state.currentAvatar === "gravatar" ? "block" : "none",
+                }}
+                className="err-label-update"
+              >
+                {t("updateProfile.changePhotoErr")}
+              </IonLabel>
             </Link>
           </div>
 
@@ -199,7 +210,10 @@ const UpdateProfile = () => {
               disabled={check_state()}
               data-testid="update-profile-button"
             >
-              {t("updateProfile.form.edit")}
+              {check_state()
+                ? `${t("updateProfile.form.edit")}`
+                : `${t("updateProfile.form.save")}`}
+              {/* {(check_state())?({t("updateProfile.form.edit")}):{""}} */}
             </IonButton>
           </form>
         </section>
