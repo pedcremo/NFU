@@ -46,6 +46,12 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
     }
   };
 
+  const keyPress = (e) => {
+    if(e.key === 'Enter') { 
+      
+    }
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -72,6 +78,8 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         value={password}
         className="loginOption loginOption--input inputFieldLogin"
         required
+        onSubmit={handleSubmit}
+        onKeyPress={(e) => keyPress(e)}
         onInput={(e) => setPassword(e.currentTarget.value)}
         placeholder={t("login.local_options.password")}
       />
