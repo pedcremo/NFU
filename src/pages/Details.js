@@ -45,10 +45,6 @@ const Details = () => {
   let players = Object.values(event.p);
   const comments = event.comments;
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
-
   let goInstalation = (city) => {
     let pista = instalaciones.filter((pista) => pista.ubication == city);
 
@@ -93,6 +89,20 @@ const Details = () => {
 
         break;
     }
+  }
+
+  let joinEvent = () => {
+    if (state.user){
+      if (event.maxplayers == event.p.length) {
+        setShowToast(true);
+        setMessage("This event is completed");
+      } else {
+        dispatch({ type: "SET_JOIN", value: event.id })
+      }
+    }else{
+      history.push("/login")
+    }
+    
   }
 
   return (
@@ -182,13 +192,7 @@ const Details = () => {
                   disabled={event.maxplayers == event.p.length ? true : false}
                   className="event-card-content-left-join"
                   color="success"
-                  onClick={() => {
-                    if (event.maxplayers == event.p.length) {
-                      setShowToast(true);
-                      setMessage("This event is completed");
-                    } else
-                      dispatch({ type: "SET_JOIN", value: event.id })}
-                  }
+                  onClick={() => joinEvent()}
                 >
                   JOIN
                 </IonButton>
