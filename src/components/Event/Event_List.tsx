@@ -37,6 +37,12 @@ const EventList = () => {
     busy_players: "",
   });
 
+  let sortByDate = (a,b) => {  
+    var dateA = new Date(a.time).getTime();
+    var dateB = new Date(b.time).getTime();
+    return dateA < dateB ? 1 : -1;  
+  }; 
+
   const { state, dispatch } = useContext(AppContext);
 
   // Function to filter events, receives events and applies state filters.
@@ -357,7 +363,7 @@ const EventList = () => {
       )}
 
       <IonList className="eventsList">
-        {filteredSearch.map((event, index) => (
+        {filteredSearch.sort(sortByDate).map((event, index) => (
           <EventsPreview key={"event_" + index} event={event} />
         ))}
       </IonList>
