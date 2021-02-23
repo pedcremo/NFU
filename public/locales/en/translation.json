@@ -135,7 +135,8 @@
       "create_account": "Create account",
       "social_options": "Continue with Google o Facebook"
     },
-    "home":"Home"
+    "home":"Home",
+    "easteregg":"You have discovered an EasterEGG!"
   },
   "register": {
     "initial_text": "Find tournaments and matches for the sport that you prefer",

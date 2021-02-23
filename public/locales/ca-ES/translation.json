@@ -137,7 +137,8 @@
       "create_account": "Crear un compte",
       "social_options": "Continuar amb Google o Facebook"
     },
-    "home":"Inici"
+    "home":"Inici",
+    "easteregg":"Has descobert un EasterEGG!"
   },
   "register": {
     "initial_text": "Troba tornejos i partits per a l'esport que prefereixis",

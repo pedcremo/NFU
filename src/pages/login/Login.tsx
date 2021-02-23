@@ -1,7 +1,7 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState,useEffect} from "react";
 import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
-import { IonContent, IonPage, IonImg, IonLabel } from "@ionic/react";
+import { IonContent, IonPage, IonImg, IonLabel,IonToast } from "@ionic/react";
 import "./login.css";
 import DeporteImg from "../../assets/img/deporte_img.png";
 import AppTitle from '../../components/shared/AppTitle'
@@ -12,11 +12,23 @@ import { useHistory } from "react-router-dom";
 
 
 const Login: React.FC = () => {
-  const { state } = useContext(AppContext);
+  const { state,dispatch } = useContext(AppContext);
   const [ currentOptions, setCurrentOptions] = useState<React.ReactText | undefined>('Social');
   const { t } = useTranslation();
   const history = useHistory();
+  const [count,setCount]= useState(0);
+  const [showToast,setShowToast]= useState(false);
 
+
+  useEffect(() => {
+    if(!state.easteregg){
+      if(count == 22){
+        dispatch({ type: 'EASTER_EGG', value: true})
+        setShowToast(true)
+      }
+    }
+
+  },[count,dispatch]);
 
   /* istanbul ignore if */
   if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
@@ -27,12 +39,18 @@ const Login: React.FC = () => {
       <IonContent fullscreen>
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
+          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={() => setCount(count + 1)} />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
           <IonLabel className="btn-home"
           onClick={() => history.push("app/home")}>{t("login.home")}</IonLabel>
         </div>
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message={t("login.easteregg")}
+          duration={5000}
+        />
       </IonContent>
     </IonPage>
   );

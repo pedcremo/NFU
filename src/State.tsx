@@ -30,6 +30,7 @@ const initialState = {
   events: [],
   events_joined: [],
   likes: [],
+  easteregg: localStorage.getItem('easteregg')
 };
 
 let reducer = (state, action) => {
@@ -126,6 +127,10 @@ let reducer = (state, action) => {
       );
 
       return { ...state, events_joined: new_events_joined, events: new_events };
+    }
+    case  "EASTER_EGG":{
+      localStorage.setItem('easteregg', action.value);
+      return { ...state, easteregg: action.value};
     }
   }
   return state;
