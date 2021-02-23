@@ -91,7 +91,9 @@
     "personal": {
       "title": "Informació Personal",
       "description": "Proveeix la teua informació personal, fins i tot si el teu compte es usat per a un negocio, una mascota o altra cosa. Esto no serà part del teu perfil públic."
-    }
+    },
+    "img_exceds":"La imatge supera 1MB",
+    "img_fail":"Aquest tipus darchiu no esta permes"
   },
   "tabs": {
     "home": "Inici",

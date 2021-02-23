@@ -14,11 +14,15 @@ import {
   IonSelectOption,
   IonDatetime,
   IonLoading,
+  IonToast,
 } from "@ionic/react";
 import "./UpdateProfile.css";
 import Header from "../../components/header/HeaderComponent";
 
 const UpdateProfile = () => {
+  const [ShowToastFailedImageType, setshowToastFailedImageType] = useState(false);
+  const [ShowToastFailedImageSize, setshowToastFailedImageSize] = useState(false);
+  const [errors,setErrors] = useState();
   const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
   const [name, setName] = useState<React.ReactText | undefined>(
@@ -43,15 +47,37 @@ const UpdateProfile = () => {
   // Convert selected image to base64 and dispatch the new user's state
   function encodeImageFileAsURL(el) {
     var file = el.target.files[0];
+    let file_true= false
+    console.log(file);
     if (file) {
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        let user = state.user;
-        user.image = reader.result;
-        user.imageLocal = reader.result;
-        dispatch({ type: "SET_USER", value: user });
-      };
-      reader.readAsDataURL(file);
+      if(file.type.includes("image/jpeg") || file.type.includes("image/png")  && file.size < 100000){
+        var reader = new FileReader();
+        reader.onloadend = function () {
+          let user = state.user;
+          user.image = reader.result;
+          user.imageLocal = reader.result;
+          dispatch({ type: "SET_USER", value: user });
+        };
+        reader.readAsDataURL(file);
+      }else{
+        el.target.value = "";
+      }
+      
+      if(file.size > 200000){
+        setshowToastFailedImageSize(true);
+      }
+      if(file.type.includes("image/jpeg")){
+        file_true = true
+      }else if(file.type.includes("image/png")){
+        file_true = true
+      }else{
+        file_true=false
+      }
+
+      if(!file_true){
+        setshowToastFailedImageType(true);
+      }
+
     }
   }
   const handleSubmit = async (e) => {
@@ -116,6 +142,7 @@ const UpdateProfile = () => {
             </IonLabel>
             {/* <IonInput type="file" accept=".jpg,.jpeg,.png" multiple="false"> */}
             <input
+              accept="image/*"
               type="file"
               id="uploadImgProfile"
               disabled={(state.currentAvatar === 'gravatar' ? true: false)}
@@ -202,6 +229,23 @@ const UpdateProfile = () => {
               {t("updateProfile.form.edit")}
             </IonButton>
           </form>
+          <IonToast
+                isOpen={ShowToastFailedImageType}
+                onDidDismiss={() => setshowToastFailedImageType(false)}
+                message={t("updateProfile.img_fail")}
+                duration={2000}
+                color = "danger"
+                position = "bottom"
+            />
+            <IonToast
+                isOpen={ShowToastFailedImageSize}
+                onDidDismiss={() => setshowToastFailedImageSize(false)}
+                message={t("updateProfile.img_exceds")}
+                duration={2000}
+                color = "danger"
+                cssClass= 'toastsize'
+                position = "bottom"
+            />
         </section>
       </IonContent>
     </IonPage>

@@ -88,7 +88,9 @@
     "personal": {
       "title": "Información Personal",
       "description": "Provee tu información personal, incluso si tu cuenta es usada para un negocio, una mascota o otra cosa. Esto no será parte de tu perfil público."
-    }
+    },
+    "img_exceds":"La imagen supera 1MB",
+    "img_fail":"Este tipo de archivo no esta permitido"
   },
   "tabs": {
     "home": "Inicio",

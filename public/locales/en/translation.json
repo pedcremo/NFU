@@ -91,7 +91,9 @@
     "personal": {
       "title": "Personal Information",
       "description": "Provide your personal information, even if the account is used for a business, a pet or something else. This won't be part of your public profile."
-    }
+    },
+    "img_exceds":"Image exceeds 1MB",
+    "img_fail":"This type of files is not allowed"
   },
   "tabs": {
     "home": "Home",

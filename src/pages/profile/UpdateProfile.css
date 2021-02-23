@@ -70,3 +70,7 @@
   border-radius: 50px;
   background-color: rgba(236, 177, 177, 0.836);
 }
+.toastsize {
+    transform: translateY(-60px) !important;
+
+}
