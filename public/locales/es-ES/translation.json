@@ -129,7 +129,8 @@
       "forgotten_password": "He olvidado mi contraseña",
       "create_account": "Crear una cuenta",
       "social_options": "Continuar con Google o Facebook"
-    }
+    },
+    "home": "Inicio"
   },
   "register": {
     "initial_text": "Encuentra torneos y partidos para el deporte que prefieras",

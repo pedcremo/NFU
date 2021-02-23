@@ -1,6 +1,6 @@
 import React, { useContext, useState} from "react";
 import { AppContext } from "../../State";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { IonContent, IonPage, IonImg, IonLabel } from "@ionic/react";
 import "./login.css";
 import DeporteImg from "../../assets/img/deporte_img.png";
@@ -22,6 +22,9 @@ const Login: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
         <div className="loginPageContent">
+        <Link to="/app/home" slot="end" className="go_home">
+            <IonLabel>{t("login.home")}</IonLabel>
+        </Link>
           <AppTitle />
           <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 

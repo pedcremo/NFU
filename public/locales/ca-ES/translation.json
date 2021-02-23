@@ -134,7 +134,8 @@
       "forgotten_password": "He oblidat la contrasenya",
       "create_account": "Crear un compte",
       "social_options": "Continuar amb Google o Facebook"
-    }
+    },
+    "home": "Inici"
   },
   "register": {
     "initial_text": "Troba tornejos i partits per a l'esport que prefereixis",
