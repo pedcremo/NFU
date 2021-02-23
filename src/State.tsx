@@ -30,6 +30,8 @@ const initialState = {
   events: [],
   events_joined: [],
   likes: [],
+  clicks: 0,
+  developer: false,
 };
 
 let reducer = (state, action) => {
@@ -80,6 +82,12 @@ let reducer = (state, action) => {
     }
     case "LIKES": {
       return { ...state, likes: action.value };
+    }
+    case "CLICKS": {
+      return { ...state, clicks: action.value };
+    }
+    case "DEVELOPER": {
+      return { ...state, developer: action.value };
     }
     case "SET_JOIN": {
       // Añadimos el idevento al state.
