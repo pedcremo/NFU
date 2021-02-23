@@ -1,4 +1,8 @@
 {
+  "easterEgg":{
+    "enable":"NOW YOU ARE ADMINISTRATOR!!!!",
+    "unable":"YOU CAN'T!! YOU ARE ALREADY ADMINISTRATOR!!"
+  },
   "title": "We're missing one",
   "welcome": {
     "title": "We are missing one",
