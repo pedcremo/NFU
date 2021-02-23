@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 import Header from "../../components/header/HeaderComponent";
 
 const Profile: React.FC = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
 
   console.log(state.user);

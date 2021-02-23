@@ -1,5 +1,6 @@
 import { IonIcon } from "@ionic/react";
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from '../../State';
 import "./ButtonLink.css";
 import { Link } from "react-router-dom";
 import {
@@ -11,14 +12,14 @@ const ButtonLink: React.FC<{ link: string; text: string; icon: any }> = ({
   text,
   icon,
 }) => {
+  const { state , dispatch } = useContext(AppContext);
+
   return (
-    // <div className="ButtonLink__Container">
-      <Link to={link} className="ButtonLink__Container">
+      <Link onClick={() => dispatch({type:'SET_SEGMENT',value: "yours"})} to={link} className="ButtonLink__Container">
         <IonIcon style={{ color: "primary", fontSize: "1.5rem" }} icon={icon} />
         <p>{text}</p>
         <IonIcon style={{ color: "grey", fontSize: "1.5rem" }} icon={chevronForward} />
       </Link>
-    // </div>
   );
 };
 export default ButtonLink;
