@@ -76,7 +76,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         onInput={(e) => setPassword(e.currentTarget.value)}
         placeholder={t("login.local_options.password")}
         onKeyDown={(e) => {
-          if (e.currentTarget.value.toString().length > 0 && e.key === 'Enter') {
+          if (e.currentTarget.value.toString().length > 0 && email && e.key === 'Enter') {
             handleSubmit(e);
           }
         }}
