@@ -103,6 +103,9 @@ const EventList = () => {
       else if (filters.time == null) return event;
     });
 
+    // Sort date
+    eventsFiltred = eventsFiltred.sort((event_b,event_a) => new Date(event_a.time).getTime() < new Date(event_b.time).getTime() ? 1 : -1);
+
     return eventsFiltred;
   }
 
