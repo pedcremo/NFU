@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
 import { IonContent, IonPage, IonImg, IonLabel } from "@ionic/react";
@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 const Login: React.FC = () => {
   const { state } = useContext(AppContext);
   const [ currentOptions, setCurrentOptions] = useState<React.ReactText | undefined>('Social');
+  const [ easterEgg, setEasterEgg] = useState(0);
   const { t } = useTranslation();
 
   /* istanbul ignore if */
@@ -23,7 +24,13 @@ const Login: React.FC = () => {
       <IonContent fullscreen>
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
+          {
+            easterEgg>21
+            ?
+            (<IonImg src={DeporteImg} alt="Deporte IMG" className="loginImgEE" />)
+            :
+            (<IonImg onClick={() => setEasterEgg(easterEgg+1)} src={DeporteImg} alt="Deporte IMG" className="loginImg" />)
+          }
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
         </div>
