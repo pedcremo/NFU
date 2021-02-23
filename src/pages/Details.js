@@ -45,10 +45,6 @@ const Details = () => {
   let players = Object.values(event.p);
   const comments = event.comments;
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
-
   let goInstalation = (city) => {
     let pista = instalaciones.filter((pista) => pista.ubication == city);
 
@@ -93,6 +89,10 @@ const Details = () => {
 
         break;
     }
+  }
+
+  let joined=()=>{
+    return state.user? true: history.push('/login')
   }
 
   return (
@@ -183,11 +183,13 @@ const Details = () => {
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => {
-                    if (event.maxplayers == event.p.length) {
-                      setShowToast(true);
-                      setMessage("This event is completed");
-                    } else
-                      dispatch({ type: "SET_JOIN", value: event.id })}
+                    if (joined()){
+                      if (event.maxplayers == event.p.length) {
+                        setShowToast(true);
+                        setMessage("This event is completed");
+                      } else
+                        dispatch({ type: "SET_JOIN", value: event.id })}
+                    }
                   }
                 >
                   JOIN
@@ -201,7 +203,12 @@ const Details = () => {
                   }}
                   className="event-card-content-left-join"
                   color="success"
-                  onClick={() =>dispatch({ type: "REMOVE_JOIN", value: event.id })}
+                  onClick={() =>{
+                   if (joined()){
+                      dispatch({ type: "REMOVE_JOIN", value: event.id })
+                    }
+                  }
+                }
                 >
                   REMOVE JOIN
                 </IonButton>

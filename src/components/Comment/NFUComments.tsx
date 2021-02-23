@@ -7,6 +7,8 @@ import {
     IonInput
 
 } from '@ionic/react';
+import { useHistory } from "react-router-dom";
+
 import NFUCommentList from './NFUCommentList'
 import { AppContext } from '../../State';
 import { useTranslation } from "react-i18next";
@@ -18,6 +20,7 @@ type CommentProps = {
 }
 
 const NFUComments: React.FC<CommentProps> = (props) => {
+    const history = useHistory();
     const [message, setMessage] = useState<React.ReactText | undefined>('');
     const { state,dispatch } = useContext(AppContext);
     const [showToastComment, setShowToastComment] = useState(false);
@@ -47,7 +50,7 @@ const NFUComments: React.FC<CommentProps> = (props) => {
         <>
             <form method="post" onSubmit={addComment} className="form_add_comment">
                 <IonItem className="form_add_comment--input">
-                    <IonInput placeholder={t('Comments.type')} type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
+                    <IonInput placeholder={t('Comments.type')} type="text" required value={message} onInput={e => { state.user? setMessage(e.currentTarget.value): history.push('/login')}} />
                 </IonItem>
                 <IonButton expand="block" type="submit" className="form_add_comment--button">{t('Comments.send_comment')}</IonButton>
             </form>
