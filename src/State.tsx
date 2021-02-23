@@ -90,7 +90,7 @@ let reducer = (state, action) => {
       // Actualizamos los eventos
       let new_events = Object.values(state.events).map(
         (event: typeof event_model) => {
-          return event.id == action.value
+          return event.id === action.value
             ? { ...event, ...{ p: [...event.p, [state.user.username]] } }
             : event;
         }
@@ -113,7 +113,7 @@ let reducer = (state, action) => {
       // Actualizamos los eventos
       let new_events = Object.values(state.events).map(
         (event: typeof event_model) =>
-          event.id == action.value
+          event.id === action.value
             ? {
                 ...event,
                 ...{

@@ -122,7 +122,7 @@ const Menu = () => {
               let coordinates = []
 
               events.map((event, index) =>{
-                  coordinates[index] = {
+                  return coordinates[index] = {
                     "lat": event.coordinates.lat,
                     "lng": event.coordinates.lng
                   }});
