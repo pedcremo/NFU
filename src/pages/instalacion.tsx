@@ -4,9 +4,8 @@ import { IonContent, IonPage, IonIcon, IonCard } from "@ionic/react";
 import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import data from "../data/dataInstalaciones.json";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import { AppContext } from "../State";
-
 import "./instalacion.css";
 import Header from "../components/header/HeaderComponent";
 
@@ -24,10 +23,8 @@ const Instalacion: React.FC = () => {
   console.log(instalacion);
   const { t } = useTranslation();
   const { state } = useContext(AppContext);
+  const history = useHistory();
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
 
   return (
     <IonPage>
@@ -55,7 +52,11 @@ const Instalacion: React.FC = () => {
                 <article className="pistas_grid">
                   {instalacion.pistas.map((pista) => (
                     <IonCard className="lista">
-                      <a href="/app/create" className="minimodal">CREAR EVENTO</a>
+                      <Link to={'/app/create'}  onClick={() => {if(!state.user){history.push('/login')}}}  className="minimodal">
+                        CREAR EVENTO
+                        
+                      </Link>
+                      {/* <a href="/app/create" className="minimodal">CREAR EVENTO</a> */}
                       <div className="lista-image">
                         <img alt="img" src={pista.Imagen} />
                       </div>
