@@ -30,7 +30,7 @@ const Login: React.FC = () => {
           <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
-          <IonLabel className="loginOption loginOption--local loginOption--create"
+          <IonLabel className="btn-home"
           onClick={() => history.push("app/home")}>{t("login.home")}</IonLabel>
         </div>
       </IonContent>
