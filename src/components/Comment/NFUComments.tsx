@@ -45,7 +45,7 @@ const NFUComments: React.FC<CommentProps> = (props) => {
 
     return (
         <>
-            <form method="post" onSubmit={addComment} className="form_add_comment">
+            <form method="post" onSubmit={addComment} className="form_add_comment" style={{display: (state.user ? "block":"none")}}>
                 <IonItem className="form_add_comment--input">
                     <IonInput placeholder={t('Comments.type')} type="text" required value={message} onInput={e => setMessage(e.currentTarget.value)} />
                 </IonItem>
