@@ -79,6 +79,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         className="loginOption loginOption--submit"
         type="submit"
         id="btnLogin"
+        disabled = {!password || !email}
       >
         {" "}
         {t("login.local_options.login")}{" "}
