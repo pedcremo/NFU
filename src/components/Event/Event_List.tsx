@@ -289,7 +289,7 @@ const EventList = () => {
           <IonItem className="filter-subitem">
             <IonLabel>{t("home.events.filters.date")}</IonLabel>
             <IonDatetime
-              displayFormat="YY-MM-DD"
+              displayFormat="DD-MM-YYYY"
               placeholder={t("home.events.filters.date_select")}
               value={filters.date}
               onIonChange={(e) =>
