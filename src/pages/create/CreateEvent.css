@@ -1,18 +1,22 @@
-.add-event{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.add-event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-
-@media only screen and (min-width: 1200px){
-    .add-event-form{
-        position: relative;
-        max-width: 50%;
-        height: 300px;
-    }
+@media only screen and (min-width: 1200px) {
+  .add-event-form {
+    position: relative;
+    max-width: 50%;
+    height: 300px;
+  }
 }
-.add-event-form{
-    width: 80%;
+.add-event-form {
+  width: 80%;
+}
+
+.instalations {
+  height: 15rem;
+  overflow: scroll;
 }

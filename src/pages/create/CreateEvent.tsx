@@ -14,58 +14,78 @@ import {
   IonSelectOption,
   IonDatetime,
   IonTextarea,
+  IonSearchbar,
+  IonList,
 } from "@ionic/react";
 import { Redirect, useHistory } from "react-router-dom";
 import "./CreateEvent.css";
 import Header from "../../components/header/HeaderComponent";
 import { useTranslation } from "react-i18next";
+import inst from "../../data/dataInstalaciones.json";
+import Instalacion from "../instalacion";
+import InstalacionesPreview from "../../components/Instalaciones/instalaciones-preview";
+import Ubication from "./Ubication";
 // import { read, stat } from "fs";
 
 const CreateEvent = () => {
   const { state, dispatch } = useContext(AppContext);
   const [showLoading, setShowLoading] = useState(false);
   const { t } = useTranslation();
-  const history = useHistory()
+  const history = useHistory();
   const [showToastCreate, setShowToastCreate] = useState(false);
-  let events: any = Object.values(state.events)
-  
+  let events: any = Object.values(state.events);
+
+  const [instalaciones, setInstalaciones] = useState(Object.values(inst));
+
   //Form states
-  const [title, setTitle] = useState<React.ReactText | undefined>('');
-  const [description, setDescription] = useState<React.ReactText | undefined>('');
-  const [maxPlayers, setMaxPlayers] = useState<React.ReactText | undefined>('');
+  const [title, setTitle] = useState<React.ReactText | undefined>("");
+  const [description, setDescription] = useState<React.ReactText | undefined>(
+    ""
+  );
+  const [maxPlayers, setMaxPlayers] = useState<React.ReactText | undefined>("");
   const [date, setDate] = useState(null);
-  const [country, setCountry] = useState<React.ReactText | undefined>('España');
-  const [city, setCity] = useState<React.ReactText | undefined>('Ontinyent');
-  const [postal, setPostal] = useState<React.ReactText | undefined>('46870');
-  const [type, setType] = useState<React.ReactText | undefined>('');
-  const [image, setImage] = useState<React.ReactText | undefined>('');
+  const [country, setCountry] = useState<React.ReactText | undefined>("España");
+  const [city, setCity] = useState<React.ReactText | undefined>("");
+  const [postal, setPostal] = useState<React.ReactText | undefined>("SN");
+  const [type, setType] = useState<React.ReactText | undefined>("");
+  const [image, setImage] = useState<React.ReactText | undefined>("");
+  const [location, setLocation] = useState("");
 
   let EventImageAsBase64 = (el) => {
     var file = el.target.files[0];
     if (file) {
       let reader = new FileReader();
-      reader.onloadend = () => setImage(reader.result+"")
+      reader.onloadend = () => setImage(reader.result + "");
       reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
     console.log("submit");
     e.preventDefault();
     try {
-      
       let event = {
-        id: (Math.max.apply(null, events.map(item => item.id)) + 1),
+        id:
+          Math.max.apply(
+            null,
+            events.map((item) => item.id)
+          ) + 1,
         title: title,
         description: description,
         players: 1,
         maxplayers: maxPlayers,
-        status: 'open',
+        status: "open",
         time: date,
         type: type,
         coordinates: {
-          lat: state.user_coordinates !== "no" ? state.user_coordinates.latitude : 0,
-          lng: state.user_coordinates !== "no" ? state.user_coordinates.latitude : 0,
+          lat:
+            state.user_coordinates !== "no"
+              ? state.user_coordinates.latitude
+              : 0,
+          lng:
+            state.user_coordinates !== "no"
+              ? state.user_coordinates.latitude
+              : 0,
         },
         author: {
           username: state.user.username,
@@ -74,21 +94,21 @@ const CreateEvent = () => {
           bio: "User biography lorem ipsum",
         },
         location: {
-          country: country,
+          country: location,
           postalcode: postal,
           city: city,
         },
         image: image,
         p: {
-          0: state.user.username
+          0: state.user.username,
         },
-        comments:[]
-      }
+        comments: [],
+      };
 
       events.push(event);
       setShowLoading(true);
 
-      setTimeout(() => { 
+      setTimeout(() => {
         setShowLoading(false);
         dispatch({ type: "SET_EVENTS", value: events });
         setShowToastCreate(true);
@@ -98,8 +118,11 @@ const CreateEvent = () => {
       console.error(e);
       setShowLoading(false);
     }
-  }
+  };
 
+  const handleAddList = (ubication: any) => {
+    setLocation(ubication.ubication);
+  };
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -111,32 +134,60 @@ const CreateEvent = () => {
       <IonContent>
         <section className="add-event">
           <h1>{t("create.add")}</h1>
-          <form onSubmit={handleSubmit} method="post" className="add-event-form">
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            className="add-event-form"
+          >
             <IonItem>
               <IonLabel position="floating">{t("create.name")}</IonLabel>
-              <IonInput type="text" value={title} onInput={e => setTitle(e.currentTarget.value)} />
+              <IonInput
+                type="text"
+                value={title}
+                onInput={(e) => setTitle(e.currentTarget.value)}
+              />
             </IonItem>
             <IonItem>
               <IonLabel position="floating">{t("create.players")}</IonLabel>
-              <IonInput type="number" min="1" value={maxPlayers} onInput={e => setMaxPlayers(e.currentTarget.value)} />
+              <IonInput
+                type="number"
+                min="1"
+                value={maxPlayers}
+                onInput={(e) => setMaxPlayers(e.currentTarget.value)}
+              />
             </IonItem>
             <IonItem>
               <IonLabel position="floating">{t("create.description")}</IonLabel>
               {/* <IonInput type="" value={players_need} onInput={e => setPilayersNeed(e.currentTarget.value)} /> */}
-              <IonTextarea value={description + ""}  onInput={e => setDescription(e.currentTarget.value)}></IonTextarea>
+              <IonTextarea
+                value={description + ""}
+                onInput={(e) => setDescription(e.currentTarget.value)}
+              ></IonTextarea>
               <IonTextarea></IonTextarea>
             </IonItem>
-            <IonItem>
-              <IonLabel position="floating">{t("create.country")}</IonLabel>
-              <IonInput type="text" value={country} onInput={e => setCountry(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.city")}</IonLabel>
-              <IonInput type="text" value={city} onInput={e => setCity(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.postal")}</IonLabel>
-              <IonInput type="number" value={postal} onInput={e => setPostal(e.currentTarget.value)} />
-            </IonItem>
+
+            <h3>{location ? `${t("locationSelected")}: ${location}` : ""}</h3>
+            <div className="instalations">
+              <IonList>
+                {instalaciones.map((instalacion, index) => {
+                  return (
+                    <Ubication
+                      key={index}
+                      instalacion={instalacion}
+                      add={handleAddList}
+                    />
+                  );
+                })}
+              </IonList>
+            </div>
+
             <IonItem>
               <IonLabel>{t("create.type")}</IonLabel>
-              <IonSelect value={type} placeholder="Select One" onIonChange={e => setType(e.detail.value)}>
+              <IonSelect
+                value={type}
+                placeholder="Select One"
+                onIonChange={(e) => setType(e.detail.value)}
+              >
                 <IonSelectOption value="gaming">
                   {t("create.gaming")}
                 </IonSelectOption>
@@ -153,16 +204,15 @@ const CreateEvent = () => {
                 max="2060"
                 display-timezone="utc"
                 value={date}
-                onIonChange={e => setDate(e.detail.value!)}
-              >
-              </IonDatetime>
+                onIonChange={(e) => setDate(e.detail.value!)}
+              ></IonDatetime>
             </IonItem>
             <IonItem lines="none">
               <IonLabel>{t("create.image")}</IonLabel>
               <input
                 type="file"
                 id="uploadImgProfile"
-                disabled={(state.currentAvatar === 'gravatar' ? true : false)}
+                disabled={state.currentAvatar === "gravatar" ? true : false}
                 onChange={(el) => EventImageAsBase64(el)}
               />
               <br />
@@ -173,7 +223,12 @@ const CreateEvent = () => {
             <IonLoading isOpen={showLoading} message={"Creating event"} />
           </form>
         </section>
-        <IonToast isOpen={showToastCreate} onDidDismiss={() => setShowToastCreate(false)} message="Event has been created correctly" duration={1500} />
+        <IonToast
+          isOpen={showToastCreate}
+          onDidDismiss={() => setShowToastCreate(false)}
+          message="Event has been created correctly"
+          duration={1500}
+        />
       </IonContent>
     </IonPage>
   );
