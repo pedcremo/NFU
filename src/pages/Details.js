@@ -45,10 +45,6 @@ const Details = () => {
   let players = Object.values(event.p);
   const comments = event.comments;
 
-  if (!state.user) {
-    return <Redirect to="/login" />;
-  }
-
   let goInstalation = (city) => {
     let pista = instalaciones.filter((pista) => pista.ubication == city);
 
@@ -183,11 +179,16 @@ const Details = () => {
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => {
-                    if (event.maxplayers == event.p.length) {
-                      setShowToast(true);
-                      setMessage("This event is completed");
-                    } else
-                      dispatch({ type: "SET_JOIN", value: event.id })}
+                    if (!state.user) {
+                      history.push('/login')
+                    }else{
+                      if (event.maxplayers == event.p.length) {
+                        setShowToast(true);
+                        setMessage("This event is completed");
+                      } else
+                        dispatch({ type: "SET_JOIN", value: event.id })}
+                    }
+                    
                   }
                 >
                   JOIN
