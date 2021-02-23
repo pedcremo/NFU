@@ -19,6 +19,13 @@
   width: 100%;
 }
 
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .welcomeImg{
   max-width: 300px !important;
   margin: 0px !important;
