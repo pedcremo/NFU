@@ -25,7 +25,8 @@
         "buttons": {
           "hide": "Ocultar filtros",
           "open": "Más filtros"
-        }
+        },
+        "clear": "Limpiar filtros"
       },
       "search": {
         "placeholder": "Cerca..."

@@ -28,7 +28,8 @@
         "button": {
           "hide": "Hide filters",
           "open": "More filters"
-        }
+        },
+        "clear": "Clear Filters"
       },
       "search": {
         "placeholder": "Search..."

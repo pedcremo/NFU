@@ -39,6 +39,18 @@ const EventList = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
+  const resetFilters = () => {
+    setFilter((prevFilters) => ({
+      ...prevFilters,
+      search: "",
+      valuation: "1",
+      date: null,
+      time: null,
+      available_players: "",
+      max_players: "",
+      busy_players: ""
+    }))
+  }
   // Function to filter events, receives events and applies state filters.
   function filterEvents(events) {
     let eventsFiltred = [...events];
@@ -162,12 +174,13 @@ const EventList = () => {
           }
         />
       </div>
-
+      
       <div
         style={{ height: filterPanel ? "350px" : "0px" }}
         className="filters-container"
       >
         <IonItem className="filter-item">
+        
           <IonRadioGroup
             value={filters.valuation}
             onIonChange={(e) =>
@@ -316,6 +329,9 @@ const EventList = () => {
             ></IonDatetime>
           </IonItem>
         </div>
+          <IonItem>
+              <IonButton onClick = {() => resetFilters()}>{t("home.events.filters.clear")}</IonButton>
+            </IonItem>
       </div>
       {state.user ? (
         <IonSegment
