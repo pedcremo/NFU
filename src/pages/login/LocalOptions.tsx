@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { IonLabel, IonInput, IonLoading, IonButton } from "@ionic/react";
 import "./LocalOptions.css";
 import { useTranslation } from "react-i18next";
+import { enter } from "ionicons/icons";
 
 const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   const history = useHistory();
@@ -74,6 +75,11 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         required
         onInput={(e) => setPassword(e.currentTarget.value)}
         placeholder={t("login.local_options.password")}
+        onKeyDown={(e) => {
+          if (e.currentTarget.value.toString().length > 0 && e.key === 'Enter') {
+            handleSubmit(e);
+          }
+        }}
       />
       <IonButton
         className="loginOption loginOption--submit"
