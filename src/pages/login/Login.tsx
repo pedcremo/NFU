@@ -14,17 +14,47 @@ const Login: React.FC = () => {
   const { state } = useContext(AppContext);
   const [ currentOptions, setCurrentOptions] = useState<React.ReactText | undefined>('Social');
   const { t } = useTranslation();
+  const [count_click, setCount] = useState(0);
+  const [time, setTime] = useState(new Date());
+  const [easteregg, setEasterEgg] = useState(false);
+
 
   /* istanbul ignore if */
   if (state.welcome !== 'true') { return <Redirect to="/welcome" /> }
   if (state.user) return <Redirect to="/app/home" />;
+
+  let proof =()=>{
+    let now = new Date()
+    let date = now.getTime() - time.getTime()
+    let sec = Math.floor((date/1000) % 60);
+
+    setTime(new Date())
+      
+    if (sec <1){
+      setCount(count_click + 1)
+    } else{
+      setCount(0)
+    }
+
+    if (count_click == 21 ){
+      if( easteregg){
+        alert("NO SEAS ABUSON")
+        setCount(0)
+      }else{
+        alert("HAS DESCUBIERTO UN EASTER EGG")
+        setCount(0)
+        setEasterEgg(true)
+      }
+    }
+  }
+
 //"initial_text":"Find tournaments and matches for the sport that you prefer",
   return (
     <IonPage>
       <IonContent fullscreen>
         <div className="loginPageContent">
           <AppTitle />
-          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" />
+          <IonImg src={DeporteImg} alt="Deporte IMG" className="loginImg" onClick={ (e) => proof()} />
           <IonLabel className="prhaseLogin">{t("login.initial_text")}</IonLabel> 
           { currentOptions === "Social" ? <SocialOptions action={setCurrentOptions}/> : <LocalOptions action={setCurrentOptions}/> }
           <Link

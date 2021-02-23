@@ -30,6 +30,7 @@ const initialState = {
   events: [],
   events_joined: [],
   likes: [],
+  CounterClick:0,
 };
 
 let reducer = (state, action) => {
@@ -126,6 +127,9 @@ let reducer = (state, action) => {
       );
 
       return { ...state, events_joined: new_events_joined, events: new_events };
+    }
+    case "COUNTER_CLICK": {
+      return { ...state, CounterClick: action.value };
     }
   }
   return state;
