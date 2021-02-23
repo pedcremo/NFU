@@ -190,6 +190,8 @@
     "lang": "Change language",
     "esp": "Spanish",
     "cat": "Catalan",
-    "en": "English"
+    "en": "English",
+    "close": "Close",
+    "about_modal": "We are an awesome group of developers who has develop this amazing app, please rate us on the store"
   }
 }

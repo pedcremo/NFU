@@ -187,6 +187,8 @@
     "lang": "Cambiar idioma",
     "esp": "Castellano",
     "cat": "Catalán",
-    "en": "Inglés"
+    "en": "Inglés",
+    "close": "Cerrar",
+    "about_modal": "Somos un increible grupo de desarrolladores que han construído esta increible aplicación, porfavor valorala en la tienda"
   }
 }
