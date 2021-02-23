@@ -149,7 +149,17 @@ const Details = () => {
                   </span>
                   <span>{event.location.postalcode}</span>
                 </span>
-                <span className="event-card-image-badges-location badge-details badge-details-green">
+                <span className="event-card-image-badges-location badge-details badge-details-green"                   onClick={() => {
+                    let newCoordinates = {
+                      lat: event.coordinates.lat,
+                      lng: event.coordinates.lng,
+                    };
+                    dispatch({
+                      type: "ALL_COORDINATES",
+                      value: newCoordinates,
+                    });
+                    setShowModal(true);
+                  }}>
                   <span className="badge-details-icon">
                     <IonIcon icon={compass} />
                   </span>
