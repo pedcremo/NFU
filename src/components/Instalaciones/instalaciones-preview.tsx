@@ -11,10 +11,12 @@ import {
 } from '@ionic/react';
 import './Instalaciones_preview.css';
 
-
 const InstalacionesPreview = (props: any) => {
 
   const Props = props;
+
+  let prueba = Object.values(props.info.pistas).map((data) => Object.values(data).map((data2) => data2));
+  let pistas = prueba.map((data1) => data1[0]);
 
   return (
     <IonCard className="cardList">
@@ -23,11 +25,18 @@ const InstalacionesPreview = (props: any) => {
           <img src={Props.info.imagen} alt="img" />
         </article>
         <article className="cardContent__right">
+          <div className="prueba">
           <IonCardTitle>{Props.info.name}</IonCardTitle>
           <IonCardSubtitle className="cardContent__ubications"><IonIcon icon={pinSharp} className="playersIcon" />{Props.info.ubication}</IonCardSubtitle>
+            <div className="tags">
+              <h4>Pistas:</h4>
+              {pistas.map((data) => (
+                <p>{data}</p>
+              ))}
+            </div>
+          </div>
           <IonCardContent className="cardContent__operation">
             <section>
-
               <article className="cardContent__operation--option">
                 <IonIcon icon={heartOutline} className="cardContent__operation--icon" />
               </article>

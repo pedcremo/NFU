@@ -11,3 +11,17 @@
     justify-content: var(general-flex);
     align-items: var(--general-flex);
 }
+
+.tags p {
+    margin: 5px;
+    padding: 10px;
+    background: #77d577;
+    color: white;
+    height: 38px;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
