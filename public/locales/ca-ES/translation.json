@@ -136,7 +136,8 @@
       "login": "Iniciar Sessió",
       "forgotten_password": "He oblidat la contrasenya",
       "create_account": "Crear un compte",
-      "social_options": "Continuar amb Google o Facebook"
+      "social_options": "Continuar amb Google o Facebook",
+      "anonymous":"Inicia sessió com a convidat"
     }
   },
   "register": {

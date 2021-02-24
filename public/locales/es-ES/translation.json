@@ -131,7 +131,8 @@
       "login": "Iniciar Sesión",
       "forgotten_password": "He olvidado mi contraseña",
       "create_account": "Crear una cuenta",
-      "social_options": "Continuar con Google o Facebook"
+      "social_options": "Continuar con Google o Facebook",
+      "anonymous":"Iniciar sesion como invitado"
     }
   },
   "register": {

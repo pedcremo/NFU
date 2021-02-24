@@ -134,7 +134,8 @@
       "login": "Log In",
       "forgotten_password": "I've forgotten my password",
       "create_account": "Create account",
-      "social_options": "Continue with Google o Facebook"
+      "social_options": "Continue with Google o Facebook",
+      "anonymous":"Sing in as guest"
     }
   },
   "register": {

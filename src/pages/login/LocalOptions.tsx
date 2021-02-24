@@ -106,6 +106,14 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         {" "}
         {t("login.local_options.login")}{" "}
       </IonButton>
+      <IonButton
+        className="loginOption loginOption--submit login-anonymous"
+        id="btnAnonymous"
+        onClick={() => history.push("/app/home")}
+      >
+        {" "}
+        {t("login.local_options.anonymous")}{" "}
+      </IonButton>
       <div className="login-row">
         <IonLabel
           className="loginOption loginOption--local loginOption--create"
