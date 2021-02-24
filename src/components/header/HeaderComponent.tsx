@@ -25,9 +25,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    state.theme === "Dark"
-      ? document.body.classList.add("dark")
-      : document.body.classList.remove("dark");
+    document.body.className = state.theme;
   });
 
   if (state.welcome !== "true") {

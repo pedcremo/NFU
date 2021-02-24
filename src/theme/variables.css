@@ -364,3 +364,9 @@ body.dark {
 
     --ion-card-background: #1e1e1e;
 }
+
+/* Import own themes */
+
+@import "./winter.css";
+@import "./red.css";
+@import "./spring.css";

@@ -97,8 +97,11 @@ const Settings: React.FC = () => {
           <IonItem className="settings-item">
             <IonLabel className="settings-label"> {t("settings.changeTheme")} </IonLabel>
             <IonSelect value={theme} onIonChange={(e) => setTheme(e.detail.value)} >
-                <IonSelectOption value="Light">{t("settings.lightMode")}</IonSelectOption>
-                <IonSelectOption value="Dark">{t("settings.darkMode")}</IonSelectOption>
+                <IonSelectOption value="light">{t("settings.lightMode")}</IonSelectOption>
+                <IonSelectOption value="dark">{t("settings.darkMode")}</IonSelectOption>
+                <IonSelectOption value="red">{t("settings.Red")}</IonSelectOption>
+                <IonSelectOption value="spring">{t("settings.Spring")}</IonSelectOption>
+                <IonSelectOption value="winter">{t("settings.Winter")}</IonSelectOption>
               </IonSelect>
           </IonItem>
           <IonItem className="settings-item">

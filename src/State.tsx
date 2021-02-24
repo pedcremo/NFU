@@ -17,7 +17,7 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   language: localStorage.getItem('i18nextLng') ? localStorage.getItem('i18nextLng') : "es-ES",
-  theme: "Light",
+  theme: "light",
   user: "",
   notifications: Math.floor(Math.random() * (10 - 1) + 1),
   user_notifications: [],
@@ -53,9 +53,7 @@ let reducer = (state, action) => {
       return { ...state, user: "" };
     }
     case "SET_THEME": {
-      action.value === "Dark"
-        ? document.body.classList.add("dark")
-        : document.body.classList.remove("dark");
+      document.body.className = action.value
       return { ...state, theme: action.value };
     }
     case "SET_LANG": {
