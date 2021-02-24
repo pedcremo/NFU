@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { pinSharp } from "ionicons/icons";
-import { IonContent, IonPage, IonIcon, IonCard } from "@ionic/react";
+import { IonContent, IonPage, IonIcon, IonCard, IonModal, IonButton } from "@ionic/react";
 import { useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import data from "../data/dataInstalaciones.json";
 import { Redirect } from "react-router-dom";
 import { AppContext } from "../State";
+import MyModal from "../components/modal/MyModal";
 
 import "./instalacion.css";
 import Header from "../components/header/HeaderComponent";
@@ -23,7 +24,11 @@ const Instalacion: React.FC = () => {
   );
   console.log(instalacion);
   const { t } = useTranslation();
-  const { state } = useContext(AppContext);
+  const [showModal, setShowModal] = useState(false);
+  const { state, dispatch } = useContext(AppContext);
+
+  console.log("************************")
+  console.log(instalacion.coordinates)
 
   return (
     <IonPage>
@@ -33,7 +38,20 @@ const Instalacion: React.FC = () => {
           <article className="detail">
             <article className="detail-image">
               <img src={instalacion.imagen} alt="img" />
-              <article className="detail-image-icons">
+              <article
+                className="detail-image-icons"
+                onClick={() => {
+                  let newCoordinates = {
+                    lat: instalacion.coordinates.lat,
+                    lng: instalacion.coordinates.lng,
+                  };
+                  dispatch({
+                    type: "ALL_COORDINATES",
+                    value: newCoordinates,
+                  });
+                  setShowModal(true);
+                }}
+              >
                 <span className="detail-image-icons-location icon-details icon-details-green">
                   <span className="icon-details-icon">
                     <IonIcon icon={pinSharp} />
@@ -51,7 +69,9 @@ const Instalacion: React.FC = () => {
                 <article className="pistas_grid">
                   {instalacion.pistas.map((pista) => (
                     <IonCard className="lista">
-                      <a href="/app/create" className="minimodal">CREAR EVENTO</a>
+                      <a href="/app/create" className="minimodal">
+                        CREAR EVENTO
+                      </a>
                       <div className="lista-image">
                         <img alt="img" src={pista.Imagen} />
                       </div>
@@ -65,6 +85,11 @@ const Instalacion: React.FC = () => {
             </article>
           </article>
         </section>
+
+        <IonModal isOpen={showModal}>
+          <MyModal></MyModal>
+          <IonButton onClick={() => setShowModal(false)}>Close Map</IonButton>
+        </IonModal>
       </IonContent>
       <Footer />
     </IonPage>
