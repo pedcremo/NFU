@@ -108,6 +108,7 @@
   },
   "create": {
     "title": "Create Event",
+    "installation":"Choose installation",
     "add": "Add Event",
     "name": "Name of event",
     "players": "Total players",

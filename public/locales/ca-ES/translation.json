@@ -114,6 +114,7 @@
     "players": "Jugadors totals",
     "description": "Descripció",
     "country": "País",
+    "installation":"Elegir instalació",
     "city": "Ciutat",
     "province": "Provincia",
     "postal": "Codi Postal",

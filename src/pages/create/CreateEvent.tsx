@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import { AppContext } from "../../State";
 import {
   IonContent,
@@ -16,10 +16,15 @@ import {
   IonTextarea,
 } from "@ionic/react";
 import { Redirect, useHistory } from "react-router-dom";
-import "./CreateEvent.css";
 import Header from "../../components/header/HeaderComponent";
-import { useTranslation } from "react-i18next";
-// import { read, stat } from "fs";
+import installationsData from '../../data/dataInstalaciones.json';
+import "./CreateEvent.css";
+
+interface installation {
+  country: string,
+  postalcode: string,
+  city: string
+}
 
 const CreateEvent = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -27,6 +32,7 @@ const CreateEvent = () => {
   const { t } = useTranslation();
   const history = useHistory()
   const [showToastCreate, setShowToastCreate] = useState(false);
+  const installations = Object.values(installationsData);
   let events: any = Object.values(state.events)
   
   //Form states
@@ -34,9 +40,7 @@ const CreateEvent = () => {
   const [description, setDescription] = useState<React.ReactText | undefined>('');
   const [maxPlayers, setMaxPlayers] = useState<React.ReactText | undefined>('');
   const [date, setDate] = useState(null);
-  const [country, setCountry] = useState<React.ReactText | undefined>('España');
-  const [city, setCity] = useState<React.ReactText | undefined>('Ontinyent');
-  const [postal, setPostal] = useState<React.ReactText | undefined>('46870');
+  const [installation, setInstallation] = useState<installation>()
   const [type, setType] = useState<React.ReactText | undefined>('');
   const [image, setImage] = useState<React.ReactText | undefined>('');
 
@@ -74,9 +78,9 @@ const CreateEvent = () => {
           bio: "User biography lorem ipsum",
         },
         location: {
-          country: country,
-          postalcode: postal,
-          city: city,
+          country: installation.country,
+          postalcode: installation.postalcode,
+          city: installation.city,
         },
         image: image,
         p: {
@@ -127,12 +131,12 @@ const CreateEvent = () => {
               <IonTextarea></IonTextarea>
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t("create.country")}</IonLabel>
-              <IonInput type="text" value={country} onInput={e => setCountry(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.city")}</IonLabel>
-              <IonInput type="text" value={city} onInput={e => setCity(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.postal")}</IonLabel>
-              <IonInput type="number" value={postal} onInput={e => setPostal(e.currentTarget.value)} />
+              <IonLabel position="floating">{t("create.installation")}</IonLabel>
+              <IonSelect value={installation} onIonChange={(e) => setInstallation(e.detail.value)}>
+                {installations.map((i, key) => {
+                  return (<IonSelectOption value={i} key={"installation"+key}>{i.name}</IonSelectOption>)
+                })}
+              </IonSelect>
             </IonItem>
             <IonItem>
               <IonLabel>{t("create.type")}</IonLabel>
