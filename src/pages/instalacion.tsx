@@ -38,7 +38,7 @@ const Instalacion: React.FC = () => {
                   <span className="icon-details-icon">
                     <IonIcon icon={pinSharp} />
                   </span>
-                  <h5>{instalacion.ubication}</h5>
+                  <h5>{instalacion.city}</h5>
                 </span>
               </article>
             </article>

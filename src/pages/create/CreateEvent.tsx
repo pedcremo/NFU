@@ -20,6 +20,7 @@ import "./CreateEvent.css";
 import Header from "../../components/header/HeaderComponent";
 import { useTranslation } from "react-i18next";
 // import { read, stat } from "fs";
+import inst from '../../data/dataInstalaciones.json';
 
 const CreateEvent = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -28,6 +29,7 @@ const CreateEvent = () => {
   const history = useHistory()
   const [showToastCreate, setShowToastCreate] = useState(false);
   let events: any = Object.values(state.events)
+  const instalations = Object.values(inst);
   
   //Form states
   const [title, setTitle] = useState<React.ReactText | undefined>('');
@@ -39,6 +41,7 @@ const CreateEvent = () => {
   const [postal, setPostal] = useState<React.ReactText | undefined>('46870');
   const [type, setType] = useState<React.ReactText | undefined>('');
   const [image, setImage] = useState<React.ReactText | undefined>('');
+  const [ instalation, setInstalation] = useState({country: "",postalcode: "",city: "",})
 
   let EventImageAsBase64 = (el) => {
     var file = el.target.files[0];
@@ -48,9 +51,10 @@ const CreateEvent = () => {
       reader.readAsDataURL(file);
     }
   }
-
+  
   const handleSubmit = async (e) => {
     console.log("submit");
+    console.log(instalation);
     e.preventDefault();
     try {
       
@@ -74,14 +78,14 @@ const CreateEvent = () => {
           bio: "User biography lorem ipsum",
         },
         location: {
-          country: country,
-          postalcode: postal,
-          city: city,
+          country: !instalation ? "" : instalation.country,
+          postalcode: !instalation ? "" : instalation.postalcode,
+          city: !instalation ? "" : instalation.city,
         },
         image: image,
-        p: {
-          0: state.user.username
-        },
+        p: [
+          state.user.username
+        ],
         comments:[]
       }
 
@@ -127,12 +131,9 @@ const CreateEvent = () => {
               <IonTextarea></IonTextarea>
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">{t("create.country")}</IonLabel>
-              <IonInput type="text" value={country} onInput={e => setCountry(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.city")}</IonLabel>
-              <IonInput type="text" value={city} onInput={e => setCity(e.currentTarget.value)} />
-              <IonLabel position="floating">{t("create.postal")}</IonLabel>
-              <IonInput type="number" value={postal} onInput={e => setPostal(e.currentTarget.value)} />
+            <IonSelect value={instalation} placeholder="Instalation" onIonChange={(e) => setInstalation(e.detail.value)}>
+                {instalations.map((instalation, key) => {return (<IonSelectOption key={key} value={instalation}>{instalation.name}</IonSelectOption>)})}
+              </IonSelect>
             </IonItem>
             <IonItem>
               <IonLabel>{t("create.type")}</IonLabel>
