@@ -263,7 +263,7 @@ const EventList = () => {
 
            style={{ display: filterPanel ? "block" : "none"}}
         >
-          {t("Remove filters")}
+          {t("home.events.filters.removeFilters")}
         </IonButton>
         <div className="filter-item">
           <IonItem className="filter-subitem">

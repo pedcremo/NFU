@@ -9,7 +9,9 @@
     "find": "Find the nearest events",
     "findDescription": "Choose your preferences and we will show you the related events closest to you.",
     "ready": "Are you ready?",
-    "continue": "Continue"
+    "continue": "Continue",
+    "next": "Next",
+    "prev":"Previous"
   },
 
   "home": {
@@ -28,7 +30,8 @@
         "button": {
           "hide": "Hide filters",
           "open": "More filters"
-        }
+        },
+        "removeFilters":"Remove Filters"
       },
       "search": {
         "placeholder": "Search..."

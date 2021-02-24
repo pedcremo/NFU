@@ -9,7 +9,9 @@
     "find": "Envuentra los eventos más próximos a ti ",
     "findDescription": "Escoje tus preferencias y te mostraremos los eventos relacionados más próximos a ti.",
     "ready": "¿ Estás preparado ?",
-    "continue": "Continue"
+    "continue": "Continue",
+    "next": "Siguiente",
+    "prev":"Anterior"
   },
 
   "home": {
@@ -25,7 +27,8 @@
         "buttons": {
           "hide": "Ocultar filtros",
           "open": "Más filtros"
-        }
+        },
+        "removeFilters":"Borrar Filtros"
       },
       "search": {
         "placeholder": "Cerca..."

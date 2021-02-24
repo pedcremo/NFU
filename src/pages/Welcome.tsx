@@ -72,10 +72,10 @@ const Welcome: React.FC = () => {
                     //Si es desktop
                     <>
                     <IonButton className="btnPrev" onClick={() => prev()}>  
-                    {t("translation.prev")}
+                    {t("welcome.prev")}
                     </IonButton>
                     <IonButton className="btnNext" onClick={() => next()}>  
-                    {t("translation.next")}
+                    {t("welcome.next")}
                     </IonButton>
                     </>
                   : (
@@ -104,10 +104,10 @@ const Welcome: React.FC = () => {
                     //Si es desktop
                     <>
                     <IonButton className="btnPrev" onClick={() => prev()}>  
-                    {t("translation.prev")}
+                    {t("welcome.prev")}
                     </IonButton>
                     <IonButton className="btnNext" onClick={() => next()}>  
-                    {t("translation.next")}
+                    {t("welcome.next")}
                     </IonButton>
                     </>
                   : (
@@ -135,10 +135,10 @@ const Welcome: React.FC = () => {
                     //Si es desktop
                     <>
                     <IonButton className="btnPrev" onClick={() => prev()}>  
-                    {t("translation.prev")}
+                    {t("welcome.prev")}
                     </IonButton>
                     <IonButton className="btnNext" onClick={() => next()}>  
-                    {t("translation.next")}
+                    {t("welcome.next")}
                     </IonButton>
                     </>
                   : (
@@ -165,7 +165,7 @@ const Welcome: React.FC = () => {
                 {PlataformDesktop ? 
                     //Si es desktop
                     <IonButton className="btnNext" onClick={() => next()}>  
-                      {t("translation.next")}
+                      {t("welcome.next")}
                     </IonButton>
                   : (
                     ""
