@@ -11,6 +11,8 @@ import {
   IonItemGroup,
   IonItemDivider,
   IonLabel,
+  IonButton,
+  IonModal,
   IonToast,
   IonToggle,
 } from "@ionic/react";
@@ -23,6 +25,7 @@ const Settings: React.FC = () => {
   const [theme, setTheme] = useState<React.ReactText | undefined>(state.theme);
   const [ lang, setLang ] = useState<React.ReactText | undefined>(state.language);
   const [gravatarMode, setGravatarMode] = useState<boolean | undefined>(state.currentAvatar === 'gravatar' ? true : false);
+  const [showAboutUs, setShowAboutUs] = useState(false);
   const [showToastSettings, setShowToastSettings] = useState(false);
   const { t } = useTranslation();
 
@@ -115,13 +118,15 @@ const Settings: React.FC = () => {
           <IonItem className="settings-item settings-option" routerLink="/app/profile/update" routerDirection="none" lines="none">
             <IonLabel className="settings-label">{t("settings.profileSettings")}</IonLabel>
           </IonItem>
-          <Link to={{ pathname: '/welcome', state: { about: true } }} style={{textDecoration:'none'}}>
-            <IonItem className="settings-item settings-option">
-              <IonLabel className="settings-label">{t("settings.about")}</IonLabel>
-            </IonItem>
-          </Link>
-
+          <IonItem className="settings-item settings-option" onClick={() => setShowAboutUs(true)}>
+            <IonLabel className="settings-label">{t("settings.about")}</IonLabel>
+          </IonItem>
         </IonItemGroup>
+
+        <IonModal isOpen={showAboutUs} onDidDismiss={() => setShowAboutUs(false)}>
+          <h1>This is the about modal!</h1>
+          <IonButton onClick={() => setShowAboutUs(false)}>Return</IonButton>
+        </IonModal>
         <IonToast isOpen={showToastSettings} onDidDismiss={() => setShowToastSettings(false)} message="Your settings have been saved." duration={1200} />
       </IonContent>
     </IonPage>
