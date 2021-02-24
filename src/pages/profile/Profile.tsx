@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Profile.css";
 
-import { IonContent, IonItem, IonPage } from "@ionic/react";
+import { IonContent, IonIcon, IonItem, IonPage } from "@ionic/react";
 
 import {
   basketball,
@@ -9,6 +9,7 @@ import {
   share,
   gameController,
   person,
+  cameraOutline
 } from "ionicons/icons";
 
 import Sports from "./Sports";
@@ -16,14 +17,31 @@ import { AppContext } from "../../State";
 import { Redirect } from "react-router-dom";
 import ButtonLink from "./ButtonLink";
 import { useTranslation } from "react-i18next";
-
 import Header from "../../components/header/HeaderComponent";
+import { validateMimetype, validateImgSize } from "../../utils";
 
 const Profile: React.FC = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { t } = useTranslation();
 
-  console.log(state.user);
+  function encodeImageFileAsURL(el) {
+    var file = el.target.files[0];
+    if (file && validateImgSize(file) && validateMimetype(file)) {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        let user = state.user;
+        user.image = reader.result;
+        user.imageLocal = reader.result;
+        dispatch({ type: "SET_USER", value: user });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  let changeImage = () => {
+    let fileInput = document.querySelector('#uploadImgProfile') as HTMLInputElement
+    fileInput.click()
+  }
 
   if (!state.user) {
     return <Redirect to="/" />;
@@ -35,10 +53,13 @@ const Profile: React.FC = () => {
       <IonContent>
         <div className="Content">
           <div className="Content__info">
-            <img
-              className="ProfileImage"
-              src={state.user.image}
-              alt=""
+            <div className="img-container">
+              <img className="ProfileImage" src={state.user.image} alt="" onClick={() => changeImage()}/>
+              <IonIcon className="ProfileImage-icon" icon={cameraOutline} onClick={() => changeImage()}/>
+            </div>
+            <input style={{display:"none"}} type="file" id="uploadImgProfile"
+              disabled={(state.currentAvatar === 'gravatar' ? true: false)}
+              onChange={(el) => encodeImageFileAsURL(el)}
             />
             <Sports sportsList={undefined} />
             {/* <Sports sportsList={["tennis", "basket", "football", "cs GO"]} /> */}
