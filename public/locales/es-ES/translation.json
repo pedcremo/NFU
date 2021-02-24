@@ -175,6 +175,9 @@
     "notifications": "Notificaciones"
   },
   "settings": {
+    "aboutModal":{
+      "text":"Esta es la pagina sobre nosotros!"
+    },
     "divider": {
       "notifications": "Notificaciones",
       "appearance": "Apariencia",

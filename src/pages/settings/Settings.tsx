@@ -124,7 +124,7 @@ const Settings: React.FC = () => {
         </IonItemGroup>
 
         <IonModal isOpen={showAboutUs} onDidDismiss={() => setShowAboutUs(false)}>
-          <h1>This is the about modal!</h1>
+          <h1>{t('settings.aboutModal.text')}</h1>
           <IonButton onClick={() => setShowAboutUs(false)}>Return</IonButton>
         </IonModal>
         <IonToast isOpen={showToastSettings} onDidDismiss={() => setShowToastSettings(false)} message="Your settings have been saved." duration={1200} />

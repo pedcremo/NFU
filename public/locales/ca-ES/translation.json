@@ -180,6 +180,9 @@
     "notifications": "Notificacions"
   },
   "settings": {
+    "aboutModal":{
+      "text":"Aquesta es la pàgina sobre nosaltres!"
+    },
     "divider": {
       "notifications": "Notificacions",
       "appearance": "Aparença",

@@ -178,6 +178,9 @@
     "notifications": "Notifications"
   },
   "settings": {
+    "aboutModal":{
+      "text":"This is the about modal!"
+    },
     "divider": {
       "notifications": "Notifications",
       "appearance": "Appearance",
