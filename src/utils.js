@@ -42,5 +42,19 @@ let validateImgSize = (file) => {
   }
 }
 
-export {toDataURL,generateGravatar, imageLocal, validateImgSize, validateMimetype}
+let validateEmail = (email) => {
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+    return true
+  }
+  return false
+}
+
+let validatePassword = (passwd) => {
+  if (passwd.length > 5) {
+    return true
+  }
+  return false
+}
+
+export {toDataURL,generateGravatar, imageLocal, validateImgSize, validateMimetype, validateEmail, validatePassword}
 
