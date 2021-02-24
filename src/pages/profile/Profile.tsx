@@ -56,6 +56,7 @@ const Profile: React.FC = () => {
                   link="/app/home"
                   text={t("profile.matches")}
                   icon={basketball}
+                  changeState={{type:"SET_SEGMENT",value:"yours"}}
                 />
               </IonItem>
               <IonItem>
