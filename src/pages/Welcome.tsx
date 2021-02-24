@@ -3,11 +3,13 @@ import { AppContext } from '../State';
 import { Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
+  getPlatforms,
   IonButton,
   IonContent,
   IonPage,
   IonSlide,
   IonSlides,
+  IonIcon
 } from "@ionic/react";
 import "./Welcome.css";
 import icon from '../assets/img/nfu_icon.png'
@@ -15,6 +17,7 @@ import DeporteImg from "../assets/img/deporte_img.png";
 import geo from "../assets/img/geo.png";
 import friends from "../assets/img/friends-welcome.png";
 import ready from "../assets/img/ready.png";
+import { arrowBack, arrowForward } from 'ionicons/icons';
 
 // import { Redirect } from 'react-router-dom';
 
@@ -24,6 +27,9 @@ const Welcome: React.FC = () => {
   const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('');
   const { t } = useTranslation();
 
+  let ionSlide = document.querySelector('ion-slides');
+  // getPlatforms().includes('desktop')
+  console.log(ionSlide);
   useEffect(() => {
     dispatch({ type: 'WELCOME', value: welcome})
   }, [welcome, dispatch]);
@@ -34,6 +40,8 @@ const Welcome: React.FC = () => {
     <IonPage>
       <IonContent fullscreen className="welcome-page-content" scroll-y="false">
         <div className="welcome-page-content">
+          <IonIcon hidden={!getPlatforms().includes('desktop')} className="arrowBack" icon={arrowBack} onClick={() => ionSlide.slidePrev()}/>
+          <IonIcon hidden={!getPlatforms().includes('desktop')} className="arrowForward" icon={arrowForward} onClick={() => ionSlide.slideNext()}/>
           <IonSlides pager={true}>
             <IonSlide>
               <div className="slide">

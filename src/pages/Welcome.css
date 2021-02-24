@@ -133,3 +133,21 @@ p b {
   margin-top: 8px;
 }
 
+.arrowBack{
+  font-size: 50px;
+  position: absolute;
+  bottom: 400px;
+  left: 400px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.arrowForward{
+  font-size: 50px;
+  position: absolute;
+  bottom: 400px;
+  right: 400px;
+  cursor: pointer;
+  z-index: 999;
+
+}
