@@ -8,7 +8,10 @@ import {
   IonPage,
   IonSlide,
   IonSlides,
+  getPlatforms,
+  IonIcon
 } from "@ionic/react";
+import { arrowForwardCircleOutline, arrowBackCircleOutline } from "ionicons/icons";
 import "./Welcome.css";
 import icon from '../assets/img/nfu_icon.png'
 import DeporteImg from "../assets/img/deporte_img.png";
@@ -22,7 +25,22 @@ const Welcome: React.FC = () => {
 
   const { state, dispatch } = useContext(AppContext);
   const [ welcome, setWelcome ] = useState<React.ReactText | undefined>('');
+  const [ currentSlide, setCurrentSlide ] = useState(0);
+
   const { t } = useTranslation();
+  let isDesktop = () => getPlatforms().includes('desktop') ? true : false
+
+  let handleNext = (slides) => {
+    setCurrentSlide(currentSlide+1)
+    slides.slideNext();
+  }
+
+  let handlePrev = (slides) => {
+    setCurrentSlide(currentSlide-1)
+    slides.slidePrev();
+  }
+  
+  let ionSlide = document.querySelector('ion-slides')
 
   useEffect(() => {
     dispatch({ type: 'WELCOME', value: welcome})
@@ -34,7 +52,15 @@ const Welcome: React.FC = () => {
     <IonPage>
       <IonContent fullscreen className="welcome-page-content" scroll-y="false">
         <div className="welcome-page-content">
-          <IonSlides pager={true}>
+          <IonIcon icon={arrowBackCircleOutline} className="backSlide-btn" 
+          style={{ display : currentSlide === 0 ? "none" : "initial" }}
+          onClick={() => handlePrev(ionSlide)}
+          hidden={!isDesktop()}/>
+          <IonIcon icon={arrowForwardCircleOutline} className="nextSlide-btn" 
+          style={{ display : currentSlide === 3 ? "none" : "initial" }}
+          onClick={() => handleNext(ionSlide)}
+          hidden={!isDesktop()}/>
+          <IonSlides pager={true} >
             <IonSlide>
               <div className="slide">
                 <div className="topSlide">

@@ -133,3 +133,22 @@ p b {
   margin-top: 8px;
 }
 
+.backSlide-btn{
+  font-size: 100px;
+  color: gray;
+  position: absolute;
+  left: 20%;
+  top: 45%;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.nextSlide-btn{
+  font-size: 100px;
+  color: gray;
+  position: absolute;
+  right: 20%;
+  top: 45%;
+  z-index: 100;
+  cursor: pointer;
+}
