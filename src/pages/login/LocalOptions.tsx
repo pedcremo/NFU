@@ -16,6 +16,13 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
   const formRef = useRef(null);
   const { t } = useTranslation();
 
+  function enterSubmit(e){
+    if(password && email && e.key == "Enter"){
+      console.log("password not empty");
+      handleSubmit(e)
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -66,6 +73,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         className="loginOption loginOption--input inputFieldLogin"
         onInput={(e) => setEmail(e.currentTarget.value)}
         placeholder="Email.."
+        onKeyDown={(e) => enterSubmit(e)}
       />
       <IonInput
         type="password"
@@ -74,6 +82,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
         required
         onInput={(e) => setPassword(e.currentTarget.value)}
         placeholder={t("login.local_options.password")}
+        onKeyDown={(e) => enterSubmit(e)}
       />
       <IonButton
         className="loginOption loginOption--submit"
@@ -82,6 +91,7 @@ const LocalOptions: React.FC<{ action?: Function }> = ({ action }) => {
       >
         {" "}
         {t("login.local_options.login")}{" "}
+        
       </IonButton>
       <div className="login-row">
         <IonLabel
