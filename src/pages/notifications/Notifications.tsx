@@ -44,7 +44,7 @@ const Notifications: React.FC = () => {
   };
 
   const removeNotification = (notificationIndex: number) => {
-    user_notifications.splice(notificationIndex);
+    user_notifications.splice(notificationIndex,1);
     dispatch({ type: "SET_USER_NOTIFICATIONS", value: user_notifications });
     setToastMode(false);
     setShowToast(true);

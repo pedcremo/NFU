@@ -95,6 +95,7 @@ const CreateEvent = () => {
       setTimeout(() => { 
         setShowLoading(false);
         dispatch({ type: "SET_EVENTS", value: events });
+        dispatch({ type: "SET_USER_NOTIFICATIONS", value: [...state.user_notifications,{ msg: "New event created: "+event.title, read: false }]});
         setShowToastCreate(true);
         history.push("home");
       }, 1500);

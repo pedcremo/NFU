@@ -41,6 +41,9 @@ let reducer = (state, action) => {
       return { ...state, user: action.value };
     }
     case "SET_USER_NOTIFICATIONS": {
+      let currentDate = new Date();
+      let formatedDate = currentDate.getDate() + "-"+ currentDate.getMonth()+ "-" +currentDate.getFullYear();
+      action.value[action.value.length - 1].date = formatedDate;
       return { ...state, user_notifications: action.value };
     }
     case "SET_EVENTS": {

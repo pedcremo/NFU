@@ -75,6 +75,7 @@ const UpdateProfile = () => {
       //Here send email with unique token.
       setTimeout(() => {
         dispatch({ type: "SET_USER", value: user });
+        dispatch({ type: "SET_USER_NOTIFICATIONS", value: [...state.user_notifications,{ msg: "Your profile has been updated", read: false }]});
         setShowLoading(false);
       }, 1000);
     } catch (e) {

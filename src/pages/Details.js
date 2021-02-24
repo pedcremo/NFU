@@ -98,6 +98,7 @@ const Details = () => {
         setMessage("This event is completed");
       } else {
         dispatch({ type: "SET_JOIN", value: event.id })
+        dispatch({ type: "SET_USER_NOTIFICATIONS", value: [...state.user_notifications,{ msg: "Joined to: "+event.title, read: false }]});
       }
     }else{
       history.push("/login")
