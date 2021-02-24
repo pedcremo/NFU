@@ -30,6 +30,7 @@ const initialState = {
   events: [],
   events_joined: [],
   likes: [],
+  loginEasterEgg: false 
 };
 
 let reducer = (state, action) => {
@@ -81,6 +82,9 @@ let reducer = (state, action) => {
     }
     case "LIKES": {
       return { ...state, likes: action.value };
+    }
+    case "SET_LOGIN_EASTEREGG": {
+      return { ...state, loginEasterEgg: action.value };
     }
     case "SET_JOIN": {
       // Añadimos el idevento al state.
@@ -171,6 +175,7 @@ function AppContextProvider(props) {
         welcome: state.welcome,
         currentAvatar: state.currentAvatar,
         user_notifications: state.user_notifications,
+        loginEasterEgg: state.loginEasterEgg 
       })
     );
   }, [state]);

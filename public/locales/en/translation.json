@@ -1,6 +1,7 @@
 {
   "easterEgg":{
-    "enable":"NOW YOU ARE ADMINISTRATOR!!!!",
+    "title":"You got a secret code!!",
+    "info":"Redeem the code to get exclusive rewards!",
     "unable":"YOU CAN'T!! YOU ARE ALREADY ADMINISTRATOR!!"
   },
   "title": "We're missing one",

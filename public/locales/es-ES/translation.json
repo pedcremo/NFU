@@ -1,6 +1,7 @@
 {
   "easterEgg":{
-    "enable":"AHORA ERES ADMINISTRADOR!!",
+    "title":"Has conseguido un código secreto!!",
+    "info":"Canjea el código para obtener recompensas exclusivas",
     "unable":"NO PUEDES! YA ERES ADMINISTRADOR!!"
   },
   "title": "Nos falta uno",
