@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../State";
 
 import {
@@ -8,7 +8,7 @@ import {
   heartOutline,
   enterOutline,
 } from "ionicons/icons";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { IonCard, IonIcon, IonLabel } from "@ionic/react";
 import "./eventsPreview.css";
@@ -62,7 +62,7 @@ const EventsPreview: React.FC<EventsPreviewProps> = (props) => {
     if (state.user) {
       let LikeIndex = state.likes.indexOf(id);
 
-      if (e.target.className.includes("liked") && LikeIndex != -1) {
+      if (e.target.className.includes("liked") && LikeIndex !== -1) {
         e.target.className = e.target.className.replace(" liked", "");
         state.likes.splice(LikeIndex, 1);
       } else {

@@ -39,7 +39,7 @@ const Details = () => {
   const events_array = Object.values(state.events);
   //get event by id
   // eslint-disable-next-line
-  let event = events_array.find((event) => event.id == id);
+  let event = events_array.find((event) => event.id === id);
   if (!event) return <Redirect to="/app/home" />;
 
   let players = Object.values(event.p);
@@ -50,7 +50,7 @@ const Details = () => {
   }
 
   let goInstalation = (city) => {
-    let pista = instalaciones.filter((pista) => pista.ubication == city);
+    let pista = instalaciones.filter((pista) => pista.ubication === city);
 
     if (pista[0]) {
       return "/app/instalacion/" + pista[0].id;
@@ -92,6 +92,7 @@ const Details = () => {
         );
 
         break;
+      default: break;
     }
   }
 
@@ -179,11 +180,11 @@ const Details = () => {
                         ? "none"
                         : "block",
                   }}
-                  disabled={event.maxplayers == event.p.length ? true : false}
+                  disabled={event.maxplayers === event.p.length ? true : false}
                   className="event-card-content-left-join"
                   color="success"
                   onClick={() => {
-                    if (event.maxplayers == event.p.length) {
+                    if (event.maxplayers === event.p.length) {
                       setShowToast(true);
                       setMessage("This event is completed");
                     } else

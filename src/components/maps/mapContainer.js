@@ -1,31 +1,18 @@
 import React from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import {getCoordsReact} from '../../Coordinates';
 // import Geolocation from '@react-native-community/geolocation';
 // import { Geolocation } from '@ionic-native/geolocation';
 // import credentials from "../../../public/credentials/credentials.json";
 // import { AppContext } from "../../State";
 
 export class MapContainer extends React.Component {
-    constructor(props) {
-      super(props)
-    }
-
     render() {
 
     const coordinates_array = Object.values(this.props.coordinates);
     // const user_coordinates = this.props.user_coordinates
 
-let getCoords =  async() =>{
-  try{
-    let coords = await getCoordsReact();
-  }catch(e){
-    console.log("ERROR get coordenadas: ", e)
-  }
-}
     //Si no podemos volver a obtener las coordenadas, cogemos las que habian anteriormente en sessionStorage
     // let coordenadas_sesion = getCoords2()?"":JSON.parse(sessionStorage.getItem("user_coordinates"));
-    getCoords();
     let coordenadas_sesion = JSON.parse(sessionStorage.getItem("user_coordinates"));
     if (coordenadas_sesion){
       console.log("TENEMOS COORDENADAS")

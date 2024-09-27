@@ -40,7 +40,6 @@ import Welcome from './pages/Welcome';
 import Error404 from "./pages/errors/404";
 import Menu from "./components/Menu";
 import events from './data/data.json';
-import { State } from "ionicons/dist/types/stencil-public-runtime";
 
 const Autoload = () => {
   const { dispatch } = useContext(AppContext);
@@ -51,7 +50,7 @@ const Autoload = () => {
     THIS SHOULDN'T BE IN CASE OF HAVING A BACKEND*/
     dispatch({type:'SET_EVENTS',value: events.events}) 
     
-  },[]);
+  },[dispatch]);
   return (<></>);
 }
 

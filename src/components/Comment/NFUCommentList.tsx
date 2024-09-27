@@ -25,7 +25,7 @@ const NFUCommentList: React.FC<CommentProps> = (props) => {
     const deleteComment = async (e) => {
         setShowToastDelete(true);
         let state_copy = state.events;
-        const event = Object.keys(state_copy).map(key => state_copy[key]).find((event) => event.id == props.gameID); 
+        const event = Object.keys(state_copy).map(key => state_copy[key]).find((event) => event.id === props.gameID); 
         try{
             const comments = Object.keys(event.comments).map(key => event.comments[key]).filter((comment) => comment !== e)
             event.comments = comments
@@ -36,7 +36,7 @@ const NFUCommentList: React.FC<CommentProps> = (props) => {
     }
 
     const check_author = (comment) =>{
-        if(comment.author.email == state.user.email){
+        if(comment.author.email === state.user.email){
             return false
         }else{
             return true

@@ -22,7 +22,7 @@ const NFUComments: React.FC<CommentProps> = (props) => {
     const { state,dispatch } = useContext(AppContext);
     const [showToastComment, setShowToastComment] = useState(false);
     const { t } = useTranslation();
-    const event = Object.keys(state.events).map(key => state.events[key]).find((event) => event.id == props.gameID); 
+    const event = Object.keys(state.events).map(key => state.events[key]).find((event) => event.id === props.gameID); 
     const addComment = async (e) => {
         setShowToastComment(true);
         e.preventDefault();
